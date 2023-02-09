@@ -38,14 +38,11 @@ M.general = {
     ["<leader>n"] = { "<cmd> set nu! <CR>", "toggle line number" },
     ["<leader>rn"] = { "<cmd> set rnu! <CR>", "toggle relative number" },
 
-    -- update nvchad
-    ["<leader>uu"] = { "<cmd> :NvChadUpdate <CR>", "update nvchad" },
-
     ["<leader>tt"] = {
       function()
         require("base46").toggle_theme()
       end,
-      "toggle theme",
+   n  "toggle theme",
     },
 
     -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
@@ -262,10 +259,7 @@ M.nvimtree = {
 
   n = {
     -- toggle
-    ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
-
-    -- focus
-    ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "focus nvimtree" },
+    ["<leader>op"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
   },
 }
 
@@ -274,13 +268,9 @@ M.telescope = {
 
   n = {
     -- find
-    ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "find files" },
-    ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "find all" },
-    ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
-    ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
-    ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "help page" },
-    ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "find oldfiles" },
-    ["<leader>tk"] = { "<cmd> Telescope keymaps <CR>", "show keys" },
+    ["<leader><space>"] = { "<cmd> Telescope find_files hidden=true<CR>", "find files" },
+    ["<leader>/"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
+    ["<leader>bb"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
 
     -- git
     ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "git commits" },
@@ -298,15 +288,7 @@ M.nvterm = {
   plugin = true,
 
   t = {
-    -- toggle in terminal mode
-    ["<A-i>"] = {
-      function()
-        require("nvterm.terminal").toggle "float"
-      end,
-      "toggle floating term",
-    },
-
-    ["<A-h>"] = {
+    ["<leader>ot"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,

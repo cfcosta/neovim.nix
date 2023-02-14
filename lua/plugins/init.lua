@@ -1,4 +1,11 @@
 local plugins = {
+  -- Custom
+  ["direnv/direnv.vim"] = {},
+  ["kylechui/nvim-surround"] = {
+    config = function()
+      require("nvim-surround").setup({})
+    end
+  },
 
   ["nvim-lua/plenary.nvim"] = { module = "plenary" },
 

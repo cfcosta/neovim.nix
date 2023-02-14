@@ -42,7 +42,7 @@ M.general = {
       function()
         require("base46").toggle_theme()
       end,
-   n  "toggle theme",
+      "toggle theme",
     },
 
     -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
@@ -111,7 +111,7 @@ M.comment = {
 
   -- toggle comment in both modes
   n = {
-    ["<leader>/"] = {
+    ["gcc"] = {
       function()
         require("Comment.api").toggle.linewise.current()
       end,
@@ -120,7 +120,7 @@ M.comment = {
   },
 
   v = {
-    ["<leader>/"] = {
+    ["gcc"] = {
       "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
       "toggle comment",
     },

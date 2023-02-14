@@ -64,4 +64,9 @@ lspconfig.lua_ls.setup {
   },
 }
 
+lspconfig.rust_analyzer.setup{
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+}
+
 return M

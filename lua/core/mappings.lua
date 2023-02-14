@@ -22,6 +22,11 @@ M.general = {
   n = {
     ["<ESC>"] = { "<cmd> noh <CR>", "no highlight" },
 
+    -- nicer splitting
+    ["<leader>wv"] = { "<cmd> vsp <CR>", "split vertically"},
+    ["<leader>ws"] = { "<cmd> sp <CR>", "split horizontally"},
+    ["<leader>wc"] = { "<cmd> close <CR>", "close buffer"},
+
     -- switch between windows
     ["<C-h>"] = { "<C-w>h", "window left" },
     ["<C-l>"] = { "<C-w>l", "window right" },

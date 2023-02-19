@@ -12,10 +12,10 @@
       hmModule = { options, config, lib, pkgs, ... }:
         let cfg = config.programs.devos.neovim;
         in {
-          options.programs.devos.neovim.enable =
-            lib.mkEnableOption "NVChad Configuration";
-          opttions.programs.devos.neovim.neovide.enable =
-            lib.mkEnableOption "Neovide Intagration";
+          options.programs.devos.neovim = {
+            enable = lib.mkEnableOption "NVChad Configuration";
+            neovide.enable = lib.mkEnableOption "Neovide Intagration";
+          };
 
           config = lib.mkIf cfg.enable {
             home.packages = with pkgs;

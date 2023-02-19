@@ -7,6 +7,11 @@ g.toggle_theme_icon = "   "
 g.transparency = config.ui.transparency
 g.theme_switcher_loaded = false
 
+-- Configuration for neovide
+if g.neovide then
+  opt.guifont = {"Inconsolata", "h14"};
+end
+
 opt.laststatus = 3 -- global statusline
 opt.showmode = false
 

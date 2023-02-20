@@ -6,6 +6,21 @@ local plugins = {
       require("nvim-surround").setup({})
     end
   },
+  ["jose-elias-alvarez/null-ls.nvim"] = {
+    config = function()
+      local null_ls = pcall(require, "null-ls")
+
+      null_ls.setup({
+        sources = {
+          null_ls.builtins.formatting.rustfmt,
+          null_ls.builtins.formatting.nixfmt,
+          null_ls.builtins.formatting.shfmt
+        }
+      })
+    end
+  },
+
+  -- Default
 
   ["nvim-lua/plenary.nvim"] = { module = "plenary" },
 

@@ -8,20 +8,20 @@ local plugins = {
   },
   ["jose-elias-alvarez/null-ls.nvim"] = {
     config = function()
-      local null_ls = pcall(require, "null-ls")
+      local null_ls = require("null-ls")
 
       null_ls.setup({
         sources = {
           null_ls.builtins.formatting.rustfmt,
           null_ls.builtins.formatting.nixfmt,
-          null_ls.builtins.formatting.shfmt
+          null_ls.builtins.formatting.shfmt,
+          null_ls.builtins.diagnostics.shellcheck
         }
       })
     end
   },
 
   -- Default
-
   ["nvim-lua/plenary.nvim"] = { module = "plenary" },
 
   ["lewis6991/impatient.nvim"] = {},

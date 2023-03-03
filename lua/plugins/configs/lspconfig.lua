@@ -9,6 +9,7 @@ require "nvchad_ui.lsp"
 
 local M = {}
 local utils = require "core.utils"
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- export on_attach & capabilities for custom lspconfigs
 
@@ -20,6 +21,18 @@ M.on_attach = function(client, bufnr)
 
   if client.server_capabilities.signatureHelpProvider then
     require("nvchad_ui.signature").setup(client)
+  end
+
+  -- format buffer on save
+  if client.supports_method("textDocument/formatting") then
+    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = augroup,
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.formatting_sync()
+      end,
+    })
   end
 end
 
@@ -69,9 +82,11 @@ lspconfig.lua_ls.setup {
   },
 }
 
-lspconfig.rust_analyzer.setup{
+lspconfig.rust_analyzer.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
 }
+
+lspconfig.rnix.setup {}
 
 return M

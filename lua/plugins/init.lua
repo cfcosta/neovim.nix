@@ -20,6 +20,18 @@ local plugins = {
       })
     end
   },
+  ["jackMort/ChatGPT.nvim"] = {
+    module = { "telescope", "plenary", "nui" },
+    cmd = require("core.lazy_load").chatgpt_cmds,
+    config = function ()
+      require("chatgpt").setup({
+      })
+    end
+  },
+  ["MunifTanjim/nui.nvim"] = {
+    module = "nui",
+    after = "ui"
+  },
 
   -- Default
   ["nvim-lua/plenary.nvim"] = { module = "plenary" },

@@ -19,7 +19,8 @@
 
           config = lib.mkIf cfg.enable {
             home.packages = with pkgs;
-              [ tree-sitter ] ++ lib.optionals cfg.neovide.enable [ neovide ];
+              [ tree-sitter gcc ]
+              ++ lib.optionals cfg.neovide.enable [ neovide ];
 
             programs.neovim.enable = true;
 

@@ -20,7 +20,7 @@ local plugins = {
       })
     end
   },
-  ['nvim-orgmode/orgmode'] = {
+  ["nvim-orgmode/orgmode"] = {
     config = function()
       local orgmode = require("orgmode")
 
@@ -28,7 +28,16 @@ local plugins = {
       orgmode.setup({})
     end
   },
-
+  ["jackMort/ChatGPT.nvim"] = {
+    cmd = { "ChatGPT", "ChatGPTActAs" },
+    module = { "chatgpt", "telescope", "plenary" },
+    config = function()
+      require("chatgpt").setup()
+    end
+  },
+  ["MunifTanjim/nui.nvim"] = {
+    module = "chatgpt",
+  },
 
   -- Default
   ["nvim-lua/plenary.nvim"] = { module = "plenary" },

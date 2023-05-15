@@ -9,11 +9,14 @@ require("base46").load_highlight "treesitter"
 local options = {
   ensure_installed = {
     "lua",
+    "rust",
+    "org"
   },
 
   highlight = {
     enable = true,
     use_languagetree = true,
+    additional_vim_regex_highlighting = {'org'}
   },
 
   indent = {

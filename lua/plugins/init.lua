@@ -20,6 +20,15 @@ local plugins = {
       })
     end
   },
+  ['nvim-orgmode/orgmode'] = {
+    config = function()
+      local orgmode = require("orgmode")
+
+      orgmode.setup_ts_grammar()
+      orgmode.setup({})
+    end
+  },
+
 
   -- Default
   ["nvim-lua/plenary.nvim"] = { module = "plenary" },

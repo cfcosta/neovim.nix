@@ -26,6 +26,7 @@ M.general = {
     ["<leader>wv"] = { "<cmd> vsp <CR>", "split vertically"},
     ["<leader>ws"] = { "<cmd> sp <CR>", "split horizontally"},
     ["<leader>wc"] = { "<cmd> close <CR>", "close buffer"},
+    ["<leader>wo"] = { "<cmd> only <CR>", "hide all other buffers"},
 
     -- switch between windows
     ["<C-h>"] = { "<C-w>h", "window left" },
@@ -38,10 +39,6 @@ M.general = {
 
     -- Copy all
     ["<C-c>"] = { "<cmd> %y+ <CR>", "copy whole file" },
-
-    -- line numbers
-    ["<leader>n"] = { "<cmd> set nu! <CR>", "toggle line number" },
-    ["<leader>rn"] = { "<cmd> set rnu! <CR>", "toggle relative number" },
 
     ["<leader>tt"] = {
       function()
@@ -180,7 +177,7 @@ M.lspconfig = {
       "lsp definition type",
     },
 
-    ["<leader>ra"] = {
+    ["<leader>rr"] = {
       function()
         require("nvchad_ui.renamer").open()
       end,
@@ -235,27 +232,6 @@ M.lspconfig = {
       end,
       "lsp formatting",
     },
-
-    ["<leader>wa"] = {
-      function()
-        vim.lsp.buf.add_workspace_folder()
-      end,
-      "add workspace folder",
-    },
-
-    ["<leader>wr"] = {
-      function()
-        vim.lsp.buf.remove_workspace_folder()
-      end,
-      "remove workspace folder",
-    },
-
-    ["<leader>wl"] = {
-      function()
-        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-      end,
-      "list workspace folders",
-    },
   },
 }
 
@@ -292,59 +268,18 @@ M.telescope = {
 M.nvterm = {
   plugin = true,
 
-  t = {
+  n = {
     ["<leader>ot"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,
       "toggle horizontal term",
     },
-
-    ["<A-v>"] = {
+    ["<leader>oT"] = {
       function()
         require("nvterm.terminal").toggle "vertical"
       end,
       "toggle vertical term",
-    },
-  },
-
-  n = {
-    -- toggle in normal mode
-    ["<A-i>"] = {
-      function()
-        require("nvterm.terminal").toggle "float"
-      end,
-      "toggle floating term",
-    },
-
-    ["<A-h>"] = {
-      function()
-        require("nvterm.terminal").toggle "horizontal"
-      end,
-      "toggle horizontal term",
-    },
-
-    ["<A-v>"] = {
-      function()
-        require("nvterm.terminal").toggle "vertical"
-      end,
-      "toggle vertical term",
-    },
-
-    -- new
-
-    ["<leader>h"] = {
-      function()
-        require("nvterm.terminal").new "horizontal"
-      end,
-      "new horizontal term",
-    },
-
-    ["<leader>v"] = {
-      function()
-        require("nvterm.terminal").new "vertical"
-      end,
-      "new vertical term",
     },
   },
 }

@@ -30,15 +30,15 @@ map("n", "<leader>wc", "<cmd>close<cr>")
 map("n", "<leader>wo", "<cmd>only<cr>")
 
 require("lazy").setup {
+  require "plugins.codegpt",
   require "plugins.colorscheme",
-  require "plugins.neotree",
+  require "plugins.lsp",
   require "plugins.lualine",
+  require "plugins.neotree",
+  require "plugins.null-ls",
   require "plugins.surround",
   require "plugins.telescope",
-  require "plugins.treesitter",
-  require "plugins.codegpt",
-  require "plugins.lsp",
-  require "plugins.null-ls",
-  require "plugins.trouble",
   require "plugins.terminal",
+  require "plugins.treesitter",
+  require "plugins.trouble",
 }

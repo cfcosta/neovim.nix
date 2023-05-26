@@ -74,8 +74,11 @@ local plugins = {
   {
     "williamboman/mason.nvim",
     dependencies = {
-      "williamboman/mason-lspconfig.nvim",
+      "mfussenegger/nvim-dap",
       "neovim/nvim-lspconfig",
+      "nvim-lua/plenary.nvim",
+      "simrat39/rust-tools.nvim",
+      "williamboman/mason-lspconfig.nvim",
     },
     config = config.lsp,
     keys = keymap.lsp,
@@ -101,6 +104,7 @@ local plugins = {
   { "neovim/nvim-lspconfig" },
   { "nvim-lua/plenary.nvim" },
   { "nvim-tree/nvim-web-devicons" },
+  { "simrat39/rust-tools.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
 }
 

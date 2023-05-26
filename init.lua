@@ -89,6 +89,12 @@ local plugins = {
     },
     config = config.null_ls,
   },
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {},
+    keys = keymap.trouble,
+  },
 
   -- Dependencies
   { "MunifTanjim/nui.nvim" },

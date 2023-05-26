@@ -17,7 +17,6 @@ return {
     { "<leader>ls", vim.lsp.buf.signature_help },
     { "<leader>D", vim.lsp.buf.type_definition },
     { "<leader>ca", vim.lsp.buf.code_action },
-    { "gr", vim.lsp.buf.references },
     { "<leader>f", vim.diagnostic.open_float },
     { "[d", vim.diagnostic.goto_prev },
     { "d]", vim.diagnostic.goto_next },
@@ -28,5 +27,13 @@ return {
         require("nvchad_ui.renamer").open()
       end,
     },
+  },
+  trouble = {
+    { "<leader>xx", "<cmd>TroubleToggle<cr>" },
+    { "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>" },
+    { "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>" },
+    { "<leader>xq", "<cmd>TroubleToggle quicklist<cr>" },
+    { "<leader>xl", "<cmd>TroubleToggle loclist<cr>" },
+    { "gr", "<cmd>TroubleToggle lsp_references<cr>" },
   },
 }

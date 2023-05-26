@@ -55,6 +55,10 @@ local plugins = {
   },
   {
     "kylechui/nvim-surround",
+    dependencies = {
+      "hrsh7th/nvim-cmp",
+      "windwp/nvim-autopairs",
+    },
     config = config.surround,
   },
   {
@@ -109,11 +113,20 @@ local plugins = {
 
   -- Dependencies
   { "MunifTanjim/nui.nvim" },
+  { "dcampos/cmp-snippy" },
+  { "dcampos/nvim-snippy" },
+  { "hrsh7th/cmp-buffer" },
+  { "hrsh7th/cmp-cmdline" },
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "hrsh7th/cmp-path" },
+  { "hrsh7th/nvim-cmp" },
+  { "mfussenegger/nvim-dap" },
   { "neovim/nvim-lspconfig" },
   { "nvim-lua/plenary.nvim" },
   { "nvim-tree/nvim-web-devicons" },
   { "simrat39/rust-tools.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
+  { "windwp/nvim-autopairs" },
 }
 
 require("lazy").setup(plugins, {

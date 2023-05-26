@@ -1,4 +1,19 @@
 return function()
+  local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+  require("mason").setup()
+  require("mason-lspconfig").setup()
+  require("mason-lspconfig").setup_handlers {
+    function(server_name) -- default handler (optional)
+      require("lspconfig")[server_name].setup {
+        capabilities = capabilities,
+      }
+    end,
+    ["rust_analyzer"] = function()
+      require("rust-tools").setup {}
+    end,
+  }
+
   local cmp = require "cmp"
 
   cmp.setup {
@@ -24,47 +39,5 @@ return function()
     }, {
       { name = "buffer" },
     }),
-  }
-
-  -- Set configuration for specific filetype.
-  cmp.setup.filetype("gitcommit", {
-    sources = cmp.config.sources({
-      { name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
-    }, {
-      { name = "buffer" },
-    }),
-  })
-
-  -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline({ "/", "?" }, {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      { name = "buffer" },
-    },
-  })
-
-  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline(":", {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = "path" },
-    }, {
-      { name = "cmdline" },
-    }),
-  })
-
-  local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-  require("mason").setup()
-  require("mason-lspconfig").setup()
-  require("mason-lspconfig").setup_handlers {
-    function(server_name) -- default handler (optional)
-      require("lspconfig")[server_name].setup {
-        capabilities = capabilities,
-      }
-    end,
-    ["rust_analyzer"] = function()
-      require("rust-tools").setup {}
-    end,
   }
 end

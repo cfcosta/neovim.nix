@@ -5,14 +5,9 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-
-    lazy-nvim = {
-      url = "github:folke/lazy.nvim";
-      flake = false;
-    };
   };
 
-  outputs = { nixpkgs, flake-utils, lazy-nvim, ... }:
+  outputs = { nixpkgs, flake-utils, ... }:
     {
       hmModule = { options, config, lib, pkgs, ... }:
         let cfg = config.programs.devos.neovim;
@@ -24,7 +19,7 @@
 
           config = lib.mkIf cfg.enable {
             home.packages = with pkgs;
-              [ tree-sitter gcc luajit ripgrep ]
+              [ tree-sitter gcc luajit ripgrep git ]
               ++ lib.optionals cfg.neovide.enable [ neovide ];
 
             programs.neovim.enable = true;
@@ -33,8 +28,6 @@
               source = ./.;
               recursive = true;
             };
-
-            xdg.dataFile."nvim/lazy/lazy.nvim".source = lazy-nvim;
           };
         };
     } // flake-utils.lib.eachDefaultSystem (system:

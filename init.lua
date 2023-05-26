@@ -25,6 +25,7 @@ local config = {
   surround = require "plugins.surround",
   telescope = require "plugins.telescope",
   treesitter = require "plugins.treesitter",
+  codegpt = require "plugins.codegpt",
 }
 
 local keymap = require "keymap"
@@ -72,6 +73,15 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     config = config.treesitter,
+  },
+  {
+    "dpayne/CodeGPT.nvim",
+    event = "VeryLazy",
+    config = config.codegpt,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+    },
   },
 
   -- LSP

@@ -16,7 +16,20 @@ vim.opt.rtp:prepend(lazypath)
 local config_path = vim.fn.stdpath "config"
 package.path = package.path .. ";" .. config_path .. "/?.lua"
 
-local plugins = {
+local function map(mode, lhs, rhs, opts)
+  local options = { noremap = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+map("n", "<leader>wv", "<cmd>vsplit<cr>")
+map("n", "<leader>ws", "<cmd>split<cr>")
+map("n", "<leader>wc", "<cmd>close<cr>")
+map("n", "<leader>wo", "<cmd>only<cr>")
+
+require("lazy").setup {
   require "plugins.colorscheme",
   require "plugins.neotree",
   require "plugins.lualine",
@@ -29,5 +42,3 @@ local plugins = {
   require "plugins.trouble",
   require "plugins.terminal",
 }
-
-require("lazy").setup(plugins)

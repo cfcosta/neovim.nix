@@ -13,124 +13,18 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local config_path = vim.fn.stdpath('config')
+package.path = package.path .. ';' .. config_path .. '/?.lua'
+
 local config = {
-  colorscheme = function()
-    vim.cmd [[colorscheme tokyonight]]
-  end,
-  neotree = function()
-    vim.cmd [[ let g:neo_tree_remove_legacy_commands = 1 ]]
-    require("neo-tree").setup()
-  end,
-  lualine = function()
-    require("lualine").setup()
-  end,
-  lsp = function()
-    require("mason").setup()
-    require("mason-lspconfig").setup()
-
-    local lspconfig = require "lspconfig"
-
-    lspconfig.lua_ls.setup {}
-    lspconfig.rust_analyzer.setup {}
-    lspconfig.docker_compose_language_service.setup {}
-    lspconfig.gopls.setup {}
-    lspconfig.jsonls.setup {}
-  end,
-  null_ls = function()
-    local null_ls = require "null-ls"
-    local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
-    null_ls.setup {
-      sources = {
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.eslint,
-        null_ls.builtins.formatting.rustfmt,
-        null_ls.builtins.formatting.nixfmt,
-        null_ls.builtins.formatting.shfmt,
-        null_ls.builtins.diagnostics.shellcheck,
-      },
-      on_attach = function(client, bufnr)
-        if client.supports_method "textDocument/formatting" then
-          vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            group = augroup,
-            buffer = bufnr,
-            callback = function()
-              vim.lsp.buf.format { bufnr = bufnr }
-            end,
-          })
-        end
-      end,
-    }
-  end,
-  surround = function()
-    require("nvim-surround").setup {}
-  end,
-  telescope = function()
-    local options = {
-      defaults = {
-        vimgrep_arguments = {
-          "rg",
-          "-L",
-          "--color=never",
-          "--no-heading",
-          "--with-filename",
-          "--line-number",
-          "--column",
-          "--smart-case",
-        },
-        prompt_prefix = " >  ",
-        selection_caret = "  ",
-        entry_prefix = "  ",
-        initial_mode = "insert",
-        selection_strategy = "reset",
-        sorting_strategy = "ascending",
-        layout_strategy = "horizontal",
-        layout_config = {
-          horizontal = {
-            prompt_position = "top",
-            preview_width = 0.55,
-            results_width = 0.8,
-          },
-          vertical = {
-            mirror = false,
-          },
-          width = 0.87,
-          height = 0.80,
-          preview_cutoff = 120,
-        },
-        file_sorter = require("telescope.sorters").get_fuzzy_file,
-        file_ignore_patterns = { "node_modules", ".git" },
-        generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
-        path_display = { "truncate" },
-        winblend = 0,
-        border = {},
-        borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-        color_devicons = true,
-        set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-        file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-        grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-        qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-        -- Developer configurations: Not meant for general override
-        buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
-        mappings = {
-          n = { ["q"] = require("telescope.actions").close },
-        },
-      },
-
-      extensions_list = { "themes", "terms" },
-    }
-
-    require("telescope").setup(options)
-  end,
-  treesitter = function()
-    require("nvim-treesitter.configs").setup {
-      ensure_installed = { "rust", "nix" },
-      sync_install = false,
-      auto_install = true,
-      highlight = { enable = true, },
-    }
-  end
+  colorscheme = require "plugins.colorscheme",
+  neotree = require "plugins.neotree",
+  lualine = require "plugins.lualine",
+  lsp = require "plugins.lsp",
+  null_ls = require "plugins.null-ls",
+  surround = require "plugins.surround",
+  telescope = require "plugins.telescope",
+  treesitter = require "plugins.treesitter",
 }
 
 local keymap = {

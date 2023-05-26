@@ -34,7 +34,7 @@
               recursive = true;
             };
 
-            xdg.dataFile."nvim/lazy/lazy.nvim".source = lazy-nvim.path;
+            xdg.dataFile."nvim/lazy/lazy.nvim".source = lazy-nvim;
           };
         };
     } // flake-utils.lib.eachDefaultSystem (system:

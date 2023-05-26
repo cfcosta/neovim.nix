@@ -32,6 +32,7 @@ map("n", "<leader>wo", "<cmd>only<cr>")
 require("lazy").setup {
   require "plugins.codegpt",
   require "plugins.colorscheme",
+  require "plugins.comment",
   require "plugins.lsp",
   require "plugins.lualine",
   require "plugins.neotree",

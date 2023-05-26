@@ -27,7 +27,9 @@ return {
         }
       end,
       ["rust_analyzer"] = function()
-        require("rust-tools").setup {}
+        require("rust-tools").setup {
+          capabilities = capabilities,
+        }
       end,
     }
 

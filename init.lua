@@ -16,110 +16,17 @@ vim.opt.rtp:prepend(lazypath)
 local config_path = vim.fn.stdpath "config"
 package.path = package.path .. ";" .. config_path .. "/?.lua"
 
-local config = {
-  colorscheme = require "plugins.colorscheme",
-  neotree = require "plugins.neotree",
-  lualine = require "plugins.lualine",
-  lsp = require "plugins.lsp",
-  null_ls = require "plugins.null-ls",
-  surround = require "plugins.surround",
-  telescope = require "plugins.telescope",
-  treesitter = require "plugins.treesitter",
-  codegpt = require "plugins.codegpt",
-}
-
-local keymap = require "keymap"
-
 local plugins = {
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    config = config.colorscheme,
-  },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    },
-    keys = keymap.neotree,
-    config = config.neotree,
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = config.lualine,
-  },
-  {
-    "kylechui/nvim-surround",
-    dependencies = {
-      "hrsh7th/nvim-cmp",
-      "windwp/nvim-autopairs",
-    },
-    config = config.surround,
-  },
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    keys = keymap.telescope,
-    config = config.telescope,
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    config = config.treesitter,
-  },
-  {
-    "dpayne/CodeGPT.nvim",
-    event = "VeryLazy",
-    config = config.codegpt,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-    },
-  },
-
-  -- LSP
-  {
-    "williamboman/mason.nvim",
-    dependencies = {
-      "mfussenegger/nvim-dap",
-      "neovim/nvim-lspconfig",
-      "nvim-lua/plenary.nvim",
-      "simrat39/rust-tools.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      "neovim/nvim-lspconfig",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
-      "hrsh7th/nvim-cmp",
-      "dcampos/nvim-snippy",
-      "dcampos/cmp-snippy",
-    },
-    config = config.lsp,
-    keys = keymap.lsp,
-  },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      "neovim/nvim-lspconfig",
-    },
-    config = config.null_ls,
-  },
-  {
-    "folke/trouble.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {},
-    keys = keymap.trouble,
-  },
+  require "plugins.colorscheme",
+  require "plugins.neotree",
+  require "plugins.lualine",
+  require "plugins.surround",
+  require "plugins.telescope",
+  require "plugins.treesitter",
+  require "plugins.codegpt",
+  require "plugins.lsp",
+  require "plugins.null-ls",
+  require "plugins.trouble",
 
   -- Dependencies
   { "MunifTanjim/nui.nvim" },

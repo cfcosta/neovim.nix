@@ -5,21 +5,26 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+
+    lazy-nvim = {
+      url = "github:folke/lazy.nvim";
+      flake = false;
+    };
   };
 
-  outputs = { nixpkgs, flake-utils, ... }:
+  outputs = { nixpkgs, flake-utils, lazy-nvim, ... }:
     {
       hmModule = { options, config, lib, pkgs, ... }:
         let cfg = config.programs.devos.neovim;
         in {
           options.programs.devos.neovim = {
-            enable = lib.mkEnableOption "NVChad Configuration";
-            neovide.enable = lib.mkEnableOption "Neovide Intagration";
+            enable = lib.mkEnableOption "My Neovim configuration";
+            neovide.enable = lib.mkEnableOption "Neovide Support";
           };
 
           config = lib.mkIf cfg.enable {
             home.packages = with pkgs;
-              [ tree-sitter gcc luajit ]
+              [ tree-sitter gcc luajit ripgrep ]
               ++ lib.optionals cfg.neovide.enable [ neovide ];
 
             programs.neovim.enable = true;
@@ -28,13 +33,15 @@
               source = ./.;
               recursive = true;
             };
+
+            xdg.dataFile."nvim/lazy/lazy.nvim".source = lazy-nvim.path;
           };
         };
     } // flake-utils.lib.eachDefaultSystem (system:
       let pkgs = import nixpkgs { inherit system; };
       in {
         devShell = pkgs.mkShell {
-          nativeBuildInputs = with pkgs; [ lua-language-server ];
+          nativeBuildInputs = with pkgs; [ lua-language-server stylua ];
         };
       });
 }

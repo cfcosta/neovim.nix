@@ -1,18 +1,70 @@
 return function()
+  local cmp = require "cmp"
+
+  cmp.setup {
+    snippet = {
+      expand = function(args)
+        require("snippy").expand_snippet(args.body)
+      end,
+    },
+    window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
+    },
+    mapping = cmp.mapping.preset.insert {
+      ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+      ["<C-f>"] = cmp.mapping.scroll_docs(4),
+      ["<C-Space>"] = cmp.mapping.complete(),
+      ["<C-e>"] = cmp.mapping.abort(),
+      ["<CR>"] = cmp.mapping.confirm { select = true },
+    },
+    sources = cmp.config.sources({
+      { name = "nvim_lsp" },
+      { name = "snippy" },
+    }, {
+      { name = "buffer" },
+    }),
+  }
+
+  -- Set configuration for specific filetype.
+  cmp.setup.filetype("gitcommit", {
+    sources = cmp.config.sources({
+      { name = "cmp_git" }, -- You can specify the `cmp_git` source if you were installed it.
+    }, {
+      { name = "buffer" },
+    }),
+  })
+
+  -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline({ "/", "?" }, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = "buffer" },
+    },
+  })
+
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(":", {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = "path" },
+    }, {
+      { name = "cmdline" },
+    }),
+  })
+
+  local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
   require("mason").setup()
   require("mason-lspconfig").setup()
-
   require("mason-lspconfig").setup_handlers {
-    -- The first entry (without a key) will be the default handler
-    -- and will be called for each installed server that doesn't have
-    -- a dedicated handler.
     function(server_name) -- default handler (optional)
-      require("lspconfig")[server_name].setup {}
+      require("lspconfig")[server_name].setup {
+        capabilities = capabilities,
+      }
     end,
-    -- Next, you can provide a dedicated handler for specific servers.
-    -- For example, a handler override for the `rust_analyzer`:
     ["rust_analyzer"] = function()
       require("rust-tools").setup {}
-    end
+    end,
   }
 end

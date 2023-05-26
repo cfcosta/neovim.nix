@@ -27,28 +27,7 @@ local plugins = {
   require "plugins.lsp",
   require "plugins.null-ls",
   require "plugins.trouble",
-
-  -- Dependencies
-  { "MunifTanjim/nui.nvim" },
-  { "dcampos/cmp-snippy" },
-  { "dcampos/nvim-snippy" },
-  { "hrsh7th/cmp-buffer" },
-  { "hrsh7th/cmp-cmdline" },
-  { "hrsh7th/cmp-nvim-lsp" },
-  { "hrsh7th/cmp-path" },
-  { "hrsh7th/nvim-cmp" },
-  { "mfussenegger/nvim-dap" },
-  { "neovim/nvim-lspconfig" },
-  { "nvim-lua/plenary.nvim" },
-  { "nvim-tree/nvim-web-devicons" },
-  { "simrat39/rust-tools.nvim" },
-  { "williamboman/mason-lspconfig.nvim" },
-  { "windwp/nvim-autopairs" },
+  require "plugins.terminal",
 }
 
-require("lazy").setup(plugins, {
-  ignore = { "lazy.nvim" },
-  readme = {
-    enable = false,
-  },
-})
+require("lazy").setup(plugins)

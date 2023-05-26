@@ -19,8 +19,14 @@
 
           config = lib.mkIf cfg.enable {
             home.packages = with pkgs;
-              [ tree-sitter gcc luajit ripgrep git ]
-              ++ lib.optionals cfg.neovide.enable [ neovide ];
+              [
+                tree-sitter
+                vimPlugins.nvim-treesitter.withAllGrammars
+                gcc
+                luajit
+                ripgrep
+                git
+              ] ++ lib.optionals cfg.neovide.enable [ neovide ];
 
             programs.neovim.enable = true;
 

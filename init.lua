@@ -2,14 +2,14 @@ vim.g.mapleader = " "
 
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
+  vim.fn.system {
     "git",
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
     "--branch=stable", -- latest stable release
     lazypath,
-  })
+  }
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -79,7 +79,7 @@ local config = {
           "--column",
           "--smart-case",
         },
-        prompt_prefix = "   ",
+        prompt_prefix = " >  ",
         selection_caret = "  ",
         entry_prefix = "  ",
         initial_mode = "insert",
@@ -123,6 +123,14 @@ local config = {
 
     require("telescope").setup(options)
   end,
+  treesitter = function()
+    require("nvim-treesitter.configs").setup {
+      ensure_installed = { "rust", "nix" },
+      sync_install = false,
+      auto_install = true,
+      highlight = { enable = true, },
+    }
+  end
 }
 
 local keymap = {
@@ -269,6 +277,10 @@ local plugins = {
     },
     keys = keymap.telescope,
     config = config.telescope,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    config = config.treesitter,
   },
 
   -- LSP

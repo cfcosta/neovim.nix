@@ -15,20 +15,25 @@ return {
     "dcampos/nvim-snippy",
     "dcampos/cmp-snippy",
   },
+  lazy = false,
   config = function()
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+    local lspconfig = require "lspconfig"
+    local lsp_defaults = lspconfig.util.default_config
+
+    lsp_defaults.capabilities =
+      vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
 
     require("mason").setup()
     require("mason-lspconfig").setup()
     require("mason-lspconfig").setup_handlers {
       function(server_name) -- default handler (optional)
-        require("lspconfig")[server_name].setup {
-          capabilities = capabilities,
-        }
+        lspconfig[server_name].setup {}
       end,
       ["rust_analyzer"] = function()
         require("rust-tools").setup {
-          capabilities = capabilities,
+          capabilities = lsp_defaults.capabilities,
         }
       end,
     }
@@ -73,7 +78,7 @@ return {
     { "d]", vim.diagnostic.goto_next },
     { "<leader>q", vim.diagnostic.setloclist },
     {
-      "<leader>rr",
+      "<leader>cr",
       function()
         require("nvchad_ui.renamer").open()
       end,

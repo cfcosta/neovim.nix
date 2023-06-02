@@ -5,6 +5,9 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
+vim.opt.number = true
+vim.opt.relativenumber = true
+
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
@@ -19,9 +22,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local config_path = vim.fn.stdpath "config"
-local script_path = debug.getinfo(1).source:sub(2)
 package.path = package.path .. ";" .. config_path .. "/?.lua"
-package.path = package.path .. ";" .. script_path .. "/?.lua"
+
+local script_path = os.getenv "NVIM_CONFIG_ROOT"
+if script_path then
+  package.path = package.path .. ";" .. script_path .. "/?.lua"
+end
 
 local function map(mode, lhs, rhs, opts)
   local options = { noremap = true }
@@ -79,6 +85,7 @@ local plugins = {
   require "plugins.lsp",
   require "plugins.lualine",
   require "plugins.neogit",
+  require "plugins.neorg",
   require "plugins.neotree",
   require "plugins.null-ls",
   require "plugins.surround",

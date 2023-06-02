@@ -71,6 +71,7 @@ local plugins = {
   require "plugins.comment",
   require "plugins.lsp",
   require "plugins.lualine",
+  require "plugins.neogit",
   require "plugins.neotree",
   require "plugins.null-ls",
   require "plugins.surround",

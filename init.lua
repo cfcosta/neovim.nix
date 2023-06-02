@@ -29,7 +29,7 @@ map("n", "<leader>ws", "<cmd>split<cr>")
 map("n", "<leader>wc", "<cmd>close<cr>")
 map("n", "<leader>wo", "<cmd>only<cr>")
 
-function get_unique_dependencies(arr)
+local function get_unique_dependencies(arr)
   local unique_dependencies = {}
 
   for _, item in ipairs(arr) do
@@ -54,15 +54,15 @@ function get_unique_dependencies(arr)
   return unique_dependencies_list
 end
 
-function append_arrays(array1, array2)
-    local result = {}
-    for _, value in ipairs(array1) do
-        table.insert(result, value)
-    end
-    for _, value in ipairs(array2) do
-        table.insert(result, value)
-    end
-    return result
+local function append_arrays(array1, array2)
+  local result = {}
+  for _, value in ipairs(array1) do
+    table.insert(result, value)
+  end
+  for _, value in ipairs(array2) do
+    table.insert(result, value)
+  end
+  return result
 end
 
 local plugins = {

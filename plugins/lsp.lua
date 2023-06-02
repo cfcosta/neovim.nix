@@ -17,13 +17,11 @@ return {
   },
   lazy = false,
   config = function()
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
     local lspconfig = require "lspconfig"
     local lsp_defaults = lspconfig.util.default_config
 
     lsp_defaults.capabilities =
-      vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
+        vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
 
     require("mason").setup()
     require("mason-lspconfig").setup()
@@ -66,17 +64,17 @@ return {
     }
   end,
   keys = {
-    { "gD", vim.lsp.buf.declaration },
-    { "gd", vim.lsp.buf.definition },
-    { "K", vim.lsp.buf.hover },
-    { "gi", vim.lsp.buf.implementation },
+    { "gD",         vim.lsp.buf.declaration },
+    { "gd",         vim.lsp.buf.definition },
+    { "K",          vim.lsp.buf.hover },
+    { "gi",         vim.lsp.buf.implementation },
     { "<leader>ls", vim.lsp.buf.signature_help },
-    { "<leader>D", vim.lsp.buf.type_definition },
+    { "<leader>D",  vim.lsp.buf.type_definition },
     { "<leader>ca", vim.lsp.buf.code_action },
-    { "<leader>f", vim.diagnostic.open_float },
-    { "[d", vim.diagnostic.goto_prev },
-    { "d]", vim.diagnostic.goto_next },
-    { "<leader>q", vim.diagnostic.setloclist },
+    { "<leader>f",  vim.diagnostic.open_float },
+    { "[d",         vim.diagnostic.goto_prev },
+    { "d]",         vim.diagnostic.goto_next },
+    { "<leader>q",  vim.diagnostic.setloclist },
     {
       "<leader>cr",
       function()

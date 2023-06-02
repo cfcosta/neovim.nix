@@ -14,7 +14,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local config_path = vim.fn.stdpath "config"
+local script_path = debug.getinfo(1).source:sub(2)
 package.path = package.path .. ";" .. config_path .. "/?.lua"
+package.path = package.path .. ";" .. script_path .. "/?.lua"
 
 local function map(mode, lhs, rhs, opts)
   local options = { noremap = true }

@@ -23,7 +23,12 @@ return {
     lsp_defaults.capabilities =
         vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
 
-    require("mason").setup()
+    require("mason").setup {
+      -- Adds the path from mason into the end of the PATH env variable.
+      -- Since we are using Nix to install it, we can assume that it is
+      -- going to come from somewhere else.
+      PATH = "append",
+    }
     require("mason-lspconfig").setup()
     require("mason-lspconfig").setup_handlers {
       function(server_name) -- default handler (optional)

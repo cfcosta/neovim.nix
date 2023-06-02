@@ -82,6 +82,7 @@ local plugins = {
   require "plugins.codegpt",
   require "plugins.colorscheme",
   require "plugins.comment",
+  require "plugins.gitsigns",
   require "plugins.lsp",
   require "plugins.lualine",
   require "plugins.neogit",

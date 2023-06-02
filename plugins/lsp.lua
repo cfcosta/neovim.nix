@@ -22,7 +22,7 @@ return {
     local lsp_defaults = lspconfig.util.default_config
 
     lsp_defaults.capabilities =
-      vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
+        vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
 
     require("mason").setup {
       -- Adds the path from mason into the end of the PATH env variable.
@@ -31,15 +31,17 @@ return {
       PATH = "append",
     }
     require("mason-lspconfig").setup()
-    require("mason-lspconfig").setup_handlers {
-      function(server_name) -- default handler (optional)
-        lspconfig[server_name].setup {}
-      end,
-      ["rust_analyzer"] = function()
-        require("rust-tools").setup {
-          capabilities = lsp_defaults.capabilities,
-        }
-      end,
+
+    local setup = function(name)
+      lspconfig[name].setup {
+        capabilities = lsp_defaults.capabilities,
+      }
+    end
+
+    setup "lua_ls"
+    setup "rnix-lsp"
+    require("rust-tools").setup {
+      capabilities = lsp_defaults.capabilities,
     }
 
     local cmp = require "cmp"
@@ -71,17 +73,17 @@ return {
     }
   end,
   keys = {
-    { "gD", vim.lsp.buf.declaration },
-    { "gd", vim.lsp.buf.definition },
-    { "K", vim.lsp.buf.hover },
-    { "gi", vim.lsp.buf.implementation },
+    { "gD",         vim.lsp.buf.declaration },
+    { "gd",         vim.lsp.buf.definition },
+    { "K",          vim.lsp.buf.hover },
+    { "gi",         vim.lsp.buf.implementation },
     { "<leader>ls", vim.lsp.buf.signature_help },
-    { "<leader>D", vim.lsp.buf.type_definition },
+    { "<leader>D",  vim.lsp.buf.type_definition },
     { "<leader>ca", vim.lsp.buf.code_action },
-    { "<leader>f", vim.diagnostic.open_float },
-    { "[d", vim.diagnostic.goto_prev },
-    { "d]", vim.diagnostic.goto_next },
-    { "<leader>q", vim.diagnostic.setloclist },
+    { "<leader>f",  vim.diagnostic.open_float },
+    { "[d",         vim.diagnostic.goto_prev },
+    { "d]",         vim.diagnostic.goto_next },
+    { "<leader>q",  vim.diagnostic.setloclist },
     {
       "<leader>cr",
       function()

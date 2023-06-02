@@ -9,9 +9,13 @@ return {
       sync_install = false,
       auto_install = true,
       highlight = { enable = true },
-      endwise = {
-        enable = true,
-      },
+      endwise = { enable = true },
+      indent = { enable = true },
     }
+
+    -- Enable folding using treesitter
+    vim.opt.foldmethod = "expr"
+    vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+    vim.opt.foldenable = false
   end,
 }

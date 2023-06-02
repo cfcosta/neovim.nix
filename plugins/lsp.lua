@@ -14,6 +14,7 @@ return {
     "hrsh7th/nvim-cmp",
     "dcampos/nvim-snippy",
     "dcampos/cmp-snippy",
+    "nvim-neorg/neorg",
   },
   lazy = false,
   config = function()
@@ -21,7 +22,7 @@ return {
     local lsp_defaults = lspconfig.util.default_config
 
     lsp_defaults.capabilities =
-        vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
+      vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
 
     require("mason").setup {
       -- Adds the path from mason into the end of the PATH env variable.
@@ -63,23 +64,24 @@ return {
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "snippy" },
+        { name = "neorg" },
       }, {
         { name = "buffer" },
       }),
     }
   end,
   keys = {
-    { "gD",         vim.lsp.buf.declaration },
-    { "gd",         vim.lsp.buf.definition },
-    { "K",          vim.lsp.buf.hover },
-    { "gi",         vim.lsp.buf.implementation },
+    { "gD", vim.lsp.buf.declaration },
+    { "gd", vim.lsp.buf.definition },
+    { "K", vim.lsp.buf.hover },
+    { "gi", vim.lsp.buf.implementation },
     { "<leader>ls", vim.lsp.buf.signature_help },
-    { "<leader>D",  vim.lsp.buf.type_definition },
+    { "<leader>D", vim.lsp.buf.type_definition },
     { "<leader>ca", vim.lsp.buf.code_action },
-    { "<leader>f",  vim.diagnostic.open_float },
-    { "[d",         vim.diagnostic.goto_prev },
-    { "d]",         vim.diagnostic.goto_next },
-    { "<leader>q",  vim.diagnostic.setloclist },
+    { "<leader>f", vim.diagnostic.open_float },
+    { "[d", vim.diagnostic.goto_prev },
+    { "d]", vim.diagnostic.goto_next },
+    { "<leader>q", vim.diagnostic.setloclist },
     {
       "<leader>cr",
       function()

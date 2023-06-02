@@ -1,5 +1,6 @@
 return {
   "kylechui/nvim-surround",
+  event = "VeryLazy",
   dependencies = {
     "hrsh7th/nvim-cmp",
     "windwp/nvim-autopairs",

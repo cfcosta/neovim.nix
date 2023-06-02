@@ -1,14 +1,15 @@
 return {
   "nvim-telescope/telescope.nvim",
+  event = "VeryLazy",
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
   keys = {
     { "<leader><leader>", "<cmd> Telescope find_files hidden=true<CR>" },
-    { "<leader>/", "<cmd> Telescope live_grep <CR>" },
-    { "<leader>bb", "<cmd> Telescope buffers <CR>" },
-    { "<leader>cm", "<cmd> Telescope git_commits <CR>" },
-    { "<leader>gt", "<cmd> Telescope git_status <CR>" },
+    { "<leader>/",        "<cmd> Telescope live_grep <CR>" },
+    { "<leader>bb",       "<cmd> Telescope buffers <CR>" },
+    { "<leader>cm",       "<cmd> Telescope git_commits <CR>" },
+    { "<leader>gt",       "<cmd> Telescope git_status <CR>" },
   },
   config = function()
     local options = {

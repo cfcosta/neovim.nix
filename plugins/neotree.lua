@@ -1,5 +1,7 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  event = "VeryLazy",
+  cmd = "Neotree",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",

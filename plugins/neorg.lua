@@ -17,6 +17,7 @@ return {
             workspaces = {
               notes = "~/Notes",
             },
+            default_workspace = "notes",
           },
         },
       },

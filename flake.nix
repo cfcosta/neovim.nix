@@ -25,7 +25,7 @@
 
             lsp.modules = lib.mkOption {
               type = lib.types.listOf lib.types.string;
-              default = [ "nix" "rust" "lua" "sh" "js" ];
+              default = [ "nix" "rust" "lua" "sh" "js" "others" ];
               description = "The LSP modules to enable";
             };
           };
@@ -47,6 +47,7 @@
               ]) ++ (lib.optionals (builtins.elem "nix" cfg.lsp.modules) [
                 pkgs.rnix-lsp
                 pkgs.nixfmt
+                pkgs.statix
               ]) ++ (lib.optionals (builtins.elem "lua" cfg.lsp.modules) [
                 pkgs.lua-language-server
                 pkgs.stylua
@@ -55,9 +56,12 @@
                 pkgs.shellcheck
                 pkgs.shfmt
               ]) ++ (lib.optionals (builtins.elem "js" cfg.lsp.modules) [
-                pkgs.nodePackages.dockerfile-language-server-nodejs
+                pkgs.nodePackages.eslint
+                pkgs.nodePackages.prettier
                 pkgs.nodePackages.typescript-language-server
                 pkgs.nodePackages.vscode-json-languageserver
+              ]) ++ (lib.optionals (builtins.elem "others" cfg.lsp.modules) [
+                pkgs.nodePackages.dockerfile-language-server-nodejs
                 pkgs.nodePackages.yaml-language-server
               ]);
 

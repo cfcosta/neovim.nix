@@ -4,12 +4,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     nightvim = {
       url = "github:cfcosta/nightvim";
       inputs = {
@@ -52,6 +50,10 @@
     };
     gitsigns = {
       url = "github:lewis6991/gitsigns.nvim";
+      flake = false;
+    };
+    lualine = {
+      url = "github:nvim-lualine/lualine.nvim";
       flake = false;
     };
     neo-tree = {
@@ -98,6 +100,18 @@
       url = "github:kylechui/nvim-surround";
       flake = false;
     };
+    nvim-treesitter = {
+      url = "github:nvim-treesitter/nvim-treesitter";
+      flake = false;
+    };
+    nvim-treesitter-endwise = {
+      url = "github:RRethy/nvim-treesitter-endwise";
+      flake = false;
+    };
+    nvim-web-devicons = {
+      url = "github:nvim-tree/nvim-web-devicons";
+      flake = false;
+    };
     plenary = {
       url = "github:nvim-lua/plenary.nvim";
       flake = false;
@@ -120,25 +134,6 @@
     };
     trouble = {
       url = "github:folke/trouble.nvim";
-      flake = false;
-    };
-    lualine = {
-      url = "github:nvim-lualine/lualine.nvim";
-      flake = false;
-    };
-
-    nvim-treesitter = {
-      url = "github:nvim-treesitter/nvim-treesitter";
-      flake = false;
-    };
-
-    nvim-treesitter-endwise = {
-      url = "github:RRethy/nvim-treesitter-endwise";
-      flake = false;
-    };
-
-    nvim-web-devicons = {
-      url = "github:nvim-tree/nvim-web-devicons";
       flake = false;
     };
   };

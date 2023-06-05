@@ -136,6 +136,10 @@
       url = "github:folke/trouble.nvim";
       flake = false;
     };
+    treesj = {
+      url = "github:Wansmer/treesj";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, flake-utils, home-manager, nightvim, ... }:
@@ -417,6 +421,7 @@
                 vim.opt.foldenable = false
               '';
             })
+            (nightvim.lib.mkPlugin "treesj" treesj { })
           ];
         };
       };

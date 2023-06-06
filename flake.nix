@@ -304,12 +304,18 @@
             })
             (nightvim.lib.mkPlugin "nvim-dap" nvim-dap { config = ""; })
             (nightvim.lib.mkPlugin "nvim-lspconfig" nvim-lspconfig {
-              inputs = with pkgs; [ rnix-lsp ];
+              inputs = with pkgs; [
+                rnix-lsp
+                nodePackages.svelte-language-server
+                nodePackages.eslint
+              ];
 
               config = ''
                 local lspconfig = require('lspconfig')
 
                 lspconfig.rnix.setup {}
+                lspconfig.svelte.setup {}
+                lspconfig.eslint.setup {}
               '';
             })
             (nightvim.lib.mkPlugin "nvim-snippy" nvim-snippy { config = ""; })

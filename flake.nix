@@ -308,14 +308,17 @@
                 rnix-lsp
                 nodePackages.svelte-language-server
                 nodePackages.eslint
+                nodePackages.typescript
+                nodePackages.typescript-language-server
               ];
 
               config = ''
                 local lspconfig = require('lspconfig')
 
                 lspconfig.rnix.setup {}
-                lspconfig.svelte.setup {}
+                lspconfig.tsserver.setup {}
                 lspconfig.eslint.setup {}
+                lspconfig.svelte.setup {}
               '';
             })
             (nightvim.lib.mkPlugin "nvim-snippy" nvim-snippy { config = ""; })

@@ -128,8 +128,8 @@
       url = "github:akinsho/toggleterm.nvim";
       flake = false;
     };
-    tokyonight = {
-      url = "github:folke/tokyonight.nvim";
+    moonlight = {
+      url = "github:shaunsingh/moonlight.nvim";
       flake = false;
     };
     trouble = {
@@ -323,8 +323,10 @@
             (nightvim.lib.mkPlugin "cmp-nvim-lsp" cmp-nvim-lsp { config = ""; })
             (nightvim.lib.mkPlugin "cmp-path" cmp-path { config = ""; })
             (nightvim.lib.mkPlugin "cmp-snippy" cmp-snippy { config = ""; })
-            (nightvim.lib.mkPlugin "tokyonight" tokyonight {
-              config = "vim.cmd [[colorscheme tokyonight]]";
+            (nightvim.lib.mkPlugin "moonlight" moonlight {
+              config = ''
+                require("moonlight").set()
+              '';
             })
             (nightvim.lib.mkPlugin "toggleterm" toggleterm { })
             (nightvim.lib.mkPlugin "telescope" telescope {
@@ -391,7 +393,14 @@
               depends = [ "nvim-web-devicons" ];
             })
             (nightvim.lib.mkPlugin "lualine" lualine {
-              depends = [ "nvim-web-devicons" ];
+              depends = [ "nvim-web-devicons" "moonlight" ];
+              config = ''
+                require("lualine").setup {
+                  options = {
+                    theme = "moonlight",
+                  }
+                }
+              '';
             })
             (nightvim.lib.mkPlugin "nvim-treesitter-endwise"
               nvim-treesitter-endwise { config = ""; })

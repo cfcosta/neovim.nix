@@ -446,6 +446,8 @@
             })
             (nightvim.lib.mkPlugin "treesj" treesj { })
             (nightvim.lib.mkPlugin "indent-blankline" indent-blankline {
+              depends = [ "moonlight" ];
+
               config = ''
                 vim.cmd [[highlight IndentBlanklineIndent1 guifg=#282D45 gui=nocombine]]
                 vim.cmd [[highlight IndentBlanklineIndent2 guifg=#2F3552 gui=nocombine]]

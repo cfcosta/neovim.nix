@@ -306,10 +306,11 @@
             (nightvim.lib.mkPlugin "nvim-lspconfig" nvim-lspconfig {
               inputs = with pkgs; [
                 rnix-lsp
-                nodePackages.svelte-language-server
                 nodePackages.eslint
+                nodePackages.svelte-language-server
                 nodePackages.typescript
                 nodePackages.typescript-language-server
+                nodePackages.vscode-langservers-extracted
               ];
 
               config = ''

@@ -221,6 +221,22 @@
         "type": "github"
       }
     },
+    "moonlight": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1621189154,
+        "narHash": "sha256-wydCYXsQZyojiUf4CAi15pSysFxZjdRk8x3r668bPFU=",
+        "owner": "shaunsingh",
+        "repo": "moonlight.nvim",
+        "rev": "e24e4218ec680b6396532808abf57ca0ada82e66",
+        "type": "github"
+      },
+      "original": {
+        "owner": "shaunsingh",
+        "repo": "moonlight.nvim",
+        "type": "github"
+      }
+    },
     "neo-tree": {
       "flake": false,
       "locked": {
@@ -515,6 +531,7 @@
         "gitsigns": "gitsigns",
         "home-manager": "home-manager",
         "lualine": "lualine",
+        "moonlight": "moonlight",
         "neo-tree": "neo-tree",
         "neogit": "neogit",
         "neorg": "neorg",
@@ -535,7 +552,6 @@
         "rust-tools": "rust-tools",
         "telescope": "telescope",
         "toggleterm": "toggleterm",
-        "tokyonight": "tokyonight",
         "treesj": "treesj",
         "trouble": "trouble"
       }
@@ -600,22 +616,6 @@
       "original": {
         "owner": "akinsho",
         "repo": "toggleterm.nvim",
-        "type": "github"
-      }
-    },
-    "tokyonight": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1685457678,
-        "narHash": "sha256-IMrqcx/f5cauDBxSLP1bjsaFXLBv24XXCPxpyj+Jb/E=",
-        "owner": "folke",
-        "repo": "tokyonight.nvim",
-        "rev": "161114bd39b990995e08dbf941f6821afbdcd666",
-        "type": "github"
-      },
-      "original": {
-        "owner": "folke",
-        "repo": "tokyonight.nvim",
         "type": "github"
       }
     },

@@ -4,15 +4,18 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     nightvim = {
       url = "github:cfcosta/nightvim";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
+        home-manager.follows = "home-manager";
       };
     };
 
@@ -52,8 +55,16 @@
       url = "github:lewis6991/gitsigns.nvim";
       flake = false;
     };
+    indent-blankline = {
+      url = "github:lukas-reineke/indent-blankline.nvim";
+      flake = false;
+    };
     lualine = {
       url = "github:nvim-lualine/lualine.nvim";
+      flake = false;
+    };
+    moonlight = {
+      url = "github:shaunsingh/moonlight.nvim";
       flake = false;
     };
     neo-tree = {
@@ -128,20 +139,12 @@
       url = "github:akinsho/toggleterm.nvim";
       flake = false;
     };
-    moonlight = {
-      url = "github:shaunsingh/moonlight.nvim";
-      flake = false;
-    };
-    trouble = {
-      url = "github:folke/trouble.nvim";
-      flake = false;
-    };
     treesj = {
       url = "github:Wansmer/treesj";
       flake = false;
     };
-    indent-blankline = {
-      url = "github:lukas-reineke/indent-blankline.nvim";
+    trouble = {
+      url = "github:folke/trouble.nvim";
       flake = false;
     };
   };

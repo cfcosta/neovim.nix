@@ -16,7 +16,7 @@
     (nightvim.lib.mkPlugin "diffview" diffview { })
     (nightvim.lib.mkPlugin "gitsigns" gitsigns { })
     (nightvim.lib.mkPlugin "neo-tree" neo-tree {
-      depends = [ "plenary" "nvim-web-devicons" "nui" "moonlight" ];
+      depends = [ "plenary" "nvim-web-devicons" "nui" ];
       config = ''
         vim.cmd [[ let g:neo_tree_remove_legacy_commands = 1 ]]
         require("neo-tree").setup()
@@ -181,6 +181,7 @@
     (nightvim.lib.mkPlugin "cmp-path" cmp-path { config = ""; })
     (nightvim.lib.mkPlugin "cmp-snippy" cmp-snippy { config = ""; })
     (nightvim.lib.mkPlugin "moonlight" moonlight {
+      lazy = false;
       config = ''
         require("moonlight").set()
       '';
@@ -250,7 +251,7 @@
       depends = [ "nvim-web-devicons" ];
     })
     (nightvim.lib.mkPlugin "lualine" lualine {
-      depends = [ "nvim-web-devicons" "moonlight" ];
+      depends = [ "nvim-web-devicons" ];
       config = ''
         require("lualine").setup {
           options = {
@@ -290,8 +291,6 @@
     })
     (nightvim.lib.mkPlugin "treesj" treesj { })
     (nightvim.lib.mkPlugin "indent-blankline" indent-blankline {
-      depends = [ "moonlight" ];
-
       config = ''
         vim.cmd [[highlight IndentBlanklineIndent1 guifg=#282D45 gui=nocombine]]
         vim.cmd [[highlight IndentBlanklineIndent2 guifg=#2F3552 gui=nocombine]]

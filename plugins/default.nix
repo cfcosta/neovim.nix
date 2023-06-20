@@ -157,7 +157,6 @@
         nodePackages.svelte-language-server
         nodePackages.typescript
         nodePackages.typescript-language-server
-        nodePackages.vscode-langservers-extracted
       ];
 
       config = ''

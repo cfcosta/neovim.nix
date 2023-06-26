@@ -54,6 +54,7 @@ with deps.nightvim.lib; {
     })
     (mkPlugin "nvim-lspconfig" nvim-lspconfig {
       inputs = with pkgs; [
+        gopls
         luajitPackages.lua-lsp
         nodePackages.eslint
         nodePackages.svelte-language-server

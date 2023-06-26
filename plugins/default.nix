@@ -1,7 +1,7 @@
 { pkgs, deps, ... }:
 with deps.nightvim.lib; {
   programs.nightvim.plugins = with deps; [
-    (mkPlugin "comment" comment { config = "require(" Comment ").setup {}"; })
+    (mkPlugin "comment" comment { config = ''require("Comment").setup {}''; })
     (mkPlugin "neo-tree" neo-tree {
       depends = [ "plenary" "nvim-web-devicons" "nui" ];
       config = ''
@@ -72,7 +72,7 @@ with deps.nightvim.lib; {
     })
     (mkPlugin "moonlight" moonlight {
       lazy = false;
-      config = "require(" moonlight ").set()";
+      config = ''require("moonlight").set()'';
     })
     (mkPlugin "toggleterm" toggleterm { })
     (mkPlugin "telescope" telescope {

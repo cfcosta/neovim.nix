@@ -73,21 +73,15 @@
     (nightvim.lib.mkPlugin "nvim-dap" nvim-dap { config = ""; })
     (nightvim.lib.mkPlugin "nvim-lspconfig" nvim-lspconfig {
       inputs = with pkgs; [
-        rnix-lsp
+        luajitPackages.lua-lsp
         nodePackages.eslint
         nodePackages.svelte-language-server
         nodePackages.typescript
         nodePackages.typescript-language-server
+        rnix-lsp
       ];
 
-      config = ''
-        local lspconfig = require('lspconfig')
-
-        lspconfig.rnix.setup {}
-        lspconfig.tsserver.setup {}
-        lspconfig.eslint.setup {}
-        lspconfig.svelte.setup {}
-      '';
+      config = builtins.readFile ./lsp.lua;
     })
     (nightvim.lib.mkPlugin "nvim-snippy" nvim-snippy { config = ""; })
     (nightvim.lib.mkPlugin "nvim-surround" nvim-surround { })

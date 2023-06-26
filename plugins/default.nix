@@ -1,14 +1,6 @@
 { pkgs, deps, ... }:
 with deps.nightvim.lib; {
   programs.nightvim.plugins = [
-    (mkPlugin "codegpt" codegpt {
-      depends = [ "nui" "plenary" ];
-      config = ''
-        if os.getenv "OPENAI_API_KEY" then
-          require "codegpt.config"
-        end
-      '';
-    })
     (mkPlugin "comment" comment { config = "require(" Comment ").setup {}"; })
     (mkPlugin "neo-tree" neo-tree {
       depends = [ "plenary" "nvim-web-devicons" "nui" ];

@@ -1,6 +1,6 @@
 { pkgs, deps, ... }:
 with deps.nightvim.lib; {
-  programs.nightvim.plugins = [
+  programs.nightvim.plugins = with deps; [
     (mkPlugin "comment" comment { config = "require(" Comment ").setup {}"; })
     (mkPlugin "neo-tree" neo-tree {
       depends = [ "plenary" "nvim-web-devicons" "nui" ];

@@ -9,13 +9,7 @@ with deps.nightvim.lib; {
         end
       '';
     })
-    (mkPlugin "comment" comment {
-      config = ''
-        require("Comment").setup {}
-      '';
-    })
-    (mkPlugin "diffview" diffview { })
-    (mkPlugin "gitsigns" gitsigns { })
+    (mkPlugin "comment" comment { config = "require(" Comment ").setup {}"; })
     (mkPlugin "neo-tree" neo-tree {
       depends = [ "plenary" "nvim-web-devicons" "nui" ];
       config = ''
@@ -27,9 +21,6 @@ with deps.nightvim.lib; {
       depends = [ "plenary" "diffview" ];
       config = builtins.readFile ./neogit.lua;
     })
-    (mkPlugin "neorg" neorg { config = builtins.readFile ./neorg.lua; })
-    (mkPlugin "nvim-web-devicons" nvim-web-devicons { })
-    (mkPlugin "nui" nui { config = ""; })
     (mkPlugin "null-ls" null-ls {
       depends = [ "plenary" "nvim-lspconfig" ];
 
@@ -69,7 +60,6 @@ with deps.nightvim.lib; {
 
       config = builtins.readFile ./cmp.lua;
     })
-    (mkPlugin "nvim-dap" nvim-dap { config = ""; })
     (mkPlugin "nvim-lspconfig" nvim-lspconfig {
       inputs = with pkgs; [
         luajitPackages.lua-lsp
@@ -82,22 +72,12 @@ with deps.nightvim.lib; {
 
       config = builtins.readFile ./lsp.lua;
     })
-    (mkPlugin "nvim-snippy" nvim-snippy { config = ""; })
-    (mkPlugin "nvim-surround" nvim-surround { })
-    (mkPlugin "plenary" plenary { config = ""; })
     (mkPlugin "rust-tools" rust-tools {
       inputs = with pkgs; [ rust-analyzer ];
     })
-    (mkPlugin "cmp-buffer" cmp-buffer { config = ""; })
-    (mkPlugin "cmp-cmdline" cmp-cmdline { config = ""; })
-    (mkPlugin "cmp-nvim-lsp" cmp-nvim-lsp { config = ""; })
-    (mkPlugin "cmp-path" cmp-path { config = ""; })
-    (mkPlugin "cmp-snippy" cmp-snippy { config = ""; })
     (mkPlugin "moonlight" moonlight {
       lazy = false;
-      config = ''
-        require("moonlight").set()
-      '';
+      config = "require(" moonlight ").set()";
     })
     (mkPlugin "toggleterm" toggleterm { })
     (mkPlugin "telescope" telescope {
@@ -116,19 +96,31 @@ with deps.nightvim.lib; {
         }
       '';
     })
-    (mkPlugin "nvim-treesitter-endwise" nvim-treesitter-endwise {
-      config = "";
-    })
     (mkPlugin "nvim-treesitter" nvim-treesitter {
       depends = [ "nvim-treesitter-endwise" ];
-
       inputs = with pkgs; [ gcc git ];
-
       config = builtins.readFile ./telescope.lua;
     })
-    (mkPlugin "treesj" treesj { })
     (mkPlugin "indent-blankline" indent-blankline {
       config = builtins.readFile ./indentline.lua;
     })
+    (mkPlugin "neorg" neorg { config = builtins.readFile ./neorg.lua; })
+    (mkPlugin "cmp-buffer" cmp-buffer { config = ""; })
+    (mkPlugin "cmp-cmdline" cmp-cmdline { config = ""; })
+    (mkPlugin "cmp-nvim-lsp" cmp-nvim-lsp { config = ""; })
+    (mkPlugin "cmp-path" cmp-path { config = ""; })
+    (mkPlugin "cmp-snippy" cmp-snippy { config = ""; })
+    (mkPlugin "diffview" diffview { })
+    (mkPlugin "gitsigns" gitsigns { })
+    (mkPlugin "nui" nui { config = ""; })
+    (mkPlugin "nvim-dap" nvim-dap { config = ""; })
+    (mkPlugin "nvim-snippy" nvim-snippy { config = ""; })
+    (mkPlugin "nvim-surround" nvim-surround { })
+    (mkPlugin "nvim-treesitter-endwise" nvim-treesitter-endwise {
+      config = "";
+    })
+    (mkPlugin "nvim-web-devicons" nvim-web-devicons { })
+    (mkPlugin "plenary" plenary { config = ""; })
+    (mkPlugin "treesj" treesj { })
   ];
 }

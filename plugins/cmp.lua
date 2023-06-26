@@ -18,10 +18,11 @@ cmp.setup {
     ["<CR>"] = cmp.mapping.confirm { select = true },
   },
   sources = cmp.config.sources({
+    { name = "neorg" },
     { name = "nvim_lsp" },
     { name = "nvim_lsp_signature_help" }
+    { name = "path" },
     { name = "snippy" },
-    { name = "neorg" },
   }, {
     { name = "buffer" },
   }),

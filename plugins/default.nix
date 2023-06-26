@@ -66,6 +66,8 @@ with deps.nightvim.lib; {
     })
     (mkPlugin "rust-tools" rust-tools {
       inputs = with pkgs; [ rust-analyzer ];
+      depends = [ "cmp-nvim-lsp" ];
+      config = builtins.readFile ./rust-tools.lua;
     })
     (mkPlugin "moonlight" moonlight {
       lazy = false;

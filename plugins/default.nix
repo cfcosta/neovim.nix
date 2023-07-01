@@ -61,6 +61,7 @@ with deps.nightvim.lib; {
         nodePackages.typescript
         nodePackages.typescript-language-server
         rnix-lsp
+        deps.aiken
       ];
 
       config = builtins.readFile ./lsp.lua;

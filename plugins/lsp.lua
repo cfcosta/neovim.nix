@@ -41,3 +41,32 @@ lspconfig.gopls.setup {
     usePlaceholders = true,
   },
 }
+
+local configs = require "lspconfig.configs"
+local util = require "lspconfig.util"
+
+if not configs.aiken then
+  configs.aiken = {
+    default_config = {
+      cmd = { "aiken", "lsp" },
+      filetypes = { "aiken" },
+      root_dir = function(fname)
+        return util.root_pattern("aiken.toml", ".git")(fname)
+      end,
+    },
+    docs = {
+      description = [[
+    https://github.com/aiken-lang/aiken
+
+    A language server for Aiken Programming Language.
+    [Installation](https://aiken-lang.org/installation-instructions)
+    ]],
+      default_config = {
+        cmd = { "aiken", "lsp" },
+        root_dir = [[root_pattern("aiken.toml", ".git")]],
+      },
+    },
+  }
+
+  lspconfig.aiken.setup {}
+end

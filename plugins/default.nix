@@ -60,6 +60,7 @@ with deps.nightvim.lib; {
         nodePackages.svelte-language-server
         nodePackages.typescript
         nodePackages.typescript-language-server
+        nodePackages.vscode-langservers-extracted
         rnix-lsp
         deps.aiken
       ];

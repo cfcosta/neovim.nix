@@ -174,7 +174,11 @@
     in {
       inherit hmModule;
     } // flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = import nixpkgs { inherit system; };
+      let
+        pkgs = import nixpkgs {
+          config.allowUnfree = true;
+          inherit system;
+        };
       in {
         defaultPackage = (home-manager.lib.homeManagerConfiguration {
           inherit pkgs;

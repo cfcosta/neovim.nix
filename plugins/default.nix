@@ -54,9 +54,10 @@ with deps.nightvim.lib; {
     })
     (mkPlugin "nvim-lspconfig" nvim-lspconfig {
       inputs = with pkgs; [
-        deps.nixd
+        deps.aiken
         gopls
         luajitPackages.lua-lsp
+        nixd
         nodePackages.dockerfile-language-server-nodejs
         nodePackages.eslint
         nodePackages.svelte-language-server

@@ -54,15 +54,15 @@ with deps.nightvim.lib; {
     })
     (mkPlugin "nvim-lspconfig" nvim-lspconfig {
       inputs = with pkgs; [
+        deps.nixd
         gopls
         luajitPackages.lua-lsp
+        nodePackages.dockerfile-language-server-nodejs
         nodePackages.eslint
         nodePackages.svelte-language-server
         nodePackages.typescript
         nodePackages.typescript-language-server
         nodePackages.vscode-langservers-extracted
-        rnix-lsp
-        deps.aiken
       ];
 
       config = builtins.readFile ./lsp.lua;

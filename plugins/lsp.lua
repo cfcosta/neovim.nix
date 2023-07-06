@@ -1,6 +1,6 @@
 local lspconfig = require "lspconfig"
 
-lspconfig.rnix.setup {}
+lspconfig.nixd.setup {}
 lspconfig.tsserver.setup {}
 lspconfig.eslint.setup {}
 lspconfig.svelte.setup {}

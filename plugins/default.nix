@@ -54,7 +54,7 @@ with deps.nightvim.lib; {
     })
     (mkPlugin "nvim-lspconfig" nvim-lspconfig {
       inputs = with pkgs; [
-        deps.aiken
+        deps.aiken.packages.${pkgs.system}.default
         gopls
         luajitPackages.lua-lsp
         nixd

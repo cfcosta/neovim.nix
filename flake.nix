@@ -20,7 +20,7 @@
     };
 
     aiken = {
-      url = "github:aiken-lang/aiken/cfcosta/some-nix-updates";
+      url = "github:aiken-lang/aiken";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

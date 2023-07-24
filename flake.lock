@@ -9,16 +9,15 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1690205403,
-        "narHash": "sha256-kdgnYu4ghbhOG4nc5Ny9D9DOwXWxCeatpX0CiMWscgc=",
+        "lastModified": 1690209002,
+        "narHash": "sha256-35qoRDdxb/Vw8h298jGAxYN/nsF3OEXnI40UpDPKLLs=",
         "owner": "aiken-lang",
         "repo": "aiken",
-        "rev": "b390fbfc00a59002496074a6202c31468281f552",
+        "rev": "152e847e26ae2dc1329580ec1b5b15c0eef7dabd",
         "type": "github"
       },
       "original": {
         "owner": "aiken-lang",
-        "ref": "cfcosta/some-nix-updates",
         "repo": "aiken",
         "type": "github"
       }

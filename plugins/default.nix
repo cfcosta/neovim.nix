@@ -54,7 +54,6 @@ with deps.nightvim.lib; {
     })
     (mkPlugin "nvim-lspconfig" nvim-lspconfig {
       inputs = with pkgs; [
-        deps.aiken.packages.${pkgs.system}.default
         gopls
         luajitPackages.lua-lsp
         nixd
@@ -102,6 +101,7 @@ with deps.nightvim.lib; {
     (mkPlugin "indent-blankline" indent-blankline {
       config = builtins.readFile ./indentline.lua;
     })
+    (mkPlugin "nvim-osc52" osc52 { config = builtins.readFile ./osc52.lua; })
     (mkPlugin "neorg" neorg { config = builtins.readFile ./neorg.lua; })
     (mkPlugin "cmp-buffer" cmp-buffer { config = ""; })
     (mkPlugin "cmp-cmdline" cmp-cmdline { config = ""; })

@@ -19,11 +19,6 @@
       };
     };
 
-    aiken = {
-      url = "github:aiken-lang/aiken";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     cmp-buffer = {
       url = "github:hrsh7th/cmp-buffer";
       flake = false;
@@ -152,10 +147,13 @@
       url = "github:folke/trouble.nvim";
       flake = false;
     };
+    osc52 = {
+      url = "github:ojroques/nvim-osc52";
+      flake = false;
+    };
   };
 
-  outputs =
-    inputs@{ self, nixpkgs, flake-utils, home-manager, nightvim, aiken, ... }:
+  outputs = inputs@{ self, nixpkgs, flake-utils, home-manager, nightvim, ... }:
     let
       hmModule = { options, config, lib, pkgs, ... }: {
         imports = [

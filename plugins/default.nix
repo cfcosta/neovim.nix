@@ -120,5 +120,6 @@ with deps.nightvim.lib; {
     (mkPlugin "nvim-web-devicons" nvim-web-devicons { })
     (mkPlugin "plenary" plenary { config = ""; })
     (mkPlugin "treesj" treesj { })
+    (mkPlugin "aiken-neovim" aiken-neovim { config = ""; })
   ];
 }

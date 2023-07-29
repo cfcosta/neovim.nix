@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "aiken-neovim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1679823555,
+        "narHash": "sha256-vlhqunKmQTUGPCPq3sSW3QOKJgnAwQdFnGzWKEjGNzE=",
+        "owner": "aiken-lang",
+        "repo": "editor-integration-nvim",
+        "rev": "259203266da4ef367a4a41baa60fe49177d55598",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aiken-lang",
+        "repo": "editor-integration-nvim",
+        "type": "github"
+      }
+    },
     "cmp-buffer": {
       "flake": false,
       "locked": {
@@ -531,6 +547,7 @@
     },
     "root": {
       "inputs": {
+        "aiken-neovim": "aiken-neovim",
         "cmp-buffer": "cmp-buffer",
         "cmp-cmdline": "cmp-cmdline",
         "cmp-nvim-lsp": "cmp-nvim-lsp",

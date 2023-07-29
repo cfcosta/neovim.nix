@@ -151,6 +151,10 @@
       url = "github:ojroques/nvim-osc52";
       flake = false;
     };
+    aiken-neovim = {
+      url = "github:aiken-lang/editor-integration-nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, flake-utils, home-manager, nightvim, ... }:

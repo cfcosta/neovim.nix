@@ -96,7 +96,7 @@ with deps.nightvim.lib; {
     (mkPlugin "nvim-treesitter" nvim-treesitter {
       depends = [ "nvim-treesitter-endwise" ];
       inputs = with pkgs; [ gcc git ];
-      config = builtins.readFile ./telescope.lua;
+      config = builtins.readFile ./treesitter.lua;
     })
     (mkPlugin "indent-blankline" indent-blankline {
       config = builtins.readFile ./indentline.lua;

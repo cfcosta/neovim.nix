@@ -121,5 +121,7 @@ with deps.nightvim.lib; {
     (mkPlugin "plenary" plenary { config = ""; })
     (mkPlugin "treesj" treesj { })
     (mkPlugin "aiken-neovim" aiken-neovim { config = ""; })
+    (mkPlugin "wakatime" wakatime { config = ""; })
+    (mkPlugin "which-key" which-key { })
   ];
 }

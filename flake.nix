@@ -155,6 +155,14 @@
       url = "github:aiken-lang/editor-integration-nvim";
       flake = false;
     };
+    wakatime = {
+      url = "github:wakatime/vim-wakatime";
+      flake = false;
+    };
+    which-key = {
+      url = "github:folke/which-key.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, flake-utils, home-manager, nightvim, ... }:

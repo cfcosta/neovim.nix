@@ -20,6 +20,12 @@ require("rust-tools").setup {
       checkOnSave = {
         command = "clippy",
       },
+      procMacro = {
+        enable = true,
+        ignored = {
+          ["async-trait"] = { "async-trait" },
+        },
+      },
     },
   },
 }

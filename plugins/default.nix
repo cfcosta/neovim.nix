@@ -56,11 +56,11 @@ with deps.nightvim.lib; {
       inputs = with pkgs; [
         deps.nixd.packages.${pkgs.system}.default
 
+        buf-language-server
         gopls
         luajitPackages.lua-lsp
         nodePackages.dockerfile-language-server-nodejs
         nodePackages.eslint
-        nodePackages.svelte-language-server
         nodePackages.typescript
         nodePackages.typescript-language-server
         nodePackages.vscode-langservers-extracted

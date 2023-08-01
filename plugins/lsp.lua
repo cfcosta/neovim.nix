@@ -1,9 +1,14 @@
 local lspconfig = require "lspconfig"
+local configs = require "lspconfig.configs"
+local util = require "lspconfig.util"
 
+-- Nix
 lspconfig.nixd.setup {}
+-- Typescript
 lspconfig.tsserver.setup {}
 lspconfig.eslint.setup {}
-lspconfig.svelte.setup {}
+-- Protocol Buffers
+lspconfig.bufls.setup {}
 
 lspconfig.lua_ls.setup {
   settings = {
@@ -41,9 +46,6 @@ lspconfig.gopls.setup {
     usePlaceholders = true,
   },
 }
-
-local configs = require "lspconfig.configs"
-local util = require "lspconfig.util"
 
 if not configs.aiken then
   configs.aiken = {

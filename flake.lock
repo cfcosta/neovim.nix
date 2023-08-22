@@ -128,6 +128,22 @@
         "type": "github"
       }
     },
+    "dash-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1634039244,
+        "narHash": "sha256-h62LO+giLQha4EG6jk8CaNK+x+oyISVdo9cr6Db3ECA=",
+        "owner": "Kapeli",
+        "repo": "dash.nvim",
+        "rev": "2050947e035945c8c2fd16c028f1a8676a76d1cd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Kapeli",
+        "repo": "dash.nvim",
+        "type": "github"
+      }
+    },
     "diffview": {
       "flake": false,
       "locked": {
@@ -612,6 +628,7 @@
         "cmp-snippy": "cmp-snippy",
         "codegpt": "codegpt",
         "comment": "comment",
+        "dash-nvim": "dash-nvim",
         "diffview": "diffview",
         "flake-utils": "flake-utils",
         "gitsigns": "gitsigns",

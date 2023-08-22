@@ -168,6 +168,10 @@
       url = "github:folke/which-key.nvim";
       flake = false;
     };
+    dash-nvim = {
+      url = "github:Kapeli/dash.nvim";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, flake-utils, home-manager, nightvim, ... }:

@@ -1,6 +1,9 @@
 local parser_install_dir = vim.fn.stdpath("cache") .. "/treesitters"
 vim.fn.mkdir(parser_install_dir, "p")
-vim.opt.runtimepath:append(parser_install_dir)
+
+local new_runtimepath = vim.opt.runtimepath:get()
+table.insert(new_runtimepath, 1, parser_install_dir)
+vim.opt.runtimepath = new_runtimepath
 
 require("nvim-treesitter.configs").setup({
 	ensure_installed = { "rust", "nix", "lua", "c", "vim", "vimdoc" },

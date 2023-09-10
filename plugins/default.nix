@@ -48,7 +48,6 @@ with deps.nightvim.lib; {
           "nvim-lspconfig"
           "nvim-snippy"
           "plenary"
-          "neorg"
         ];
 
         config = builtins.readFile ./cmp.lua;
@@ -104,7 +103,6 @@ with deps.nightvim.lib; {
         config = builtins.readFile ./indentline.lua;
       })
       (mkPlugin "nvim-osc52" osc52 { config = builtins.readFile ./osc52.lua; })
-      (mkPlugin "neorg" neorg { config = builtins.readFile ./neorg.lua; })
       (mkPlugin "cmp-buffer" cmp-buffer { config = ""; })
       (mkPlugin "cmp-cmdline" cmp-cmdline { config = ""; })
       (mkPlugin "cmp-nvim-lsp" cmp-nvim-lsp { config = ""; })

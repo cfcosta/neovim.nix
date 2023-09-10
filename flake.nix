@@ -80,10 +80,6 @@
       url = "github:TimUntersberger/neogit";
       flake = false;
     };
-    neorg = {
-      url = "github:nvim-neorg/neorg";
-      flake = false;
-    };
     nui = {
       url = "github:muniftanjim/nui.nvim";
       flake = false;

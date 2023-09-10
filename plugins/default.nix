@@ -58,7 +58,7 @@ with deps.nightvim.lib; {
 
           buf-language-server
           gopls
-          luajitPackages.lua-lsp
+          lua-language-server
           nodePackages.dockerfile-language-server-nodejs
           nodePackages.eslint
           nodePackages.typescript

@@ -78,7 +78,13 @@ with deps.nightvim.lib; {
         lazy = false;
         config = ''require("moonlight").set()'';
       })
-      (mkPlugin "toggleterm" toggleterm { })
+      (mkPlugin "toggleterm" toggleterm {
+        config = ''
+          require("toggleterm").setup {
+            size = 72
+          }
+        '';
+      })
       (mkPlugin "telescope" telescope {
         inputs = with pkgs; [ ripgrep ];
 

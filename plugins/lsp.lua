@@ -1,16 +1,16 @@
-local lspconfig = require "lspconfig"
-local configs = require "lspconfig.configs"
-local util = require "lspconfig.util"
+local lspconfig = require("lspconfig")
+local configs = require("lspconfig.configs")
+local util = require("lspconfig.util")
 
 -- Nix
-lspconfig.nixd.setup {}
+lspconfig.nixd.setup({})
 -- Typescript
-lspconfig.tsserver.setup {}
-lspconfig.eslint.setup {}
+lspconfig.tsserver.setup({})
+lspconfig.eslint.setup({})
 -- Protocol Buffers
-lspconfig.bufls.setup {}
+lspconfig.bufls.setup({})
 
-lspconfig.lua_ls.setup {
+lspconfig.lua_ls.setup({
   settings = {
     Lua = {
       runtime = {
@@ -27,9 +27,9 @@ lspconfig.lua_ls.setup {
       },
     },
   },
-}
+})
 
-lspconfig.gopls.setup {
+lspconfig.gopls.setup({
   cmd = { "gopls" },
   capabilities = require("cmp_nvim_lsp").default_capabilities(),
   settings = {
@@ -45,7 +45,7 @@ lspconfig.gopls.setup {
   init_options = {
     usePlaceholders = true,
   },
-}
+})
 
 if not configs.aiken then
   configs.aiken = {
@@ -70,5 +70,5 @@ if not configs.aiken then
     },
   }
 
-  lspconfig.aiken.setup {}
+  lspconfig.aiken.setup({})
 end

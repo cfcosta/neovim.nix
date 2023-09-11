@@ -6,13 +6,13 @@ table.insert(new_runtimepath, 1, parser_install_dir)
 vim.opt.runtimepath = new_runtimepath
 
 require("nvim-treesitter.configs").setup({
-	ensure_installed = { "rust", "nix", "lua", "c", "vim", "vimdoc" },
-	sync_install = false,
-	auto_install = true,
-	highlight = { enable = true },
-	endwise = { enable = true },
-	indent = { enable = true },
-	parser_install_dir = parser_install_dir,
+  ensure_installed = { "rust", "nix", "lua", "c", "vim", "vimdoc" },
+  sync_install = false,
+  auto_install = true,
+  highlight = { enable = true },
+  endwise = { enable = true },
+  indent = { enable = true },
+  parser_install_dir = parser_install_dir,
 })
 
 -- Enable folding using treesitter

@@ -7,7 +7,7 @@ local lsp_attach = function(client, buf)
 end
 
 -- Setup rust_analyzer via rust-tools.nvim
-require("rust-tools").setup {
+require("rust-tools").setup({
   server = {
     capabilities = capabilities,
     on_attach = lsp_attach,
@@ -28,4 +28,4 @@ require("rust-tools").setup {
       },
     },
   },
-}
+})

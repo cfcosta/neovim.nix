@@ -160,6 +160,22 @@
         "type": "github"
       }
     },
+    "dracula": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1690594744,
+        "narHash": "sha256-gblqxRTphGBpEOx57/4oU/B50O0OguIm1bFtd4LXuQ4=",
+        "owner": "Mofiqul",
+        "repo": "dracula.nvim",
+        "rev": "9fe831e685a76e1a1898a694623b33247c4d036c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mofiqul",
+        "repo": "dracula.nvim",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -244,22 +260,6 @@
       "original": {
         "owner": "nvim-lualine",
         "repo": "lualine.nvim",
-        "type": "github"
-      }
-    },
-    "moonlight": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1621189154,
-        "narHash": "sha256-wydCYXsQZyojiUf4CAi15pSysFxZjdRk8x3r668bPFU=",
-        "owner": "shaunsingh",
-        "repo": "moonlight.nvim",
-        "rev": "e24e4218ec680b6396532808abf57ca0ada82e66",
-        "type": "github"
-      },
-      "original": {
-        "owner": "shaunsingh",
-        "repo": "moonlight.nvim",
         "type": "github"
       }
     },
@@ -557,12 +557,12 @@
         "comment": "comment",
         "dash-nvim": "dash-nvim",
         "diffview": "diffview",
+        "dracula": "dracula",
         "flake-utils": "flake-utils",
         "gitsigns": "gitsigns",
         "home-manager": "home-manager",
         "indent-blankline": "indent-blankline",
         "lualine": "lualine",
-        "moonlight": "moonlight",
         "neo-tree": "neo-tree",
         "neogit": "neogit",
         "nightvim": "nightvim",

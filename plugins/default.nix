@@ -70,9 +70,9 @@ with deps.nightvim.lib; {
         depends = [ "cmp-nvim-lsp" ];
         config = builtins.readFile ./rust-tools.lua;
       })
-      (mkPlugin "moonlight" moonlight {
+      (mkPlugin "dracula" dracula {
         lazy = false;
-        config = ''require("moonlight").set()'';
+        config = "vim.cmd[[colorscheme dracula]]";
       })
       (mkPlugin "toggleterm" toggleterm {
         config = ''
@@ -92,7 +92,7 @@ with deps.nightvim.lib; {
         config = ''
           require("lualine").setup {
             options = {
-              theme = "moonlight",
+              theme = "dracula-nvim",
             }
           }
         '';

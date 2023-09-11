@@ -63,8 +63,8 @@
       url = "github:nvim-lualine/lualine.nvim";
       flake = false;
     };
-    moonlight = {
-      url = "github:shaunsingh/moonlight.nvim";
+    dracula = {
+      url = "github:Mofiqul/dracula.nvim";
       flake = false;
     };
     neo-tree = {

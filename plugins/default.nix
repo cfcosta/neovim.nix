@@ -120,6 +120,7 @@ with deps.nightvim.lib; {
       (mkPlugin "nvim-treesitter-endwise" nvim-treesitter-endwise {
         config = "";
       })
+      (mkPlugin "nvim-treesitter-just" nvim-treesitter-just { config = ""; })
       (mkPlugin "nvim-web-devicons" nvim-web-devicons { })
       (mkPlugin "plenary" plenary { config = ""; })
       (mkPlugin "treesj" treesj { })

@@ -187,6 +187,11 @@
         [
           (writeShellScriptBin "neovim-format" ''
             ${stylua}/bin/stylua --glob '**/*.lua' -- .
+
+            for file in $(find . -name "*.nix" -not -path "./.git/*"); do
+              echo "Formatting $file..."
+              ${nixfmt}/bin/nixfmt "$file"
+            done
           '')
         ];
     in {

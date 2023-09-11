@@ -5,10 +5,7 @@ with deps.nightvim.lib; {
       (mkPlugin "comment" comment { config = ''require("Comment").setup {}''; })
       (mkPlugin "neo-tree" neo-tree {
         depends = [ "plenary" "nvim-web-devicons" "nui" ];
-        config = ''
-          vim.cmd [[ let g:neo_tree_remove_legacy_commands = 1 ]]
-          require("neo-tree").setup()
-        '';
+        config = builtins.readFile ./neo-tree.lua;
       })
       (mkPlugin "neogit" neogit {
         depends = [ "plenary" "diffview" ];

@@ -181,6 +181,14 @@
           extraConfig = builtins.readFile ./init.lua;
         };
       };
+
+      devScripts = pkgs:
+        with pkgs;
+        [
+          (writeShellScriptBin "neovim-format" ''
+            ${stylua}/bin/stylua --glob '**/*.lua' -- .
+          '')
+        ];
     in {
       inherit hmModule;
     } // flake-utils.lib.eachDefaultSystem (system:
@@ -206,5 +214,8 @@
             })
           ];
         }).activation-script;
+
+        devShell =
+          pkgs.mkShell { packages = with pkgs; [ stylua (devScripts pkgs) ]; };
       });
 }

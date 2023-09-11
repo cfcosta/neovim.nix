@@ -1,3 +1,6 @@
+local actions = require("telescope.actions")
+local trouble = require("trouble.providers.telescope")
+
 local options = {
   defaults = {
     vimgrep_arguments = {
@@ -45,8 +48,14 @@ local options = {
     qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
     buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
     mappings = {
-      n = { ["q"] = require("telescope.actions").close },
-      i = { ["<esc>"] = require("telescope.actions").close },
+      n = {
+        ["q"] = actions.close,
+        ["<c-t>"] = trouble.open_with_trouble,
+      },
+      i = {
+        ["<esc>"] = actions.close,
+        ["<c-t>"] = trouble.open_with_trouble,
+      },
     },
   },
 

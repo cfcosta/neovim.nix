@@ -83,7 +83,7 @@ with deps.nightvim.lib; {
       })
       (mkPlugin "telescope" telescope {
         inputs = with pkgs; [ ripgrep zf ];
-
+        depends = [ "trouble" ];
         config = builtins.readFile ./telescope.lua;
       })
       (mkPlugin "trouble" trouble { depends = [ "nvim-web-devicons" ]; })

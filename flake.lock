@@ -582,6 +582,7 @@
         "plenary": "plenary",
         "rust-tools": "rust-tools",
         "telescope": "telescope",
+        "telescope-zf-native": "telescope-zf-native",
         "toggleterm": "toggleterm",
         "treesj": "treesj",
         "trouble": "trouble",
@@ -633,6 +634,22 @@
       "original": {
         "owner": "nvim-telescope",
         "repo": "telescope.nvim",
+        "type": "github"
+      }
+    },
+    "telescope-zf-native": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1678918435,
+        "narHash": "sha256-KpODXemfksWQ0PjjQrpC6E4tBVmQtcUnRyapX0PTQD4=",
+        "owner": "natecraddock",
+        "repo": "telescope-zf-native.nvim",
+        "rev": "beb34b6c48154ec117930180f257a5592606d48f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "natecraddock",
+        "repo": "telescope-zf-native.nvim",
         "type": "github"
       }
     },

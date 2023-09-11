@@ -50,7 +50,21 @@ local options = {
     },
   },
 
-  extensions_list = { "themes", "terms" },
+  extensions_list = { "themes", "terms", "zf-native" },
+  extensions = {
+    ["zf-native"] = {
+      file = {
+        enable = true,
+        highlight_results = true,
+        match_filename = true,
+      },
+      generic = {
+        enable = true,
+        highlight_results = true,
+        match_filename = false,
+      },
+    },
+  },
 }
 
 require("telescope").setup(options)

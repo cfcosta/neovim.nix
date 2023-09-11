@@ -82,7 +82,7 @@ with deps.nightvim.lib; {
         '';
       })
       (mkPlugin "telescope" telescope {
-        inputs = with pkgs; [ ripgrep ];
+        inputs = with pkgs; [ ripgrep zf ];
 
         config = builtins.readFile ./telescope.lua;
       })

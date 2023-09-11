@@ -21,6 +21,7 @@ with deps.nightvim.lib; {
           actionlint
           nixfmt
           nodePackages.eslint
+          rustfmt
           shellcheck
           shfmt
           statix

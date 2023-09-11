@@ -55,8 +55,6 @@ with deps.nightvim.lib; {
       })
       (mkPlugin "nvim-lspconfig" nvim-lspconfig {
         inputs = with pkgs; [
-          deps.nixd.packages.${pkgs.system}.default
-
           buf-language-server
           gopls
           lua-language-server
@@ -65,6 +63,7 @@ with deps.nightvim.lib; {
           nodePackages.typescript
           nodePackages.typescript-language-server
           nodePackages.vscode-langservers-extracted
+          nixd
         ];
 
         config = builtins.readFile ./lsp.lua;

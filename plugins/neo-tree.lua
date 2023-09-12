@@ -4,9 +4,11 @@ require("neo-tree").setup({
   filesystem = {
     filtered_items = {
       always_show = {
+        ".dockerignore",
+        ".env",
+        ".envrc",
         ".github",
         ".gitignore",
-        ".dockerignore",
         ".gitlab-ci.yml",
         ".justfile",
       },

@@ -40,6 +40,6 @@ export XDG_CACHE_HOME="${TEMP}/.cache"
 export XDG_DATA_HOME="${TEMP}/.local/share"
 export PATH="${TEMP}/result/home-path/bin:${PATH}"
 
-"${TEMP}/result/home-path/bin/nvim"
+"${TEMP}/result/home-path/bin/nvim" $@
 
 cleanup

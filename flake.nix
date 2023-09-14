@@ -171,6 +171,14 @@
       url = "github:Kapeli/dash.nvim";
       flake = false;
     };
+    copilot = {
+      url = "github:zbirenbaum/copilot.lua";
+      flake = false;
+    };
+    copilot-cmp = {
+      url = "github:zbirenbaum/copilot-cmp";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, flake-utils, home-manager, nightvim, ... }:

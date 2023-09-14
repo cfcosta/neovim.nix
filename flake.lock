@@ -128,6 +128,38 @@
         "type": "github"
       }
     },
+    "copilot": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1693853391,
+        "narHash": "sha256-YTq8bcPXKHT96sm+Ov5MulDvWzlK8BI3ehu8q4XDmzc=",
+        "owner": "zbirenbaum",
+        "repo": "copilot.lua",
+        "rev": "2c942f33ba5c621c906e625e00a1bb504b65e2f0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zbirenbaum",
+        "repo": "copilot.lua",
+        "type": "github"
+      }
+    },
+    "copilot-cmp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1694286652,
+        "narHash": "sha256-srgNohm/aJpswNJ5+T7p+zi9Jinp9e5FA8/wdk6VRiY=",
+        "owner": "zbirenbaum",
+        "repo": "copilot-cmp",
+        "rev": "72fbaa03695779f8349be3ac54fa8bd77eed3ee3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zbirenbaum",
+        "repo": "copilot-cmp",
+        "type": "github"
+      }
+    },
     "dash-nvim": {
       "flake": false,
       "locked": {
@@ -571,6 +603,8 @@
         "cmp-snippy": "cmp-snippy",
         "codegpt": "codegpt",
         "comment": "comment",
+        "copilot": "copilot",
+        "copilot-cmp": "copilot-cmp",
         "dash-nvim": "dash-nvim",
         "diffview": "diffview",
         "dracula": "dracula",

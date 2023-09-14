@@ -37,6 +37,8 @@ with deps.nightvim.lib; {
       })
       (mkPlugin "nvim-cmp" nvim-cmp {
         depends = [
+          "copilot"
+          "copilot-cmp"
           "cmp-buffer"
           "cmp-cmdline"
           "cmp-nvim-lsp"
@@ -104,6 +106,14 @@ with deps.nightvim.lib; {
       })
       (mkPlugin "indent-blankline" indent-blankline {
         config = builtins.readFile ./indentline.lua;
+      })
+      (mkPlugin "copilot" copilot {
+        inputs = with pkgs; [ nodejs ];
+        depends = [ "copilot-cmp" ];
+        config = builtins.readFile ./copilot.lua;
+      })
+      (mkPlugin "copilot-cmp" copilot-cmp {
+        config = "require('copilot_cmp').setup()";
       })
       (mkPlugin "nvim-osc52" osc52 { config = builtins.readFile ./osc52.lua; })
       (mkPlugin "cmp-buffer" cmp-buffer { config = ""; })

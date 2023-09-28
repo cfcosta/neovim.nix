@@ -135,7 +135,10 @@ with deps.nightvim.lib; {
       (mkPlugin "plenary" plenary { config = ""; })
       (mkPlugin "treesj" treesj { })
       (mkPlugin "aiken-neovim" aiken-neovim { config = ""; })
-      (mkPlugin "wakatime" wakatime { config = ""; })
+      (mkPlugin "wakatime" wakatime {
+        inputs = with pkgs; [ wakatime ];
+        config = builtins.readFile ./wakatime.lua;
+      })
       (mkPlugin "which-key" which-key { })
     ] ++ (pkgs.lib.optionals pkgs.stdenv.isDarwin [
       (mkPlugin "dash.nvim" dash-nvim {

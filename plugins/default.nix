@@ -138,6 +138,7 @@ with deps.nightvim.lib; {
       (mkPlugin "wakatime" wakatime {
         inputs = with pkgs; [ wakatime ];
         config = builtins.readFile ./wakatime.lua;
+        lazy = false;
       })
       (mkPlugin "which-key" which-key { })
     ] ++ (pkgs.lib.optionals pkgs.stdenv.isDarwin [

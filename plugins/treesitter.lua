@@ -6,6 +6,7 @@ table.insert(new_runtimepath, 1, parser_install_dir)
 vim.opt.runtimepath = new_runtimepath
 
 -- Add support for just files
+require("nvim-treesitter.install").compilers = { "gcc", "clang" }
 require("nvim-treesitter.parsers").get_parser_configs().just = {
   install_info = {
     url = "https://github.com/IndianBoy42/tree-sitter-just",

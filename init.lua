@@ -10,6 +10,10 @@ vim.opt.expandtab = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false
+
 map("n", "<leader>wv", "<cmd>vsplit<cr>")
 map("n", "<leader>ws", "<cmd>split<cr>")
 map("n", "<leader>wc", "<cmd>close<cr>")

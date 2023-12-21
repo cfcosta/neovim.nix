@@ -25,14 +25,4 @@ hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_leve
 
 require("ibl").setup({
   indent = { highlight = highlight },
-  exclude = {
-    filetypes = {
-      "help",
-      "terminal",
-      "lspinfo",
-      "TelescopePrompt",
-      "TelescopeResults",
-      "",
-    },
-  },
 })

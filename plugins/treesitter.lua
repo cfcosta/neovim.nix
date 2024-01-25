@@ -18,7 +18,7 @@ require("nvim-treesitter.parsers").get_parser_configs().just = {
 }
 
 require("nvim-treesitter.configs").setup({
-  ensure_installed = { "rust", "nix", "lua", "c", "vim", "vimdoc", "just" },
+  ensure_installed = { "rust", "nix", "lua", "c", "vim", "vimdoc", "just", "python" },
   sync_install = false,
   auto_install = true,
   highlight = { enable = true },

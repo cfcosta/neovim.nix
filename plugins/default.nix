@@ -57,12 +57,13 @@ with deps.nightvim.lib; {
           buf-language-server
           gopls
           lua-language-server
+          nixd
           nodePackages.dockerfile-language-server-nodejs
           nodePackages.eslint
           nodePackages.typescript
           nodePackages.typescript-language-server
           nodePackages.vscode-langservers-extracted
-          nixd
+          pylyzer
         ];
 
         config = builtins.readFile ./lsp.lua;

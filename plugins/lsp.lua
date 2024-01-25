@@ -2,14 +2,20 @@ local lspconfig = require("lspconfig")
 local configs = require("lspconfig.configs")
 local util = require("lspconfig.util")
 
+-- Python
+lspconfig.pylyzer.setup({})
+
 -- Nix
 lspconfig.nixd.setup({})
+
 -- Typescript
 lspconfig.tsserver.setup({})
 lspconfig.eslint.setup({})
+
 -- Protocol Buffers
 lspconfig.bufls.setup({})
 
+-- Lua
 lspconfig.lua_ls.setup({
   settings = {
     Lua = {
@@ -29,6 +35,7 @@ lspconfig.lua_ls.setup({
   },
 })
 
+-- Go
 lspconfig.gopls.setup({
   cmd = { "gopls" },
   capabilities = require("cmp_nvim_lsp").default_capabilities(),
@@ -47,6 +54,7 @@ lspconfig.gopls.setup({
   },
 })
 
+-- Aiken
 if not configs.aiken then
   configs.aiken = {
     default_config = {

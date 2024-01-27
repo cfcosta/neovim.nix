@@ -64,6 +64,7 @@ with deps.nightvim.lib; {
           nodePackages.typescript-language-server
           nodePackages.vscode-langservers-extracted
           pylyzer
+          pyright
         ];
 
         config = builtins.readFile ./lsp.lua;

@@ -69,9 +69,6 @@ with deps.nightvim.lib; {
           nodePackages.typescript
           nodePackages.typescript-language-server
           nodePackages.vscode-langservers-extracted
-
-          # Python
-          pylyzer
           pyright
           ruff
         ];

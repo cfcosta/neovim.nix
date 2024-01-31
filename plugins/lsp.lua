@@ -22,6 +22,7 @@ local function organize_imports()
     bufnr = vim.api.nvim_get_current_buf(),
     name = "pyright",
   })
+
   for _, client in ipairs(clients) do
     client.request("workspace/executeCommand", params, nil, 0)
   end
@@ -39,7 +40,6 @@ local function set_python_path(path)
 end
 
 -- Python
-lspconfig.pylyzer.setup({})
 lspconfig.pyright.setup({
   default_config = {
     cmd = { "pyright-langserver", "--stdio" },

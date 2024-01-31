@@ -23,6 +23,12 @@ with deps.nightvim.lib; {
           shfmt
           statix
           stylua
+          clang-tools
+          ruff
+          ruff-lsp
+          cmake-format
+          jq
+          python312Packages.mdformat
         ];
 
         config = builtins.readFile ./null-ls.lua;

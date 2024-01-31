@@ -7,7 +7,6 @@ null_ls.setup({
     null_ls.builtins.code_actions.statix, -- Nix
     null_ls.builtins.code_actions.eslint, -- JS/TS
 
-    null_ls.builtins.formatting.clang_check, -- C/C++
     null_ls.builtins.formatting.clang_format, -- C/C++
     null_ls.builtins.formatting.cmake_format, -- CMake
     null_ls.builtins.formatting.eslint, -- JS/TS

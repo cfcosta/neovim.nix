@@ -64,3 +64,8 @@ after("nvim-lspconfig", function()
   map("n", "<leader>q", vim.diagnostic.setloclist)
   map("n", "<leader>cr", vim.lsp.buf.rename)
 end)
+
+after("copilot", function()
+  -- Explicitly request a completion from Copilot
+  map("n", "<leader>cA", "<Plug>(copilot-i_ALT-)")
+end)

@@ -16,19 +16,20 @@ with deps.nightvim.lib; {
 
         inputs = with pkgs; [
           actionlint
+          clang-tools
+          cmake-format
+          deadnix
+          jq
           nixfmt
           nodePackages.eslint
+          python312Packages.mdformat
+          ruff
+          ruff-lsp
           rustfmt
           shellcheck
           shfmt
           statix
           stylua
-          clang-tools
-          ruff
-          ruff-lsp
-          cmake-format
-          jq
-          python312Packages.mdformat
         ];
 
         config = builtins.readFile ./null-ls.lua;

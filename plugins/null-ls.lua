@@ -22,6 +22,7 @@ null_ls.setup({
     null_ls.builtins.diagnostics.eslint, -- JS/TS
     null_ls.builtins.diagnostics.ruff, -- Python
     null_ls.builtins.diagnostics.shellcheck, -- Shell
+    null_ls.builtins.diagnostics.deadnix, -- Nix
   },
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then

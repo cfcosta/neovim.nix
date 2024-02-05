@@ -33,6 +33,7 @@ local function set_python_path(path)
     bufnr = vim.api.nvim_get_current_buf(),
     name = "pyright",
   })
+
   for _, client in ipairs(clients) do
     client.config.settings = vim.tbl_deep_extend("force", client.config.settings, { python = { pythonPath = path } })
     client.notify("workspace/didChangeConfiguration", { settings = nil })
@@ -81,6 +82,9 @@ lspconfig.eslint.setup({})
 
 -- Protocol Buffers
 lspconfig.bufls.setup({})
+
+-- PostgreSQL
+lspconfig.postgres_lsp.setup({})
 
 -- Lua
 lspconfig.lua_ls.setup({

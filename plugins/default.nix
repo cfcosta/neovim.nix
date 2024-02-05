@@ -22,6 +22,7 @@ with deps.nightvim.lib; {
           jq
           nixfmt
           nodePackages.eslint
+          postgres-lsp
           ruff
           ruff-lsp
           rustfmt

@@ -179,6 +179,12 @@
       url = "github:zbirenbaum/copilot-cmp";
       flake = false;
     };
+
+    # Tools
+    mdformat-gfm = {
+      url = "github:hukkin/mdformat-gfm";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, flake-utils, home-manager, nightvim, ... }:

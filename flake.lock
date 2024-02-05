@@ -295,6 +295,22 @@
         "type": "github"
       }
     },
+    "mdformat-gfm": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1706550785,
+        "narHash": "sha256-c1jJwyTL8IgQnIAJFoPSuJ8VEYgnQ4slZyV0bHlUHLQ=",
+        "owner": "hukkin",
+        "repo": "mdformat-gfm",
+        "rev": "a532bf0db3b2b197fdf90e422c85a5e6909fccfb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hukkin",
+        "repo": "mdformat-gfm",
+        "type": "github"
+      }
+    },
     "neo-tree": {
       "flake": false,
       "locked": {
@@ -613,6 +629,7 @@
         "home-manager": "home-manager",
         "indent-blankline": "indent-blankline",
         "lualine": "lualine",
+        "mdformat-gfm": "mdformat-gfm",
         "neo-tree": "neo-tree",
         "neogit": "neogit",
         "nightvim": "nightvim",

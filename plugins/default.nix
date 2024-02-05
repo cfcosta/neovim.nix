@@ -22,10 +22,14 @@ with deps.nightvim.lib; {
           jq
           nixfmt
           nodePackages.eslint
-          python311Packages.mdformat
-          python311Packages.mdformat-gfm
-          python311Packages.mdformat-frontmatter
-          python311Packages.mdformat-footnote
+          (with pkgs.python3.pkgs;
+            mdformat.withPlugins [
+              (mdformat-gfm.overridePythonAttrs
+                (_: { src = deps.mdformat-gfm; }))
+              mdformat-frontmatter
+              mdformat-footnote
+              mdformat-tables
+            ])
           ruff
           ruff-lsp
           rustfmt

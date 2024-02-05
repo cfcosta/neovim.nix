@@ -187,9 +187,9 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, flake-utils, home-manager, nightvim, ... }:
+  outputs = inputs@{ nixpkgs, flake-utils, home-manager, nightvim, ... }:
     let
-      hmModule = { options, config, lib, pkgs, ... }: {
+      hmModule = { pkgs, ... }: {
         imports = [
           nightvim.hmModule
           (import ./plugins {
@@ -230,7 +230,7 @@
 
           modules = [
             hmModule
-            ({ options, config, lib, pkgs, ... }: {
+            ({ pkgs, ... }: {
               home.username = "nightvim";
               home.homeDirectory = if pkgs.stdenv.isLinux then
                 "/home/nightvim"

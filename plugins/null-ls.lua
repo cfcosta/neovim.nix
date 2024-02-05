@@ -16,7 +16,7 @@ null_ls.setup({
     null_ls.builtins.formatting.ruff, -- Python
     null_ls.builtins.formatting.rustfmt, -- Rust
     null_ls.builtins.formatting.shfmt, -- Shell
-    null_ls.builtins.formatting.stylua, -- Lula
+    null_ls.builtins.formatting.stylua, -- Lua
 
     null_ls.builtins.diagnostics.actionlint, -- Github Actions
     null_ls.builtins.diagnostics.eslint, -- JS/TS

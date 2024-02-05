@@ -22,6 +22,15 @@ with deps.nightvim.lib; {
           jq
           nixfmt
           nodePackages.eslint
+          ruff
+          ruff-lsp
+          rustfmt
+          shellcheck
+          shfmt
+          sqlfluff
+          statix
+          stylua
+
           (with pkgs.python3.pkgs;
             mdformat.withPlugins [
               (mdformat-gfm.overridePythonAttrs
@@ -30,13 +39,6 @@ with deps.nightvim.lib; {
               mdformat-footnote
               mdformat-tables
             ])
-          ruff
-          ruff-lsp
-          rustfmt
-          shellcheck
-          shfmt
-          statix
-          stylua
         ];
 
         config = builtins.readFile ./null-ls.lua;

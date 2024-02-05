@@ -17,6 +17,7 @@ null_ls.setup({
     null_ls.builtins.formatting.rustfmt, -- Rust
     null_ls.builtins.formatting.shfmt, -- Shell
     null_ls.builtins.formatting.stylua, -- Lua
+    null_ls.builtins.diagnostics.sqlfluff.with({ extra_args = { "--dialect", "postgres" } }), -- PostgreSQL
 
     null_ls.builtins.diagnostics.actionlint, -- Github Actions
     null_ls.builtins.diagnostics.eslint, -- JS/TS

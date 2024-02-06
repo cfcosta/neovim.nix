@@ -39,6 +39,7 @@ with deps.nightvim.lib; {
               mdformat-frontmatter
               mdformat-footnote
               mdformat-tables
+              mdit-py-plugins
             ])
         ];
 

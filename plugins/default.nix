@@ -1,15 +1,16 @@
 { pkgs, deps, ... }:
-with deps.nightvim.lib; {
+with deps.nightvim.lib;
+with builtins; {
   programs.nightvim.plugins = with deps;
     [
       (mkPlugin "comment" comment { config = ''require("Comment").setup {}''; })
       (mkPlugin "neo-tree" neo-tree {
         depends = [ "plenary" "nvim-web-devicons" "nui" ];
-        config = builtins.readFile ./neo-tree.lua;
+        config = readFile ./neo-tree.lua;
       })
       (mkPlugin "neogit" neogit {
         depends = [ "plenary" "diffview" ];
-        config = builtins.readFile ./neogit.lua;
+        config = readFile ./neogit.lua;
       })
       (mkPlugin "null-ls" null-ls {
         depends = [ "plenary" "nvim-lspconfig" ];
@@ -43,7 +44,7 @@ with deps.nightvim.lib; {
             ])
         ];
 
-        config = builtins.readFile ./null-ls.lua;
+        config = readFile ./null-ls.lua;
       })
       (mkPlugin "nvim-autopairs" nvim-autopairs {
         config = ''
@@ -68,7 +69,7 @@ with deps.nightvim.lib; {
           "plenary"
         ];
 
-        config = builtins.readFile ./cmp.lua;
+        config = readFile ./cmp.lua;
       })
       (mkPlugin "nvim-lspconfig" nvim-lspconfig {
         inputs = with pkgs; [
@@ -85,16 +86,16 @@ with deps.nightvim.lib; {
           ruff
         ];
 
-        config = builtins.readFile ./lsp.lua;
+        config = readFile ./lsp.lua;
       })
       (mkPlugin "rust-tools" rust-tools {
         inputs = with pkgs; [ rust-analyzer ];
         depends = [ "cmp-nvim-lsp" ];
-        config = builtins.readFile ./rust-tools.lua;
+        config = readFile ./rust-tools.lua;
       })
-      (mkPlugin "dracula" dracula {
+      (mkPlugin "tokyonight" tokyonight {
         lazy = false;
-        config = "vim.cmd[[colorscheme dracula]]";
+        config = readFile ./colorscheme.lua;
       })
       (mkPlugin "toggleterm" toggleterm {
         config = ''
@@ -106,7 +107,7 @@ with deps.nightvim.lib; {
       (mkPlugin "telescope" telescope {
         inputs = with pkgs; [ ripgrep zf ];
         depends = [ "trouble" ];
-        config = builtins.readFile ./telescope.lua;
+        config = readFile ./telescope.lua;
       })
       (mkPlugin "trouble" trouble { depends = [ "nvim-web-devicons" ]; })
       (mkPlugin "lualine" lualine {
@@ -114,7 +115,7 @@ with deps.nightvim.lib; {
         config = ''
           require("lualine").setup {
             options = {
-              theme = "dracula-nvim",
+              theme = "tokyonight",
             }
           }
         '';
@@ -122,20 +123,20 @@ with deps.nightvim.lib; {
       (mkPlugin "nvim-treesitter" nvim-treesitter {
         depends = [ "nvim-treesitter-endwise" ];
         inputs = with pkgs; [ gcc git ];
-        config = builtins.readFile ./treesitter.lua;
+        config = readFile ./treesitter.lua;
       })
       (mkPlugin "indent-blankline" indent-blankline {
-        config = builtins.readFile ./indentline.lua;
+        config = readFile ./indentline.lua;
       })
       (mkPlugin "copilot" copilot {
         inputs = with pkgs; [ nodejs ];
         depends = [ "copilot-cmp" ];
-        config = builtins.readFile ./copilot.lua;
+        config = readFile ./copilot.lua;
       })
       (mkPlugin "copilot-cmp" copilot-cmp {
         config = "require('copilot_cmp').setup()";
       })
-      (mkPlugin "nvim-osc52" osc52 { config = builtins.readFile ./osc52.lua; })
+      (mkPlugin "nvim-osc52" osc52 { config = readFile ./osc52.lua; })
       (mkPlugin "cmp-buffer" cmp-buffer { config = ""; })
       (mkPlugin "cmp-cmdline" cmp-cmdline { config = ""; })
       (mkPlugin "cmp-nvim-lsp" cmp-nvim-lsp { config = ""; })
@@ -157,7 +158,7 @@ with deps.nightvim.lib; {
       (mkPlugin "aiken-neovim" aiken-neovim { config = ""; })
       (mkPlugin "wakatime" wakatime {
         inputs = with pkgs; [ wakatime ];
-        config = builtins.readFile ./wakatime.lua;
+        config = readFile ./wakatime.lua;
         lazy = false;
       })
       (mkPlugin "which-key" which-key { })

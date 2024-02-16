@@ -26,22 +26,14 @@ with builtins; {
           postgres-lsp
           ruff
           ruff-lsp
-          rustfmt
-          shellcheck
-          shfmt
-          sqlfluff
-          statix
-          stylua
 
-          (with pkgs.python3.pkgs;
-            mdformat.withPlugins [
-              (mdformat-gfm.overridePythonAttrs
-                (_: { src = deps.mdformat-gfm; }))
-              mdformat-frontmatter
-              mdformat-footnote
-              mdformat-tables
-              mdit-py-plugins
-            ])
+          (mdformat.withPlugins [
+            (mdformat-gfm.overridePythonAttrs (_: { src = deps.mdformat-gfm; }))
+            mdformat-frontmatter
+            mdformat-footnote
+            mdformat-tables
+            mdit-py-plugins
+          ])
         ];
 
         config = readFile ./null-ls.lua;

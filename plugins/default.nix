@@ -27,13 +27,13 @@ with builtins; {
           ruff
           ruff-lsp
 
-          (mdformat.withPlugins [
-            (mdformat-gfm.overridePythonAttrs (_: { src = deps.mdformat-gfm; }))
-            mdformat-frontmatter
-            mdformat-footnote
-            mdformat-tables
-            mdit-py-plugins
-          ])
+          mdformat
+          (python311Packages.mdformat-gfm.overridePythonAttrs
+            (_: { src = deps.mdformat-gfm; }))
+          python311Packages.mdformat-frontmatter
+          python311Packages.mdformat-footnote
+          python311Packages.mdformat-tables
+          python311Packages.mdit-py-plugins
         ];
 
         config = readFile ./null-ls.lua;

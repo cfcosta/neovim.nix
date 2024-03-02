@@ -1,4 +1,7 @@
 local cmp = require("cmp")
+local lspkind = require("lspkind")
+
+require("copilot_cmp").setup()
 
 cmp.setup({
   snippet = {
@@ -22,11 +25,21 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = "copilot" },
+    { name = "snippy" },
     { name = "nvim_lsp" },
     { name = "nvim_lsp_signature_help" },
     { name = "path" },
-    { name = "snippy" },
   }, {
     { name = "buffer" },
   }),
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = "symbol", -- show only symbol annotations
+      maxwidth = function()
+        return math.floor(0.45 * vim.o.columns)
+      end,
+      ellipsis_char = "...",
+      show_labelDetails = true,
+    }),
+  },
 })

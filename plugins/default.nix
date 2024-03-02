@@ -48,13 +48,14 @@ with builtins; {
       })
       (mkPlugin "nvim-cmp" nvim-cmp {
         depends = [
-          "copilot"
-          "copilot-cmp"
           "cmp-buffer"
           "cmp-cmdline"
           "cmp-nvim-lsp"
           "cmp-path"
           "cmp-snippy"
+          "copilot"
+          "copilot-cmp"
+          "lspkind"
           "nvim-dap"
           "nvim-lspconfig"
           "nvim-snippy"
@@ -122,12 +123,10 @@ with builtins; {
       })
       (mkPlugin "copilot" copilot {
         inputs = with pkgs; [ nodejs ];
-        depends = [ "copilot-cmp" ];
         config = readFile ./copilot.lua;
       })
-      (mkPlugin "copilot-cmp" copilot-cmp {
-        config = "require('copilot_cmp').setup()";
-      })
+      (mkPlugin "lspkind" lspkind { config = ""; })
+      (mkPlugin "copilot-cmp" copilot-cmp { config = ""; })
       (mkPlugin "nvim-osc52" osc52 { config = readFile ./osc52.lua; })
       (mkPlugin "cmp-buffer" cmp-buffer { config = ""; })
       (mkPlugin "cmp-cmdline" cmp-cmdline { config = ""; })

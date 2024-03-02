@@ -179,6 +179,10 @@
       url = "github:zbirenbaum/copilot-cmp";
       flake = false;
     };
+    lspkind = {
+      url = "github:onsails/lspkind-nvim";
+      flake = false;
+    };
 
     # Tools
     mdformat-gfm = {

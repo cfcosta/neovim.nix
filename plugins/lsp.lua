@@ -2,6 +2,13 @@ local lspconfig = require("lspconfig")
 local configs = require("lspconfig.configs")
 local util = require("lspconfig.util")
 
+-- Python
+lspconfig.ruff_lsp.setup({
+  on_attach = function(client, bufnr)
+    client.server_capabilities.hoverProvider = false
+  end,
+})
+
 local root_files = {
   "pyproject.toml",
   "setup.py",
@@ -12,35 +19,6 @@ local root_files = {
   ".git",
 }
 
-local function organize_imports()
-  local params = {
-    command = "pyright.organizeimports",
-    arguments = { vim.uri_from_bufnr(0) },
-  }
-
-  local clients = vim.lsp.get_active_clients({
-    bufnr = vim.api.nvim_get_current_buf(),
-    name = "pyright",
-  })
-
-  for _, client in ipairs(clients) do
-    client.request("workspace/executeCommand", params, nil, 0)
-  end
-end
-
-local function set_python_path(path)
-  local clients = vim.lsp.get_active_clients({
-    bufnr = vim.api.nvim_get_current_buf(),
-    name = "pyright",
-  })
-
-  for _, client in ipairs(clients) do
-    client.config.settings = vim.tbl_deep_extend("force", client.config.settings, { python = { pythonPath = path } })
-    client.notify("workspace/didChangeConfiguration", { settings = nil })
-  end
-end
-
--- Python
 lspconfig.pyright.setup({
   default_config = {
     cmd = { "pyright-langserver", "--stdio" },
@@ -50,25 +28,17 @@ lspconfig.pyright.setup({
     end,
     single_file_support = true,
     settings = {
+      pyright = {
+        disableOrganizeImports = true,
+      },
       python = {
         analysis = {
           autoSearchPaths = true,
           useLibraryCodeForTypes = true,
-          diagnosticMode = "openFilesOnly",
+          diagnosticMode = "workspace",
+          autoImportCompletions = true,
         },
       },
-    },
-  },
-  commands = {
-    PyrightOrganizeImports = {
-      organize_imports,
-      description = "Organize Imports",
-    },
-    PyrightSetPythonPath = {
-      set_python_path,
-      description = "Reconfigure pyright with the provided python path",
-      nargs = 1,
-      complete = "file",
     },
   },
 })

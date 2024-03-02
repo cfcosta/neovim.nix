@@ -69,3 +69,11 @@ after("copilot", function()
   -- Explicitly request a completion from Copilot
   map("n", "<leader>cA", "<Plug>(copilot-i_ALT-)")
 end)
+
+-- Now the '+' register will copy to system clipboard using OSC52
+after("osc52", function()
+  map("n", "<leader>y", '"+y')
+  map("n", "<leader>yy", '"+yy')
+  map("v", "<leader>y", '"+y')
+  map("v", "<leader>yy", '"+yy')
+end)

@@ -19,6 +19,11 @@
       };
     };
 
+    nixd = {
+      url = "github:nix-community/nixd";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     cmp-buffer = {
       url = "github:hrsh7th/cmp-buffer";
       flake = false;
@@ -76,7 +81,7 @@
       flake = false;
     };
     nui = {
-      url = "github:muniftanjim/nui.nvim";
+      url = "github:MunifTanjim/nui.nvim";
       flake = false;
     };
     null-ls = {

@@ -26,6 +26,7 @@ with builtins; {
           postgres-lsp
           ruff
           ruff-lsp
+          sqlfluff
 
           mdformat
           (python311Packages.mdformat-gfm.overridePythonAttrs

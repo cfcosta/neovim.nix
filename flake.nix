@@ -85,7 +85,7 @@
       flake = false;
     };
     null-ls = {
-      url = "github:nvimtools/none-ls.nvim";
+      url = "github:jose-elias-alvarez/null-ls.nvim";
       flake = false;
     };
     nvim-autopairs = {

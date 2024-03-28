@@ -461,16 +461,16 @@
     "null-ls": {
       "flake": false,
       "locked": {
-        "lastModified": 1711021139,
-        "narHash": "sha256-FjDb53SNILxP9N9l5cJVBocj1ro/9eE8VKgR0Mv5+gs=",
-        "owner": "nvimtools",
-        "repo": "none-ls.nvim",
-        "rev": "18910d09d21d7df339805343bfe4a2b2e41c057b",
+        "lastModified": 1691810493,
+        "narHash": "sha256-cWA0rzkOp/ekVKaFee7iea1lhnqKtWUIU+fW5M950wI=",
+        "owner": "jose-elias-alvarez",
+        "repo": "null-ls.nvim",
+        "rev": "0010ea927ab7c09ef0ce9bf28c2b573fc302f5a7",
         "type": "github"
       },
       "original": {
-        "owner": "nvimtools",
-        "repo": "none-ls.nvim",
+        "owner": "jose-elias-alvarez",
+        "repo": "null-ls.nvim",
         "type": "github"
       }
     },

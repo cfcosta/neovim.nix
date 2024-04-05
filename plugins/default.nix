@@ -1,19 +1,31 @@
 { pkgs, deps, ... }:
 with deps.nightvim.lib;
-with builtins; {
-  programs.nightvim.plugins = with deps;
+with builtins;
+{
+  programs.nightvim.plugins =
+    with deps;
     [
       (mkPlugin "comment" comment { config = ''require("Comment").setup {}''; })
       (mkPlugin "neo-tree" neo-tree {
-        depends = [ "plenary" "nvim-web-devicons" "nui" ];
+        depends = [
+          "plenary"
+          "nvim-web-devicons"
+          "nui"
+        ];
         config = readFile ./neo-tree.lua;
       })
       (mkPlugin "neogit" neogit {
-        depends = [ "plenary" "diffview" ];
+        depends = [
+          "plenary"
+          "diffview"
+        ];
         config = readFile ./neogit.lua;
       })
       (mkPlugin "null-ls" null-ls {
-        depends = [ "plenary" "nvim-lspconfig" ];
+        depends = [
+          "plenary"
+          "nvim-lspconfig"
+        ];
 
         inputs = with pkgs; [
           actionlint
@@ -21,7 +33,7 @@ with builtins; {
           cmake-format
           deadnix
           jq
-          nixfmt
+          nixfmt-rfc-style
           nodePackages.eslint
           postgres-lsp
           ruff
@@ -29,8 +41,9 @@ with builtins; {
           sqlfluff
 
           mdformat
-          (python311Packages.mdformat-gfm.overridePythonAttrs
-            (_: { src = deps.mdformat-gfm; }))
+          (python311Packages.mdformat-gfm.overridePythonAttrs (_: {
+            src = deps.mdformat-gfm;
+          }))
           python311Packages.mdformat-frontmatter
           python311Packages.mdformat-footnote
           python311Packages.mdformat-tables
@@ -99,7 +112,10 @@ with builtins; {
         '';
       })
       (mkPlugin "telescope" telescope {
-        inputs = with pkgs; [ ripgrep zf ];
+        inputs = with pkgs; [
+          ripgrep
+          zf
+        ];
         depends = [ "trouble" ];
         config = readFile ./telescope.lua;
       })
@@ -116,12 +132,13 @@ with builtins; {
       })
       (mkPlugin "nvim-treesitter" nvim-treesitter {
         depends = [ "nvim-treesitter-endwise" ];
-        inputs = with pkgs; [ gcc git ];
+        inputs = with pkgs; [
+          gcc
+          git
+        ];
         config = readFile ./treesitter.lua;
       })
-      (mkPlugin "indent-blankline" indent-blankline {
-        config = readFile ./indentline.lua;
-      })
+      (mkPlugin "indent-blankline" indent-blankline { config = readFile ./indentline.lua; })
       (mkPlugin "copilot" copilot {
         inputs = with pkgs; [ nodejs ];
         config = readFile ./copilot.lua;
@@ -140,9 +157,7 @@ with builtins; {
       (mkPlugin "nvim-dap" nvim-dap { config = ""; })
       (mkPlugin "nvim-snippy" nvim-snippy { config = ""; })
       (mkPlugin "nvim-surround" nvim-surround { })
-      (mkPlugin "nvim-treesitter-endwise" nvim-treesitter-endwise {
-        config = "";
-      })
+      (mkPlugin "nvim-treesitter-endwise" nvim-treesitter-endwise { config = ""; })
       (mkPlugin "nvim-treesitter-just" nvim-treesitter-just { config = ""; })
       (mkPlugin "nvim-web-devicons" nvim-web-devicons { })
       (mkPlugin "plenary" plenary { config = ""; })
@@ -154,7 +169,8 @@ with builtins; {
         lazy = false;
       })
       (mkPlugin "which-key" which-key { })
-    ] ++ (pkgs.lib.optionals pkgs.stdenv.isDarwin [
+    ]
+    ++ (pkgs.lib.optionals pkgs.stdenv.isDarwin [
       (mkPlugin "dash.nvim" dash-nvim {
         depends = [ "telescope" ];
         config = "require('dash').setup()";

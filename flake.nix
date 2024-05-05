@@ -188,6 +188,10 @@
       url = "github:onsails/lspkind-nvim";
       flake = false;
     };
+    gen-nvim = {
+      url = "github:David-Kunz/gen.nvim";
+      flake = false;
+    };
 
     # Tools
     mdformat-gfm = {

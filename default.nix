@@ -154,6 +154,9 @@ with builtins; {
         lazy = false;
       })
       (mkPlugin "which-key" which-key { })
+      (mkPlugin "gen-nvim" gen-nvim {
+        config = readFile ./plugins/gen.lua;
+      })
     ] ++ (pkgs.lib.optionals pkgs.stdenv.isDarwin [
       (mkPlugin "dash.nvim" dash-nvim {
         depends = [ "telescope" ];

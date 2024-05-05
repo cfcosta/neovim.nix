@@ -76,3 +76,8 @@ after("osc52", function()
   map("v", "<leader>c", '"+y')
   map("v", "<leader>cc", '"+yy')
 end)
+
+after("gen-nvim", function()
+  map("n", "<leader>oo", ":<c-u>Gen<CR>")
+  map("v", "<leader>oo", ":<c-u>'<,'>Gen<CR>")
+end)

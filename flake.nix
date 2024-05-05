@@ -192,6 +192,10 @@
       url = "github:David-Kunz/gen.nvim";
       flake = false;
     };
+    cmp-ai = {
+      url = "github:tzachar/cmp-ai";
+      flake = false;
+    };
 
     # Tools
     mdformat-gfm = {
@@ -200,26 +204,34 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, flake-utils, home-manager, nightvim, ... }:
+  outputs =
+    inputs@{
+      nixpkgs,
+      flake-utils,
+      home-manager,
+      nightvim,
+      ...
+    }:
     let
-      hmModule = { pkgs, ... }: {
-        imports = [
-          nightvim.hmModule
-          (import ./default.nix {
-            inherit pkgs;
-            deps = inputs;
-          })
-        ];
+      hmModule =
+        { pkgs, ... }:
+        {
+          imports = [
+            nightvim.hmModule
+            (import ./default.nix {
+              inherit pkgs;
+              deps = inputs;
+            })
+          ];
 
-        programs.nightvim = {
-          enable = true;
-          extraConfig = builtins.readFile ./init.lua;
+          programs.nightvim = {
+            enable = true;
+            extraConfig = builtins.readFile ./init.lua;
+          };
         };
-      };
 
-      devScripts = pkgs:
-        with pkgs;
-        [
+      devScripts =
+        pkgs: with pkgs; [
           (writeShellScriptBin "neovim-format" ''
             ${stylua}/bin/stylua --glob '**/*.lua' -- .
 
@@ -229,33 +241,43 @@
             done
           '')
         ];
-    in {
+    in
+    {
       inherit hmModule;
-    } // flake-utils.lib.eachDefaultSystem (system:
+    }
+    // flake-utils.lib.eachDefaultSystem (
+      system:
       let
         pkgs = import nixpkgs {
           config.allowUnfree = true;
           inherit system;
         };
-      in {
-        defaultPackage = (home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+      in
+      {
+        defaultPackage =
+          (home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
 
-          modules = [
-            hmModule
-            ({ pkgs, ... }: {
-              home.username = "nightvim";
-              home.homeDirectory = if pkgs.stdenv.isLinux then
-                "/home/nightvim"
-              else
-                "/Users/nightvim";
+            modules = [
+              hmModule
+              (
+                { pkgs, ... }:
+                {
+                  home.username = "nightvim";
+                  home.homeDirectory = if pkgs.stdenv.isLinux then "/home/nightvim" else "/Users/nightvim";
 
-              home.stateVersion = "23.05";
-            })
+                  home.stateVersion = "23.05";
+                }
+              )
+            ];
+          }).activation-script;
+
+        devShell = pkgs.mkShell {
+          packages = with pkgs; [
+            stylua
+            (devScripts pkgs)
           ];
-        }).activation-script;
-
-        devShell =
-          pkgs.mkShell { packages = with pkgs; [ stylua (devScripts pkgs) ]; };
-      });
+        };
+      }
+    );
 }

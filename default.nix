@@ -82,9 +82,9 @@ with builtins;
       (mkPlugin "nvim-lspconfig" nvim-lspconfig {
         inputs = with pkgs; [
           buf-language-server
-          deps.nixd.packages."${stdenv.hostPlatform.system}".nixd
           gopls
           lua-language-server
+          nixd
           nodePackages.dockerfile-language-server-nodejs
           nodePackages.eslint
           nodePackages.typescript

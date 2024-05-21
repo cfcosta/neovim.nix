@@ -16,7 +16,9 @@ cmp_ai:setup({
     vim.notify(msg)
   end,
   run_on_every_keystroke = true,
-  ignored_file_types = {},
+  ignored_file_types = {
+    markdown = true,
+  },
 })
 
 cmp.setup({

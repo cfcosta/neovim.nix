@@ -7,18 +7,16 @@ require("copilot_cmp").setup()
 
 cmp_ai:setup({
   max_lines = 100,
-  provider = "Ollama",
+  provider = "OpenAI",
   provider_options = {
-    model = "llama3:8b",
+    model = "gpt-4o",
   },
   notify = true,
   notify_callback = function(msg)
     vim.notify(msg)
   end,
   run_on_every_keystroke = true,
-  ignored_file_types = {
-    markdown = true,
-  },
+  ignored_file_types = {},
 })
 
 cmp.setup({

@@ -1,5 +1,8 @@
 local actions = require("telescope.actions")
-local trouble = require("trouble.providers.telescope")
+local previewers = require("telescope.previewers")
+local sorters = require("telescope.sorters")
+
+local trouble = require("trouble.sources.telescope").open
 
 local options = {
   defaults = {
@@ -34,27 +37,27 @@ local options = {
       preview_cutoff = 120,
     },
     find_command = { "rg", "--files", "--hidden" },
-    file_sorter = require("telescope.sorters").get_fuzzy_file,
+    file_sorter = sorters.get_fuzzy_file,
     file_ignore_patterns = { "node_modules", ".git", "vendor" },
-    generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+    generic_sorter = sorters.get_generic_fuzzy_sorter,
     path_display = { "truncate" },
     winblend = 0,
     border = {},
     borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
     color_devicons = true,
-    set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-    file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-    grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-    qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-    buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+    set_env = { ["COLORTERM"] = "truecolor" },
+    file_previewer = previewers.vim_buffer_cat.new,
+    grep_previewer = previewers.vim_buffer_vimgrep.new,
+    qflist_previewer = previewers.vim_buffer_qflist.new,
+    buffer_previewer_maker = previewers.buffer_previewer_maker,
     mappings = {
       n = {
         ["q"] = actions.close,
-        ["<c-t>"] = trouble.open_with_trouble,
+        ["<c-t>"] = trouble,
       },
       i = {
         ["<esc>"] = actions.close,
-        ["<c-t>"] = trouble.open_with_trouble,
+        ["<c-t>"] = trouble,
       },
     },
   },

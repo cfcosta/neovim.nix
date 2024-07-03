@@ -1,6 +1,8 @@
 { pkgs, deps, ... }:
-with deps.nightvim.lib;
-with builtins;
+let
+  inherit (deps.nightvim.lib) mkPlugin;
+  inherit (builtins) readFile;
+in
 {
   programs.nightvim.plugins =
     with deps;
@@ -38,11 +40,12 @@ with builtins;
           postgres-lsp
           ruff
           ruff-lsp
+          shellcheck
           sqlfluff
 
           mdformat
           (python311Packages.mdformat-gfm.overridePythonAttrs (_: {
-            src = deps.mdformat-gfm;
+            src = mdformat-gfm;
           }))
           python311Packages.mdformat-frontmatter
           python311Packages.mdformat-footnote

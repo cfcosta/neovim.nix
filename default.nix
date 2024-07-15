@@ -1,7 +1,18 @@
 { pkgs, deps, ... }:
 let
-  inherit (deps.nightvim.lib) mkPlugin;
   inherit (builtins) readFile;
+
+  mkPlugin =
+    name: dir: spec:
+    rec {
+      inherit name dir;
+      depends = [ ];
+      inputs = [ ];
+      config = ''require("${module}").setup {}'';
+      module = name;
+      lazy = true;
+    }
+    // spec;
 in
 {
   programs.nightvim.plugins =

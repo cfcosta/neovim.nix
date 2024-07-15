@@ -375,32 +375,6 @@
         "type": "github"
       }
     },
-    "nightvim": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "home-manager": [
-          "home-manager"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1695916205,
-        "narHash": "sha256-ZUio9qHV5gGwLz01nHYb4lMi6O23Msd5bdCFFYwfe7M=",
-        "owner": "cfcosta",
-        "repo": "nightvim",
-        "rev": "1a70147f1dea716149fe0116d10362bc3bd57d2c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "cfcosta",
-        "repo": "nightvim",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1721016451,
@@ -666,7 +640,6 @@
         "mdformat-gfm": "mdformat-gfm",
         "neo-tree": "neo-tree",
         "neogit": "neogit",
-        "nightvim": "nightvim",
         "nixpkgs": "nixpkgs",
         "nui": "nui",
         "null-ls": "null-ls",

@@ -10,15 +10,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nightvim = {
-      url = "github:cfcosta/nightvim";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-        home-manager.follows = "home-manager";
-      };
-    };
-
     cmp-buffer = {
       url = "github:hrsh7th/cmp-buffer";
       flake = false;
@@ -200,7 +191,6 @@
       nixpkgs,
       flake-utils,
       home-manager,
-      nightvim,
       ...
     }:
     let
@@ -208,7 +198,7 @@
         { pkgs, ... }:
         {
           imports = [
-            nightvim.hmModule
+            ./hm-module.nix
             (import ./default.nix {
               inherit pkgs;
               deps = inputs;
@@ -220,18 +210,6 @@
             extraConfig = builtins.readFile ./init.lua;
           };
         };
-
-      devScripts =
-        pkgs: with pkgs; [
-          (writeShellScriptBin "neovim-format" ''
-            ${stylua}/bin/stylua --glob '**/*.lua' -- .
-
-            for file in $(find . -name "*.nix" -not -path "./.git/*"); do
-              echo "Formatting $file..."
-              ${nixfmt-rfc-style}/bin/nixfmt "$file"
-            done
-          '')
-        ];
     in
     {
       inherit hmModule;
@@ -266,7 +244,7 @@
         devShell = pkgs.mkShell {
           packages = with pkgs; [
             stylua
-            (devScripts pkgs)
+            nixfmt-rfc-style
           ];
         };
       }

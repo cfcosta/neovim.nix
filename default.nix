@@ -38,19 +38,19 @@ in
           nixfmt-rfc-style
           nodePackages.eslint
           postgres-lsp
+          python3Packages.regex
           ruff
           ruff-lsp
           shellcheck
-          sqlfluff
-
+          statix
           mdformat
-          (python311Packages.mdformat-gfm.overridePythonAttrs (_: {
-            src = mdformat-gfm;
-          }))
-          python311Packages.mdformat-frontmatter
-          python311Packages.mdformat-footnote
-          python311Packages.mdformat-tables
-          python311Packages.mdit-py-plugins
+
+          python3Packages.mdformat-gfm
+          python3Packages.mdformat-frontmatter
+          python3Packages.mdformat-footnote
+          python3Packages.mdformat-tables
+          python3Packages.mdit-py-plugins
+          python3Packages.regex
         ];
 
         config = readFile ./plugins/null-ls.lua;
@@ -116,10 +116,7 @@ in
         '';
       })
       (mkPlugin "telescope" telescope {
-        inputs = with pkgs; [
-          ripgrep
-          zf
-        ];
+        inputs = with pkgs; [ ripgrep ];
         depends = [ "trouble" ];
         config = readFile ./plugins/telescope.lua;
       })

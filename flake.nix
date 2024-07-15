@@ -135,10 +135,6 @@
       url = "github:nvim-telescope/telescope.nvim";
       flake = false;
     };
-    telescope-zf-native = {
-      url = "github:natecraddock/telescope-zf-native.nvim";
-      flake = false;
-    };
     toggleterm = {
       url = "github:akinsho/toggleterm.nvim";
       flake = false;

@@ -53,9 +53,10 @@ in
           ruff
           ruff-lsp
           shellcheck
+          shfmt
           statix
-          mdformat
 
+          mdformat
           python3Packages.mdformat-gfm
           python3Packages.mdformat-frontmatter
           python3Packages.mdformat-footnote

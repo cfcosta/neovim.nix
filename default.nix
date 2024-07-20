@@ -183,6 +183,7 @@ in
         lazy = false;
       })
       (mkPlugin "which-key" which-key { })
+      (mkPlugin "zen-mode" zen-mode { })
       (mkPlugin "gen-nvim" gen-nvim { config = readFile ./plugins/gen.lua; })
     ]
     ++ (pkgs.lib.optionals pkgs.stdenv.isDarwin [

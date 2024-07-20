@@ -178,6 +178,10 @@
       url = "github:tzachar/cmp-ai";
       flake = false;
     };
+    zen-mode = {
+      url = "github:folke/zen-mode.nvim";
+      flake = false;
+    };
 
     # Tools
     mdformat-gfm = {

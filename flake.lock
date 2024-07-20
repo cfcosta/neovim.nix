@@ -662,7 +662,8 @@
         "treesj": "treesj",
         "trouble": "trouble",
         "wakatime": "wakatime",
-        "which-key": "which-key"
+        "which-key": "which-key",
+        "zen-mode": "zen-mode"
       }
     },
     "rust-tools": {
@@ -805,6 +806,22 @@
       "original": {
         "owner": "folke",
         "repo": "which-key.nvim",
+        "type": "github"
+      }
+    },
+    "zen-mode": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1721056194,
+        "narHash": "sha256-7K923AlzQMJxMtfQcsbjv+kpbNA+tf4QLAtjMEkWBj0=",
+        "owner": "folke",
+        "repo": "zen-mode.nvim",
+        "rev": "a31cf7113db34646ca320f8c2df22cf1fbfc6f2a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "zen-mode.nvim",
         "type": "github"
       }
     }

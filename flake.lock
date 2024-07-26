@@ -16,22 +16,6 @@
         "type": "github"
       }
     },
-    "cmp-ai": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1717312637,
-        "narHash": "sha256-ul2X6kIdreJ9dCQERw7C3l2dss7Mtcwtm7CGhAxjjvY=",
-        "owner": "tzachar",
-        "repo": "cmp-ai",
-        "rev": "2b787129314c5fb8bfd41a6919d4889210e6b265",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tzachar",
-        "repo": "cmp-ai",
-        "type": "github"
-      }
-    },
     "cmp-buffer": {
       "flake": false,
       "locked": {
@@ -223,22 +207,6 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "gen-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1717706134,
-        "narHash": "sha256-z03a2au40RIcpDUTRSWlWAbo1E+MgEgVaobFWV8hIaI=",
-        "owner": "David-Kunz",
-        "repo": "gen.nvim",
-        "rev": "b1230ce2993b2be38a1e22606750d05a94307380",
-        "type": "github"
-      },
-      "original": {
-        "owner": "David-Kunz",
-        "repo": "gen.nvim",
         "type": "github"
       }
     },
@@ -618,7 +586,6 @@
     "root": {
       "inputs": {
         "aiken-neovim": "aiken-neovim",
-        "cmp-ai": "cmp-ai",
         "cmp-buffer": "cmp-buffer",
         "cmp-cmdline": "cmp-cmdline",
         "cmp-nvim-lsp": "cmp-nvim-lsp",
@@ -631,7 +598,6 @@
         "dash-nvim": "dash-nvim",
         "diffview": "diffview",
         "flake-utils": "flake-utils",
-        "gen-nvim": "gen-nvim",
         "gitsigns": "gitsigns",
         "home-manager": "home-manager",
         "indent-blankline": "indent-blankline",

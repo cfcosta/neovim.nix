@@ -170,14 +170,6 @@
       url = "github:onsails/lspkind-nvim";
       flake = false;
     };
-    gen-nvim = {
-      url = "github:David-Kunz/gen.nvim";
-      flake = false;
-    };
-    cmp-ai = {
-      url = "github:tzachar/cmp-ai";
-      flake = false;
-    };
     zen-mode = {
       url = "github:folke/zen-mode.nvim";
       flake = false;
@@ -222,8 +214,12 @@
       system:
       let
         pkgs = import nixpkgs {
-          config.allowUnfree = true;
           inherit system;
+
+          config = {
+            allowUnfree = true;
+            allowUnsupportedSystem = true;
+          };
         };
       in
       {

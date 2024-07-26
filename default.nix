@@ -16,10 +16,9 @@ let
 in
 {
   programs.nightvim.plugins =
-    with deps;
     [
-      (mkPlugin "comment" comment { config = ''require("Comment").setup {}''; })
-      (mkPlugin "neo-tree" neo-tree {
+      (mkPlugin "comment" deps.comment { config = ''require("Comment").setup {}''; })
+      (mkPlugin "neo-tree" deps.neo-tree {
         depends = [
           "plenary"
           "nvim-web-devicons"
@@ -27,14 +26,14 @@ in
         ];
         config = readFile ./plugins/neo-tree.lua;
       })
-      (mkPlugin "neogit" neogit {
+      (mkPlugin "neogit" deps.neogit {
         depends = [
           "plenary"
           "diffview"
         ];
         config = readFile ./plugins/neogit.lua;
       })
-      (mkPlugin "null-ls" null-ls {
+      (mkPlugin "null-ls" deps.null-ls {
         depends = [
           "plenary"
           "nvim-lspconfig"
@@ -67,7 +66,7 @@ in
 
         config = readFile ./plugins/null-ls.lua;
       })
-      (mkPlugin "nvim-autopairs" nvim-autopairs {
+      (mkPlugin "nvim-autopairs" deps.nvim-autopairs {
         config = ''
           require("nvim-autopairs").setup({
             fast_wrap = {},
@@ -75,7 +74,7 @@ in
           })
         '';
       })
-      (mkPlugin "nvim-cmp" nvim-cmp {
+      (mkPlugin "nvim-cmp" deps.nvim-cmp {
         depends = [
           "cmp-buffer"
           "cmp-cmdline"
@@ -88,13 +87,13 @@ in
           "nvim-dap"
           "nvim-lspconfig"
           "nvim-snippy"
-          "cmp-ai"
+
           "plenary"
         ];
 
         config = readFile ./plugins/cmp.lua;
       })
-      (mkPlugin "nvim-lspconfig" nvim-lspconfig {
+      (mkPlugin "nvim-lspconfig" deps.nvim-lspconfig {
         inputs = with pkgs; [
           buf-language-server
           gopls
@@ -111,29 +110,29 @@ in
 
         config = readFile ./plugins/lsp.lua;
       })
-      (mkPlugin "rust-tools" rust-tools {
+      (mkPlugin "rust-tools" deps.rust-tools {
         inputs = with pkgs; [ rust-analyzer ];
         depends = [ "cmp-nvim-lsp" ];
         config = readFile ./plugins/rust-tools.lua;
       })
-      (mkPlugin "tokyonight" tokyonight {
+      (mkPlugin "tokyonight" deps.tokyonight {
         lazy = false;
         config = readFile ./plugins/colorscheme.lua;
       })
-      (mkPlugin "toggleterm" toggleterm {
+      (mkPlugin "toggleterm" deps.toggleterm {
         config = ''
           require("toggleterm").setup {
             size = 72
           }
         '';
       })
-      (mkPlugin "telescope" telescope {
+      (mkPlugin "telescope" deps.telescope {
         inputs = with pkgs; [ ripgrep ];
         depends = [ "trouble" ];
         config = readFile ./plugins/telescope.lua;
       })
-      (mkPlugin "trouble" trouble { depends = [ "nvim-web-devicons" ]; })
-      (mkPlugin "lualine" lualine {
+      (mkPlugin "trouble" deps.trouble { depends = [ "nvim-web-devicons" ]; })
+      (mkPlugin "lualine" deps.lualine {
         depends = [ "nvim-web-devicons" ];
         config = ''
           require("lualine").setup {
@@ -143,7 +142,7 @@ in
           }
         '';
       })
-      (mkPlugin "nvim-treesitter" nvim-treesitter {
+      (mkPlugin "nvim-treesitter" deps.nvim-treesitter {
         depends = [ "nvim-treesitter-endwise" ];
         inputs = with pkgs; [
           gcc
@@ -151,43 +150,41 @@ in
         ];
         config = readFile ./plugins/treesitter.lua;
       })
-      (mkPlugin "indent-blankline" indent-blankline { config = readFile ./plugins/indentline.lua; })
-      (mkPlugin "copilot" copilot {
+      (mkPlugin "indent-blankline" deps.indent-blankline { config = readFile ./plugins/indentline.lua; })
+      (mkPlugin "copilot" deps.copilot {
         inputs = with pkgs; [ nodejs ];
         config = readFile ./plugins/copilot.lua;
       })
-      (mkPlugin "lspkind" lspkind { config = ""; })
-      (mkPlugin "copilot-cmp" copilot-cmp { config = ""; })
-      (mkPlugin "nvim-osc52" osc52 { config = readFile ./plugins/osc52.lua; })
-      (mkPlugin "cmp-buffer" cmp-buffer { config = ""; })
-      (mkPlugin "cmp-cmdline" cmp-cmdline { config = ""; })
-      (mkPlugin "cmp-nvim-lsp" cmp-nvim-lsp { config = ""; })
-      (mkPlugin "cmp-path" cmp-path { config = ""; })
-      (mkPlugin "cmp-snippy" cmp-snippy { config = ""; })
-      (mkPlugin "cmp-ai" cmp-ai { config = ""; })
-      (mkPlugin "diffview" diffview { })
-      (mkPlugin "gitsigns" gitsigns { })
-      (mkPlugin "nui" nui { config = ""; })
-      (mkPlugin "nvim-dap" nvim-dap { config = ""; })
-      (mkPlugin "nvim-snippy" nvim-snippy { config = ""; })
-      (mkPlugin "nvim-surround" nvim-surround { })
-      (mkPlugin "nvim-treesitter-endwise" nvim-treesitter-endwise { config = ""; })
-      (mkPlugin "nvim-treesitter-just" nvim-treesitter-just { config = ""; })
-      (mkPlugin "nvim-web-devicons" nvim-web-devicons { })
-      (mkPlugin "plenary" plenary { config = ""; })
-      (mkPlugin "treesj" treesj { })
-      (mkPlugin "aiken-neovim" aiken-neovim { config = ""; })
-      (mkPlugin "wakatime" wakatime {
-        inputs = with pkgs; [ wakatime ];
+      (mkPlugin "lspkind" deps.lspkind { config = ""; })
+      (mkPlugin "copilot-cmp" deps.copilot-cmp { config = ""; })
+      (mkPlugin "nvim-osc52" deps.osc52 { config = readFile ./plugins/osc52.lua; })
+      (mkPlugin "cmp-buffer" deps.cmp-buffer { config = ""; })
+      (mkPlugin "cmp-cmdline" deps.cmp-cmdline { config = ""; })
+      (mkPlugin "cmp-nvim-lsp" deps.cmp-nvim-lsp { config = ""; })
+      (mkPlugin "cmp-path" deps.cmp-path { config = ""; })
+      (mkPlugin "cmp-snippy" deps.cmp-snippy { config = ""; })
+      (mkPlugin "diffview" deps.diffview { })
+      (mkPlugin "gitsigns" deps.gitsigns { })
+      (mkPlugin "nui" deps.nui { config = ""; })
+      (mkPlugin "nvim-dap" deps.nvim-dap { config = ""; })
+      (mkPlugin "nvim-snippy" deps.nvim-snippy { config = ""; })
+      (mkPlugin "nvim-surround" deps.nvim-surround { })
+      (mkPlugin "nvim-treesitter-endwise" deps.nvim-treesitter-endwise { config = ""; })
+      (mkPlugin "nvim-treesitter-just" deps.nvim-treesitter-just { config = ""; })
+      (mkPlugin "nvim-web-devicons" deps.nvim-web-devicons { })
+      (mkPlugin "plenary" deps.plenary { config = ""; })
+      (mkPlugin "treesj" deps.treesj { })
+      (mkPlugin "aiken-neovim" deps.aiken-neovim { config = ""; })
+      (mkPlugin "wakatime" deps.wakatime {
+        inputs = [ pkgs.wakatime ];
         config = readFile ./plugins/wakatime.lua;
         lazy = false;
       })
-      (mkPlugin "which-key" which-key { })
-      (mkPlugin "zen-mode" zen-mode { })
-      (mkPlugin "gen-nvim" gen-nvim { config = readFile ./plugins/gen.lua; })
+      (mkPlugin "which-key" deps.which-key { })
+      (mkPlugin "zen-mode" deps.zen-mode { })
     ]
     ++ (pkgs.lib.optionals pkgs.stdenv.isDarwin [
-      (mkPlugin "dash.nvim" dash-nvim {
+      (mkPlugin "dash.nvim" deps.dash-nvim {
         depends = [ "telescope" ];
         config = "require('dash').setup()";
       })

@@ -118,8 +118,8 @@
       url = "github:nvim-lua/plenary.nvim";
       flake = false;
     };
-    rust-tools = {
-      url = "github:simrat39/rust-tools.nvim";
+    rustacean = {
+      url = "github:mrcjkb/rustaceanvim";
       flake = false;
     };
     telescope = {

@@ -621,7 +621,7 @@
         "nvim-web-devicons": "nvim-web-devicons",
         "osc52": "osc52",
         "plenary": "plenary",
-        "rust-tools": "rust-tools",
+        "rustacean": "rustacean",
         "telescope": "telescope",
         "toggleterm": "toggleterm",
         "tokyonight": "tokyonight",
@@ -632,19 +632,19 @@
         "zen-mode": "zen-mode"
       }
     },
-    "rust-tools": {
+    "rustacean": {
       "flake": false,
       "locked": {
-        "lastModified": 1704259376,
-        "narHash": "sha256-kFane5ze7VDiOzF7jdmXkr50XQsNvdb+a9HQtybEVE0=",
-        "owner": "simrat39",
-        "repo": "rust-tools.nvim",
-        "rev": "676187908a1ce35ffcd727c654ed68d851299d3e",
+        "lastModified": 1722274468,
+        "narHash": "sha256-KlkWIOJYFH+Z9YQPSqh0lkuwejH+PuYXcUAJa0hKmFo=",
+        "owner": "mrcjkb",
+        "repo": "rustaceanvim",
+        "rev": "e539aa2494460e4cf51df1c7ac6fb16549408f79",
         "type": "github"
       },
       "original": {
-        "owner": "simrat39",
-        "repo": "rust-tools.nvim",
+        "owner": "mrcjkb",
+        "repo": "rustaceanvim",
         "type": "github"
       }
     },

@@ -110,10 +110,9 @@ in
 
         config = readFile ./plugins/lsp.lua;
       })
-      (mkPlugin "rust-tools" deps.rust-tools {
-        inputs = with pkgs; [ rust-analyzer ];
-        depends = [ "cmp-nvim-lsp" ];
-        config = readFile ./plugins/rust-tools.lua;
+      (mkPlugin "rustacean" deps.rustacean {
+        lazy = false;
+        config = readFile ./plugins/rustacean.lua;
       })
       (mkPlugin "tokyonight" deps.tokyonight {
         lazy = false;

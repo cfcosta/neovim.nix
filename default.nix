@@ -104,7 +104,7 @@ in
         lazy = false;
         config = readFile ./plugins/rustacean.lua;
       })
-      (mkPlugin "base16" deps.base16 {
+      (mkPlugin "ayu" deps.ayu {
         lazy = false;
         config = readFile ./plugins/colorscheme.lua;
       })
@@ -126,7 +126,7 @@ in
         config = ''
           require("lualine").setup {
             options = {
-              theme = "tokyonight",
+              theme = "ayu",
             }
           }
         '';

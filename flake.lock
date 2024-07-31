@@ -16,19 +16,19 @@
         "type": "github"
       }
     },
-    "base16": {
+    "ayu": {
       "flake": false,
       "locked": {
-        "lastModified": 1716483968,
-        "narHash": "sha256-GRF/6AobXHamw8TZ3FjL7SI6ulcpwpcohsIuZeCSh2A=",
-        "owner": "RRethy",
-        "repo": "base16-nvim",
-        "rev": "6ac181b5733518040a33017dde654059cd771b7c",
+        "lastModified": 1721844313,
+        "narHash": "sha256-22BD+G71r7v4ygIMpxUXktO7tQXGIH1lk+NMP52ZQLo=",
+        "owner": "Shatur",
+        "repo": "neovim-ayu",
+        "rev": "6993189dd0ee38299879a1a0064718a8392e8713",
         "type": "github"
       },
       "original": {
-        "owner": "RRethy",
-        "repo": "base16-nvim",
+        "owner": "Shatur",
+        "repo": "neovim-ayu",
         "type": "github"
       }
     },
@@ -586,7 +586,7 @@
     "root": {
       "inputs": {
         "aiken-neovim": "aiken-neovim",
-        "base16": "base16",
+        "ayu": "ayu",
         "cmp-buffer": "cmp-buffer",
         "cmp-cmdline": "cmp-cmdline",
         "cmp-nvim-lsp": "cmp-nvim-lsp",

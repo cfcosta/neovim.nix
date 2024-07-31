@@ -10,12 +10,12 @@ local highlight = {
 local hooks = require("ibl.hooks")
 
 hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-  vim.api.nvim_set_hl(0, "IBL1", { fg = "#DCDDF5" })
-  vim.api.nvim_set_hl(0, "IBL2", { fg = "#D4D5F8" })
-  vim.api.nvim_set_hl(0, "IBL3", { fg = "#CECEF9" })
-  vim.api.nvim_set_hl(0, "IBL4", { fg = "#C6C7FB" })
-  vim.api.nvim_set_hl(0, "IBL5", { fg = "#BEC1FC" })
-  vim.api.nvim_set_hl(0, "IBL6", { fg = "#B8BBFD" })
+  vim.api.nvim_set_hl(0, "IBL1", { fg = "#282D45" })
+  vim.api.nvim_set_hl(0, "IBL2", { fg = "#2F3552" })
+  vim.api.nvim_set_hl(0, "IBL3", { fg = "#373D5E" })
+  vim.api.nvim_set_hl(0, "IBL4", { fg = "#3E466B" })
+  vim.api.nvim_set_hl(0, "IBL5", { fg = "#464E78" })
+  vim.api.nvim_set_hl(0, "IBL6", { fg = "#4D5685" })
 end)
 
 hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)

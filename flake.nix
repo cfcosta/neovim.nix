@@ -54,8 +54,8 @@
       url = "github:nvim-lualine/lualine.nvim";
       flake = false;
     };
-    base16 = {
-      url = "github:RRethy/base16-nvim";
+    ayu = {
+      url = "github:Shatur/neovim-ayu";
       flake = false;
     };
     neo-tree = {

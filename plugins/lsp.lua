@@ -4,7 +4,7 @@ local util = require("lspconfig.util")
 
 -- Python
 lspconfig.ruff_lsp.setup({
-  on_attach = function(client, bufnr)
+  on_attach = function(client, _)
     client.server_capabilities.hoverProvider = false
   end,
 })

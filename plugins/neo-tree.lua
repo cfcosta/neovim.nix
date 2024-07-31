@@ -16,6 +16,9 @@ require("neo-tree").setup({
       always_show = {
         ".env",
       },
+      always_exclude = {
+        ".git",
+      },
     },
   },
 })

@@ -54,8 +54,8 @@
       url = "github:nvim-lualine/lualine.nvim";
       flake = false;
     };
-    tokyonight = {
-      url = "github:folke/tokyonight.nvim";
+    base16 = {
+      url = "github:RRethy/base16-nvim";
       flake = false;
     };
     neo-tree = {

@@ -16,6 +16,22 @@
         "type": "github"
       }
     },
+    "base16": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1716483968,
+        "narHash": "sha256-GRF/6AobXHamw8TZ3FjL7SI6ulcpwpcohsIuZeCSh2A=",
+        "owner": "RRethy",
+        "repo": "base16-nvim",
+        "rev": "6ac181b5733518040a33017dde654059cd771b7c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "RRethy",
+        "repo": "base16-nvim",
+        "type": "github"
+      }
+    },
     "cmp-buffer": {
       "flake": false,
       "locked": {
@@ -586,6 +602,7 @@
     "root": {
       "inputs": {
         "aiken-neovim": "aiken-neovim",
+        "base16": "base16",
         "cmp-buffer": "cmp-buffer",
         "cmp-cmdline": "cmp-cmdline",
         "cmp-nvim-lsp": "cmp-nvim-lsp",
@@ -624,7 +641,6 @@
         "rustacean": "rustacean",
         "telescope": "telescope",
         "toggleterm": "toggleterm",
-        "tokyonight": "tokyonight",
         "treesj": "treesj",
         "trouble": "trouble",
         "wakatime": "wakatime",
@@ -692,22 +708,6 @@
       "original": {
         "owner": "akinsho",
         "repo": "toggleterm.nvim",
-        "type": "github"
-      }
-    },
-    "tokyonight": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1721056184,
-        "narHash": "sha256-JulAD9X+z1qIaV7xJ65/nuXvjeQn0p8uOuDeXJ0yEow=",
-        "owner": "folke",
-        "repo": "tokyonight.nvim",
-        "rev": "6adfcde66e8af2f22dd5d76060980abd8daa0df8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "folke",
-        "repo": "tokyonight.nvim",
         "type": "github"
       }
     },

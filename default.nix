@@ -112,7 +112,7 @@ in
         lazy = false;
         config = readFile ./plugins/rustacean.lua;
       })
-      (mkPlugin "tokyonight" deps.tokyonight {
+      (mkPlugin "base16" deps.base16 {
         lazy = false;
         config = readFile ./plugins/colorscheme.lua;
       })

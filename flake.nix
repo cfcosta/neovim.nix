@@ -174,12 +174,6 @@
       url = "github:folke/zen-mode.nvim";
       flake = false;
     };
-
-    # Tools
-    mdformat-gfm = {
-      url = "github:hukkin/mdformat-gfm";
-      flake = false;
-    };
   };
 
   outputs =

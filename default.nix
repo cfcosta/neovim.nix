@@ -54,14 +54,6 @@ in
           shellcheck
           shfmt
           statix
-
-          mdformat
-          python3Packages.mdformat-gfm
-          python3Packages.mdformat-frontmatter
-          python3Packages.mdformat-footnote
-          python3Packages.mdformat-tables
-          python3Packages.mdit-py-plugins
-          python3Packages.regex
         ];
 
         config = readFile ./plugins/null-ls.lua;

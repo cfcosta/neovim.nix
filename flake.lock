@@ -311,22 +311,6 @@
         "type": "github"
       }
     },
-    "mdformat-gfm": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1708874107,
-        "narHash": "sha256-FZ19watUqmru/zeXBjMizJdLIeSiQ9W7quDCcvk/odU=",
-        "owner": "hukkin",
-        "repo": "mdformat-gfm",
-        "rev": "bd3c3392830fc4805d51582adcd1ae0d0630aed4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hukkin",
-        "repo": "mdformat-gfm",
-        "type": "github"
-      }
-    },
     "neo-tree": {
       "flake": false,
       "locked": {
@@ -620,7 +604,6 @@
         "indent-blankline": "indent-blankline",
         "lspkind": "lspkind",
         "lualine": "lualine",
-        "mdformat-gfm": "mdformat-gfm",
         "neo-tree": "neo-tree",
         "neogit": "neogit",
         "nixpkgs": "nixpkgs",

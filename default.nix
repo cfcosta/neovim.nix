@@ -101,8 +101,6 @@ in
           nixd
           nodePackages.dockerfile-language-server-nodejs
           nodePackages.eslint
-          nodePackages.typescript
-          nodePackages.typescript-language-server
           nodePackages.vscode-langservers-extracted
           pyright
           ruff

@@ -28,7 +28,6 @@ require("nvim-treesitter.configs").setup({
     "rust",
     "sql",
     "ssh_config",
-    "typescript",
     "vim",
     "vimdoc",
     "yaml",

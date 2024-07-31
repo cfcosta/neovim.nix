@@ -46,10 +46,6 @@ lspconfig.pyright.setup({
 -- Nix
 lspconfig.nixd.setup({})
 
--- Typescript
-lspconfig.tsserver.setup({})
-lspconfig.eslint.setup({})
-
 -- Protocol Buffers
 lspconfig.bufls.setup({})
 

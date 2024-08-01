@@ -12,7 +12,7 @@ in
         type = listOf (submodule {
           options = {
             name = mkOption { type = str; };
-            dir = mkOption { type = path; };
+            src = mkOption { type = path; };
             depends = mkOption { type = listOf str; };
             inputs = mkOption { type = listOf attrs; };
             config = mkOption { type = str; };
@@ -37,7 +37,7 @@ in
       '';
 
       pluginFolders = lib.foldl' (
-        acc: attr: acc // { "nvim/night/plugins/start/${attr.name}".source = attr.dir; }
+        acc: attr: acc // { "nvim/night/plugins/start/${attr.name}".source = attr.src; }
       ) { } cfg.plugins;
       loadFunc = p: if p.lazy then "_nv_setup_plugin" else "_nv_setup_plugin_eager";
       mapSpec = p: ''

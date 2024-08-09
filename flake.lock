@@ -16,22 +16,6 @@
         "type": "github"
       }
     },
-    "ayu": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1721844313,
-        "narHash": "sha256-22BD+G71r7v4ygIMpxUXktO7tQXGIH1lk+NMP52ZQLo=",
-        "owner": "Shatur",
-        "repo": "neovim-ayu",
-        "rev": "6993189dd0ee38299879a1a0064718a8392e8713",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Shatur",
-        "repo": "neovim-ayu",
-        "type": "github"
-      }
-    },
     "cmp-buffer": {
       "flake": false,
       "locked": {
@@ -205,6 +189,22 @@
       "original": {
         "owner": "sindrets",
         "repo": "diffview.nvim",
+        "type": "github"
+      }
+    },
+    "dracula": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1720762331,
+        "narHash": "sha256-Mor0cLSNz+IZAVjuPNLDJ3pFQn7arbLqKVykDPkTA7g=",
+        "owner": "Mofiqul",
+        "repo": "dracula.nvim",
+        "rev": "fdf503e52ec1c8aae07353604d891fe5a3ed5201",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mofiqul",
+        "repo": "dracula.nvim",
         "type": "github"
       }
     },
@@ -586,7 +586,6 @@
     "root": {
       "inputs": {
         "aiken-neovim": "aiken-neovim",
-        "ayu": "ayu",
         "cmp-buffer": "cmp-buffer",
         "cmp-cmdline": "cmp-cmdline",
         "cmp-nvim-lsp": "cmp-nvim-lsp",
@@ -598,6 +597,7 @@
         "copilot-cmp": "copilot-cmp",
         "dash-nvim": "dash-nvim",
         "diffview": "diffview",
+        "dracula": "dracula",
         "flake-utils": "flake-utils",
         "gitsigns": "gitsigns",
         "home-manager": "home-manager",

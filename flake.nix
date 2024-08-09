@@ -54,8 +54,8 @@
       url = "github:nvim-lualine/lualine.nvim";
       flake = false;
     };
-    ayu = {
-      url = "github:Shatur/neovim-ayu";
+    dracula = {
+      url = "github:Mofiqul/dracula.nvim";
       flake = false;
     };
     neo-tree = {

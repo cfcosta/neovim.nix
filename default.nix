@@ -125,7 +125,7 @@ in
         lazy = false;
         config = readFile ./plugins/rustacean.lua;
       })
-      (mkPlugin' "ayu" deps.ayu {
+      (mkPlugin' "dracula" deps.dracula {
         lazy = false;
         config = readFile ./plugins/colorscheme.lua;
       })
@@ -147,7 +147,7 @@ in
         config = ''
           require("lualine").setup {
             options = {
-              theme = "ayu",
+              theme = "dracula-nvim",
             }
           }
         '';

@@ -1,6 +1,3 @@
-require("ayu").setup({
-  mirage = false,
-  terminal = false,
-})
+require("dracula").setup({})
 
-vim.cmd([[colorscheme ayu]])
+vim.cmd([[colorscheme dracula]])

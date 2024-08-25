@@ -47,6 +47,7 @@ in
     [
       (importPlugin ./plugins/neo-tree)
       (importPlugin ./plugins/avante)
+      (importPlugin ./plugins/minuet)
 
       (mkPlugin' "comment" deps.comment { config = ''require("Comment").setup {}''; })
       (mkPlugin' "render-markdown" deps.render-markdown { config = ""; })
@@ -100,10 +101,10 @@ in
           "copilot"
           "copilot-cmp"
           "lspkind"
+          "minuet"
           "nvim-dap"
           "nvim-lspconfig"
           "nvim-snippy"
-
           "plenary"
         ];
 

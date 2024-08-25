@@ -343,6 +343,22 @@
         "type": "github"
       }
     },
+    "minuet": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1724449884,
+        "narHash": "sha256-l/+HaTNNsJ7zi/sLwY3ErvvWvcpzgGrjp0jOrQdv0KE=",
+        "owner": "milanglacier",
+        "repo": "minuet-ai.nvim",
+        "rev": "77f013009239070edaddaa044fe8c9111bc77b5b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "milanglacier",
+        "repo": "minuet-ai.nvim",
+        "type": "github"
+      }
+    },
     "neo-tree": {
       "flake": false,
       "locked": {
@@ -654,6 +670,7 @@
         "indent-blankline": "indent-blankline",
         "lspkind": "lspkind",
         "lualine": "lualine",
+        "minuet": "minuet",
         "neo-tree": "neo-tree",
         "neogit": "neogit",
         "nixpkgs": "nixpkgs",

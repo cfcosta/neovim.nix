@@ -78,6 +78,10 @@
       url = "github:nvim-lualine/lualine.nvim";
       flake = false;
     };
+    minuet = {
+      url = "github:milanglacier/minuet-ai.nvim";
+      flake = false;
+    };
     neo-tree = {
       url = "github:nvim-neo-tree/neo-tree.nvim";
       flake = false;

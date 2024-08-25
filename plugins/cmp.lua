@@ -25,6 +25,7 @@ cmp.setup({
     }),
   }),
   sources = cmp.config.sources({
+    { name = "minuet" },
     { name = "snippy" },
     { name = "nvim_lsp" },
     { name = "nvim_lsp_signature_help" },

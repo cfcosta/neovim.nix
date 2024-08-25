@@ -46,7 +46,10 @@ in
   programs.nightvim.plugins =
     [
       (importPlugin ./plugins/neo-tree)
+      (importPlugin ./plugins/avante)
+
       (mkPlugin' "comment" deps.comment { config = ''require("Comment").setup {}''; })
+      (mkPlugin' "render-markdown" deps.render-markdown { config = ""; })
       (mkPlugin' "neogit" deps.neogit {
         depends = [
           "plenary"
@@ -174,6 +177,7 @@ in
       (mkPlugin' "diffview" deps.diffview { })
       (mkPlugin' "gitsigns" deps.gitsigns { })
       (mkPlugin' "nui" deps.nui { config = ""; })
+      (mkPlugin' "dressing" deps.dressing { config = ""; })
       (mkPlugin' "nvim-dap" deps.nvim-dap { config = ""; })
       (mkPlugin' "nvim-snippy" deps.nvim-snippy { config = ""; })
       (mkPlugin' "nvim-surround" deps.nvim-surround { })

@@ -16,6 +16,22 @@
         "type": "github"
       }
     },
+    "avante-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1724577153,
+        "narHash": "sha256-DlZuZ6zm8qDAayh8GBO+0X5w2OEM131al1cCEYqHKpE=",
+        "owner": "yetone",
+        "repo": "avante.nvim",
+        "rev": "28fd18fd0fda6264368de63e96c0cb40cfe4a6de",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yetone",
+        "repo": "avante.nvim",
+        "type": "github"
+      }
+    },
     "catpuccin": {
       "flake": false,
       "locked": {
@@ -112,22 +128,6 @@
         "type": "github"
       }
     },
-    "codegpt": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1719169825,
-        "narHash": "sha256-b3eJ68pB2NIhyE7gnUXqLfCrS8CWEZSrMDaegQkOwfk=",
-        "owner": "dpayne",
-        "repo": "codegpt.nvim",
-        "rev": "6333509027c8dd66b646e0f70c0ea6b2c283abae",
-        "type": "github"
-      },
-      "original": {
-        "owner": "dpayne",
-        "repo": "codegpt.nvim",
-        "type": "github"
-      }
-    },
     "comment": {
       "flake": false,
       "locked": {
@@ -221,6 +221,22 @@
       "original": {
         "owner": "Mofiqul",
         "repo": "dracula.nvim",
+        "type": "github"
+      }
+    },
+    "dressing": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1723846795,
+        "narHash": "sha256-6T2p0hI7/WqaDFQodaDq7uiyuplVqeekayQ2equ/mC0=",
+        "owner": "stevearc",
+        "repo": "dressing.nvim",
+        "rev": "c5775a888adbc50652cb370073fcfec963eca93e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stevearc",
+        "repo": "dressing.nvim",
         "type": "github"
       }
     },
@@ -599,22 +615,39 @@
         "type": "github"
       }
     },
+    "render-markdown": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1724570192,
+        "narHash": "sha256-3DMdgK3SaSu5IODAWVmIKSyQjmHhySpRXnWeAa8jOOU=",
+        "owner": "MeanderingProgrammer",
+        "repo": "render-markdown.nvim",
+        "rev": "92e1963d1ff789bfd4e62867fbcb06fe3c67124e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MeanderingProgrammer",
+        "repo": "render-markdown.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "aiken-neovim": "aiken-neovim",
+        "avante-nvim": "avante-nvim",
         "catpuccin": "catpuccin",
         "cmp-buffer": "cmp-buffer",
         "cmp-cmdline": "cmp-cmdline",
         "cmp-nvim-lsp": "cmp-nvim-lsp",
         "cmp-path": "cmp-path",
         "cmp-snippy": "cmp-snippy",
-        "codegpt": "codegpt",
         "comment": "comment",
         "copilot": "copilot",
         "copilot-cmp": "copilot-cmp",
         "dash-nvim": "dash-nvim",
         "diffview": "diffview",
         "dracula": "dracula",
+        "dressing": "dressing",
         "flake-utils": "flake-utils",
         "gitsigns": "gitsigns",
         "home-manager": "home-manager",
@@ -638,6 +671,7 @@
         "nvim-web-devicons": "nvim-web-devicons",
         "osc52": "osc52",
         "plenary": "plenary",
+        "render-markdown": "render-markdown",
         "rustacean": "rustacean",
         "telescope": "telescope",
         "toggleterm": "toggleterm",

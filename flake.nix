@@ -14,6 +14,10 @@
       url = "github:aiken-lang/editor-integration-nvim";
       flake = false;
     };
+    avante-nvim = {
+      url = "github:yetone/avante.nvim";
+      flake = false;
+    };
     cmp-buffer = {
       url = "github:hrsh7th/cmp-buffer";
       flake = false;
@@ -34,10 +38,6 @@
       url = "github:dcampos/cmp-snippy";
       flake = false;
     };
-    codegpt = {
-      url = "github:dpayne/codegpt.nvim";
-      flake = false;
-    };
     comment = {
       url = "github:numtostr/comment.nvim";
       flake = false;
@@ -56,6 +56,10 @@
     };
     diffview = {
       url = "github:sindrets/diffview.nvim";
+      flake = false;
+    };
+    dressing = {
+      url = "github:stevearc/dressing.nvim";
       flake = false;
     };
     gitsigns = {
@@ -136,6 +140,10 @@
     };
     plenary = {
       url = "github:nvim-lua/plenary.nvim";
+      flake = false;
+    };
+    render-markdown = {
+      url = "github:MeanderingProgrammer/render-markdown.nvim";
       flake = false;
     };
     rustacean = {

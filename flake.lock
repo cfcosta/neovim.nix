@@ -16,6 +16,22 @@
         "type": "github"
       }
     },
+    "catpuccin": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1724122410,
+        "narHash": "sha256-aNmnn7Ym3+OnuvSgpke6rw4AkoVfNCpbjV71JF1c9rs=",
+        "owner": "catppuccin",
+        "repo": "nvim",
+        "rev": "4fd72a9ab64b393c2c22b168508fd244877fec96",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "nvim",
+        "type": "github"
+      }
+    },
     "cmp-buffer": {
       "flake": false,
       "locked": {
@@ -586,6 +602,7 @@
     "root": {
       "inputs": {
         "aiken-neovim": "aiken-neovim",
+        "catpuccin": "catpuccin",
         "cmp-buffer": "cmp-buffer",
         "cmp-cmdline": "cmp-cmdline",
         "cmp-nvim-lsp": "cmp-nvim-lsp",

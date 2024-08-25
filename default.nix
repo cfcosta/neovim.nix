@@ -129,6 +129,10 @@ in
         lazy = false;
         config = readFile ./plugins/colorscheme.lua;
       })
+      (mkPlugin' "catpuccin" deps.catpuccin {
+        lazy = false;
+        config = "";
+      })
       (mkPlugin' "toggleterm" deps.toggleterm {
         config = ''
           require("toggleterm").setup {
@@ -144,13 +148,7 @@ in
       (mkPlugin' "trouble" deps.trouble { depends = [ "nvim-web-devicons" ]; })
       (mkPlugin' "lualine" deps.lualine {
         depends = [ "nvim-web-devicons" ];
-        config = ''
-          require("lualine").setup {
-            options = {
-              theme = "dracula-nvim",
-            }
-          }
-        '';
+        config = "";
       })
       (mkPlugin' "nvim-treesitter" deps.nvim-treesitter {
         depends = [ "nvim-treesitter-endwise" ];

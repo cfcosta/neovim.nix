@@ -10,6 +10,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    aiken-neovim = {
+      url = "github:aiken-lang/editor-integration-nvim";
+      flake = false;
+    };
     cmp-buffer = {
       url = "github:hrsh7th/cmp-buffer";
       flake = false;
@@ -38,6 +42,18 @@
       url = "github:numtostr/comment.nvim";
       flake = false;
     };
+    copilot = {
+      url = "github:zbirenbaum/copilot.lua";
+      flake = false;
+    };
+    copilot-cmp = {
+      url = "github:zbirenbaum/copilot-cmp";
+      flake = false;
+    };
+    dash-nvim = {
+      url = "github:Kapeli/dash.nvim";
+      flake = false;
+    };
     diffview = {
       url = "github:sindrets/diffview.nvim";
       flake = false;
@@ -50,12 +66,12 @@
       url = "github:lukas-reineke/indent-blankline.nvim";
       flake = false;
     };
-    lualine = {
-      url = "github:nvim-lualine/lualine.nvim";
+    lspkind = {
+      url = "github:onsails/lspkind-nvim";
       flake = false;
     };
-    dracula = {
-      url = "github:Mofiqul/dracula.nvim";
+    lualine = {
+      url = "github:nvim-lualine/lualine.nvim";
       flake = false;
     };
     neo-tree = {
@@ -114,6 +130,10 @@
       url = "github:nvim-tree/nvim-web-devicons";
       flake = false;
     };
+    osc52 = {
+      url = "github:ojroques/nvim-osc52";
+      flake = false;
+    };
     plenary = {
       url = "github:nvim-lua/plenary.nvim";
       flake = false;
@@ -138,14 +158,6 @@
       url = "github:folke/trouble.nvim";
       flake = false;
     };
-    osc52 = {
-      url = "github:ojroques/nvim-osc52";
-      flake = false;
-    };
-    aiken-neovim = {
-      url = "github:aiken-lang/editor-integration-nvim";
-      flake = false;
-    };
     wakatime = {
       url = "github:wakatime/vim-wakatime";
       flake = false;
@@ -154,24 +166,18 @@
       url = "github:folke/which-key.nvim";
       flake = false;
     };
-    dash-nvim = {
-      url = "github:Kapeli/dash.nvim";
-      flake = false;
-    };
-    copilot = {
-      url = "github:zbirenbaum/copilot.lua";
-      flake = false;
-    };
-    copilot-cmp = {
-      url = "github:zbirenbaum/copilot-cmp";
-      flake = false;
-    };
-    lspkind = {
-      url = "github:onsails/lspkind-nvim";
-      flake = false;
-    };
     zen-mode = {
       url = "github:folke/zen-mode.nvim";
+      flake = false;
+    };
+
+    # Colorschemes
+    catpuccin = {
+      url = "github:catppuccin/nvim";
+      flake = false;
+    };
+    dracula = {
+      url = "github:Mofiqul/dracula.nvim";
       flake = false;
     };
   };

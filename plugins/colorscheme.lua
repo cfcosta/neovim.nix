@@ -1,3 +1,12 @@
 require("dracula").setup({})
+require("catppuccin").setup({
+  flavor = "mocha",
+})
 
-vim.cmd([[colorscheme dracula]])
+require("lualine").setup({
+  options = {
+    theme = "catpuccin",
+  },
+})
+
+vim.cmd.colorscheme("catppuccin")

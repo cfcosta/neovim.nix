@@ -67,3 +67,10 @@ local options = {
 }
 
 require("telescope").setup(options)
+
+map("n", "<leader><leader>", "<cmd> Telescope find_files hidden=true<CR>")
+map("n", "<leader>/", "<cmd> Telescope live_grep <CR>")
+map("n", "<leader>bb", "<cmd> Telescope buffers <CR>")
+map("n", "<leader>cm", "<cmd> Telescope git_commits <CR>")
+map("n", "<leader>gt", "<cmd> Telescope git_status <CR>")
+map("n", "<leader>ff", "<cmd> Telescope lsp_workspace_symbols <CR>")

@@ -4,3 +4,5 @@ require("neogit").setup({
     diffview = true,
   },
 })
+
+map("n", "<leader>gg", "<cmd>Neogit<cr>")

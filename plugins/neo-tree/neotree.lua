@@ -14,17 +14,17 @@ require("neo-tree").setup({
     },
     git_status = {
       symbols = {
-        added     = "",
-        modified  = "",
-        deleted   = "✖",
-        renamed   = "󰁕",
+        added = "",
+        modified = "",
+        deleted = "✖",
+        renamed = "󰁕",
         untracked = "",
-        ignored   = "",
-        unstaged  = "󰄱",
-        staged    = "",
-        conflict  = "",
-      }
-    }
+        ignored = "",
+        unstaged = "󰄱",
+        staged = "",
+        conflict = "",
+      },
+    },
   },
   filesystem = {
     hijack_netrw_behavior = "open_current",
@@ -43,3 +43,5 @@ require("neo-tree").setup({
     },
   },
 })
+
+map("n", "<leader>op", "<cmd>Neotree toggle<cr>")

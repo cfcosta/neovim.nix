@@ -117,3 +117,16 @@ if not configs.aiken then
 
   lspconfig.aiken.setup({})
 end
+
+map("n", "gD", vim.lsp.buf.declaration)
+map("n", "gd", vim.lsp.buf.definition)
+map("n", "K", vim.lsp.buf.hover)
+map("n", "gi", vim.lsp.buf.implementation)
+map("n", "<leader>ls", vim.lsp.buf.signature_help)
+map("n", "<leader>D", vim.lsp.buf.type_definition)
+map("n", "<leader>ca", vim.lsp.buf.code_action)
+map("n", "<leader>cF", vim.diagnostic.open_float)
+map("n", "[d", vim.diagnostic.goto_prev)
+map("n", "d]", vim.diagnostic.goto_next)
+map("n", "<leader>cq", vim.diagnostic.setloclist)
+map("n", "<leader>cr", vim.lsp.buf.rename)

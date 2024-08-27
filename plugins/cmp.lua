@@ -1,6 +1,33 @@
 local cmp = require("cmp")
 local compare = require("cmp.config.compare")
-local lspkind = require("lspkind")
+
+local kind_icons = {
+  Text = "",
+  Method = "󰆧",
+  Function = "󰊕",
+  Constructor = "",
+  Field = "󰇽",
+  Variable = "󰂡",
+  Class = "󰠱",
+  Interface = "",
+  Module = "",
+  Property = "󰜢",
+  Unit = "",
+  Value = "󰎠",
+  Enum = "",
+  Keyword = "󰌋",
+  Snippet = "",
+  Color = "󰏘",
+  File = "󰈙",
+  Reference = "",
+  Folder = "󰉋",
+  EnumMember = "",
+  Constant = "󰏿",
+  Struct = "",
+  Event = "",
+  Operator = "󰆕",
+  TypeParameter = "󰅲",
+}
 
 cmp.setup({
   snippet = {
@@ -32,14 +59,15 @@ cmp.setup({
     { name = "buffer" },
   }),
   formatting = {
-    format = lspkind.cmp_format({
-      mode = "symbol",
-      maxwidth = function()
-        return math.floor(0.45 * vim.o.columns)
-      end,
-      ellipsis_char = "...",
-      show_labelDetails = true,
-    }),
+    format = function(entry, vim_item)
+      -- Kind icons
+      vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
+      -- Source
+      vim_item.menu = ({
+        minuet = "󱗻",
+      })[entry.source.name]
+      return vim_item
+    end,
   },
   sorting = {
     priority_weight = 2,

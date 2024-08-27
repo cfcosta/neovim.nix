@@ -2,7 +2,8 @@ local actions = require("telescope.actions")
 local previewers = require("telescope.previewers")
 local sorters = require("telescope.sorters")
 
-local trouble = require("trouble.sources.telescope").open
+local open_with_trouble = require("trouble.sources.telescope").open
+local add_to_trouble = require("trouble.sources.telescope").add
 
 local options = {
   defaults = {
@@ -53,11 +54,13 @@ local options = {
     mappings = {
       n = {
         ["q"] = actions.close,
-        ["<c-t>"] = trouble,
+        ["<c-t>"] = open_with_trouble,
+        ["<c-a>"] = add_to_trouble,
       },
       i = {
         ["<esc>"] = actions.close,
-        ["<c-t>"] = trouble,
+        ["<c-t>"] = open_with_trouble,
+        ["<c-a>"] = add_to_trouble,
       },
     },
   },

@@ -45,10 +45,11 @@ in
 {
   programs.nightvim.plugins =
     [
-      (importPlugin ./plugins/aider)
+      #(importPlugin ./plugins/aider)
       (importPlugin ./plugins/avante)
       (importPlugin ./plugins/minuet)
       (importPlugin ./plugins/neo-tree)
+      (importPlugin ./plugins/trouble)
 
       (mkPlugin' "comment" deps.comment { config = ''require("Comment").setup {}''; })
       (mkPlugin' "render-markdown" deps.render-markdown { config = ""; })
@@ -150,7 +151,6 @@ in
         depends = [ "trouble" ];
         config = readFile ./plugins/telescope.lua;
       })
-      (mkPlugin' "trouble" deps.trouble { depends = [ "nvim-web-devicons" ]; })
       (mkPlugin' "lualine" deps.lualine {
         depends = [ "nvim-web-devicons" ];
         config = "";

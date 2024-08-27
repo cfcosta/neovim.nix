@@ -10,6 +10,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    aider = {
+      url = "github:joshuavial/aider.nvim";
+      flake = false;
+    };
     aiken-neovim = {
       url = "github:aiken-lang/editor-integration-nvim";
       flake = false;

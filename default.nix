@@ -45,9 +45,10 @@ in
 {
   programs.nightvim.plugins =
     [
-      (importPlugin ./plugins/neo-tree)
+      (importPlugin ./plugins/aider)
       (importPlugin ./plugins/avante)
       (importPlugin ./plugins/minuet)
+      (importPlugin ./plugins/neo-tree)
 
       (mkPlugin' "comment" deps.comment { config = ''require("Comment").setup {}''; })
       (mkPlugin' "render-markdown" deps.render-markdown { config = ""; })

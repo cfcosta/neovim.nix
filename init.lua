@@ -14,14 +14,10 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
 
-vim.fn.sign_define("DiagnosticSignError",
-  { text = " ", texthl = "DiagnosticSignError" })
-vim.fn.sign_define("DiagnosticSignWarn",
-  { text = " ", texthl = "DiagnosticSignWarn" })
-vim.fn.sign_define("DiagnosticSignInfo",
-  { text = " ", texthl = "DiagnosticSignInfo" })
-vim.fn.sign_define("DiagnosticSignHint",
-  { text = "󰌵", texthl = "DiagnosticSignHint" })
+vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
+vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
 
 map("n", "<leader>wv", "<cmd>vsplit<cr>")
 map("n", "<leader>ws", "<cmd>split<cr>")
@@ -84,9 +80,4 @@ after("osc52", function()
   map("n", "<leader>cc", '"+yy')
   map("v", "<leader>c", '"+y')
   map("v", "<leader>cc", '"+yy')
-end)
-
-after("gen-nvim", function()
-  map("n", "<leader>oo", ":<c-u>Gen<CR>")
-  map("v", "<leader>oo", ":<c-u>'<,'>Gen<CR>")
 end)

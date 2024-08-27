@@ -160,54 +160,6 @@
         "type": "github"
       }
     },
-    "copilot": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1718412968,
-        "narHash": "sha256-HC1QZlqEg+RBz/8kjLadafc06UoMAjhh0UO/BWQGMY8=",
-        "owner": "zbirenbaum",
-        "repo": "copilot.lua",
-        "rev": "86537b286f18783f8b67bccd78a4ef4345679625",
-        "type": "github"
-      },
-      "original": {
-        "owner": "zbirenbaum",
-        "repo": "copilot.lua",
-        "type": "github"
-      }
-    },
-    "copilot-cmp": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1718601710,
-        "narHash": "sha256-8w9go2SBkI+BrXNadWM8ZxDDfrAnZZJx6RbVHAK4+Pg=",
-        "owner": "zbirenbaum",
-        "repo": "copilot-cmp",
-        "rev": "b6e5286b3d74b04256d0a7e3bd2908eabec34b44",
-        "type": "github"
-      },
-      "original": {
-        "owner": "zbirenbaum",
-        "repo": "copilot-cmp",
-        "type": "github"
-      }
-    },
-    "dash-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1634039244,
-        "narHash": "sha256-h62LO+giLQha4EG6jk8CaNK+x+oyISVdo9cr6Db3ECA=",
-        "owner": "Kapeli",
-        "repo": "dash.nvim",
-        "rev": "2050947e035945c8c2fd16c028f1a8676a76d1cd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Kapeli",
-        "repo": "dash.nvim",
-        "type": "github"
-      }
-    },
     "diffview": {
       "flake": false,
       "locked": {
@@ -675,9 +627,6 @@
         "cmp-path": "cmp-path",
         "cmp-snippy": "cmp-snippy",
         "comment": "comment",
-        "copilot": "copilot",
-        "copilot-cmp": "copilot-cmp",
-        "dash-nvim": "dash-nvim",
         "diffview": "diffview",
         "dracula": "dracula",
         "dressing": "dressing",

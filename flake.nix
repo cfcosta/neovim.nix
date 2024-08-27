@@ -46,18 +46,6 @@
       url = "github:numtostr/comment.nvim";
       flake = false;
     };
-    copilot = {
-      url = "github:zbirenbaum/copilot.lua";
-      flake = false;
-    };
-    copilot-cmp = {
-      url = "github:zbirenbaum/copilot-cmp";
-      flake = false;
-    };
-    dash-nvim = {
-      url = "github:Kapeli/dash.nvim";
-      flake = false;
-    };
     diffview = {
       url = "github:sindrets/diffview.nvim";
       flake = false;

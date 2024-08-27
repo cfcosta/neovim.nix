@@ -2,8 +2,6 @@ local cmp = require("cmp")
 local compare = require("cmp.config.compare")
 local lspkind = require("lspkind")
 
-require("copilot_cmp").setup()
-
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -29,7 +27,6 @@ cmp.setup({
     { name = "snippy" },
     { name = "nvim_lsp" },
     { name = "nvim_lsp_signature_help" },
-    { name = "copilot" },
     { name = "path" },
   }, {
     { name = "buffer" },

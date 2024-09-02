@@ -70,9 +70,9 @@ in
         clang-tools
         cmake-format
         deadnix
+        eslint
         jq
         nixfmt-rfc-style
-        nodePackages.eslint
         postgres-lsp
         python3Packages.regex
         ruff
@@ -116,7 +116,6 @@ in
         lua-language-server
         nixd
         nodePackages.dockerfile-language-server-nodejs
-        nodePackages.eslint
         nodePackages.vscode-langservers-extracted
         pyright
         ruff

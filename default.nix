@@ -70,7 +70,6 @@ in
         clang-tools
         cmake-format
         deadnix
-        eslint
         jq
         nixfmt-rfc-style
         postgres-lsp

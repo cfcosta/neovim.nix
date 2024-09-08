@@ -242,6 +242,22 @@
         "type": "github"
       }
     },
+    "grug-far": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1725659976,
+        "narHash": "sha256-zY5I64oyLB44vzvZTx0WwG1RfhLmYoWa/ay1QWZzgh4=",
+        "owner": "MagicDuck",
+        "repo": "grug-far.nvim",
+        "rev": "8c9616f945b2d3c663cc33e20df3d1deadef6b9e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MagicDuck",
+        "repo": "grug-far.nvim",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -632,6 +648,7 @@
         "dressing": "dressing",
         "flake-utils": "flake-utils",
         "gitsigns": "gitsigns",
+        "grug-far": "grug-far",
         "home-manager": "home-manager",
         "indent-blankline": "indent-blankline",
         "lspkind": "lspkind",

@@ -49,6 +49,7 @@ in
     (importPlugin ./plugins/minuet)
     (importPlugin ./plugins/neo-tree)
     (importPlugin ./plugins/trouble)
+    (importPlugin ./plugins/grug-far)
 
     (mkPlugin' "comment" deps.comment { config = ''require("Comment").setup {}''; })
     (mkPlugin' "render-markdown" deps.render-markdown { config = ""; })

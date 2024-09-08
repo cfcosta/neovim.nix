@@ -54,6 +54,10 @@
       url = "github:stevearc/dressing.nvim";
       flake = false;
     };
+    grug-far = {
+      url = "github:MagicDuck/grug-far.nvim";
+      flake = false;
+    };
     gitsigns = {
       url = "github:lewis6991/gitsigns.nvim";
       flake = false;

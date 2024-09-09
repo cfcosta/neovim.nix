@@ -4,6 +4,8 @@ vim.opt.laststatus = 3
 -- To prevent this, set `splitkeep` to either `screen` or `topline`.
 vim.opt.splitkeep = "screen"
 
+require("avante_lib").load()
+
 require("avante").setup({
   provider = "claude",
 })

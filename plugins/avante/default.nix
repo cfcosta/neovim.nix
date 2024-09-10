@@ -1,47 +1,53 @@
 {
-  deps,
   mkPlugin,
+  deps,
   pkgs,
   ...
 }:
 let
   inherit (builtins) readFile;
-  inherit (pkgs) symlinkJoin;
-  inherit (pkgs.stdenv) isDarwin mkDerivation;
+  inherit (pkgs.rustPlatform) buildRustPackage;
 
-  baseUrl = "https://github.com/yetone/avante.nvim/releases/download/v0.0.2/";
-  file =
-    if isDarwin then
-      "avante_lib-macos-latest-lua51.tar.gz"
-    else
-      "avante_lib-ubuntu-latest-lua51.tar.gz";
-  sha256 = if isDarwin then "sha256:1kn56z2r52fwbjcj143ymd84pn2sdcpflhg5kcljslm57rlp2cnn" else "";
+  src = buildRustPackage {
+    name = "avante-lib";
+    src = deps.avante-nvim;
 
-  avante_lib = mkDerivation {
-    name = "avante_lib";
+    doCheck = false;
 
-    src = fetchTarball {
-      url = "${baseUrl}${file}";
-      inherit sha256;
+    buildFeatures = [ "luajit" ];
+    buildInputs = with pkgs; [
+      openssl.dev
+      pkg-config
+    ];
+    nativeBuildInputs = with pkgs; [
+      openssl
+      pkg-config
+    ];
+
+    cargoLock = {
+      lockFile = "${deps.avante-nvim}/Cargo.lock";
+      outputHashes = {
+        "mlua-0.10.0-beta.1" = "sha256-ZEZFATVldwj0pmlmi0s5VT0eABA15qKhgjmganrhGBY=";
+      };
     };
-    buildPhase = "";
 
     installPhase = ''
       mkdir -p $out/build
-      cp * $out/build
+
+      find . -iname "libavante*.*" -print | while read file; do
+        cp "$file" $out/build/$(basename $file | sed 's/^lib//')
+      done
+
+      cargo clean
+
+      cp -rf * $out/
     '';
   };
 in
 mkPlugin {
-  name = "avante.nvim";
-  src = symlinkJoin {
-    name = "avante-nvim-with-lib";
+  inherit src;
 
-    paths = [
-      avante_lib
-      deps.avante-nvim
-    ];
-  };
+  name = "avante.nvim";
 
   depends = [
     "dressing"

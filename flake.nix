@@ -4,10 +4,20 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    gitignore = {
+      url = "github:hercules-ci/gitignore.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        gitignore.follows = "gitignore";
+      };
     };
 
     aider = {
@@ -191,13 +201,17 @@
   };
 
   outputs =
-    inputs@{
-      nixpkgs,
+    {
+      self,
       flake-utils,
       home-manager,
+      nixpkgs,
+      pre-commit-hooks,
       ...
     }:
     let
+      inherit (self) inputs;
+
       hmModule =
         {
           config,
@@ -245,16 +259,31 @@
               (
                 { pkgs, ... }:
                 {
-                  home.username = "nightvim";
-                  home.homeDirectory = if pkgs.stdenv.isLinux then "/home/nightvim" else "/Users/nightvim";
-
-                  home.stateVersion = "23.05";
+                  home = {
+                    username = "nightvim";
+                    homeDirectory = if pkgs.stdenv.isLinux then "/home/nightvim" else "/Users/nightvim";
+                    stateVersion = "24.11";
+                  };
                 }
               )
             ];
           }).activation-script;
 
+        checks.pre-commit-check = pre-commit-hooks.lib.${system}.run {
+          src = ./.;
+
+          hooks = {
+            deadnix.enable = true;
+            nixfmt-rfc-style.enable = true;
+            statix.enable = true;
+
+            luacheck.enable = true;
+            stylua.enable = true;
+          };
+        };
+
         devShell = pkgs.mkShell {
+          inherit (self.checks.${system}.pre-commit-check) shellHook;
           packages = with pkgs; [
             stylua
             nixfmt-rfc-style

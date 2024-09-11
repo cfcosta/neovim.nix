@@ -12,12 +12,26 @@ in
         type = listOf (submodule {
           options = {
             name = mkOption { type = str; };
+
             src = mkOption { type = path; };
-            depends = mkOption { type = listOf str; };
-            inputs = mkOption { type = listOf attrs; };
+
+            depends = mkOption {
+              type = listOf str;
+              default = [ ];
+            };
+
+            inputs = mkOption {
+              type = listOf attrs;
+              default = [ ];
+            };
+
             config = mkOption { type = str; };
             module = mkOption { type = str; };
-            lazy = mkOption { type = bool; };
+
+            lazy = mkOption {
+              type = bool;
+              default = false;
+            };
           };
         });
         default = [ ];
@@ -31,6 +45,14 @@ in
 
   config =
     let
+      inherit (builtins)
+        concatStringsSep
+        foldl'
+        map
+        readFile
+        ;
+      inherit (lib) mkIf;
+
       quoteString = d: ''"${d}"'';
       listToLua = list: ''
         {${builtins.concatStringsSep " , " (builtins.map quoteString list)}} 
@@ -49,22 +71,22 @@ in
           end
         )'';
     in
-    (lib.mkIf cfg.enable {
+    mkIf cfg.enable {
       programs.neovim.enable = true;
 
-      home.packages = builtins.foldl' (acc: p: acc ++ p.inputs) [ ] cfg.plugins;
+      home.packages = foldl' (acc: p: acc ++ p.inputs) [ ] cfg.plugins;
 
       xdg.configFile = pluginFolders // {
         "nvim/init.lua".text = ''
-          ${builtins.readFile ./nv.lua}
+            ${readFile ./nv.lua}
 
           _nv_init()
 
-          ${builtins.concatStringsSep "\n" (builtins.map mapSpec cfg.plugins)}
+            ${concatStringsSep "\n" (map mapSpec cfg.plugins)}
 
-          ${cfg.extraConfig}
+            ${cfg.extraConfig}
 
           _nv_finish()'';
       };
-    });
+    };
 }

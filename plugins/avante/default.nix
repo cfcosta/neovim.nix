@@ -21,14 +21,11 @@ let
 
     buildInputs =
       with pkgs;
-      [
-        openssl.dev
-        pkg-config
-      ]
-      ++ optionals isDarwin [ darwin.apple_sdk.frameworks.Security ];
+      [ openssl.dev ] ++ optionals isDarwin [ darwin.apple_sdk.frameworks.Security ];
 
     nativeBuildInputs = with pkgs; [
       openssl
+      pkg-config
     ];
 
     cargoLock = {
@@ -41,7 +38,7 @@ let
     installPhase = ''
       mkdir -p $out/build
 
-      find . -iname "libavante*.*" -print | while read file; do
+      find . -iname "libavante*.*" -print | while read -r file; do
         cp "$file" $out/build/$(basename $file | sed 's/^lib//')
       done
 

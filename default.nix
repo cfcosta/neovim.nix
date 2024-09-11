@@ -1,4 +1,9 @@
-{ pkgs, deps, ... }:
+{
+  pkgs,
+  deps,
+  lib,
+  ...
+}:
 let
   inherit (builtins) readFile isPath;
 
@@ -40,7 +45,16 @@ let
     }
     // specs;
 
-  importPlugin = dir: import dir { inherit pkgs deps mkPlugin; };
+  importPlugin =
+    dir:
+    import dir {
+      inherit
+        pkgs
+        deps
+        mkPlugin
+        lib
+        ;
+    };
 in
 {
   programs.nightvim.plugins = [

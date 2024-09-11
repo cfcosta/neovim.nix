@@ -2,11 +2,14 @@
   mkPlugin,
   deps,
   pkgs,
+  lib,
   ...
 }:
 let
   inherit (builtins) readFile;
   inherit (pkgs.rustPlatform) buildRustPackage;
+  inherit (pkgs.stdenv) isDarwin;
+  inherit (lib) optionals;
 
   src = buildRustPackage {
     name = "avante-lib";
@@ -14,14 +17,18 @@ let
 
     doCheck = false;
 
-    buildFeatures = [ "luajit" ];
-    buildInputs = with pkgs; [
-      openssl.dev
-      pkg-config
-    ];
+    buildFeatures = [ "lua52" ];
+
+    buildInputs =
+      with pkgs;
+      [
+        openssl.dev
+        pkg-config
+      ]
+      ++ optionals isDarwin [ darwin.apple_sdk.frameworks.Security ];
+
     nativeBuildInputs = with pkgs; [
       openssl
-      pkg-config
     ];
 
     cargoLock = {

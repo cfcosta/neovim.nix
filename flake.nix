@@ -199,12 +199,17 @@
     }:
     let
       hmModule =
-        { pkgs, ... }:
+        {
+          config,
+          lib,
+          pkgs,
+          ...
+        }:
         {
           imports = [
             ./hm-module.nix
-            (import ./default.nix {
-              inherit pkgs;
+            (import ./. {
+              inherit config lib pkgs;
               deps = inputs;
             })
           ];

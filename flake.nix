@@ -20,10 +20,6 @@
       };
     };
 
-    aider = {
-      url = "github:joshuavial/aider.nvim";
-      flake = false;
-    };
     aiken-neovim = {
       url = "github:aiken-lang/editor-integration-nvim";
       flake = false;
@@ -82,10 +78,6 @@
     };
     lualine = {
       url = "github:nvim-lualine/lualine.nvim";
-      flake = false;
-    };
-    minuet = {
-      url = "github:milanglacier/minuet-ai.nvim";
       flake = false;
     };
     neo-tree = {
@@ -277,7 +269,10 @@
             nixfmt-rfc-style.enable = true;
             statix.enable = true;
 
-            luacheck.enable = true;
+            luacheck = {
+              enable = true;
+              entry = "${pkgs.luajitPackages.luacheck}/bin/luacheck --std luajit --globals vim -- ";
+            };
             stylua.enable = true;
           };
         };

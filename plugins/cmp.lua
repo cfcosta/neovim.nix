@@ -50,7 +50,6 @@ cmp.setup({
     }),
   }),
   sources = cmp.config.sources({
-    { name = "minuet" },
     { name = "snippy" },
     { name = "nvim_lsp" },
     { name = "nvim_lsp_signature_help" },
@@ -61,10 +60,11 @@ cmp.setup({
   formatting = {
     format = function(entry, vim_item)
       -- Kind icons
-      vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind) -- This concatenates the icons with the name of the item kind
+      -- This concatenates the icons with the name of the item kind
+      vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
       -- Source
       vim_item.menu = ({
-        minuet = "󱗻",
+        avante = "󱗻",
       })[entry.source.name]
       return vim_item
     end,

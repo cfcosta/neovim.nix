@@ -58,9 +58,7 @@ let
 in
 {
   programs.nightvim.plugins = [
-    #(importPlugin ./plugins/aider)
     (importPlugin ./plugins/avante)
-    (importPlugin ./plugins/minuet)
     (importPlugin ./plugins/neo-tree)
     (importPlugin ./plugins/trouble)
     (importPlugin ./plugins/grug-far)
@@ -114,7 +112,6 @@ in
         "cmp-path"
         "cmp-snippy"
         "lspkind"
-        "minuet"
         "nvim-dap"
         "nvim-lspconfig"
         "nvim-snippy"

@@ -7,5 +7,10 @@ vim.opt.splitkeep = "screen"
 require("avante_lib").load()
 
 require("avante").setup({
-  provider = "claude",
+  provider = "openai",
+  auto_suggestion_provider = "openai",
+
+  openai = {
+    model = "o1-mini",
+  },
 })

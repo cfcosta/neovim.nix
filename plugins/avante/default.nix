@@ -17,7 +17,7 @@ let
 
     doCheck = false;
 
-    buildFeatures = [ "lua52" ];
+    buildFeatures = [ "luajit" ];
 
     buildInputs =
       with pkgs;

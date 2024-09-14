@@ -65,7 +65,6 @@ in
     (importPlugin ./plugins/telescope)
 
     (mkPlugin' "comment" deps.comment { config = ''require("Comment").setup {}''; })
-    (mkPlugin' "render-markdown" deps.render-markdown { config = ""; })
     (mkPlugin' "neogit" deps.neogit {
       depends = [
         "plenary"

@@ -660,22 +660,6 @@
         "type": "github"
       }
     },
-    "render-markdown": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1725904000,
-        "narHash": "sha256-mbqX0+yGMjW3fHtDXVnVh6nUOG6waCW/sAXSQugc33Y=",
-        "owner": "MeanderingProgrammer",
-        "repo": "render-markdown.nvim",
-        "rev": "a5e2d0b1215814c3d033be1fd8eccf59ce366399",
-        "type": "github"
-      },
-      "original": {
-        "owner": "MeanderingProgrammer",
-        "repo": "render-markdown.nvim",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "aiken-neovim": "aiken-neovim",
@@ -716,7 +700,6 @@
         "osc52": "osc52",
         "plenary": "plenary",
         "pre-commit-hooks": "pre-commit-hooks",
-        "render-markdown": "render-markdown",
         "rustacean": "rustacean",
         "telescope": "telescope",
         "toggleterm": "toggleterm",

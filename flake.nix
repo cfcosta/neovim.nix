@@ -144,10 +144,6 @@
       url = "github:nvim-lua/plenary.nvim";
       flake = false;
     };
-    render-markdown = {
-      url = "github:MeanderingProgrammer/render-markdown.nvim";
-      flake = false;
-    };
     rustacean = {
       url = "github:mrcjkb/rustaceanvim";
       flake = false;

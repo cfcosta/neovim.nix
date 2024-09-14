@@ -58,7 +58,6 @@ mkPlugin {
     "nui"
     "nvim-web-devicons"
     "plenary"
-    "render-markdown"
   ];
 
   config = readFile ./configuration.lua;

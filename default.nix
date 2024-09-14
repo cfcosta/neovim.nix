@@ -62,6 +62,7 @@ in
     (importPlugin ./plugins/neo-tree)
     (importPlugin ./plugins/trouble)
     (importPlugin ./plugins/grug-far)
+    (importPlugin ./plugins/telescope)
 
     (mkPlugin' "comment" deps.comment { config = ''require("Comment").setup {}''; })
     (mkPlugin' "render-markdown" deps.render-markdown { config = ""; })
@@ -84,6 +85,7 @@ in
         cmake-format
         deadnix
         jq
+        luajitPackages.luacheck
         nixfmt-rfc-style
         postgres-lsp
         python3Packages.regex
@@ -152,11 +154,6 @@ in
           size = 72
         }
       '';
-    })
-    (mkPlugin' "telescope" deps.telescope {
-      inputs = with pkgs; [ ripgrep ];
-      depends = [ "trouble" ];
-      config = readFile ./plugins/telescope.lua;
     })
     (mkPlugin' "lualine" deps.lualine {
       depends = [ "nvim-web-devicons" ];

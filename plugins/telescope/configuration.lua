@@ -16,6 +16,8 @@ local options = {
       "--line-number",
       "--column",
       "--smart-case",
+      "--ignore-vcs",
+      "--hidden",
     },
     prompt_prefix = " >  ",
     selection_caret = "  ",
@@ -37,9 +39,9 @@ local options = {
       height = 0.80,
       preview_cutoff = 120,
     },
-    find_command = { "rg", "--files", "--hidden" },
+    find_command = { "rg", "--files", "--hidden", "--ignore-vcs" },
     file_sorter = sorters.get_fuzzy_file,
-    file_ignore_patterns = { "node_modules", ".git", "vendor" },
+    file_ignore_patterns = { "node_modules", "%.git" },
     generic_sorter = sorters.get_generic_fuzzy_sorter,
     path_display = { "truncate" },
     winblend = 0,
@@ -71,9 +73,19 @@ local options = {
 
 require("telescope").setup(options)
 
-map("n", "<leader><leader>", "<cmd> Telescope find_files hidden=true<CR>")
-map("n", "<leader>/", "<cmd> Telescope live_grep <CR>")
-map("n", "<leader>bb", "<cmd> Telescope buffers <CR>")
-map("n", "<leader>cm", "<cmd> Telescope git_commits <CR>")
-map("n", "<leader>gt", "<cmd> Telescope git_status <CR>")
-map("n", "<leader>ff", "<cmd> Telescope lsp_workspace_symbols <CR>")
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader><leader>",
+  "<cmd> Telescope find_files hidden=true<CR>",
+  { noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap("n", "<leader>/", "<cmd> Telescope live_grep <CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>bb", "<cmd> Telescope buffers <CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>cm", "<cmd> Telescope git_commits <CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>gt", "<cmd> Telescope git_status <CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>ff",
+  "<cmd> Telescope lsp_workspace_symbols <CR>",
+  { noremap = true, silent = true }
+)

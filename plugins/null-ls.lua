@@ -20,6 +20,7 @@ null_ls.setup({
     null_ls.builtins.diagnostics.ruff, -- Python
     null_ls.builtins.diagnostics.shellcheck, -- Shell
     null_ls.builtins.diagnostics.deadnix, -- Nix
+    null_ls.builtins.diagnostics.luacheck, -- Nix
     null_ls.builtins.diagnostics.sqlfluff.with({ extra_args = { "--dialect", "postgres" } }), -- PostgreSQL
   },
   on_attach = function(client, bufnr)

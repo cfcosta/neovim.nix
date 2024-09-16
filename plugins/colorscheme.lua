@@ -3,8 +3,8 @@ require("catppuccin").setup({
   flavor = "mocha",
 })
 
-lualine_theme = (function()
-  local C = require("catppuccin.palettes").get_palette(flavour)
+local lualine_theme = (function()
+  local C = require("catppuccin.palettes").get_palette("mocha")
   local O = require("catppuccin").options
   local catppuccin = {}
 

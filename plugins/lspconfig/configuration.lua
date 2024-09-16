@@ -2,6 +2,28 @@ local lspconfig = require("lspconfig")
 local configs = require("lspconfig.configs")
 local util = require("lspconfig.util")
 
+local on_attach = function(client, _)
+  if not client.supports_method("textDocument/formatting") then
+    return
+  end
+
+  vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("lsp", { clear = true }),
+    callback = function(args)
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = args.buf,
+        callback = function()
+          vim.lsp.buf.format({ async = false, id = args.data.client_id })
+        end,
+      })
+    end,
+  })
+end
+
+local default_lsp_config = {
+  on_attach = on_attach,
+}
+
 ------------------------------------------------------------------------
 -- Python
 ------------------------------------------------------------------------
@@ -16,6 +38,7 @@ local root_files = {
 }
 
 lspconfig.pyright.setup({
+  on_attach = on_attach,
   default_config = {
     cmd = { "pyright-langserver", "--stdio" },
     filetypes = { "python" },
@@ -40,30 +63,33 @@ lspconfig.pyright.setup({
 })
 
 lspconfig.ruff_lsp.setup({
-  on_attach = function(client, _)
+  on_attach = function(client, bufnr)
     client.server_capabilities.hoverProvider = false
+
+    on_attach(client, bufnr)
   end,
 })
 
 ------------------------------------------------------------------------
 -- Nix
 ------------------------------------------------------------------------
-lspconfig.nixd.setup({})
+lspconfig.nixd.setup(default_lsp_config)
 
 ------------------------------------------------------------------------
 -- Protocol Buffers
 ------------------------------------------------------------------------
-lspconfig.bufls.setup({})
+lspconfig.bufls.setup(default_lsp_config)
 
 ------------------------------------------------------------------------
 -- PostgreSQL
 ------------------------------------------------------------------------
-lspconfig.postgres_lsp.setup({})
+lspconfig.postgres_lsp.setup(default_lsp_config)
 
 ------------------------------------------------------------------------
 -- Lua
 ------------------------------------------------------------------------
 lspconfig.lua_ls.setup({
+  on_attach = on_attach,
   settings = {
     Lua = {
       runtime = {
@@ -86,6 +112,7 @@ lspconfig.lua_ls.setup({
 -- Go
 ------------------------------------------------------------------------
 lspconfig.gopls.setup({
+  on_attach = on_attach,
   cmd = { "gopls" },
   capabilities = require("cmp_nvim_lsp").default_capabilities(),
   settings = {
@@ -108,6 +135,7 @@ lspconfig.gopls.setup({
 ------------------------------------------------------------------------
 if not configs.aiken then
   configs.aiken = {
+    on_attach = on_attach,
     default_config = {
       cmd = { "aiken", "lsp" },
       filetypes = { "aiken" },
@@ -129,9 +157,12 @@ if not configs.aiken then
     },
   }
 
-  lspconfig.aiken.setup({})
+  lspconfig.aiken.setup(default_lsp_config)
 end
 
+------------------------------------------------------------------------
+-- Keybindings
+------------------------------------------------------------------------
 vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })

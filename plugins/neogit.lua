@@ -5,4 +5,4 @@ require("neogit").setup({
   },
 })
 
-map("n", "<leader>gg", "<cmd>Neogit<cr>")
+vim.api.nvim_set_keymap("n", "<leader>gg", "<cmd>Neogit<cr>", { noremap = true, silent = true })

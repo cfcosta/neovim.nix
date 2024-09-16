@@ -97,7 +97,12 @@ lspconfig.lua_ls.setup({
         special = { reload = "require" },
       },
       workspace = {
+        diagnostics = {
+          globals = { "vim" },
+        },
         library = {
+          vim.fn.stdpath("config") .. "/lua/nightvim",
+          vim.fn.stdpath("config") .. "/night/plugins",
           vim.env.VIMRUNTIME,
         },
       },

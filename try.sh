@@ -41,9 +41,6 @@ export XDG_CACHE_HOME="${TEMP}/.cache"
 export XDG_DATA_HOME="${TEMP}/.local/share"
 export PATH="${TEMP}/result/home-path/bin:${PATH}"
 
-# Disable some plugins that require user credentials like wakatime
-export NVIM_CONFIG_IN_TEST="true"
-
-"${TEMP}/result/home-path/bin/nvim" $@
+"${TEMP}/result/home-path/bin/nvim" "$@"
 
 cleanup

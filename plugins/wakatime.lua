@@ -1,5 +1,3 @@
-if os.getenv("NVIM_CONFIG_IN_TEST") then
-  vim.g.loaded_wakatime = 1
-end
-
-vim.g.wakatime_CLIPath = string.gsub(vim.fn.system("which wakatime-cli"), "[\n\r]", "")
+-- If Wakatime is not configured, do not load the plugin
+local cfg_exists = io.open(os.getenv("HOME") .. "/.wakatime.cfg", "r") ~= nil
+vim.g.loaded_wakatime = cfg_exists and 0 or 1

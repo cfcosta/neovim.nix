@@ -19,12 +19,14 @@ vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSi
 vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
 vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
 
-map("n", "<leader>wv", "<cmd>vsplit<cr>")
-map("n", "<leader>ws", "<cmd>split<cr>")
-map("n", "<leader>wc", "<cmd>close<cr>")
-map("n", "<leader>wo", "<cmd>only<cr>")
-
-after("toggleterm", function()
-  map("n", "<leader>ot", "<cmd>ToggleTerm direction=horizontal<cr>")
-  map("n", "<leader>oT", "<cmd>ToggleTerm direction=vertical<cr>")
-end)
+vim.api.nvim_set_keymap("n", "<leader>wv", "<cmd>vsplit<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>ws", "<cmd>split<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>wc", "<cmd>close<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>wo", "<cmd>only<cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>ot",
+  "<cmd>ToggleTerm direction=horizontal<cr>",
+  { noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap("n", "<leader>oT", "<cmd>ToggleTerm direction=vertical<cr>", { noremap = true, silent = true })

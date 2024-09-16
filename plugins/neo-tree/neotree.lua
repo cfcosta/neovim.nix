@@ -1,4 +1,4 @@
-vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+vim.g.neo_tree_remove_legacy_commands = 1
 
 require("neo-tree").setup({
   window = {
@@ -44,4 +44,4 @@ require("neo-tree").setup({
   },
 })
 
-map("n", "<leader>op", "<cmd>Neotree toggle<cr>")
+vim.api.nvim_set_keymap("n", "<leader>op", "<cmd>Neotree toggle<cr>", { noremap = true, silent = true })

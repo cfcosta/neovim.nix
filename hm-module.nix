@@ -54,7 +54,6 @@ in
         concatStringsSep
         foldl'
         map
-        readFile
         ;
       inherit (lib) mkIf;
       inherit (pkgs.stdenv) mkDerivation;
@@ -67,7 +66,7 @@ in
       pluginFolders = lib.foldl' (
         acc: attr: acc // { "nvim/night/plugins/start/${attr.name}".source = attr.src; }
       ) { } cfg.plugins;
-      loadFunc = p: if p.lazy then "_nv_setup_plugin" else "_nv_setup_plugin_eager";
+      loadFunc = p: if p.lazy then "__nv.setup_plugin" else "__nv.setup_plugin_eager";
       mapSpec = p: ''
         ${loadFunc p}(
           "${p.name}",
@@ -108,16 +107,21 @@ in
       };
 
       xdg.configFile = pluginFolders // {
+        "nvim/lua/nightvim" = {
+          source = ./lua;
+          recursive = true;
+        };
+
         "nvim/init.lua".text = ''
-            ${readFile ./nv.lua}
+          local __nv = require("nightvim")
+          __nv.init()
 
-          _nv_init()
+          ${concatStringsSep "\n" (map mapSpec cfg.plugins)}
 
-            ${concatStringsSep "\n" (map mapSpec cfg.plugins)}
+          ${cfg.extraConfig}
 
-            ${cfg.extraConfig}
-
-          _nv_finish()'';
+          __nv.finish()
+        '';
       };
     };
 }

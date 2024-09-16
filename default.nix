@@ -152,7 +152,10 @@ in
     (mkPlugin' "aiken-neovim" deps.aiken-neovim { config = ""; })
     (mkPlugin' "wakatime" deps.wakatime {
       inputs = [ pkgs.wakatime ];
-      config = readFile ./plugins/wakatime.lua;
+      config = ''
+        vim.g.wakatime_CLIPath = "${pkgs.wakatime}/bin/wakatime-cli"
+        ${readFile ./plugins/wakatime.lua}
+      '';
       lazy = false;
     })
     (mkPlugin' "which-key" deps.which-key { })

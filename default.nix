@@ -64,6 +64,7 @@ in
     (importPlugin ./plugins/grug-far)
     (importPlugin ./plugins/telescope)
     (importPlugin ./plugins/lspconfig)
+    (importPlugin ./plugins/none-ls)
 
     (mkPlugin' "comment" deps.comment { config = ''require("Comment").setup {}''; })
     (mkPlugin' "neogit" deps.neogit {
@@ -72,31 +73,6 @@ in
         "diffview"
       ];
       config = readFile ./plugins/neogit.lua;
-    })
-    (mkPlugin' "null-ls" deps.null-ls {
-      depends = [
-        "plenary"
-        "nvim-lspconfig"
-      ];
-
-      inputs = with pkgs; [
-        actionlint
-        clang-tools
-        cmake-format
-        deadnix
-        jq
-        luajitPackages.luacheck
-        nixfmt-rfc-style
-        postgres-lsp
-        python3Packages.regex
-        ruff
-        ruff-lsp
-        shellcheck
-        shfmt
-        statix
-      ];
-
-      config = readFile ./plugins/null-ls.lua;
     })
     (mkPlugin' "nvim-autopairs" deps.nvim-autopairs {
       config = ''

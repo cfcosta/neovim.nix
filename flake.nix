@@ -92,8 +92,8 @@
       url = "github:MunifTanjim/nui.nvim";
       flake = false;
     };
-    null-ls = {
-      url = "github:jose-elias-alvarez/null-ls.nvim";
+    none-ls = {
+      url = "github:nvimtools/none-ls.nvim";
       flake = false;
     };
     nvim-autopairs = {

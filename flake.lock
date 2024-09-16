@@ -411,6 +411,22 @@
         "type": "github"
       }
     },
+    "none-ls": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1725194181,
+        "narHash": "sha256-cL2BRTzxizzPV+FJyWX1286Al39em1eHKdbXTazUlFI=",
+        "owner": "nvimtools",
+        "repo": "none-ls.nvim",
+        "rev": "9b98991e15dce8fc502993e23caac2528b8b667f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvimtools",
+        "repo": "none-ls.nvim",
+        "type": "github"
+      }
+    },
     "nui": {
       "flake": false,
       "locked": {
@@ -424,22 +440,6 @@
       "original": {
         "owner": "MunifTanjim",
         "repo": "nui.nvim",
-        "type": "github"
-      }
-    },
-    "null-ls": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1691810493,
-        "narHash": "sha256-cWA0rzkOp/ekVKaFee7iea1lhnqKtWUIU+fW5M950wI=",
-        "owner": "jose-elias-alvarez",
-        "repo": "null-ls.nvim",
-        "rev": "0010ea927ab7c09ef0ce9bf28c2b573fc302f5a7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "jose-elias-alvarez",
-        "repo": "null-ls.nvim",
         "type": "github"
       }
     },
@@ -685,8 +685,8 @@
         "neo-tree": "neo-tree",
         "neogit": "neogit",
         "nixpkgs": "nixpkgs",
+        "none-ls": "none-ls",
         "nui": "nui",
-        "null-ls": "null-ls",
         "nvim-autopairs": "nvim-autopairs",
         "nvim-cmp": "nvim-cmp",
         "nvim-dap": "nvim-dap",

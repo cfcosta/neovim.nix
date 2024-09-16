@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   cfg = config.programs.nightvim;
 in
@@ -52,6 +57,7 @@ in
         readFile
         ;
       inherit (lib) mkIf;
+      inherit (pkgs.stdenv) mkDerivation;
 
       quoteString = d: ''"${d}"'';
       listToLua = list: ''
@@ -72,9 +78,34 @@ in
         )'';
     in
     mkIf cfg.enable {
-      programs.neovim.enable = true;
+      programs.neovim = {
+        enable = true;
 
-      home.packages = foldl' (acc: p: acc ++ p.inputs) [ ] cfg.plugins;
+        package =
+          let
+            inputs = foldl' (acc: p: acc ++ p.inputs) [ ] cfg.plugins;
+            paths = map (p: "--suffix PATH : ${p}/bin") inputs;
+          in
+          mkDerivation {
+            inherit (pkgs.neovim-unwrapped) meta lua;
+
+            name = "nightvim";
+            src = pkgs.neovim-unwrapped;
+
+            nativeBuildInputs = [
+              pkgs.makeWrapper
+            ];
+
+            dontBuild = true;
+            installPhase = ''
+              mkdir $out
+              cp -rf * $out
+
+              wrapProgram $out/bin/nvim \
+                ${concatStringsSep " " paths}
+            '';
+          };
+      };
 
       xdg.configFile = pluginFolders // {
         "nvim/init.lua".text = ''

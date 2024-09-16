@@ -63,6 +63,7 @@ in
     (importPlugin ./plugins/trouble)
     (importPlugin ./plugins/grug-far)
     (importPlugin ./plugins/telescope)
+    (importPlugin ./plugins/lspconfig)
 
     (mkPlugin' "comment" deps.comment { config = ''require("Comment").setup {}''; })
     (mkPlugin' "neogit" deps.neogit {
@@ -120,20 +121,6 @@ in
       ];
 
       config = readFile ./plugins/cmp.lua;
-    })
-    (mkPlugin' "nvim-lspconfig" deps.nvim-lspconfig {
-      inputs = with pkgs; [
-        buf-language-server
-        gopls
-        lua-language-server
-        nixd
-        nodePackages.dockerfile-language-server-nodejs
-        nodePackages.vscode-langservers-extracted
-        pyright
-        ruff
-      ];
-
-      config = readFile ./plugins/lsp.lua;
     })
     (mkPlugin' "rustacean" deps.rustacean {
       lazy = false;

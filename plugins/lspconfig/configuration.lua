@@ -73,7 +73,8 @@ lspconfig.ruff_lsp.setup({
 ------------------------------------------------------------------------
 -- Nix
 ------------------------------------------------------------------------
-lspconfig.nixd.setup(default_lsp_config)
+lspconfig.nixd.setup({})
+lspconfig.statix.setup(default_lsp_config)
 
 ------------------------------------------------------------------------
 -- Protocol Buffers

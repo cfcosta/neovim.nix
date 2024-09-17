@@ -1,4 +1,3 @@
-require("dracula").setup({})
 require("catppuccin").setup({
   flavor = "mocha",
 })

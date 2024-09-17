@@ -59,11 +59,13 @@ in
 {
   programs.nightvim.plugins = [
     (importPlugin ./plugins/avante)
-    (importPlugin ./plugins/neo-tree)
-    (importPlugin ./plugins/trouble)
     (importPlugin ./plugins/grug-far)
-    (importPlugin ./plugins/telescope)
     (importPlugin ./plugins/lspconfig)
+    (importPlugin ./plugins/neo-tree)
+    (importPlugin ./plugins/osc52)
+    (importPlugin ./plugins/telescope)
+    (importPlugin ./plugins/toggleterm)
+    (importPlugin ./plugins/trouble)
 
     (mkPlugin' "comment" deps.comment { config = ''require("Comment").setup {}''; })
     (mkPlugin' "neogit" deps.neogit {
@@ -101,20 +103,9 @@ in
       lazy = false;
       config = readFile ./plugins/rustacean.lua;
     })
-    (mkPlugin' "dracula" deps.dracula {
-      lazy = false;
-      config = readFile ./plugins/colorscheme.lua;
-    })
     (mkPlugin' "catpuccin" deps.catpuccin {
       lazy = false;
-      config = "";
-    })
-    (mkPlugin' "toggleterm" deps.toggleterm {
-      config = ''
-        require("toggleterm").setup {
-          size = 72
-        }
-      '';
+      config = readFile ./plugins/colorscheme.lua;
     })
     (mkPlugin' "lualine" deps.lualine {
       depends = [ "nvim-web-devicons" ];

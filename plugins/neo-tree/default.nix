@@ -12,5 +12,5 @@ mkPlugin {
     "nui"
   ];
 
-  config = readFile ./neotree.lua;
+  config = readFile ./configuration.lua;
 }

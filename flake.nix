@@ -28,6 +28,10 @@
       url = "github:yetone/avante.nvim";
       flake = false;
     };
+    catpuccin = {
+      url = "github:catppuccin/nvim";
+      flake = false;
+    };
     cmp-buffer = {
       url = "github:hrsh7th/cmp-buffer";
       flake = false;
@@ -148,7 +152,7 @@
       url = "github:nvim-telescope/telescope.nvim";
       flake = false;
     };
-    toggleterm = {
+    toggleterm-nvim = {
       url = "github:akinsho/toggleterm.nvim";
       flake = false;
     };
@@ -170,16 +174,6 @@
     };
     zen-mode = {
       url = "github:folke/zen-mode.nvim";
-      flake = false;
-    };
-
-    # Colorschemes
-    catpuccin = {
-      url = "github:catppuccin/nvim";
-      flake = false;
-    };
-    dracula = {
-      url = "github:Mofiqul/dracula.nvim";
       flake = false;
     };
   };
@@ -212,10 +206,7 @@
             })
           ];
 
-          programs.nightvim = {
-            enable = true;
-            extraConfig = builtins.readFile ./init.lua;
-          };
+          programs.nightvim.enable = true;
         };
     in
     {

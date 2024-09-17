@@ -9,6 +9,23 @@ M.plugins = {
 
 M.init = function()
   vim.opt.packpath:prepend(M.plugins_root)
+
+  vim.g.mapleader = " "
+
+  vim.opt.termguicolors = true
+
+  vim.opt.tabstop = 2
+  vim.opt.softtabstop = 2
+  vim.opt.shiftwidth = 2
+  vim.opt.expandtab = true
+
+  vim.opt.number = true
+  vim.opt.relativenumber = true
+
+  vim.api.nvim_set_keymap("n", "<leader>wv", "<cmd>vsplit<cr>", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("n", "<leader>ws", "<cmd>split<cr>", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("n", "<leader>wc", "<cmd>close<cr>", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("n", "<leader>wo", "<cmd>only<cr>", { noremap = true, silent = true })
 end
 
 M.setup_plugin_eager = function(name, depends, config)

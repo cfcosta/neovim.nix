@@ -64,7 +64,6 @@ in
     (importPlugin ./plugins/grug-far)
     (importPlugin ./plugins/telescope)
     (importPlugin ./plugins/lspconfig)
-    (importPlugin ./plugins/none-ls)
 
     (mkPlugin' "comment" deps.comment { config = ''require("Comment").setup {}''; })
     (mkPlugin' "neogit" deps.neogit {
@@ -131,7 +130,6 @@ in
     })
     (mkPlugin' "indent-blankline" deps.indent-blankline { config = readFile ./plugins/indentline.lua; })
     (mkPlugin' "lspkind" deps.lspkind { config = ""; })
-    (mkPlugin' "nvim-osc52" deps.osc52 { config = readFile ./plugins/osc52.lua; })
     (mkPlugin' "cmp-buffer" deps.cmp-buffer { config = ""; })
     (mkPlugin' "cmp-cmdline" deps.cmp-cmdline { config = ""; })
     (mkPlugin' "cmp-nvim-lsp" deps.cmp-nvim-lsp { config = ""; })

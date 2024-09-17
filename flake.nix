@@ -92,10 +92,6 @@
       url = "github:MunifTanjim/nui.nvim";
       flake = false;
     };
-    none-ls = {
-      url = "github:nvimtools/none-ls.nvim";
-      flake = false;
-    };
     nvim-autopairs = {
       url = "github:windwp/nvim-autopairs";
       flake = false;
@@ -136,7 +132,7 @@
       url = "github:nvim-tree/nvim-web-devicons";
       flake = false;
     };
-    osc52 = {
+    nvim-osc52 = {
       url = "github:ojroques/nvim-osc52";
       flake = false;
     };

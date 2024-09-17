@@ -1,24 +1,11 @@
 local M = {}
 
-M.root = vim.fn.stdpath("config") .. "/night"
 M.plugins_root = vim.fn.stdpath("config") .. "/night/plugins"
 M.afterHooks = {}
 M.plugins = {
   lazy = {},
   eager = {},
 }
-
-M.open_config = function()
-  local config_home = os.getenv("XDG_CONFIG_HOME")
-
-  if config_home == nil or config_home == "" then
-    config_home = os.getenv("HOME") .. "/.config"
-  end
-
-  local config_path = config_home .. "/nvim/init.lua"
-
-  vim.cmd("edit " .. config_path)
-end
 
 M.init = function()
   vim.opt.packpath:prepend(M.plugins_root)

@@ -1,5 +1,4 @@
 local lspconfig = require("lspconfig")
-local configs = require("lspconfig.configs")
 local util = require("lspconfig.util")
 
 local on_attach = function(client, _)
@@ -24,151 +23,9 @@ local default_lsp_config = {
   on_attach = on_attach,
 }
 
-------------------------------------------------------------------------
--- Python
-------------------------------------------------------------------------
-local root_files = {
-  "pyproject.toml",
-  "setup.py",
-  "setup.cfg",
-  "requirements.txt",
-  "Pipfile",
-  "pyrightconfig.json",
-  ".git",
-}
-
-lspconfig.pyright.setup({
-  on_attach = on_attach,
-  default_config = {
-    cmd = { "pyright-langserver", "--stdio" },
-    filetypes = { "python" },
-    root_dir = function(fname)
-      return util.root_pattern(unpack(root_files))(fname)
-    end,
-    single_file_support = true,
-    settings = {
-      pyright = {
-        disableOrganizeImports = true,
-      },
-      python = {
-        analysis = {
-          autoSearchPaths = true,
-          useLibraryCodeForTypes = true,
-          diagnosticMode = "workspace",
-          autoImportCompletions = true,
-        },
-      },
-    },
-  },
-})
-
-lspconfig.ruff_lsp.setup({
-  on_attach = function(client, bufnr)
-    client.server_capabilities.hoverProvider = false
-
-    on_attach(client, bufnr)
-  end,
-})
-
-------------------------------------------------------------------------
--- Nix
-------------------------------------------------------------------------
-lspconfig.nixd.setup({})
-lspconfig.statix.setup(default_lsp_config)
-
-------------------------------------------------------------------------
--- Protocol Buffers
-------------------------------------------------------------------------
-lspconfig.bufls.setup(default_lsp_config)
-
-------------------------------------------------------------------------
--- PostgreSQL
-------------------------------------------------------------------------
-lspconfig.postgres_lsp.setup(default_lsp_config)
-
-------------------------------------------------------------------------
--- Lua
-------------------------------------------------------------------------
-lspconfig.lua_ls.setup({
-  on_attach = on_attach,
-  settings = {
-    Lua = {
-      runtime = {
-        version = "LuaJIT",
-        special = { reload = "require" },
-      },
-      workspace = {
-        diagnostics = {
-          globals = { "vim" },
-        },
-        library = {
-          vim.fn.stdpath("config") .. "/lua/nightvim",
-          vim.fn.stdpath("config") .. "/night/plugins",
-          vim.env.VIMRUNTIME,
-        },
-      },
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-})
-
-------------------------------------------------------------------------
--- Go
-------------------------------------------------------------------------
-lspconfig.gopls.setup({
-  on_attach = on_attach,
-  cmd = { "gopls" },
-  capabilities = require("cmp_nvim_lsp").default_capabilities(),
-  settings = {
-    gopls = {
-      experimentalPostfixCompletions = true,
-      analyses = {
-        unusedparams = true,
-        shadow = true,
-      },
-      staticcheck = true,
-    },
-  },
-  init_options = {
-    usePlaceholders = true,
-  },
-})
-
-------------------------------------------------------------------------
--- Aiken
-------------------------------------------------------------------------
-if not configs.aiken then
-  configs.aiken = {
-    on_attach = on_attach,
-    default_config = {
-      cmd = { "aiken", "lsp" },
-      filetypes = { "aiken" },
-      root_dir = function(fname)
-        return util.root_pattern("aiken.toml", ".git")(fname)
-      end,
-    },
-    docs = {
-      description = [[
-    https://github.com/aiken-lang/aiken
-
-    A language server for Aiken Programming Language.
-    [Installation](https://aiken-lang.org/installation-instructions)
-    ]],
-      default_config = {
-        cmd = { "aiken", "lsp" },
-        root_dir = [[root_pattern("aiken.toml", ".git")]],
-      },
-    },
-  }
-
-  lspconfig.aiken.setup(default_lsp_config)
-end
-
-------------------------------------------------------------------------
+------------------------------------------------------------------
 -- Keybindings
-------------------------------------------------------------------------
+------------------------------------------------------------------
 vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
@@ -201,3 +58,110 @@ vim.api.nvim_set_keymap(
   { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true })
+
+------------------------------------------------------------------
+-- Servers Setup
+------------------------------------------------------------------
+lspconfig.aiken.setup(default_lsp_config)
+lspconfig.bashls.setup(default_lsp_config)
+lspconfig.bufls.setup(default_lsp_config)
+lspconfig.clangd.setup(default_lsp_config)
+lspconfig.nixd.setup({})
+lspconfig.postgres_lsp.setup(default_lsp_config)
+lspconfig.postgres_lsp.setup(default_lsp_config)
+lspconfig.statix.setup(default_lsp_config)
+
+------------------------------------------------------------------
+-- Python
+------------------------------------------------------------------
+local root_files = {
+  "pyproject.toml",
+  "setup.py",
+  "setup.cfg",
+  "requirements.txt",
+  "Pipfile",
+  "pyrightconfig.json",
+  ".git",
+}
+
+lspconfig.pyright.setup({
+  default_config = {
+    cmd = { "pyright-langserver", "--stdio" },
+    filetypes = { "python" },
+    root_dir = function(fname)
+      return util.root_pattern(unpack(root_files))(fname)
+    end,
+    single_file_support = true,
+    settings = {
+      pyright = {
+        disableOrganizeImports = true,
+      },
+      python = {
+        analysis = {
+          autoSearchPaths = true,
+          useLibraryCodeForTypes = true,
+          diagnosticMode = "workspace",
+          autoImportCompletions = true,
+        },
+      },
+    },
+  },
+})
+
+lspconfig.ruff_lsp.setup({
+  on_attach = function(client, bufnr)
+    client.server_capabilities.hoverProvider = false
+
+    on_attach(client, bufnr)
+  end,
+})
+
+------------------------------------------------------------------
+-- Lua
+------------------------------------------------------------------
+lspconfig.lua_ls.setup({
+  on_attach = on_attach,
+  settings = {
+    Lua = {
+      runtime = {
+        version = "LuaJIT",
+        special = { reload = "require" },
+      },
+      workspace = {
+        diagnostics = {
+          globals = { "vim" },
+        },
+        library = {
+          vim.fn.stdpath("config") .. "/lua/nightvim",
+          vim.fn.stdpath("config") .. "/night/plugins",
+          vim.env.VIMRUNTIME,
+        },
+      },
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+})
+
+------------------------------------------------------------------
+-- Go
+------------------------------------------------------------------
+lspconfig.gopls.setup({
+  on_attach = on_attach,
+  cmd = { "gopls" },
+  capabilities = require("cmp_nvim_lsp").default_capabilities(),
+  settings = {
+    gopls = {
+      experimentalPostfixCompletions = true,
+      analyses = {
+        unusedparams = true,
+        shadow = true,
+      },
+      staticcheck = true,
+    },
+  },
+  init_options = {
+    usePlaceholders = true,
+  },
+})

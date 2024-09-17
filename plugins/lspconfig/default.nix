@@ -11,11 +11,11 @@ mkPlugin {
   name = "nvim-lspconfig";
 
   inputs = with pkgs; [
-    actionlint
+    aiken
+    bash-language-server
     buf-language-server
     clang-tools
     cmake-format
-    deadnix
     gopls
     jq
     lua-language-server
@@ -26,7 +26,6 @@ mkPlugin {
     nodePackages.vscode-langservers-extracted
     postgres-lsp
     pyright
-    python3Packages.regex
     ruff
     ruff-lsp
     shellcheck

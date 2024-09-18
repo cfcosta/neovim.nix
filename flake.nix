@@ -136,10 +136,6 @@
       url = "github:nvim-tree/nvim-web-devicons";
       flake = false;
     };
-    nvim-osc52 = {
-      url = "github:ojroques/nvim-osc52";
-      flake = false;
-    };
     plenary = {
       url = "github:nvim-lua/plenary.nvim";
       flake = false;

@@ -62,7 +62,6 @@ in
     (importPlugin ./plugins/grug-far)
     (importPlugin ./plugins/lspconfig)
     (importPlugin ./plugins/neo-tree)
-    (importPlugin ./plugins/osc52)
     (importPlugin ./plugins/telescope)
     (importPlugin ./plugins/toggleterm)
     (importPlugin ./plugins/trouble)

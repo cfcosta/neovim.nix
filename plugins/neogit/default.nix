@@ -13,6 +13,7 @@ mkPlugin {
   depends = [
     "diffview"
     "plenary"
+    "telescope"
   ];
 
   config = readFile ./configuration.lua;

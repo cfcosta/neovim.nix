@@ -34,7 +34,6 @@ in
 
             config = mkOption { type = str; };
             module = mkOption { type = str; };
-
           };
         });
         default = [ ];

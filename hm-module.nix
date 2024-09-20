@@ -70,8 +70,8 @@ in
               name = "nightvim-${attr.name}";
               dontBuild = true;
               installPhase = ''
-                mkdir -p $out/pack/nightvim/opt/${attr.name}
-                cp -r . $out/pack/nightvim/opt/${attr.name}
+                mkdir -p $out/pack/nightvim/start/${attr.name}/plugin
+                cp -r . $out/pack/nightvim/start/${attr.name}/plugin/
               '';
             };
         in
@@ -80,7 +80,7 @@ in
           paths = map mkPLugin cfg.plugins;
         };
 
-      loadFunc = p: if p.lazy then "__nv.setup_plugin" else "__nv.setup_plugin_eager";
+      loadFunc = p: if p.lazy then "__nv.setup_plugin" else "__nv.setup_plugin";
       mapSpec = p: ''
         ${loadFunc p}(
           "${p.name}",

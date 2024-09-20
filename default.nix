@@ -17,7 +17,6 @@ let
       inputs = [ ];
       config = ''require("${module}").setup {}'';
       module = name;
-      lazy = true;
     }
     // spec;
 
@@ -28,7 +27,6 @@ let
       config,
       depends ? [ ],
       inputs ? [ ],
-      lazy ? true,
       module ? name,
     }:
     {
@@ -37,7 +35,6 @@ let
         src
         depends
         inputs
-        lazy
         module
         ;
 
@@ -101,11 +98,9 @@ in
       config = readFile ./plugins/cmp.lua;
     })
     (mkPlugin' "rustacean" deps.rustacean {
-      lazy = false;
       config = readFile ./plugins/rustacean.lua;
     })
     (mkPlugin' "catpuccin" deps.catpuccin {
-      lazy = false;
       config = readFile ./plugins/colorscheme.lua;
     })
     (mkPlugin' "nvim-treesitter" deps.nvim-treesitter {
@@ -142,7 +137,6 @@ in
         vim.g.wakatime_CLIPath = "${pkgs.wakatime}/bin/wakatime-cli"
         ${readFile ./plugins/wakatime.lua}
       '';
-      lazy = false;
     })
     (mkPlugin' "which-key" deps.which-key { })
     (mkPlugin' "zen-mode" deps.zen-mode { })

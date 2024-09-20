@@ -1,9 +1,6 @@
 local M = {}
 
-M.plugins = {
-  lazy = {},
-  eager = {},
-}
+M.plugins = {}
 
 M.init = function()
   vim.api.nvim_set_keymap("n", "<leader>wv", "<cmd>vsplit<cr>", { noremap = true, silent = true })
@@ -36,49 +33,72 @@ M.init = function()
   vim.opt.termguicolors = true
 end
 
-M.setup_plugin_eager = function(name, depends, config)
-  vim.cmd.packadd(name)
-  M.plugins.eager[name] = { depends = depends, config = config, loaded = false }
-end
-
 M.setup_plugin = function(name, depends, config)
-  vim.cmd.packadd(name)
-  M.plugins.lazy[name] = { depends = depends, config = config, loaded = false }
+  M.plugins[name] = { depends = depends, config = config, loaded = false }
 end
 
 M.load_plugin = function(name)
-  local plugin = M.plugins.eager[name] or M.plugins.lazy[name]
+  local plugin = M.plugins[name]
 
-  if not plugin.loaded then
-    for _, dep_name in ipairs(plugin.depends) do
-      local dep = M.plugins.eager[dep_name] or M.plugins.lazy[dep_name]
+  if not plugin then
+    error("Plugin " .. plugin .. " not found")
+  end
 
-      if not dep then
-        error("Dependency " .. dep_name .. " not found")
-      end
+  if plugin.loaded then
+    return
+  end
 
-      M.load_plugin(dep_name)
+  for _, dep_name in ipairs(plugin.depends or {}) do
+    local dep = M.plugins[dep_name]
+
+    if not dep then
+      error("Dependency " .. dep_name .. " not found")
     end
 
-    plugin.config()
-    plugin.loaded = true
+    M.load_plugin(dep_name)
   end
+
+  plugin.config()
+  plugin.loaded = true
+end
+
+M.sort_plugins = function()
+  local sorted = {}
+  local visited = {}
+
+  local function dfs(name)
+    if visited[name] then
+      return
+    end
+
+    visited[name] = true
+
+    local plugin = M.plugins[name]
+
+    if not plugin then
+      error("Plugin " .. name .. " not found")
+    end
+
+    for _, dep_name in ipairs(plugin.depends) do
+      dfs(dep_name)
+    end
+
+    table.insert(sorted, name)
+  end
+
+  for name, _ in pairs(M.plugins) do
+    dfs(name)
+  end
+
+  return sorted
 end
 
 M.finish = function()
-  for name, _ in pairs(M.plugins.eager) do
+  local sorted_plugins = M.sort_plugins()
+
+  for _, name in ipairs(sorted_plugins) do
     M.load_plugin(name)
   end
-
-  vim.api.nvim_create_autocmd("VimEnter", {
-    pattern = "*",
-    once = true,
-    callback = function()
-      for name, _ in pairs(M.plugins.lazy) do
-        M.load_plugin(name)
-      end
-    end,
-  })
 end
 
 return M

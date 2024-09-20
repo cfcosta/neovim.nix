@@ -17,6 +17,8 @@ M.load_plugin = function(name)
     return
   end
 
+  vim.cmd("packadd! " .. name)
+
   for _, dep_name in ipairs(plugin.depends or {}) do
     local dep = M.plugins[dep_name]
 
@@ -75,10 +77,7 @@ end
 M.finish = function()
   vim.g.mapleader = " "
 
-  local sorted_plugins = M.sort_plugins()
-
-  for _, name in ipairs(sorted_plugins) do
-    vim.cmd("packadd! " .. name)
+  for _, name in ipairs(M.sort_plugins()) do
     M.load_plugin(name)
   end
 

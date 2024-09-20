@@ -571,6 +571,22 @@
         "type": "github"
       }
     },
+    "octo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1726337001,
+        "narHash": "sha256-xVUi4g09qgOqYxgBCP328CYE2Q6nknC2w3+Bod3e4lM=",
+        "owner": "pwntester",
+        "repo": "octo.nvim",
+        "rev": "955f0fdd03b0da23ee1c3368d80bf806f0e36fa5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pwntester",
+        "repo": "octo.nvim",
+        "type": "github"
+      }
+    },
     "plenary": {
       "flake": false,
       "locked": {
@@ -647,6 +663,7 @@
         "nvim-treesitter-endwise": "nvim-treesitter-endwise",
         "nvim-treesitter-just": "nvim-treesitter-just",
         "nvim-web-devicons": "nvim-web-devicons",
+        "octo": "octo",
         "plenary": "plenary",
         "pre-commit-hooks": "pre-commit-hooks",
         "rustacean": "rustacean",

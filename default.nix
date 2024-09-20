@@ -54,6 +54,7 @@ in
     (importPlugin ./plugins/neo-tree)
     (importPlugin ./plugins/neogit)
     (importPlugin ./plugins/nvim-web-devicons)
+    (importPlugin ./plugins/octo)
     (importPlugin ./plugins/rustacean)
     (importPlugin ./plugins/surround)
     (importPlugin ./plugins/telescope)

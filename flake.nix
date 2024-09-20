@@ -140,6 +140,10 @@
       url = "github:nvim-tree/nvim-web-devicons";
       flake = false;
     };
+    octo = {
+      url = "github:pwntester/octo.nvim";
+      flake = false;
+    };
     plenary = {
       url = "github:nvim-lua/plenary.nvim";
       flake = false;

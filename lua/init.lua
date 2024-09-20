@@ -1,32 +1,3 @@
-vim.api.nvim_set_keymap("n", "<leader>wv", "<cmd>vsplit<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>ws", "<cmd>split<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>wc", "<cmd>close<cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>wo", "<cmd>only<cr>", { noremap = true, silent = true })
-
-vim.g.mapleader = " "
-
-vim.g.clipboard = {
-  name = "OSC 52",
-  copy = {
-    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-  },
-  paste = {
-    ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
-    ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
-  },
-}
-
-vim.opt.expandtab = true
-vim.opt.laststatus = 3
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.shiftwidth = 2
-vim.opt.softtabstop = 2
-vim.opt.splitkeep = "screen"
-vim.opt.tabstop = 2
-vim.opt.termguicolors = true
-
 local M = {}
 
 M.plugins = {}
@@ -102,12 +73,41 @@ M.sort_plugins = function()
 end
 
 M.finish = function()
+  vim.g.mapleader = " "
+
   local sorted_plugins = M.sort_plugins()
 
   for _, name in ipairs(sorted_plugins) do
     vim.cmd("packadd! " .. name)
     M.load_plugin(name)
   end
+
+  vim.api.nvim_set_keymap("n", "<leader>wv", "<cmd>vsplit<cr>", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("n", "<leader>ws", "<cmd>split<cr>", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("n", "<leader>wc", "<cmd>close<cr>", { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("n", "<leader>wo", "<cmd>only<cr>", { noremap = true, silent = true })
+
+  vim.g.clipboard = {
+    name = "OSC 52",
+    copy = {
+      ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+      ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+    },
+    paste = {
+      ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+      ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+    },
+  }
+
+  vim.opt.expandtab = true
+  vim.opt.laststatus = 3
+  vim.opt.number = true
+  vim.opt.relativenumber = true
+  vim.opt.shiftwidth = 2
+  vim.opt.softtabstop = 2
+  vim.opt.splitkeep = "screen"
+  vim.opt.tabstop = 2
+  vim.opt.termguicolors = true
 end
 
 return M

@@ -8,7 +8,7 @@ let
   inherit (builtins) readFile;
 in
 mkPlugin {
-  name = "nvim-lspconfig";
+  name = "lspconfig";
 
   inputs = with pkgs; [
     aiken
@@ -34,5 +34,5 @@ mkPlugin {
 
   config = readFile ./configuration.lua;
 
-  src = deps.nvim-lspconfig;
+  src = deps.lspconfig;
 }

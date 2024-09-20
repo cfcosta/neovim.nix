@@ -315,6 +315,22 @@
         "type": "github"
       }
     },
+    "lspconfig": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1726736821,
+        "narHash": "sha256-U/sRP2LXq64da1zPxbn3hCPQTNE+912+YuSmCeL4+Hc=",
+        "owner": "neovim",
+        "repo": "nvim-lspconfig",
+        "rev": "aaec5d049af99e7b975bdf68aca582f1aa91b338",
+        "type": "github"
+      },
+      "original": {
+        "owner": "neovim",
+        "repo": "nvim-lspconfig",
+        "type": "github"
+      }
+    },
     "lspkind": {
       "flake": false,
       "locked": {
@@ -475,22 +491,6 @@
         "type": "github"
       }
     },
-    "nvim-lspconfig": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1726736821,
-        "narHash": "sha256-U/sRP2LXq64da1zPxbn3hCPQTNE+912+YuSmCeL4+Hc=",
-        "owner": "neovim",
-        "repo": "nvim-lspconfig",
-        "rev": "aaec5d049af99e7b975bdf68aca582f1aa91b338",
-        "type": "github"
-      },
-      "original": {
-        "owner": "neovim",
-        "repo": "nvim-lspconfig",
-        "type": "github"
-      }
-    },
     "nvim-snippy": {
       "flake": false,
       "locked": {
@@ -648,6 +648,7 @@
         "grug-far": "grug-far",
         "home-manager": "home-manager",
         "indent-blankline": "indent-blankline",
+        "lspconfig": "lspconfig",
         "lspkind": "lspkind",
         "lualine": "lualine",
         "neo-tree": "neo-tree",
@@ -657,7 +658,6 @@
         "nvim-autopairs": "nvim-autopairs",
         "nvim-cmp": "nvim-cmp",
         "nvim-dap": "nvim-dap",
-        "nvim-lspconfig": "nvim-lspconfig",
         "nvim-snippy": "nvim-snippy",
         "nvim-surround": "nvim-surround",
         "nvim-treesitter": "nvim-treesitter",

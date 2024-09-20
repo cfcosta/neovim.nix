@@ -11,7 +11,7 @@ mkPlugin {
   src = deps.conform-nvim;
 
   depends = [
-    "nvim-lspconfig"
+    "lspconfig"
   ];
 
   config = readFile ./configuration.lua;

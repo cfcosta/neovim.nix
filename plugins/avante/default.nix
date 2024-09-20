@@ -58,6 +58,7 @@ mkPlugin {
     "nui"
     "nvim-web-devicons"
     "plenary"
+    "lspconfig"
   ];
 
   config = readFile ./configuration.lua;

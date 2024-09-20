@@ -112,7 +112,7 @@
       url = "github:mfussenegger/nvim-dap";
       flake = false;
     };
-    nvim-lspconfig = {
+    lspconfig = {
       url = "github:neovim/nvim-lspconfig";
       flake = false;
     };

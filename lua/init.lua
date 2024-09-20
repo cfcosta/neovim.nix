@@ -1,14 +1,11 @@
 local M = {}
 
-M.plugins_root = os.getenv("NIGHTVIM_PLUGIN_ROOT")
-M.afterHooks = {}
 M.plugins = {
   lazy = {},
   eager = {},
 }
 
 M.init = function()
-  vim.opt.packpath:prepend(M.plugins_root)
   vim.api.nvim_set_keymap("n", "<leader>wv", "<cmd>vsplit<cr>", { noremap = true, silent = true })
   vim.api.nvim_set_keymap("n", "<leader>ws", "<cmd>split<cr>", { noremap = true, silent = true })
   vim.api.nvim_set_keymap("n", "<leader>wc", "<cmd>close<cr>", { noremap = true, silent = true })
@@ -64,21 +61,12 @@ M.load_plugin = function(name)
     end
 
     plugin.config()
-
-    local hook = M.afterHooks[name]
-
-    if hook then
-      hook()
-    end
-
     plugin.loaded = true
   end
 end
 
 M.finish = function()
   for name, _ in pairs(M.plugins.eager) do
-    vim.opt.runtimepath:prepend(M.plugins_root .. "/" .. name)
-
     M.load_plugin(name)
   end
 

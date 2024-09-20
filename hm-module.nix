@@ -5,6 +5,8 @@
   ...
 }:
 let
+  inherit (builtins) readFile;
+
   cfg = config.programs.nightvim;
 in
 {
@@ -120,13 +122,13 @@ in
       };
 
       xdg.configFile = {
-        "nvim/lua/nightvim" = {
-          source = ./lua;
-          recursive = true;
-        };
-
         "nvim/init.lua".text = ''
-          local __nv = require("nightvim")
+          local __nv_builder = function()
+            ${readFile ./lua/init.lua}
+          end
+          local __nv = __nv_builder()
+          vim.opt.packpath:prepend(os.getenv("NIGHTVIM_PLUGIN_ROOT"))
+
           __nv.init()
 
           ${concatStringsSep "\n" (map mapSpec cfg.plugins)}

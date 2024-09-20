@@ -41,11 +41,6 @@ in
         });
         default = [ ];
       };
-
-    extraConfig = mkOption {
-      type = types.str;
-      default = "";
-    };
   };
 
   config =
@@ -63,9 +58,26 @@ in
         {${builtins.concatStringsSep " , " (builtins.map quoteString list)}} 
       '';
 
-      pluginFolders = lib.foldl' (
-        acc: attr: acc // { "nvim/night/plugins/start/${attr.name}".source = attr.src; }
-      ) { } cfg.plugins;
+      nightvim-plugins =
+        let
+          mkPLugin =
+            attr:
+            mkDerivation {
+              inherit (attr) src;
+
+              name = "nightvim-${attr.name}";
+              dontBuild = true;
+              installPhase = ''
+                mkdir -p $out/pack/nightvim/opt/${attr.name}
+                cp -r . $out/pack/nightvim/opt/${attr.name}
+              '';
+            };
+        in
+        pkgs.symlinkJoin {
+          name = "nightvim-plugins";
+          paths = map mkPLugin cfg.plugins;
+        };
+
       loadFunc = p: if p.lazy then "__nv.setup_plugin" else "__nv.setup_plugin_eager";
       mapSpec = p: ''
         ${loadFunc p}(
@@ -101,12 +113,13 @@ in
               cp -rf * $out
 
               wrapProgram $out/bin/nvim \
-                ${concatStringsSep " " paths}
+                ${concatStringsSep " " paths} \
+                --set NIGHTVIM_PLUGIN_ROOT ${nightvim-plugins}
             '';
           };
       };
 
-      xdg.configFile = pluginFolders // {
+      xdg.configFile = {
         "nvim/lua/nightvim" = {
           source = ./lua;
           recursive = true;
@@ -117,8 +130,6 @@ in
           __nv.init()
 
           ${concatStringsSep "\n" (map mapSpec cfg.plugins)}
-
-          ${cfg.extraConfig}
 
           __nv.finish()
         '';

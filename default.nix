@@ -62,6 +62,7 @@ in
     (importPlugin ./plugins/conform)
     (importPlugin ./plugins/grug-far)
     (importPlugin ./plugins/lspconfig)
+    (importPlugin ./plugins/lualine)
     (importPlugin ./plugins/neo-tree)
     (importPlugin ./plugins/telescope)
     (importPlugin ./plugins/toggleterm)
@@ -106,10 +107,6 @@ in
     (mkPlugin' "catpuccin" deps.catpuccin {
       lazy = false;
       config = readFile ./plugins/colorscheme.lua;
-    })
-    (mkPlugin' "lualine" deps.lualine {
-      depends = [ "nvim-web-devicons" ];
-      config = "";
     })
     (mkPlugin' "nvim-treesitter" deps.nvim-treesitter {
       depends = [ "nvim-treesitter-endwise" ];

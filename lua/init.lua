@@ -1,6 +1,6 @@
 local M = {}
 
-M.plugins_root = vim.fn.stdpath("config") .. "/night/plugins"
+M.plugins_root = os.getenv("NIGHTVIM_PLUGIN_ROOT")
 M.afterHooks = {}
 M.plugins = {
   lazy = {},
@@ -9,23 +9,12 @@ M.plugins = {
 
 M.init = function()
   vim.opt.packpath:prepend(M.plugins_root)
-
-  vim.g.mapleader = " "
-
-  vim.opt.termguicolors = true
-
-  vim.opt.tabstop = 2
-  vim.opt.softtabstop = 2
-  vim.opt.shiftwidth = 2
-  vim.opt.expandtab = true
-
-  vim.opt.number = true
-  vim.opt.relativenumber = true
-
   vim.api.nvim_set_keymap("n", "<leader>wv", "<cmd>vsplit<cr>", { noremap = true, silent = true })
   vim.api.nvim_set_keymap("n", "<leader>ws", "<cmd>split<cr>", { noremap = true, silent = true })
   vim.api.nvim_set_keymap("n", "<leader>wc", "<cmd>close<cr>", { noremap = true, silent = true })
   vim.api.nvim_set_keymap("n", "<leader>wo", "<cmd>only<cr>", { noremap = true, silent = true })
+
+  vim.g.mapleader = " "
 
   vim.g.clipboard = {
     name = "OSC 52",
@@ -38,13 +27,25 @@ M.init = function()
       ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
     },
   }
+
+  vim.opt.expandtab = true
+  vim.opt.laststatus = 3
+  vim.opt.number = true
+  vim.opt.relativenumber = true
+  vim.opt.shiftwidth = 2
+  vim.opt.softtabstop = 2
+  vim.opt.splitkeep = "screen"
+  vim.opt.tabstop = 2
+  vim.opt.termguicolors = true
 end
 
 M.setup_plugin_eager = function(name, depends, config)
+  vim.cmd.packadd(name)
   M.plugins.eager[name] = { depends = depends, config = config, loaded = false }
 end
 
 M.setup_plugin = function(name, depends, config)
+  vim.cmd.packadd(name)
   M.plugins.lazy[name] = { depends = depends, config = config, loaded = false }
 end
 
@@ -75,16 +76,18 @@ M.load_plugin = function(name)
 end
 
 M.finish = function()
-  for dep_name, _ in pairs(M.plugins.eager) do
-    M.load_plugin(dep_name)
+  for name, _ in pairs(M.plugins.eager) do
+    vim.opt.runtimepath:prepend(M.plugins_root .. "/" .. name)
+
+    M.load_plugin(name)
   end
 
   vim.api.nvim_create_autocmd("VimEnter", {
     pattern = "*",
     once = true,
     callback = function()
-      for dep_name, _ in pairs(M.plugins.lazy) do
-        M.load_plugin(dep_name)
+      for name, _ in pairs(M.plugins.lazy) do
+        M.load_plugin(name)
       end
     end,
   })

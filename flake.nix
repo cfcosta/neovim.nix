@@ -56,6 +56,10 @@
       url = "github:numtostr/comment.nvim";
       flake = false;
     };
+    conform-nvim = {
+      url = "github:stevearc/conform.nvim";
+      flake = false;
+    };
     diffview = {
       url = "github:sindrets/diffview.nvim";
       flake = false;

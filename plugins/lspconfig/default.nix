@@ -30,7 +30,6 @@ mkPlugin {
     ruff-lsp
     shellcheck
     shfmt
-    statix
   ];
 
   config = readFile ./configuration.lua;

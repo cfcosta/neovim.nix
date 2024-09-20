@@ -144,6 +144,22 @@
         "type": "github"
       }
     },
+    "conform-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1726168403,
+        "narHash": "sha256-AWgG+16Bh/xu50pU78mKIcQy9MKzWF1YKdbEt5jX0WQ=",
+        "owner": "stevearc",
+        "repo": "conform.nvim",
+        "rev": "1a99fdc1d3aa9ccdf3021e67982a679a8c5c740c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stevearc",
+        "repo": "conform.nvim",
+        "type": "github"
+      }
+    },
     "diffview": {
       "flake": false,
       "locked": {
@@ -623,6 +639,7 @@
         "cmp-path": "cmp-path",
         "cmp-snippy": "cmp-snippy",
         "comment": "comment",
+        "conform-nvim": "conform-nvim",
         "diffview": "diffview",
         "dressing": "dressing",
         "flake-utils": "flake-utils",

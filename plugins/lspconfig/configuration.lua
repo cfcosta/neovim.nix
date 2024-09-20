@@ -1,28 +1,6 @@
 local lspconfig = require("lspconfig")
 local util = require("lspconfig.util")
 
-local on_attach = function(client, _)
-  if not client.supports_method("textDocument/formatting") then
-    return
-  end
-
-  vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("lsp", { clear = true }),
-    callback = function(args)
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        buffer = args.buf,
-        callback = function()
-          vim.lsp.buf.format({ async = false, id = args.data.client_id })
-        end,
-      })
-    end,
-  })
-end
-
-local default_lsp_config = {
-  on_attach = on_attach,
-}
-
 ------------------------------------------------------------------
 -- Diagnostic Symbols
 ------------------------------------------------------------------
@@ -70,14 +48,13 @@ vim.api.nvim_set_keymap("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", 
 ------------------------------------------------------------------
 -- Servers Setup
 ------------------------------------------------------------------
-lspconfig.aiken.setup(default_lsp_config)
-lspconfig.bashls.setup(default_lsp_config)
-lspconfig.bufls.setup(default_lsp_config)
-lspconfig.clangd.setup(default_lsp_config)
+lspconfig.aiken.setup({})
+lspconfig.bashls.setup({})
+lspconfig.bufls.setup({})
+lspconfig.clangd.setup({})
 lspconfig.nixd.setup({})
-lspconfig.postgres_lsp.setup(default_lsp_config)
-lspconfig.postgres_lsp.setup(default_lsp_config)
-lspconfig.statix.setup(default_lsp_config)
+lspconfig.postgres_lsp.setup({})
+lspconfig.postgres_lsp.setup({})
 
 ------------------------------------------------------------------
 -- Python
@@ -117,10 +94,8 @@ lspconfig.pyright.setup({
 })
 
 lspconfig.ruff_lsp.setup({
-  on_attach = function(client, bufnr)
+  on_attach = function(client, _)
     client.server_capabilities.hoverProvider = false
-
-    on_attach(client, bufnr)
   end,
 })
 
@@ -128,7 +103,6 @@ lspconfig.ruff_lsp.setup({
 -- Lua
 ------------------------------------------------------------------
 lspconfig.lua_ls.setup({
-  on_attach = on_attach,
   settings = {
     Lua = {
       runtime = {
@@ -156,7 +130,6 @@ lspconfig.lua_ls.setup({
 -- Go
 ------------------------------------------------------------------
 lspconfig.gopls.setup({
-  on_attach = on_attach,
   cmd = { "gopls" },
   capabilities = require("cmp_nvim_lsp").default_capabilities(),
   settings = {

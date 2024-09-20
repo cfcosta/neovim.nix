@@ -59,6 +59,7 @@ in
 {
   programs.nightvim.plugins = [
     (importPlugin ./plugins/avante)
+    (importPlugin ./plugins/conform)
     (importPlugin ./plugins/grug-far)
     (importPlugin ./plugins/lspconfig)
     (importPlugin ./plugins/neo-tree)

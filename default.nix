@@ -62,8 +62,10 @@ in
     (importPlugin ./plugins/lspconfig)
     (importPlugin ./plugins/lualine)
     (importPlugin ./plugins/neo-tree)
+    (importPlugin ./plugins/nvim-web-devicons)
     (importPlugin ./plugins/telescope)
     (importPlugin ./plugins/toggleterm)
+    (importPlugin ./plugins/treesj)
     (importPlugin ./plugins/trouble)
 
     (mkPlugin' "comment" deps.comment { config = ''require("Comment").setup {}''; })
@@ -125,9 +127,7 @@ in
     (mkPlugin' "nvim-surround" deps.nvim-surround { })
     (mkPlugin' "nvim-treesitter-endwise" deps.nvim-treesitter-endwise { config = ""; })
     (mkPlugin' "nvim-treesitter-just" deps.nvim-treesitter-just { config = ""; })
-    (mkPlugin' "nvim-web-devicons" deps.nvim-web-devicons { })
     (mkPlugin' "plenary" deps.plenary { config = ""; })
-    (mkPlugin' "treesj" deps.treesj { })
     (mkPlugin' "aiken-neovim" deps.aiken-neovim { config = ""; })
     (mkPlugin' "wakatime" deps.wakatime {
       inputs = [ pkgs.wakatime ];

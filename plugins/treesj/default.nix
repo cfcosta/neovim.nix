@@ -1,19 +1,13 @@
 {
   deps,
   mkPlugin,
-  pkgs,
   ...
 }:
 let
   inherit (builtins) readFile;
 in
 mkPlugin {
-  name = "grug-far";
-  src = deps.grug-far;
-
-  inputs = with pkgs; [
-    ripgrep
-  ];
-
+  name = "treesj";
+  src = deps.treesj;
   config = readFile ./configuration.lua;
 }

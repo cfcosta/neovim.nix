@@ -122,8 +122,6 @@ in
             ${readFile ./lua/init.lua}
           end)()
 
-          __nv.init()
-
           ${concatStringsSep "\n" (map mapSpec cfg.plugins)}
 
           __nv.finish()

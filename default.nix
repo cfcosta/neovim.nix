@@ -57,12 +57,14 @@ in
   programs.nightvim.plugins = [
     (importPlugin ./plugins/avante)
     (importPlugin ./plugins/catppuccin)
+    (importPlugin ./plugins/cmp)
     (importPlugin ./plugins/conform)
     (importPlugin ./plugins/grug-far)
     (importPlugin ./plugins/lspconfig)
     (importPlugin ./plugins/lualine)
     (importPlugin ./plugins/neo-tree)
     (importPlugin ./plugins/nvim-web-devicons)
+    (importPlugin ./plugins/rustacean)
     (importPlugin ./plugins/telescope)
     (importPlugin ./plugins/toggleterm)
     (importPlugin ./plugins/treesj)
@@ -83,25 +85,6 @@ in
           disable_filetype = { "TelescopePrompt", "vim" },
         })
       '';
-    })
-    (mkPlugin' "nvim-cmp" deps.nvim-cmp {
-      depends = [
-        "cmp-buffer"
-        "cmp-cmdline"
-        "cmp-nvim-lsp"
-        "cmp-path"
-        "cmp-snippy"
-        "lspkind"
-        "nvim-dap"
-        "nvim-lspconfig"
-        "nvim-snippy"
-        "plenary"
-      ];
-
-      config = readFile ./plugins/cmp.lua;
-    })
-    (mkPlugin' "rustacean" deps.rustacean {
-      config = readFile ./plugins/rustacean.lua;
     })
     (mkPlugin' "nvim-treesitter" deps.nvim-treesitter {
       depends = [ "nvim-treesitter-endwise" ];

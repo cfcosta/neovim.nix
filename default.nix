@@ -56,6 +56,7 @@ in
 {
   programs.nightvim.plugins = [
     (importPlugin ./plugins/avante)
+    (importPlugin ./plugins/catppuccin)
     (importPlugin ./plugins/conform)
     (importPlugin ./plugins/grug-far)
     (importPlugin ./plugins/lspconfig)
@@ -99,9 +100,6 @@ in
     })
     (mkPlugin' "rustacean" deps.rustacean {
       config = readFile ./plugins/rustacean.lua;
-    })
-    (mkPlugin' "catpuccin" deps.catpuccin {
-      config = readFile ./plugins/colorscheme.lua;
     })
     (mkPlugin' "nvim-treesitter" deps.nvim-treesitter {
       depends = [ "nvim-treesitter-endwise" ];

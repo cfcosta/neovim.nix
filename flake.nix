@@ -28,7 +28,7 @@
       url = "github:yetone/avante.nvim";
       flake = false;
     };
-    catpuccin = {
+    catppuccin = {
       url = "github:catppuccin/nvim";
       flake = false;
     };

@@ -32,7 +32,7 @@
         "type": "github"
       }
     },
-    "catpuccin": {
+    "catppuccin": {
       "flake": false,
       "locked": {
         "lastModified": 1726377217,
@@ -632,7 +632,7 @@
       "inputs": {
         "aiken-neovim": "aiken-neovim",
         "avante-nvim": "avante-nvim",
-        "catpuccin": "catpuccin",
+        "catppuccin": "catppuccin",
         "cmp-buffer": "cmp-buffer",
         "cmp-cmdline": "cmp-cmdline",
         "cmp-nvim-lsp": "cmp-nvim-lsp",

@@ -107,6 +107,7 @@ M.finish = function()
   local sorted_plugins = M.sort_plugins()
 
   for _, name in ipairs(sorted_plugins) do
+    vim.cmd("packadd! " .. name)
     M.load_plugin(name)
   end
 end

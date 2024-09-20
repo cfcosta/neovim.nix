@@ -35,10 +35,6 @@ in
             config = mkOption { type = str; };
             module = mkOption { type = str; };
 
-            lazy = mkOption {
-              type = bool;
-              default = false;
-            };
           };
         });
         default = [ ];
@@ -70,8 +66,8 @@ in
               name = "nightvim-${attr.name}";
               dontBuild = true;
               installPhase = ''
-                mkdir -p $out/pack/nightvim/start/${attr.name}/plugin
-                cp -r . $out/pack/nightvim/start/${attr.name}/plugin/
+                mkdir -p $out/pack/nightvim/start/${attr.name}
+                cp -r . $out/pack/nightvim/start/${attr.name}
               '';
             };
         in
@@ -80,9 +76,8 @@ in
           paths = map mkPlugin cfg.plugins;
         };
 
-      loadFunc = p: if p.lazy then "__nv.setup_plugin" else "__nv.setup_plugin";
       mapSpec = p: ''
-        ${loadFunc p}(
+        __nv.setup_plugin(
           "${p.name}",
           ${listToLua p.depends},
           function()
@@ -114,20 +109,18 @@ in
               mkdir $out
               cp -rf * $out
 
-              wrapProgram $out/bin/nvim \
-                ${concatStringsSep " " paths} \
-                --set NIGHTVIM_PLUGIN_ROOT ${nightvim-plugins}
+              wrapProgram $out/bin/nvim ${concatStringsSep " " paths}
             '';
           };
       };
 
       xdg.configFile = {
         "nvim/init.lua".text = ''
-          local __nv_builder = function()
+          vim.opt.packpath:append("${nightvim-plugins}")
+
+          local __nv = (function()
             ${readFile ./lua/init.lua}
-          end
-          local __nv = __nv_builder()
-          vim.opt.packpath:prepend(os.getenv("NIGHTVIM_PLUGIN_ROOT"))
+          end)()
 
           __nv.init()
 

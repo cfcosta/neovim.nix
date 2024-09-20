@@ -120,7 +120,7 @@
       url = "github:dcampos/nvim-snippy";
       flake = false;
     };
-    nvim-surround = {
+    surround = {
       url = "github:kylechui/nvim-surround";
       flake = false;
     };

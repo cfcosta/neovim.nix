@@ -65,29 +65,39 @@ end
 M.sort_plugins = function()
   local sorted = {}
   local visited = {}
+  local queue = {}
 
-  local function dfs(name)
-    if visited[name] then
-      return
-    end
-
-    visited[name] = true
-
-    local plugin = M.plugins[name]
-
-    if not plugin then
-      error("Plugin " .. name .. " not found")
-    end
-
-    for _, dep_name in ipairs(plugin.depends) do
-      dfs(dep_name)
-    end
-
-    table.insert(sorted, name)
+  -- Enqueue all plugins initially
+  for name, _ in pairs(M.plugins) do
+    table.insert(queue, name)
   end
 
-  for name, _ in pairs(M.plugins) do
-    dfs(name)
+  while #queue > 0 do
+    local name = table.remove(queue, 1) -- Dequeue
+
+    if not visited[name] then
+      visited[name] = true
+
+      local plugin = M.plugins[name]
+
+      if not plugin then
+        error("Plugin " .. name .. " not found")
+      end
+
+      -- Enqueue dependencies
+      for _, dep_name in ipairs(plugin.depends or {}) do
+        if not visited[dep_name] then
+          table.insert(queue, dep_name)
+        end
+      end
+
+      table.insert(sorted, name)
+    end
+  end
+
+  -- Reverse the sorted list to maintain dependency order
+  for i = 1, #sorted / 2 do
+    sorted[i], sorted[#sorted - i + 1] = sorted[#sorted - i + 1], sorted[i]
   end
 
   return sorted

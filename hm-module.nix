@@ -62,7 +62,7 @@ in
 
       nightvim-plugins =
         let
-          mkPLugin =
+          mkPlugin =
             attr:
             mkDerivation {
               inherit (attr) src;
@@ -77,7 +77,7 @@ in
         in
         pkgs.symlinkJoin {
           name = "nightvim-plugins";
-          paths = map mkPLugin cfg.plugins;
+          paths = map mkPlugin cfg.plugins;
         };
 
       loadFunc = p: if p.lazy then "__nv.setup_plugin" else "__nv.setup_plugin";

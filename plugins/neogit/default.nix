@@ -7,7 +7,13 @@ let
   inherit (builtins) readFile;
 in
 mkPlugin {
-  name = "treesj";
-  src = deps.treesj;
+  name = "neogit";
+  src = deps.neogit;
+
+  depends = [
+    "diffview"
+    "plenary"
+  ];
+
   config = readFile ./configuration.lua;
 }

@@ -13,6 +13,7 @@ require("catppuccin").setup({
     neogit = true,
     neotree = true,
     nvim_surround = true,
+    octo = true,
     treesitter = true,
     which_key = true,
   },

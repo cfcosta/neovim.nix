@@ -194,7 +194,7 @@
     let
       inherit (self) inputs;
 
-      hmModule =
+      homeManagerModule =
         {
           config,
           lib,
@@ -214,7 +214,10 @@
         };
     in
     {
-      inherit hmModule;
+      homeManagerModules = {
+        nightvim = homeManagerModule;
+        default = homeManagerModule;
+      };
     }
     // flake-utils.lib.eachDefaultSystem (
       system:
@@ -234,7 +237,7 @@
             inherit pkgs;
 
             modules = [
-              hmModule
+              homeManagerModule
               (
                 { pkgs, ... }:
                 {

@@ -12,6 +12,7 @@ mkPlugin {
 
   depends = [
     "diffview"
+    "nvim-web-devicons"
     "plenary"
     "telescope"
   ];

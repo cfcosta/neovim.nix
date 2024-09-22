@@ -12,7 +12,7 @@ let
   inherit (lib) optionals;
 
   src = buildRustPackage {
-    name = "avante-lib";
+    name = "nightvim-avante-lib";
     src = deps.avante-nvim;
 
     doCheck = false;
@@ -30,6 +30,7 @@ let
 
     cargoLock = {
       lockFile = "${deps.avante-nvim}/Cargo.lock";
+
       outputHashes = {
         "mlua-0.10.0-beta.1" = "sha256-ZEZFATVldwj0pmlmi0s5VT0eABA15qKhgjmganrhGBY=";
       };

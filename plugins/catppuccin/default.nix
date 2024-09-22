@@ -4,7 +4,7 @@ let
 in
 mkPlugin {
   name = "catppuccin";
-  src = deps.catppuccin;
+  src = deps.catppuccin-nvim;
 
   depends = [
     "cmp"

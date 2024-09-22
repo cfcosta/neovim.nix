@@ -28,7 +28,7 @@
       url = "github:yetone/avante.nvim";
       flake = false;
     };
-    catppuccin = {
+    catppuccin-nvim = {
       url = "github:catppuccin/nvim";
       flake = false;
     };
@@ -260,6 +260,7 @@
               enable = true;
               entry = "${pkgs.luajitPackages.luacheck}/bin/luacheck --std luajit --globals vim -- ";
             };
+
             stylua.enable = true;
           };
         };

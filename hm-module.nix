@@ -13,67 +13,29 @@ in
   options.programs.nightvim = with lib; {
     enable = mkEnableOption "NightVim";
 
-    plugins =
-      with types;
-      mkOption {
-        type = listOf (submodule {
-          options = {
-            name = mkOption { type = str; };
-
-            src = mkOption { type = path; };
-
-            depends = mkOption {
-              type = listOf str;
-              default = [ ];
-            };
-
-            inputs = mkOption {
-              type = listOf attrs;
-              default = [ ];
-            };
-
-            config = mkOption { type = str; };
-            module = mkOption { type = str; };
-          };
-        });
-        default = [ ];
-      };
+    plugins = mkOption {
+      type = with types; listOf package;
+      default = [ ];
+      description = "List of NightVim plugin packages";
+    };
   };
 
   config =
     let
       inherit (builtins)
         concatStringsSep
-        foldl'
         map
         ;
       inherit (lib) mkIf;
       inherit (pkgs.stdenv) mkDerivation;
 
       quoteString = d: ''"${d}"'';
-      listToLua = list: ''
-        {${builtins.concatStringsSep " , " (builtins.map quoteString list)}} 
-      '';
+      listToLua = list: "{${concatStringsSep " , " (map quoteString list)}}";
 
-      nightvim-plugins =
-        let
-          mkPlugin =
-            attr:
-            mkDerivation {
-              inherit (attr) src;
-
-              name = "nightvim-${attr.name}";
-              dontBuild = true;
-              installPhase = ''
-                mkdir -p $out/pack/nightvim/start/${attr.name}
-                cp -r . $out/pack/nightvim/start/${attr.name}
-              '';
-            };
-        in
-        pkgs.symlinkJoin {
-          name = "nightvim-plugins";
-          paths = map mkPlugin cfg.plugins;
-        };
+      nightvim-plugins = pkgs.symlinkJoin {
+        name = "nightvim-plugins";
+        paths = cfg.plugins;
+      };
 
       mapSpec = p: ''
         __nv.setup_plugin(
@@ -88,29 +50,24 @@ in
       programs.neovim = {
         enable = true;
 
-        package =
-          let
-            inputs = foldl' (acc: p: acc ++ p.inputs) [ ] cfg.plugins;
-            paths = map (p: "--suffix PATH : ${p}/bin") inputs;
-          in
-          mkDerivation {
-            inherit (pkgs.neovim-unwrapped) meta lua;
+        package = mkDerivation {
+          inherit (pkgs.neovim-unwrapped) meta lua;
 
-            name = "nightvim";
-            src = pkgs.neovim-unwrapped;
+          name = "nightvim";
+          src = pkgs.neovim-unwrapped;
 
-            nativeBuildInputs = [
-              pkgs.makeWrapper
-            ];
+          nativeBuildInputs = [
+            pkgs.makeWrapper
+          ];
 
-            dontBuild = true;
-            installPhase = ''
-              mkdir $out
-              cp -rf * $out
+          dontBuild = true;
+          installPhase = ''
+            mkdir $out
+            cp -rf * $out
 
-              wrapProgram $out/bin/nvim ${concatStringsSep " " paths}
-            '';
-          };
+            wrapProgram $out/bin/nvim --suffix PATH : ${nightvim-plugins}/bin
+          '';
+        };
       };
 
       xdg.configFile = {

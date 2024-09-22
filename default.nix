@@ -6,28 +6,43 @@
 }:
 let
   inherit (builtins) readFile isPath;
+  inherit (pkgs.stdenv) mkDerivation;
 
   mkPlugin =
-    specs@{
+    a@{
       name,
       src,
       depends ? [ ],
       inputs ? [ ],
       module ? name,
-      config ? ''require("${module}").setup {}'',
+      config ? ''require("${a.module or name}").setup {}'',
+      ...
     }:
-    {
-      inherit
-        name
-        src
-        depends
-        inputs
-        module
-        ;
+    mkDerivation {
+      inherit src;
+      name = "nightvim-${name}";
+      version = src.shortRev or "dev-nightvim";
 
-      config = if isPath config then readFile config else config;
-    }
-    // specs;
+      nativeBuildInputs = inputs;
+
+      dontBuild = true;
+      installPhase = ''
+        mkdir -p $out/pack/nightvim/start/${name}
+        cp -r . $out/pack/nightvim/start/${name}
+      '';
+
+      passthru = {
+        inherit
+          name
+          depends
+          inputs
+          module
+          ;
+        config = if isPath config then readFile config else config;
+
+        paths = inputs;
+      };
+    };
 
   importPlugin =
     dir:

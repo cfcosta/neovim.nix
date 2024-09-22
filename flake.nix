@@ -4,10 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     gitignore = {
       url = "github:hercules-ci/gitignore.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,6 +16,7 @@
       };
     };
 
+    # Neovim Plugins
     aiken-neovim = {
       url = "github:aiken-lang/editor-integration-nvim";
       flake = false;
@@ -186,37 +183,15 @@
     {
       self,
       flake-utils,
-      home-manager,
       nixpkgs,
       pre-commit-hooks,
       ...
     }:
-    let
-      inherit (self) inputs;
-
-      homeManagerModule =
-        {
-          config,
-          lib,
-          pkgs,
-          ...
-        }:
-        {
-          imports = [
-            ./hm-module.nix
-            (import ./. {
-              inherit config lib pkgs;
-              deps = inputs;
-            })
-          ];
-
-          programs.nightvim.enable = true;
-        };
-    in
     {
-      homeManagerModules = {
-        nightvim = homeManagerModule;
-        default = homeManagerModule;
+      overlays.default = _: super: {
+        nightvim = super.callPackage ./. {
+          inherit (self) inputs;
+        };
       };
     }
     // flake-utils.lib.eachDefaultSystem (
@@ -224,32 +199,16 @@
       let
         pkgs = import nixpkgs {
           inherit system;
-
-          config = {
-            allowUnfree = true;
-            allowUnsupportedSystem = true;
-          };
+          overlays = [ self.outputs.overlays.default ];
         };
       in
       {
-        defaultPackage =
-          (home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
+        packages = {
+          inherit (pkgs) nightvim;
+          inherit (pkgs.nightvim) plugins;
 
-            modules = [
-              homeManagerModule
-              (
-                { pkgs, ... }:
-                {
-                  home = {
-                    username = "nightvim";
-                    homeDirectory = if pkgs.stdenv.isLinux then "/home/nightvim" else "/Users/nightvim";
-                    stateVersion = "24.11";
-                  };
-                }
-              )
-            ];
-          }).activation-script;
+          default = pkgs.nightvim;
+        };
 
         checks.pre-commit-check = pre-commit-hooks.lib.${system}.run {
           src = ./.;

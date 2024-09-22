@@ -1,5 +1,5 @@
 {
-  deps,
+  inputs,
   mkPlugin,
   pkgs,
   ...
@@ -12,5 +12,5 @@ mkPlugin {
   depends = [ "trouble" ];
   inputs = with pkgs; [ ripgrep ];
   config = readFile ./configuration.lua;
-  src = deps.telescope;
+  src = inputs.telescope;
 }

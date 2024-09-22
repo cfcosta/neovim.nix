@@ -1,5 +1,5 @@
 {
-  deps,
+  inputs,
   mkPlugin,
   ...
 }:
@@ -8,6 +8,6 @@ let
 in
 mkPlugin {
   name = "rustacean";
-  src = deps.rustacean;
+  src = inputs.rustacean;
   config = readFile ./configuration.lua;
 }

@@ -1,5 +1,5 @@
 {
-  deps,
+  inputs,
   mkPlugin,
   ...
 }:
@@ -8,6 +8,6 @@ let
 in
 mkPlugin {
   name = "surround";
-  src = deps.surround;
+  src = inputs.surround;
   config = readFile ./configuration.lua;
 }

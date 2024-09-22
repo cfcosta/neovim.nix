@@ -1,5 +1,5 @@
 {
-  deps,
+  inputs,
   mkPlugin,
   ...
 }:
@@ -8,7 +8,7 @@ let
 in
 mkPlugin {
   name = "lualine";
-  src = deps.lualine;
+  src = inputs.lualine;
 
   depends = [
     "catppuccin"

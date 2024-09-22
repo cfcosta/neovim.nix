@@ -1,5 +1,5 @@
 {
-  deps,
+  inputs,
   mkPlugin,
   ...
 }:
@@ -8,6 +8,6 @@ let
 in
 mkPlugin {
   name = "nvim-autopairs";
-  src = deps.nvim-autopairs;
+  src = inputs.nvim-autopairs;
   config = readFile ./configuration.lua;
 }

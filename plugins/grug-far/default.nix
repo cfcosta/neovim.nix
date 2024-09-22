@@ -1,5 +1,5 @@
 {
-  deps,
+  inputs,
   mkPlugin,
   pkgs,
   ...
@@ -9,7 +9,7 @@ let
 in
 mkPlugin {
   name = "grug-far";
-  src = deps.grug-far;
+  src = inputs.grug-far;
 
   inputs = with pkgs; [
     ripgrep

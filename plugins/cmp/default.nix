@@ -1,5 +1,5 @@
 {
-  deps,
+  inputs,
   mkPlugin,
   ...
 }:
@@ -9,7 +9,7 @@ in
 mkPlugin {
   name = "cmp";
 
-  src = deps.nvim-cmp;
+  src = inputs.nvim-cmp;
 
   depends = [
     "cmp-buffer"

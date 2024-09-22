@@ -1,5 +1,5 @@
 {
-  deps,
+  inputs,
   mkPlugin,
   ...
 }:
@@ -8,6 +8,6 @@ let
 in
 mkPlugin {
   name = "indent-blankline";
-  src = deps.indent-blankline;
+  src = inputs.indent-blankline;
   config = readFile ./configuration.lua;
 }

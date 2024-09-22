@@ -1,5 +1,5 @@
 {
-  deps,
+  inputs,
   mkPlugin,
   pkgs,
   ...
@@ -9,7 +9,7 @@ let
 in
 mkPlugin {
   name = "wakatime";
-  src = deps.wakatime;
+  src = inputs.wakatime;
   inputs = [ pkgs.wakatime ];
   config = ''
     vim.g.wakatime_CLIPath = "${pkgs.wakatime}/bin/wakatime-cli"

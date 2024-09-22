@@ -1,10 +1,10 @@
-{ mkPlugin, deps, ... }:
+{ mkPlugin, inputs, ... }:
 let
   inherit (builtins) readFile;
 in
 mkPlugin {
   name = "trouble";
-  src = deps.trouble;
+  src = inputs.trouble;
 
   depends = [
     "nvim-web-devicons"

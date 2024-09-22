@@ -1,5 +1,5 @@
 {
-  deps,
+  inputs,
   mkPlugin,
   ...
 }:
@@ -8,7 +8,7 @@ let
 in
 mkPlugin {
   name = "octo";
-  src = deps.octo;
+  src = inputs.octo;
 
   depends = [
     "diffview"

@@ -1,5 +1,5 @@
 {
-  deps,
+  inputs,
   mkPlugin,
   pkgs,
   ...
@@ -9,7 +9,7 @@ let
 in
 mkPlugin {
   name = "treesitter";
-  src = deps.nvim-treesitter;
+  src = inputs.nvim-treesitter;
 
   inputs = with pkgs; [
     gcc

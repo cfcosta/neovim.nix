@@ -1,10 +1,10 @@
-{ deps, mkPlugin, ... }:
+{ inputs, mkPlugin, ... }:
 let
   inherit (builtins) readFile;
 in
 mkPlugin {
   name = "catppuccin";
-  src = deps.catppuccin-nvim;
+  src = inputs.catppuccin-nvim;
 
   depends = [
     "cmp"

@@ -1,5 +1,5 @@
 {
-  deps,
+  inputs,
   mkPlugin,
   ...
 }:
@@ -8,7 +8,7 @@ let
 in
 mkPlugin {
   name = "neogit";
-  src = deps.neogit;
+  src = inputs.neogit;
 
   depends = [
     "diffview"

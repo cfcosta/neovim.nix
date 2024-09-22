@@ -1,5 +1,5 @@
 {
-  deps,
+  inputs,
   mkPlugin,
   ...
 }:
@@ -8,7 +8,7 @@ let
 in
 mkPlugin {
   name = "toggleterm-nvim";
-  src = deps.toggleterm-nvim;
+  src = inputs.toggleterm-nvim;
 
   config = readFile ./configuration.lua;
 }

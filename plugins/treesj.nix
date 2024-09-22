@@ -1,5 +1,5 @@
-{ deps, mkPlugin, ... }:
+{ inputs, mkPlugin, ... }:
 mkPlugin {
   name = "treesj";
-  src = deps.treesj;
+  src = inputs.treesj;
 }

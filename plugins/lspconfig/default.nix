@@ -1,5 +1,5 @@
 {
-  deps,
+  inputs,
   mkPlugin,
   pkgs,
   ...
@@ -34,5 +34,5 @@ mkPlugin {
 
   config = readFile ./configuration.lua;
 
-  src = deps.lspconfig;
+  src = inputs.lspconfig;
 }

@@ -1,5 +1,5 @@
 {
-  deps,
+  inputs,
   mkPlugin,
   ...
 }:
@@ -8,7 +8,7 @@ let
 in
 mkPlugin {
   name = "conform-nvim";
-  src = deps.conform-nvim;
+  src = inputs.conform-nvim;
 
   depends = [
     "lspconfig"

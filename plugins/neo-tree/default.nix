@@ -1,10 +1,10 @@
-{ mkPlugin, deps, ... }:
+{ mkPlugin, inputs, ... }:
 let
   inherit (builtins) readFile;
 in
 mkPlugin {
   name = "neo-tree";
-  src = deps.neo-tree;
+  src = inputs.neo-tree;
 
   depends = [
     "plenary"

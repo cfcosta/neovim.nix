@@ -58,7 +58,9 @@ mkDerivation {
 
     wrapProgram $out/bin/nvim \
       --suffix PATH : ${plugins}/bin \
+      --set VIMRUNTIME ${neovim-unwrapped}/share/nvim/runtime \
       --set NVIM_APPNAME nightvim \
+      --set NIGHTVIM_ROOT ${plugins}/share/nightvim \
       --add-flags "-u ${writeText "init.lua" initFile}"
   '';
 

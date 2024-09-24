@@ -105,22 +105,28 @@ lspconfig.ruff_lsp.setup({
 lspconfig.lua_ls.setup({
   settings = {
     Lua = {
+      hints = {
+        enable = true,
+        setType = true,
+      },
       runtime = {
         version = "LuaJIT",
-        special = { reload = "require" },
-      },
-      workspace = {
-        diagnostics = {
-          globals = { "vim" },
-        },
-        library = {
-          vim.fn.stdpath("config") .. "/lua/nightvim",
-          vim.fn.stdpath("config") .. "/night/plugins",
-          vim.env.VIMRUNTIME,
-        },
+        pathStrict = true,
       },
       telemetry = {
         enable = false,
+      },
+      workspace = {
+        check3rdParty = false,
+
+        diagnostics = {
+          globals = { "vim" },
+        },
+
+        library = {
+          os.getenv("NIGHTVIM_ROOT") .. "/pack/nightvim/start",
+          vim.env.VIMRUNTIME,
+        },
       },
     },
   },

@@ -13,23 +13,20 @@ mkPlugin {
   inputs = with pkgs; [
     aiken
     bash-language-server
+    beancount-language-server
     buf-language-server
+    cairo-lang
     clang-tools
-    cmake-format
+    docker-compose-language-service
+    dockerfile-language-server-nodejs
     gopls
-    jq
+    jq-lsp
     lua-language-server
-    luajitPackages.luacheck
     nixd
-    nixfmt-rfc-style
-    nodePackages.dockerfile-language-server-nodejs
-    nodePackages.vscode-langservers-extracted
     postgres-lsp
-    pyright
     ruff
     ruff-lsp
-    shellcheck
-    shfmt
+    taplo-lsp
   ];
 
   config = readFile ./configuration.lua;

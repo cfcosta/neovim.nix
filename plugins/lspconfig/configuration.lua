@@ -1,5 +1,4 @@
 local lspconfig = require("lspconfig")
-local util = require("lspconfig.util")
 
 ------------------------------------------------------------------
 -- Diagnostic Symbols
@@ -50,54 +49,19 @@ vim.api.nvim_set_keymap("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", 
 ------------------------------------------------------------------
 lspconfig.aiken.setup({})
 lspconfig.bashls.setup({})
+lspconfig.beancount.setup({})
 lspconfig.bufls.setup({})
 lspconfig.clangd.setup({})
+lspconfig.docker_compose_language_server.setup({})
+lspconfig.dockerls.setup({})
+lspconfig.gopls.setup({})
+lspconfig.jq.setup({})
 lspconfig.nixd.setup({})
 lspconfig.postgres_lsp.setup({})
 lspconfig.postgres_lsp.setup({})
-
-------------------------------------------------------------------
--- Python
-------------------------------------------------------------------
-local root_files = {
-  "pyproject.toml",
-  "setup.py",
-  "setup.cfg",
-  "requirements.txt",
-  "Pipfile",
-  "pyrightconfig.json",
-  ".git",
-}
-
-lspconfig.pyright.setup({
-  default_config = {
-    cmd = { "pyright-langserver", "--stdio" },
-    filetypes = { "python" },
-    root_dir = function(fname)
-      return util.root_pattern(unpack(root_files))(fname)
-    end,
-    single_file_support = true,
-    settings = {
-      pyright = {
-        disableOrganizeImports = true,
-      },
-      python = {
-        analysis = {
-          autoSearchPaths = true,
-          useLibraryCodeForTypes = true,
-          diagnosticMode = "workspace",
-          autoImportCompletions = true,
-        },
-      },
-    },
-  },
-})
-
-lspconfig.ruff_lsp.setup({
-  on_attach = function(client, _)
-    client.server_capabilities.hoverProvider = false
-  end,
-})
+lspconfig.ruff.setup({})
+lspconfig.ruff_lsp.setup({})
+lspconfig.taplo.setup({})
 
 ------------------------------------------------------------------
 -- Lua

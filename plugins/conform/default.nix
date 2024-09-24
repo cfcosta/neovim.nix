@@ -1,6 +1,7 @@
 {
   inputs,
   mkPlugin,
+  pkgs,
   ...
 }:
 let
@@ -12,6 +13,20 @@ mkPlugin {
 
   depends = [
     "lspconfig"
+  ];
+
+  inputs = with pkgs; [
+    beancount
+    cmake-format
+    gofumpt
+    jq
+    nixfmt-rfc-style
+    ruff
+    shellcheck
+    shfmt
+    stylua
+    taplo
+    yq
   ];
 
   config = readFile ./configuration.lua;

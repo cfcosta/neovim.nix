@@ -107,6 +107,16 @@ M.finish = function()
   vim.opt.splitkeep = "screen"
   vim.opt.tabstop = 2
   vim.opt.termguicolors = true
+
+  -- Set custom filetypes for some specific files
+  vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = { "flake.lock", "Cargo.lock" },
+    command = "set filetype=json",
+  })
+  vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = { "docker-compose.yml", "docker-compose.yaml" },
+    command = "set filetype=yaml.docker-compose",
+  })
 end
 
 return M

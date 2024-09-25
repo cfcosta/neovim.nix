@@ -57,6 +57,10 @@
       url = "github:stevearc/conform.nvim";
       flake = false;
     };
+    dashboard = {
+      url = "github:nvimdev/dashboard-nvim";
+      flake = false;
+    };
     diffview = {
       url = "github:sindrets/diffview.nvim";
       flake = false;
@@ -191,27 +195,21 @@
       pre-commit-hooks,
       ...
     }:
-    {
-      overlays.default = _: super: {
-        nightvim = super.callPackage ./. {
-          inherit (self) inputs;
-        };
-      };
-    }
-    // flake-utils.lib.eachDefaultSystem (
+    flake-utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = [ self.outputs.overlays.default ];
+        pkgs = import nixpkgs { inherit system; };
+
+        nightvim = pkgs.callPackage ./. {
+          inherit (self) inputs;
         };
       in
       {
         packages = {
-          inherit (pkgs) nightvim;
-          inherit (pkgs.nightvim) plugins;
+          inherit nightvim;
+          inherit (nightvim) plugins;
 
-          default = pkgs.nightvim;
+          default = nightvim;
         };
 
         checks.pre-commit-check = pre-commit-hooks.lib.${system}.run {

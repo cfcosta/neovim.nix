@@ -1,4 +1,61 @@
 local lspconfig = require("lspconfig")
+local default_options = {
+  on_attach = function(client, bufnr)
+    if client.server_capabilities.inlayHintProvider then
+      vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+    end
+  end,
+}
+
+------------------------------------------------------------------
+-- Servers Setup
+------------------------------------------------------------------
+lspconfig.aiken.setup(default_options)
+lspconfig.bashls.setup(default_options)
+lspconfig.beancount.setup(default_options)
+lspconfig.bufls.setup(default_options)
+lspconfig.clangd.setup(default_options)
+lspconfig.docker_compose_language_service.setup(default_options)
+lspconfig.dockerls.setup(default_options)
+lspconfig.gopls.setup(default_options)
+lspconfig.jqls.setup(default_options)
+lspconfig.nixd.setup(default_options)
+lspconfig.postgres_lsp.setup(default_options)
+lspconfig.ruff.setup(default_options)
+lspconfig.ruff_lsp.setup(default_options)
+lspconfig.taplo.setup(default_options)
+
+lspconfig.lua_ls.setup({
+  on_attach = default_options.on_attach,
+  settings = {
+    Lua = {
+      hints = {
+        enable = true,
+        setType = true,
+        arrayIndex = "Enable",
+      },
+      runtime = {
+        version = "LuaJIT",
+        pathStrict = true,
+      },
+      telemetry = {
+        enable = false,
+      },
+      workspace = {
+        check3rdParty = false,
+
+        diagnostics = {
+          globals = { "vim" },
+        },
+
+        library = {
+          os.getenv("NIGHTVIM_ROOT") .. "/pack/nightvim/start",
+          vim.env.VIMRUNTIME,
+        },
+      },
+    },
+  },
+})
 
 ------------------------------------------------------------------
 -- Diagnostic Symbols
@@ -43,75 +100,3 @@ vim.api.nvim_set_keymap(
   { noremap = true, silent = true }
 )
 vim.api.nvim_set_keymap("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true })
-
-------------------------------------------------------------------
--- Servers Setup
-------------------------------------------------------------------
-lspconfig.aiken.setup({})
-lspconfig.bashls.setup({})
-lspconfig.beancount.setup({})
-lspconfig.bufls.setup({})
-lspconfig.clangd.setup({})
-lspconfig.docker_compose_language_service.setup({})
-lspconfig.dockerls.setup({})
-lspconfig.gopls.setup({})
-lspconfig.jqls.setup({})
-lspconfig.nixd.setup({})
-lspconfig.postgres_lsp.setup({})
-lspconfig.ruff.setup({})
-lspconfig.ruff_lsp.setup({})
-lspconfig.taplo.setup({})
-
-------------------------------------------------------------------
--- Lua
-------------------------------------------------------------------
-lspconfig.lua_ls.setup({
-  settings = {
-    Lua = {
-      hints = {
-        enable = true,
-        setType = true,
-      },
-      runtime = {
-        version = "LuaJIT",
-        pathStrict = true,
-      },
-      telemetry = {
-        enable = false,
-      },
-      workspace = {
-        check3rdParty = false,
-
-        diagnostics = {
-          globals = { "vim" },
-        },
-
-        library = {
-          os.getenv("NIGHTVIM_ROOT") .. "/pack/nightvim/start",
-          vim.env.VIMRUNTIME,
-        },
-      },
-    },
-  },
-})
-
-------------------------------------------------------------------
--- Go
-------------------------------------------------------------------
-lspconfig.gopls.setup({
-  cmd = { "gopls" },
-  capabilities = require("cmp_nvim_lsp").default_capabilities(),
-  settings = {
-    gopls = {
-      experimentalPostfixCompletions = true,
-      analyses = {
-        unusedparams = true,
-        shadow = true,
-      },
-      staticcheck = true,
-    },
-  },
-  init_options = {
-    usePlaceholders = true,
-  },
-})

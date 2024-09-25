@@ -15,7 +15,6 @@ mkPlugin {
     bash-language-server
     beancount-language-server
     buf-language-server
-    cairo-lang
     clang-tools
     docker-compose-language-service
     dockerfile-language-server-nodejs

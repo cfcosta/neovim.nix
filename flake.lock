@@ -650,6 +650,7 @@
         "toggleterm-nvim": "toggleterm-nvim",
         "treesj": "treesj",
         "trouble": "trouble",
+        "twilight": "twilight",
         "wakatime": "wakatime",
         "which-key": "which-key",
         "zen-mode": "zen-mode"
@@ -763,6 +764,22 @@
       "original": {
         "owner": "folke",
         "repo": "trouble.nvim",
+        "type": "github"
+      }
+    },
+    "twilight": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1721651168,
+        "narHash": "sha256-sC9DSgkQw+jHvi+xUP+iWSSLV0kIWWmrom2Mq5q+RJo=",
+        "owner": "folke",
+        "repo": "twilight.nvim",
+        "rev": "1584c0b0a979b71fd86b18d302ba84e9aba85b1b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "twilight.nvim",
         "type": "github"
       }
     },

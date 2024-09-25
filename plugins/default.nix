@@ -93,16 +93,13 @@ symlinkJoin rec {
     (importPlugin ./treesitter)
     (importPlugin ./treesj.nix)
     (importPlugin ./trouble)
+    (importPlugin ./twilight)
     (importPlugin ./wakatime)
+    (importPlugin ./zen-mode)
 
     (mkPlugin {
-      name = "comment";
-      src = inputs.comment;
-      module = "Comment";
-    })
-    (mkPlugin {
-      name = "lspkind";
-      src = inputs.lspkind;
+      name = "aiken-neovim";
+      src = inputs.aiken-neovim;
       config = "";
     })
     (mkPlugin {
@@ -131,21 +128,31 @@ symlinkJoin rec {
       config = "";
     })
     (mkPlugin {
+      name = "comment";
+      src = inputs.comment;
+      module = "Comment";
+    })
+    (mkPlugin {
       name = "diffview";
       src = inputs.diffview;
+    })
+    (mkPlugin {
+      name = "dressing";
+      src = inputs.dressing;
+      config = "";
     })
     (mkPlugin {
       name = "gitsigns";
       src = inputs.gitsigns;
     })
     (mkPlugin {
-      name = "nui";
-      src = inputs.nui;
+      name = "lspkind";
+      src = inputs.lspkind;
       config = "";
     })
     (mkPlugin {
-      name = "dressing";
-      src = inputs.dressing;
+      name = "nui";
+      src = inputs.nui;
       config = "";
     })
     (mkPlugin {
@@ -174,17 +181,8 @@ symlinkJoin rec {
       config = "";
     })
     (mkPlugin {
-      name = "aiken-neovim";
-      src = inputs.aiken-neovim;
-      config = "";
-    })
-    (mkPlugin {
       name = "which-key";
       src = inputs.which-key;
-    })
-    (mkPlugin {
-      name = "zen-mode";
-      src = inputs.zen-mode;
     })
   ];
 

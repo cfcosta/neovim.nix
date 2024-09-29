@@ -9,7 +9,10 @@ let
 in
 mkPlugin {
   name = "telescope";
-  depends = [ "trouble" ];
+  depends = [
+    "trouble"
+    "plenary"
+  ];
   inputs = with pkgs; [ ripgrep ];
   config = readFile ./configuration.lua;
   src = inputs.telescope;

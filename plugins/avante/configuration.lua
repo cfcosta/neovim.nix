@@ -6,7 +6,6 @@ local P = require("avante.providers")
 require("avante_lib").load()
 
 local parse_message = function(opts)
-  ---@type OpenAIMessage[]
   local user_content = {}
   if Config.behaviour.support_paste_from_clipboard and opts.image_paths and #opts.image_paths > 0 then
     for _, image_path in ipairs(opts.image_paths) do
@@ -77,7 +76,6 @@ require("avante").setup({
           return
         end
         if data_stream:match('"delta":') then
-          ---@type OpenAIChatResponse
           local json = vim.json.decode(data_stream)
           if json.choices and json.choices[1] then
             local choice = json.choices[1]

@@ -27,8 +27,8 @@ let
 
       dontBuild = true;
       installPhase = ''
-        mkdir -p $out/share/nightvim/pack/nightvim/start/${name}
-        cp -r . $out/share/nightvim/pack/nightvim/start/${name}
+        mkdir -p $out/share/nightvim/pack/nightvim/opt/${name}
+        cp -r . $out/share/nightvim/pack/nightvim/opt/${name}
       '';
 
       passthru.spec = {

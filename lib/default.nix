@@ -5,38 +5,48 @@
   stdenv,
   makeWrapper,
   writeText,
+  lib,
   ...
 }:
 let
   inherit (builtins)
-    concatStringsSep
-    map
+    isAttrs
+    isList
+    isString
     readFile
     ;
   inherit (stdenv) mkDerivation;
 
-  plugins = callPackage ./plugins { inherit inputs; };
+  plugins = callPackage ../plugins { inherit inputs; };
 
-  quoteString = d: ''"${d}"'';
-  listToLua = list: "{${concatStringsSep " , " (map quoteString list)}}";
+  toLua =
+    value:
+    if isAttrs value then
+      "{ ${lib.concatStringsSep ", " (lib.mapAttrsToList (k: v: "${toLua k} = ${toLua v}") value)} }"
+    else if isList value then
+      "{ ${lib.concatStringsSep ", " (map toLua value)} }"
+    else if isString value then
+      "[[${value}]]"
+    else
+      toString value;
 
   mapSpec = p: ''
     __nv.setup_plugin(
-      "${p.name}",
-      ${listToLua p.depends},
+      ${toLua p.name},
+      ${toLua p.depends},
       function()
         ${p.config}
       end
     )'';
 
   initFile = ''
-    vim.opt.packpath:append("${plugins}/share/nightvim")
+    vim.opt.packpath:append(${toLua "${plugins}/share/nightvim"})
 
     local __nv = (function()
-      ${readFile ./lua/init.lua}
+      ${readFile ../lua/init.lua}
     end)()
 
-    ${concatStringsSep "\n" (map mapSpec plugins.specs)}
+    ${lib.concatStringsSep "\n" (map mapSpec plugins.specs)}
 
     __nv.finish()
   '';
@@ -52,6 +62,7 @@ mkDerivation {
   ];
 
   dontBuild = true;
+
   installPhase = ''
     mkdir $out
     cp -rf * $out

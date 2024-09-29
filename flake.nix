@@ -200,7 +200,7 @@
       let
         pkgs = import nixpkgs { inherit system; };
 
-        nightvim = pkgs.callPackage ./. {
+        nightvim = pkgs.callPackage ./lib {
           inherit (self) inputs;
         };
       in

@@ -78,7 +78,6 @@ symlinkJoin rec {
     (importPlugin ./catppuccin)
     (importPlugin ./cmp)
     (importPlugin ./conform)
-    (importPlugin ./dashboard)
     (importPlugin ./grug-far)
     (importPlugin ./indent-blankline)
     (importPlugin ./lspconfig)

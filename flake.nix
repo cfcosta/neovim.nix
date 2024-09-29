@@ -57,10 +57,6 @@
       url = "github:stevearc/conform.nvim";
       flake = false;
     };
-    dashboard = {
-      url = "github:nvimdev/dashboard-nvim";
-      flake = false;
-    };
     diffview = {
       url = "github:sindrets/diffview.nvim";
       flake = false;

@@ -160,22 +160,6 @@
         "type": "github"
       }
     },
-    "dashboard": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1720925192,
-        "narHash": "sha256-RCftOX5ufgByqJJaoU+fO4Pzy/NiuAt+qWZJZ2TXwVE=",
-        "owner": "nvimdev",
-        "repo": "dashboard-nvim",
-        "rev": "fabf5feec96185817c732d47d363f34034212685",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvimdev",
-        "repo": "dashboard-nvim",
-        "type": "github"
-      }
-    },
     "diffview": {
       "flake": false,
       "locked": {
@@ -635,7 +619,6 @@
         "cmp-snippy": "cmp-snippy",
         "comment": "comment",
         "conform-nvim": "conform-nvim",
-        "dashboard": "dashboard",
         "diffview": "diffview",
         "dressing": "dressing",
         "flake-utils": "flake-utils",

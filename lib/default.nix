@@ -43,7 +43,7 @@ let
     vim.opt.packpath:append(${toLua "${plugins}/share/nightvim"})
 
     local __nv = (function()
-      ${readFile ../lua/init.lua}
+      ${readFile ./lua/init.lua}
     end)()
 
     ${lib.concatStringsSep "\n" (map mapSpec plugins.specs)}

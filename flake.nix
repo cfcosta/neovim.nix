@@ -65,6 +65,10 @@
       url = "github:stevearc/dressing.nvim";
       flake = false;
     };
+    dropbar-nvim = {
+      url = "github:Bekaboo/dropbar.nvim";
+      flake = false;
+    };
     grug-far = {
       url = "github:MagicDuck/grug-far.nvim";
       flake = false;
@@ -91,6 +95,10 @@
     };
     neogit = {
       url = "github:TimUntersberger/neogit";
+      flake = false;
+    };
+    nvim-notify = {
+      url = "github:rcarriga/nvim-notify";
       flake = false;
     };
     nui = {
@@ -147,6 +155,10 @@
     };
     plenary = {
       url = "github:nvim-lua/plenary.nvim";
+      flake = false;
+    };
+    pomo-nvim = {
+      url = "github:epwalsh/pomo.nvim";
       flake = false;
     };
     render-markdown = {

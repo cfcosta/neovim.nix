@@ -7,11 +7,10 @@ let
   inherit (builtins) readFile;
 in
 mkPlugin {
-  name = "lualine";
-  src = inputs.lualine;
+  name = "dropbar";
+  src = inputs.dropbar-nvim;
 
   depends = [
-    "catppuccin"
     "nvim-web-devicons"
     "pomo"
   ];

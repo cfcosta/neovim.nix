@@ -192,6 +192,22 @@
         "type": "github"
       }
     },
+    "dropbar-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1727361102,
+        "narHash": "sha256-3VdwHC4/ti6QCCrb6ciRDYxk6+EIgrcLN0vmQYn00RQ=",
+        "owner": "Bekaboo",
+        "repo": "dropbar.nvim",
+        "rev": "669e325489202ae4da5a951314bbf8dbb20e7cff",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Bekaboo",
+        "repo": "dropbar.nvim",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -470,6 +486,22 @@
         "type": "github"
       }
     },
+    "nvim-notify": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1727022370,
+        "narHash": "sha256-Sd7IR5roXHOKRCxhqtYMhWfEltyRJMDEMDO/ecSKenE=",
+        "owner": "rcarriga",
+        "repo": "nvim-notify",
+        "rev": "fbef5d32be8466dd76544a257d3f3dce20082a07",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rcarriga",
+        "repo": "nvim-notify",
+        "type": "github"
+      }
+    },
     "nvim-snippy": {
       "flake": false,
       "locked": {
@@ -598,6 +630,22 @@
         "type": "github"
       }
     },
+    "pomo-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1722376269,
+        "narHash": "sha256-tJ2TrypKnCnQm+6FDjX0KDr+UNoBBVvGIm+uWJtpNLc=",
+        "owner": "epwalsh",
+        "repo": "pomo.nvim",
+        "rev": "aa8decc421d89be0f10b1fc6a602cdd269f350ff",
+        "type": "github"
+      },
+      "original": {
+        "owner": "epwalsh",
+        "repo": "pomo.nvim",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -653,6 +701,7 @@
         "conform-nvim": "conform-nvim",
         "diffview": "diffview",
         "dressing": "dressing",
+        "dropbar-nvim": "dropbar-nvim",
         "flake-utils": "flake-utils",
         "gitignore": "gitignore",
         "gitsigns": "gitsigns",
@@ -668,6 +717,7 @@
         "nvim-autopairs": "nvim-autopairs",
         "nvim-cmp": "nvim-cmp",
         "nvim-dap": "nvim-dap",
+        "nvim-notify": "nvim-notify",
         "nvim-snippy": "nvim-snippy",
         "nvim-treesitter": "nvim-treesitter",
         "nvim-treesitter-endwise": "nvim-treesitter-endwise",
@@ -676,6 +726,7 @@
         "obsidian-nvim": "obsidian-nvim",
         "octo": "octo",
         "plenary": "plenary",
+        "pomo-nvim": "pomo-nvim",
         "pre-commit-hooks": "pre-commit-hooks",
         "render-markdown": "render-markdown",
         "rustacean": "rustacean",

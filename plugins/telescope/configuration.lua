@@ -89,3 +89,9 @@ vim.api.nvim_set_keymap(
   "<cmd> Telescope lsp_workspace_symbols <CR>",
   { noremap = true, silent = true }
 )
+
+require("telescope").load_extension("pomodori")
+
+vim.keymap.set("n", "<leader>pt", function()
+  require("telescope").extensions.pomodori.timers()
+end, { desc = "Manage Pomodori Timers" })

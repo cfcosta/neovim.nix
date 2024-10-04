@@ -12,10 +12,15 @@ require("catppuccin").setup({
     markdown = true,
     neogit = true,
     neotree = true,
+    notify = true,
     nvim_surround = true,
     octo = true,
     treesitter = true,
     which_key = true,
+    dropbar = {
+      enabled = false,
+      color_mode = true,
+    },
   },
 })
 

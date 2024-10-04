@@ -12,6 +12,7 @@ mkPlugin {
   depends = [
     "trouble"
     "plenary"
+    "pomo"
   ];
   inputs = with pkgs; [ ripgrep ];
   config = readFile ./configuration.lua;

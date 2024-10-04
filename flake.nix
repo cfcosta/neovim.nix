@@ -137,16 +137,20 @@
       url = "github:nvim-tree/nvim-web-devicons";
       flake = false;
     };
+    obsidian-nvim = {
+      url = "github:epwalsh/obsidian.nvim";
+      flake = false;
+    };
     octo = {
       url = "github:pwntester/octo.nvim";
       flake = false;
     };
-    render-markdown = {
-      url = "github:MeanderingProgrammer/render-markdown.nvim";
-      flake = false;
-    };
     plenary = {
       url = "github:nvim-lua/plenary.nvim";
+      flake = false;
+    };
+    render-markdown = {
+      url = "github:MeanderingProgrammer/render-markdown.nvim";
       flake = false;
     };
     rustacean = {

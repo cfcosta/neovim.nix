@@ -85,6 +85,7 @@ symlinkJoin rec {
     (importPlugin ./neo-tree)
     (importPlugin ./neogit)
     (importPlugin ./nvim-web-devicons)
+    (importPlugin ./obsidian)
     (importPlugin ./octo)
     (importPlugin ./render-markdown)
     (importPlugin ./rustacean)

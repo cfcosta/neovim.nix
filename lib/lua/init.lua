@@ -107,6 +107,7 @@ M.finish = function()
   vim.opt.splitkeep = "screen"
   vim.opt.tabstop = 2
   vim.opt.termguicolors = true
+  vim.opt.conceallevel = 2
 
   -- Set custom filetypes for some specific files
   vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {

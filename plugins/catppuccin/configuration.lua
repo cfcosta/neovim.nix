@@ -5,6 +5,7 @@ require("catppuccin").setup({
     cmp = true,
     dap = true,
     diffview = true,
+    dropbar = { enabled = false, color_mode = true },
     gitsigns = true,
     grug_far = true,
     indent_blankline = true,
@@ -15,12 +16,9 @@ require("catppuccin").setup({
     notify = true,
     nvim_surround = true,
     octo = true,
+    telescope = { enabled = true, style = "nvchad" },
     treesitter = true,
     which_key = true,
-    dropbar = {
-      enabled = false,
-      color_mode = true,
-    },
   },
 })
 

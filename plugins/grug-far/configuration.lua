@@ -21,7 +21,7 @@ require("grug-far").setup({
   },
 })
 
-vim.api.nvim_set_keymap(
+vim.keymap.set(
   "n",
   "<leader>fr",
   "<cmd>lua require('grug-far').open({ transient = true })<cr>",

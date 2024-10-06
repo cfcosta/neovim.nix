@@ -8,4 +8,4 @@ require("zen-mode").setup({
   },
 })
 
-vim.api.nvim_set_keymap("n", "<leader>zz", ":ZenMode<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>zz", ":ZenMode<CR>", { noremap = true, silent = true })

@@ -68,35 +68,15 @@ vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSi
 ------------------------------------------------------------------
 -- Keybindings
 ------------------------------------------------------------------
-vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>ls",
-  "<cmd>lua vim.lsp.buf.signature_help()<CR>",
-  { noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>D",
-  "<cmd>lua vim.lsp.buf.type_definition()<CR>",
-  { noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>cF",
-  "<cmd>lua vim.diagnostic.open_float()<CR>",
-  { noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "d]", "<cmd>lua vim.diagnostic.goto_next()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>cq",
-  "<cmd>lua vim.diagnostic.setloclist()<CR>",
-  { noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>cF", "<cmd>lua vim.diagnostic.open_float()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "d]", "<cmd>lua vim.diagnostic.goto_next()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>cq", "<cmd>lua vim.diagnostic.setloclist()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true })

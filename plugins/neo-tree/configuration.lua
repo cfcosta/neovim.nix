@@ -44,4 +44,4 @@ require("neo-tree").setup({
   },
 })
 
-vim.api.nvim_set_keymap("n", "<leader>op", "<cmd>Neotree toggle<cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>op", "<cmd>Neotree toggle<cr>", { noremap = true, silent = true })

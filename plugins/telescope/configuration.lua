@@ -73,22 +73,12 @@ local options = {
 
 require("telescope").setup(options)
 
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader><leader>",
-  "<cmd> Telescope find_files hidden=true<CR>",
-  { noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap("n", "<leader>/", "<cmd> Telescope live_grep <CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>bb", "<cmd> Telescope buffers <CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>cm", "<cmd> Telescope git_commits <CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>gt", "<cmd> Telescope git_status <CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap(
-  "n",
-  "<leader>ff",
-  "<cmd> Telescope lsp_workspace_symbols <CR>",
-  { noremap = true, silent = true }
-)
+vim.keymap.set("n", "<leader><leader>", "<cmd> Telescope find_files hidden=true<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>/", "<cmd> Telescope live_grep <CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>bb", "<cmd> Telescope buffers <CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>cm", "<cmd> Telescope git_commits <CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>gt", "<cmd> Telescope git_status <CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>ff", "<cmd> Telescope lsp_workspace_symbols <CR>", { noremap = true, silent = true })
 
 require("telescope").load_extension("pomodori")
 

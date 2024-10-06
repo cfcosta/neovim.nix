@@ -1,3 +1,5 @@
+require("telescope").load_extension("pomodori")
+
 local actions = require("telescope.actions")
 local previewers = require("telescope.previewers")
 local sorters = require("telescope.sorters")
@@ -73,15 +75,42 @@ local options = {
 
 require("telescope").setup(options)
 
-vim.keymap.set("n", "<leader><leader>", "<cmd> Telescope find_files hidden=true<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>/", "<cmd> Telescope live_grep <CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>bb", "<cmd> Telescope buffers <CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>cm", "<cmd> Telescope git_commits <CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>gt", "<cmd> Telescope git_status <CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>ff", "<cmd> Telescope lsp_workspace_symbols <CR>", { noremap = true, silent = true })
-
-require("telescope").load_extension("pomodori")
-
+vim.keymap.set(
+  "n",
+  "<leader><leader>",
+  "<cmd> Telescope find_files hidden=true<CR>",
+  { noremap = true, silent = true, desc = "telescope: find files" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>/",
+  "<cmd> Telescope live_grep <CR>",
+  { noremap = true, silent = true, desc = "telescope: find on files" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>bb",
+  "<cmd> Telescope buffers <CR>",
+  { noremap = true, silent = true, desc = "telescope: open buffers" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>cm",
+  "<cmd> Telescope git_commits <CR>",
+  { noremap = true, silent = true, desc = "telescope: git commits" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>gt",
+  "<cmd> Telescope git_status <CR>",
+  { noremap = true, silent = true, desc = "telescope: git status" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>ff",
+  "<cmd> Telescope lsp_workspace_symbols <CR>",
+  { noremap = true, silent = true, desc = "telescope: lsp workspace symbols" }
+)
 vim.keymap.set("n", "<leader>pt", function()
   require("telescope").extensions.pomodori.timers()
-end, { desc = "Manage Pomodori Timers" })
+end, { desc = "telescope: manage pomodori timers" })

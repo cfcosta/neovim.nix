@@ -81,10 +81,25 @@ M.finish = function()
     M.load_plugin(name)
   end
 
-  vim.keymap.set("n", "<leader>wv", "<cmd>vsplit<cr>", { noremap = true, silent = true })
-  vim.keymap.set("n", "<leader>ws", "<cmd>split<cr>", { noremap = true, silent = true })
-  vim.keymap.set("n", "<leader>wc", "<cmd>close<cr>", { noremap = true, silent = true })
-  vim.keymap.set("n", "<leader>wo", "<cmd>only<cr>", { noremap = true, silent = true })
+  vim.keymap.set(
+    "n",
+    "<leader>wv",
+    "<cmd>vsplit<cr>",
+    { noremap = true, silent = true, desc = "Split window vertically" }
+  )
+  vim.keymap.set(
+    "n",
+    "<leader>ws",
+    "<cmd>split<cr>",
+    { noremap = true, silent = true, desc = "Split window horizontally" }
+  )
+  vim.keymap.set("n", "<leader>wc", "<cmd>close<cr>", { noremap = true, silent = true, desc = "Close current window" })
+  vim.keymap.set(
+    "n",
+    "<leader>wo",
+    "<cmd>only<cr>",
+    { noremap = true, silent = true, desc = "Close all windows except current" }
+  )
 
   vim.g.clipboard = {
     name = "OSC 52",

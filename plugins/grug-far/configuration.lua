@@ -25,5 +25,5 @@ vim.keymap.set(
   "n",
   "<leader>fr",
   "<cmd>lua require('grug-far').open({ transient = true })<cr>",
-  { noremap = true, silent = true }
+  { noremap = true, silent = true, desc = "grug-far: replace files in project" }
 )

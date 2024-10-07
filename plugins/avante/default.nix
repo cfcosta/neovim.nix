@@ -7,7 +7,7 @@
 }:
 let
   inherit (builtins) readFile;
-  inherit (pkgs.rustPlatform) buildRustPackage;
+  inherit (pkgs.nightvim) buildRustPackage;
   inherit (pkgs.stdenv) isDarwin;
   inherit (lib) optionals;
 

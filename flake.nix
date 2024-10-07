@@ -221,7 +221,27 @@
       let
         pkgs = import nixpkgs {
           inherit system;
-          overlays = [ rust-overlay.overlays.default ];
+          overlays = [
+            rust-overlay.overlays.default
+
+            (_: final: {
+              nightvim = rec {
+                inherit (rustPlatform) buildRustPackage;
+
+                rust = final.rust-bin.stable.latest.default.override {
+                  extensions = [
+                    "rust-src"
+                    "rust-analyzer"
+                  ];
+                };
+
+                rustPlatform = pkgs.makeRustPlatform {
+                  rustc = rust;
+                  cargo = rust;
+                };
+              };
+            })
+          ];
         };
 
         nightvim = pkgs.callPackage ./lib {

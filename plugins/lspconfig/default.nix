@@ -13,7 +13,6 @@ mkPlugin {
   inputs = with pkgs; [
     aiken
     bash-language-server
-    beancount-language-server
     buf-language-server
     clang-tools
     docker-compose-language-service

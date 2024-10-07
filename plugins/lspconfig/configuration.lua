@@ -12,7 +12,6 @@ local default_options = {
 ------------------------------------------------------------------
 lspconfig.aiken.setup(default_options)
 lspconfig.bashls.setup(default_options)
-lspconfig.beancount.setup(default_options)
 lspconfig.bufls.setup(default_options)
 lspconfig.clangd.setup(default_options)
 lspconfig.docker_compose_language_service.setup(default_options)

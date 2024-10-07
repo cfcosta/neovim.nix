@@ -15,6 +15,10 @@
         gitignore.follows = "gitignore";
       };
     };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Neovim Plugins
     aiken-neovim = {
@@ -209,12 +213,16 @@
       flake-utils,
       nixpkgs,
       pre-commit-hooks,
+      rust-overlay,
       ...
     }:
     flake-utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = import nixpkgs { inherit system; };
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ rust-overlay.overlays.default ];
+        };
 
         nightvim = pkgs.callPackage ./lib {
           inherit (self) inputs;

@@ -729,6 +729,7 @@
         "pomo-nvim": "pomo-nvim",
         "pre-commit-hooks": "pre-commit-hooks",
         "render-markdown": "render-markdown",
+        "rust-overlay": "rust-overlay",
         "rustacean": "rustacean",
         "surround": "surround",
         "telescope": "telescope",
@@ -739,6 +740,26 @@
         "wakatime": "wakatime",
         "which-key": "which-key",
         "zen-mode": "zen-mode"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1728268235,
+        "narHash": "sha256-lJMFnMO4maJuNO6PQ5fZesrTmglze3UFTTBuKGwR1Nw=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "25685cc2c7054efc31351c172ae77b21814f2d42",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
       }
     },
     "rustacean": {

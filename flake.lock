@@ -208,6 +208,22 @@
         "type": "github"
       }
     },
+    "fix-cursor-hold": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1676287387,
+        "narHash": "sha256-HwaKkwANoNHe512eDvuOJ48tG8nDh7r67magi8OA/Vw=",
+        "owner": "antoinemadec",
+        "repo": "FixCursorHold.nvim",
+        "rev": "1900f89dc17c603eec29960f57c00bd9ae696495",
+        "type": "github"
+      },
+      "original": {
+        "owner": "antoinemadec",
+        "repo": "FixCursorHold.nvim",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -387,6 +403,38 @@
       "original": {
         "owner": "TimUntersberger",
         "repo": "neogit",
+        "type": "github"
+      }
+    },
+    "neotest": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1727897111,
+        "narHash": "sha256-AD1smQZ40opN557WlpwNr/PKCQ4LEs/5wjHFsEdi6oM=",
+        "owner": "nvim-neotest",
+        "repo": "neotest",
+        "rev": "6d3d22cdad49999ef774ebe1bc250a4994038964",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-neotest",
+        "repo": "neotest",
+        "type": "github"
+      }
+    },
+    "nio-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1720707425,
+        "narHash": "sha256-i6imNTb1xrfBlaeOyxyIwAZ/+o6ew9C4/z34a7/BgFg=",
+        "owner": "nvim-neotest",
+        "repo": "nvim-nio",
+        "rev": "a428f309119086dc78dd4b19306d2d67be884eee",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-neotest",
+        "repo": "nvim-nio",
         "type": "github"
       }
     },
@@ -702,6 +750,7 @@
         "diffview": "diffview",
         "dressing": "dressing",
         "dropbar-nvim": "dropbar-nvim",
+        "fix-cursor-hold": "fix-cursor-hold",
         "flake-utils": "flake-utils",
         "gitignore": "gitignore",
         "gitsigns": "gitsigns",
@@ -712,6 +761,8 @@
         "lualine": "lualine",
         "neo-tree": "neo-tree",
         "neogit": "neogit",
+        "neotest": "neotest",
+        "nio-nvim": "nio-nvim",
         "nixpkgs": "nixpkgs",
         "nui": "nui",
         "nvim-autopairs": "nvim-autopairs",

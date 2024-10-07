@@ -73,6 +73,10 @@
       url = "github:Bekaboo/dropbar.nvim";
       flake = false;
     };
+    fix-cursor-hold = {
+      url = "github:antoinemadec/FixCursorHold.nvim";
+      flake = false;
+    };
     grug-far = {
       url = "github:MagicDuck/grug-far.nvim";
       flake = false;
@@ -93,12 +97,20 @@
       url = "github:nvim-lualine/lualine.nvim";
       flake = false;
     };
+    neogit = {
+      url = "github:TimUntersberger/neogit";
+      flake = false;
+    };
+    neotest = {
+      url = "github:nvim-neotest/neotest";
+      flake = false;
+    };
     neo-tree = {
       url = "github:nvim-neo-tree/neo-tree.nvim";
       flake = false;
     };
-    neogit = {
-      url = "github:TimUntersberger/neogit";
+    nio-nvim = {
+      url = "github:nvim-neotest/nvim-nio";
       flake = false;
     };
     nvim-notify = {

@@ -36,9 +36,15 @@ require("neo-tree").setup({
 
       always_show = {
         ".env",
+        "result",
       },
+
       never_show = {
         ".git",
+        ".obsidian",
+        ".stfolder",
+        ".trash",
+        ".versions",
       },
     },
   },

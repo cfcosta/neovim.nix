@@ -34,7 +34,7 @@ end
 
 require("avante").setup({
   provider = os.getenv("AVANTE_PROVIDER") or "claude",
-  auto_suggestion_provider = os.getenv("AVANTE_AUTO_SUGGESTION_PROVIDER") or "openai",
+  auto_suggestion_provider = os.getenv("AVANTE_AUTO_SUGGESTION_PROVIDER") or "openrouter",
 
   claude = {
     model = os.getenv("AVANTE_CLAUDE_MODEL") or "claude-3-5-sonnet-20240620",
@@ -42,11 +42,14 @@ require("avante").setup({
   openai = {
     model = os.getenv("AVANTE_OPENAI_MODEL") or "gpt4o-mini",
   },
+  behaviour = {
+    auto_suggestions = true,
+  },
 
   vendors = {
     ["openrouter"] = {
       endpoint = "https://openrouter.ai/api/v1",
-      model = os.getenv("AVANTE_OPENROUTER_MODEL") or "openai/o1-mini",
+      model = os.getenv("AVANTE_OPENROUTER_MODEL") or "google/gemini-flash-1.5-8b",
       api_key_name = "OPENROUTER_API_KEY",
       parse_curl_args = function(provider, code_opts)
         local base, body_opts = P.parse_config(provider)

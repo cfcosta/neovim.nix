@@ -601,11 +601,11 @@
     "nvim-treesitter-just": {
       "flake": false,
       "locked": {
-        "lastModified": 1722314416,
-        "narHash": "sha256-EVISh9r+aJ6Og1UN8bGCLk4kVjS/cEOYyhqHF40ztqg=",
+        "lastModified": 1728752089,
+        "narHash": "sha256-PT5Uz54N94I3ysKSMw6aUyDj01gxIWNjhU87sEGXvWQ=",
         "owner": "IndianBoy42",
         "repo": "tree-sitter-just",
-        "rev": "6648ac1c0cdadaec8ee8bcf9a4ca6ace5102cf21",
+        "rev": "390cec48bf04b5bb4e87e8ebc35a06ca3f7051cf",
         "type": "github"
       },
       "original": {
@@ -649,11 +649,11 @@
     "octo": {
       "flake": false,
       "locked": {
-        "lastModified": 1728668923,
-        "narHash": "sha256-26kP1DZVlim4mmaHLUZcFVs9fWXaTXKA+JYnld/4Rwg=",
+        "lastModified": 1728754548,
+        "narHash": "sha256-3tO3JIUIYhLkcela/sDU3zBXfCFnXsBbM746+Yfjos4=",
         "owner": "pwntester",
         "repo": "octo.nvim",
-        "rev": "2d183c5daaf779e4fbfdce59f40a4340c5fd202e",
+        "rev": "c8f503b38a6bcef5b658678136f03d7483683a71",
         "type": "github"
       },
       "original": {
@@ -706,11 +706,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1728727368,
-        "narHash": "sha256-7FMyNISP7K6XDSIt1NJxkXZnEdV3HZUXvFoBaJ/qdOg=",
+        "lastModified": 1728778939,
+        "narHash": "sha256-WybK5E3hpGxtCYtBwpRj1E9JoiVxe+8kX83snTNaFHE=",
         "owner": "cachix",
         "repo": "pre-commit-hooks.nix",
-        "rev": "eb74e0be24a11a1531b5b8659535580554d30b28",
+        "rev": "ff68f91754be6f3427e4986d7949e6273659be1d",
         "type": "github"
       },
       "original": {
@@ -722,11 +722,11 @@
     "render-markdown": {
       "flake": false,
       "locked": {
-        "lastModified": 1728709415,
-        "narHash": "sha256-9MSok1sV8Tasjv2QbSGSReuQcBMBCwBmz2WygG5z7kM=",
+        "lastModified": 1728839710,
+        "narHash": "sha256-dCLI0JnHbgLUGE14iX1GYJH0aqL8OHUCvfkNsIkOjIM=",
         "owner": "MeanderingProgrammer",
         "repo": "render-markdown.nvim",
-        "rev": "0c6de743a8d3c61b87bc7db9ab97dcda12ca6818",
+        "rev": "c0082b7d9e33408ba4e451741d8aca2b1f5ed823",
         "type": "github"
       },
       "original": {
@@ -800,11 +800,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1728700003,
-        "narHash": "sha256-Ox1pvEHxLK6lAdaKQW21Zvk65SPDag+cD8YA444R/og=",
+        "lastModified": 1728786660,
+        "narHash": "sha256-qY+1e0o6oV5ySlErhj/dsWsPLWjrMKzq4QI7a1t9/Ps=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "fc1e58ebabe0cef4442eedea07556ff0c9eafcfe",
+        "rev": "174a8d9cec9e2c23877a7b887c52b68ef0421d8b",
         "type": "github"
       },
       "original": {
@@ -816,11 +816,11 @@
     "rustacean": {
       "flake": false,
       "locked": {
-        "lastModified": 1728324006,
-        "narHash": "sha256-SYFbGz+eYNYTueuL1cf413K2nFx79deJ64NpRwD1vMw=",
+        "lastModified": 1728778846,
+        "narHash": "sha256-nzUyy9JsHrPP+wykVYPKsvESHrgFRVCVRIb9d7wFvJ0=",
         "owner": "mrcjkb",
         "repo": "rustaceanvim",
-        "rev": "d1f56672638508a7bc971cde31a29df4018579a9",
+        "rev": "1c47bdd38150d9ba636fd234128e232dc618e832",
         "type": "github"
       },
       "original": {

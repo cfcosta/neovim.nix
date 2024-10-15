@@ -44,6 +44,7 @@ require("neo-tree").setup({
         ".obsidian",
         ".stfolder",
         ".trash",
+        ".venv",
         ".versions",
       },
     },

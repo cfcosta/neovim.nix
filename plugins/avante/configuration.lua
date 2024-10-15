@@ -46,6 +46,12 @@ require("avante").setup({
     auto_suggestions = true,
   },
 
+  mappings = {
+    suggestion = {
+      accept = "<Tab>",
+    },
+  },
+
   vendors = {
     ["openrouter"] = {
       endpoint = "https://openrouter.ai/api/v1",

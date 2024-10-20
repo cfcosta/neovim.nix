@@ -69,13 +69,13 @@ vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSi
 ------------------------------------------------------------------
 vim.keymap.set(
   "n",
-  "gD",
+  "gd",
   "<cmd>lua vim.lsp.buf.declaration()<CR>",
   { noremap = true, silent = true, desc = "lsp: go to declaration" }
 )
 vim.keymap.set(
   "n",
-  "gd",
+  "gD",
   "<cmd>lua vim.lsp.buf.definition()<CR>",
   { noremap = true, silent = true, desc = "lsp: go to definition" }
 )

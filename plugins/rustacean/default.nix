@@ -11,7 +11,11 @@ mkPlugin {
   name = "rustacean";
   src = inputs.rustacean;
 
-  inputs = with pkgs; [ nightvim.rust ];
+  inputs = with pkgs; [
+    cargo-nextest
+
+    nightvim.rust
+  ];
 
   config = readFile ./configuration.lua;
 }

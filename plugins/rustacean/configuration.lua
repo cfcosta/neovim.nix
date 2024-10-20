@@ -16,6 +16,12 @@ vim.g.rustaceanvim = function()
           buffer = bufnr,
           desc = "rust: code actions",
         })
+        vim.keymap.set("n", "<leader>cc", function()
+          vim.cmd.RustLsp({ "hover", "actions" })
+        end, {
+          buffer = bufnr,
+          desc = "rust: code actions",
+        })
         vim.keymap.set("n", "<leader>rr", function()
           vim.cmd.RustLsp({ "flyCheck", "run" })
         end, {

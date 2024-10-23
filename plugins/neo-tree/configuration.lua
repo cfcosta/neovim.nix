@@ -40,6 +40,7 @@ require("neo-tree").setup({
       },
 
       never_show = {
+        ".direnv",
         ".git",
         ".jj",
         ".obsidian",

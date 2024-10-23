@@ -48,6 +48,7 @@ require("neo-tree").setup({
         ".trash",
         ".venv",
         ".versions",
+        "target"
       },
     },
   },

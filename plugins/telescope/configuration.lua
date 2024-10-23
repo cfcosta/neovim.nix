@@ -45,6 +45,7 @@ local options = {
     file_sorter = sorters.get_fuzzy_file,
     file_ignore_patterns = {
       "%.git",
+      ".direnv",
       ".jj",
       ".obsidian",
       ".stfolder",

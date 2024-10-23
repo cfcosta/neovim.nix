@@ -41,6 +41,7 @@ require("neo-tree").setup({
 
       never_show = {
         ".git",
+        ".jj",
         ".obsidian",
         ".stfolder",
         ".trash",

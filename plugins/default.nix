@@ -97,6 +97,7 @@ symlinkJoin rec {
     (importPlugin ./rustacean)
     (importPlugin ./surround)
     (importPlugin ./telescope)
+    (importPlugin ./telescope-ui-select.nix)
     (importPlugin ./toggleterm)
     (importPlugin ./treesitter)
     (importPlugin ./treesj.nix)

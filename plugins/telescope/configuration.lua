@@ -68,12 +68,16 @@ local options = {
       },
     },
   },
-
   extensions_list = { "themes", "terms" },
-  extensions = {},
+  extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown({}),
+    },
+  },
 }
 
 require("telescope").setup(options)
+require("telescope").load_extension("ui-select")
 
 vim.keymap.set(
   "n",

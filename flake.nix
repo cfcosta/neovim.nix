@@ -189,6 +189,10 @@
       url = "github:nvim-telescope/telescope.nvim";
       flake = false;
     };
+    telescope-ui-select = {
+      url = "github:nvim-telescope/telescope-ui-select.nvim";
+      flake = false;
+    };
     toggleterm-nvim = {
       url = "github:akinsho/toggleterm.nvim";
       flake = false;

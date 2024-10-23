@@ -13,6 +13,7 @@ mkPlugin {
     "trouble"
     "plenary"
     "pomo"
+    "telescope-ui-select"
   ];
   inputs = with pkgs; [ ripgrep ];
   config = readFile ./configuration.lua;

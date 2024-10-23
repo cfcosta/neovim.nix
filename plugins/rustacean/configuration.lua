@@ -3,6 +3,8 @@ vim.g.rustaceanvim = function()
   return {
     tools = {
       executor = executors.toggleterm,
+      test_executor = "neotest",
+      crate_test_executor = "neotest",
       enable_clippy = true,
       enable_nextest = true,
     },
@@ -10,14 +12,8 @@ vim.g.rustaceanvim = function()
       cmd = { "rust-analyzer" },
 
       on_attach = function(_, bufnr)
-        vim.keymap.set("n", "<leader>ca", function()
-          vim.cmd.RustLsp("codeAction")
-        end, {
-          buffer = bufnr,
-          desc = "rust: code actions",
-        })
         vim.keymap.set("n", "<leader>cc", function()
-          vim.cmd.RustLsp({ "hover", "actions" })
+          vim.cmd.RustLsp("codeAction")
         end, {
           buffer = bufnr,
           desc = "rust: code actions",

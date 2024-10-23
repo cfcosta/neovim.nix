@@ -784,6 +784,7 @@
         "rustacean": "rustacean",
         "surround": "surround",
         "telescope": "telescope",
+        "telescope-ui-select": "telescope-ui-select",
         "toggleterm-nvim": "toggleterm-nvim",
         "treesj": "treesj",
         "trouble": "trouble",
@@ -873,6 +874,22 @@
       "original": {
         "owner": "nvim-telescope",
         "repo": "telescope.nvim",
+        "type": "github"
+      }
+    },
+    "telescope-ui-select": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1701723223,
+        "narHash": "sha256-YRhNmmG4gx9Ht8JwjQfbTjJyTHEuZmtP6lqnhOsk8bE=",
+        "owner": "nvim-telescope",
+        "repo": "telescope-ui-select.nvim",
+        "rev": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-telescope",
+        "repo": "telescope-ui-select.nvim",
         "type": "github"
       }
     },

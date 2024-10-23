@@ -99,19 +99,19 @@ vim.keymap.set(
 )
 vim.keymap.set(
   "n",
-  "<leader>cm",
+  "<leader>gc",
   "<cmd> Telescope git_commits <CR>",
   { noremap = true, silent = true, desc = "telescope: git commits" }
 )
 vim.keymap.set(
   "n",
-  "<leader>gt",
+  "<leader>gs",
   "<cmd> Telescope git_status <CR>",
   { noremap = true, silent = true, desc = "telescope: git status" }
 )
 vim.keymap.set(
   "n",
-  "<leader>ff",
+  "<leader>ct",
   "<cmd> Telescope lsp_workspace_symbols <CR>",
   { noremap = true, silent = true, desc = "telescope: lsp workspace symbols" }
 )

@@ -51,6 +51,7 @@ local options = {
       ".trash",
       ".versions",
       "node_modules",
+      "target"
     },
     generic_sorter = sorters.get_generic_fuzzy_sorter,
     path_display = { "truncate" },

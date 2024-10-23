@@ -37,7 +37,7 @@ require("avante").setup({
   auto_suggestion_provider = os.getenv("AVANTE_AUTO_SUGGESTION_PROVIDER") or "openrouter",
 
   claude = {
-    model = os.getenv("AVANTE_CLAUDE_MODEL") or "claude-3-5-sonnet-20241022",
+    model = os.getenv("AVANTE_CLAUDE_MODEL") or "claude-3-5-sonnet-latest",
   },
   openai = {
     model = os.getenv("AVANTE_OPENAI_MODEL") or "gpt4o-mini",

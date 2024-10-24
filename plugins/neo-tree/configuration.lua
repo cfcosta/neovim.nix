@@ -108,6 +108,18 @@ require("neo-tree").setup({
 vim.keymap.set(
   "n",
   "<leader>op",
-  "<cmd>Neotree toggle<cr>",
+  "<cmd>Neotree toggle source=filesystem reveal=true position=right<cr>",
   { noremap = true, silent = true, desc = "neotree: toggle tree" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>oj",
+  "<cmd>Neotree jj reveal=true position=float<cr>",
+  { noremap = true, silent = true, desc = "neotree: open jujutsu status" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>oj",
+  "<cmd>Neotree buffers reveal=true position=float<cr>",
+  { noremap = true, silent = true, desc = "neotree: open buffer list" }
 )

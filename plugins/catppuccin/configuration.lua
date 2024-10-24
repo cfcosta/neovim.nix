@@ -5,7 +5,7 @@ require("catppuccin").setup({
     cmp = true,
     dap = true,
     diffview = true,
-    dropbar = { enabled = false, color_mode = true },
+    dropbar = { enabled = true, color_mode = true },
     gitsigns = true,
     grug_far = true,
     indent_blankline = true,

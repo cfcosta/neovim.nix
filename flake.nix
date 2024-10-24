@@ -109,6 +109,10 @@
       url = "github:nvim-neo-tree/neo-tree.nvim";
       flake = false;
     };
+    neo-tree-jj = {
+      url = "github:Cretezy/neo-tree-jj.nvim";
+      flake = false;
+    };
     nio-nvim = {
       url = "github:nvim-neotest/nvim-nio";
       flake = false;

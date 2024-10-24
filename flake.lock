@@ -390,6 +390,22 @@
         "type": "github"
       }
     },
+    "neo-tree-jj": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1715357700,
+        "narHash": "sha256-Vc+p1ZmrSzyTD8hDtd+v1LrR8euwf03F7bWpJ0ViIJo=",
+        "owner": "Cretezy",
+        "repo": "neo-tree-jj.nvim",
+        "rev": "c6534930c6f79893e12eafbb722ee23e6a83e80e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Cretezy",
+        "repo": "neo-tree-jj.nvim",
+        "type": "github"
+      }
+    },
     "neogit": {
       "flake": false,
       "locked": {
@@ -760,6 +776,7 @@
         "lspkind": "lspkind",
         "lualine": "lualine",
         "neo-tree": "neo-tree",
+        "neo-tree-jj": "neo-tree-jj",
         "neogit": "neogit",
         "neotest": "neotest",
         "nio-nvim": "nio-nvim",

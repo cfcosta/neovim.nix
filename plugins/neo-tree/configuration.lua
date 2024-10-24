@@ -82,6 +82,27 @@ require("neo-tree").setup({
       never_show = ignore,
     },
   },
+  sources = {
+    "filesystem",
+    "buffers",
+    "jj"
+  },
+  source_selector = {
+    sources = {
+      {
+        display_name = "Files",
+        source = "filesystem",
+      },
+      {
+        display_name = " Buffers",
+        source = "buffers",
+      },
+      {
+        display_name = "󰊢 JJ",
+        source = "jj",
+      }
+    },
+  },
 })
 
 vim.keymap.set(

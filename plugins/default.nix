@@ -85,6 +85,7 @@ symlinkJoin rec {
     (importPlugin ./lspconfig)
     (importPlugin ./lualine)
     (importPlugin ./neo-tree)
+    (importPlugin ./neo-tree-jj.nix)
     (importPlugin ./neogit)
     (importPlugin ./neotest)
     (importPlugin ./nio.nix)

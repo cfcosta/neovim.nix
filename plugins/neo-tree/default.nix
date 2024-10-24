@@ -10,6 +10,7 @@ mkPlugin {
     "plenary"
     "nvim-web-devicons"
     "nui"
+    "neo-tree-jj"
   ];
 
   config = readFile ./configuration.lua;

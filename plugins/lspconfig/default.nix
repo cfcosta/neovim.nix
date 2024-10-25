@@ -11,6 +11,7 @@ mkPlugin {
   name = "lspconfig";
 
   inputs = with pkgs; [
+    luau
     aiken
     bash-language-server
     buf-language-server

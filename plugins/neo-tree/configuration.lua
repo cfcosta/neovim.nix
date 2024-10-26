@@ -19,9 +19,9 @@ local function add_ignore(ignore_list, gitignore_content)
 end
 
 local ignore = {
+  ".git",
   ".aider.chat.history.md",
   ".aider.input.history",
-  "%.git",
   ".direnv",
   ".jj",
   ".obsidian",
@@ -108,12 +108,12 @@ require("neo-tree").setup({
 vim.keymap.set(
   "n",
   "<leader>op",
-  "<cmd>Neotree toggle source=filesystem reveal=true position=right<cr>",
+  "<cmd>Neotree toggle source=filesystem reveal=true<cr>",
   { noremap = true, silent = true, desc = "neotree: toggle tree" }
 )
 vim.keymap.set(
   "n",
-  "<leader>oj",
+  "<leader>jj",
   "<cmd>Neotree jj reveal=true position=float<cr>",
   { noremap = true, silent = true, desc = "neotree: open jujutsu status" }
 )

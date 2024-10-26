@@ -310,6 +310,22 @@
         "type": "github"
       }
     },
+    "hunk-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1726776875,
+        "narHash": "sha256-CbvfRmgVshzEH/EUn1/PfNzT+MChtTTmxfi+gTZ7Q6Y=",
+        "owner": "julienvincent",
+        "repo": "hunk.nvim",
+        "rev": "eb89245a66bdfce10436d15923bf4deb43d23c96",
+        "type": "github"
+      },
+      "original": {
+        "owner": "julienvincent",
+        "repo": "hunk.nvim",
+        "type": "github"
+      }
+    },
     "indent-blankline": {
       "flake": false,
       "locked": {
@@ -771,6 +787,7 @@
         "gitignore": "gitignore",
         "gitsigns": "gitsigns",
         "grug-far": "grug-far",
+        "hunk-nvim": "hunk-nvim",
         "indent-blankline": "indent-blankline",
         "lspconfig": "lspconfig",
         "lspkind": "lspkind",

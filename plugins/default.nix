@@ -81,6 +81,7 @@ symlinkJoin rec {
     (importPlugin ./dropbar)
     (importPlugin ./fix-cursor-hold.nix)
     (importPlugin ./grug-far)
+    (importPlugin ./hunk)
     (importPlugin ./indent-blankline)
     (importPlugin ./lspconfig)
     (importPlugin ./lualine)

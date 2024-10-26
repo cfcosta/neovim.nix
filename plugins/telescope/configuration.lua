@@ -133,12 +133,6 @@ vim.keymap.set(
 )
 vim.keymap.set(
   "n",
-  "<leader>bb",
-  "<cmd> Telescope buffers <CR>",
-  { noremap = true, silent = true, desc = "telescope: open buffers" }
-)
-vim.keymap.set(
-  "n",
   "<leader>gc",
   "<cmd> Telescope git_commits <CR>",
   { noremap = true, silent = true, desc = "telescope: git commits" }

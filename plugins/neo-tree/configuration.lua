@@ -119,7 +119,7 @@ vim.keymap.set(
 )
 vim.keymap.set(
   "n",
-  "<leader>ob",
+  "<leader>bb",
   "<cmd>Neotree buffers reveal=true position=float<cr>",
   { noremap = true, silent = true, desc = "neotree: open buffer list" }
 )

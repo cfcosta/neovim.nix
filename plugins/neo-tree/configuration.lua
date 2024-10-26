@@ -90,11 +90,11 @@ require("neo-tree").setup({
   source_selector = {
     sources = {
       {
-        display_name = "Files",
+        display_name = " 󰉓 Files",
         source = "filesystem",
       },
       {
-        display_name = " Buffers",
+        display_name = "󰈙 Buffers",
         source = "buffers",
       },
       {

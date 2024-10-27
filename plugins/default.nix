@@ -102,7 +102,6 @@ symlinkJoin rec {
     (importPlugin ./treesitter)
     (importPlugin ./treesj.nix)
     (importPlugin ./trouble)
-    (importPlugin ./twilight)
     (importPlugin ./wakatime)
     (importPlugin ./zen-mode)
 

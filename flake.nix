@@ -205,10 +205,6 @@
       url = "github:folke/trouble.nvim";
       flake = false;
     };
-    twilight = {
-      url = "github:folke/twilight.nvim";
-      flake = false;
-    };
     wakatime = {
       url = "github:wakatime/vim-wakatime";
       flake = false;

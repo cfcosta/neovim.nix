@@ -117,7 +117,6 @@ local options = {
 
 telescope.setup(options)
 telescope.load_extension("ui-select")
-telescope.load_extension("pomodori")
 
 vim.keymap.set(
   "n",
@@ -149,6 +148,3 @@ vim.keymap.set(
   "<cmd> Telescope lsp_workspace_symbols <CR>",
   { noremap = true, silent = true, desc = "telescope: lsp workspace symbols" }
 )
-vim.keymap.set("n", "<leader>pt", function()
-  require("telescope").extensions.pomodori.timers()
-end, { desc = "telescope: manage pomodori timers" })

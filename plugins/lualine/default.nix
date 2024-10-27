@@ -13,7 +13,6 @@ mkPlugin {
   depends = [
     "catppuccin"
     "nvim-web-devicons"
-    "pomo"
   ];
 
   config = readFile ./configuration.lua;

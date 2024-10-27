@@ -85,10 +85,6 @@
       url = "github:lewis6991/gitsigns.nvim";
       flake = false;
     };
-    hunk-nvim = {
-      url = "github:julienvincent/hunk.nvim";
-      flake = false;
-    };
     indent-blankline = {
       url = "github:lukas-reineke/indent-blankline.nvim";
       flake = false;
@@ -179,10 +175,6 @@
     };
     plenary = {
       url = "github:nvim-lua/plenary.nvim";
-      flake = false;
-    };
-    pomo-nvim = {
-      url = "github:epwalsh/pomo.nvim";
       flake = false;
     };
     render-markdown = {

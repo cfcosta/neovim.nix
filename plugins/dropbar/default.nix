@@ -9,11 +9,6 @@ in
 mkPlugin {
   name = "dropbar";
   src = inputs.dropbar-nvim;
-
-  depends = [
-    "nvim-web-devicons"
-    "pomo"
-  ];
-
+  depends = [ "nvim-web-devicons" ];
   config = readFile ./configuration.lua;
 }

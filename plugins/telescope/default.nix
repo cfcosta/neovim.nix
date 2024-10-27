@@ -12,7 +12,6 @@ mkPlugin {
   depends = [
     "trouble"
     "plenary"
-    "pomo"
     "telescope-ui-select"
   ];
   inputs = with pkgs; [ ripgrep ];

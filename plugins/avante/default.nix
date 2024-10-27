@@ -28,13 +28,7 @@ let
       pkg-config
     ];
 
-    cargoLock = {
-      lockFile = "${inputs.avante-nvim}/Cargo.lock";
-
-      outputHashes = {
-        "mlua-0.10.0-beta.1" = "sha256-ZEZFATVldwj0pmlmi0s5VT0eABA15qKhgjmganrhGBY=";
-      };
-    };
+    cargoLock.lockFile = "${inputs.avante-nvim}/Cargo.lock";
 
     installPhase = ''
       mkdir -p $out/build

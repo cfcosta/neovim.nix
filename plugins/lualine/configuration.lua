@@ -6,11 +6,10 @@ local devicons = require('nvim-web-devicons')
 local C = require("catppuccin.palettes").get_palette("mocha")
 local O = require("catppuccin").options
 
-local transparent_bg = O.transparent_background and "NONE" or C.mantle
+local fg = C.text
+local bg = O.transparent_background and "NONE" or C.mantle
 
 local colors = {
-  bg       = C.surface0,
-  fg       = C.text,
   yellow   = C.yellow,
   cyan     = C.sky,
   darkblue = C.blue,
@@ -21,6 +20,20 @@ local colors = {
   blue     = C.blue,
   red      = C.red,
 }
+
+-- Function to select a deterministic color from the colors table based on a string
+local function string_to_color(str)
+  local hash = 5381
+  for i = 1, #str do
+    hash = (hash * 33 + string.byte(str, i)) % 2 ^ 32
+  end
+  local color_names = {}
+  for name, _ in pairs(colors) do
+    table.insert(color_names, name)
+  end
+  local index = (hash % #color_names) + 1
+  return colors[color_names[index]]
+end
 
 local conditions = {
   buffer_not_empty = function()
@@ -42,8 +55,8 @@ local config = {
     component_separators = '',
     section_separators = '',
     theme = {
-      normal = { c = { fg = colors.fg, bg = transparent_bg } },
-      inactive = { c = { fg = colors.fg, bg = transparent_bg } },
+      normal = { c = { fg = fg, bg = bg } },
+      inactive = { c = { fg = fg, bg = bg } },
     },
   },
   sections = {
@@ -133,9 +146,16 @@ ins_left {
   color = { fg = colors.magenta, gui = 'bold' },
 }
 
-ins_left { 'location' }
+ins_left {
+  'location',
+  cond = conditions.buffer_not_empty,
+}
 
-ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
+ins_left {
+  'progress',
+  color = { fg = fg, gui = 'bold' },
+  cond = conditions.buffer_not_empty,
+}
 
 ins_left {
   'diagnostics',
@@ -146,6 +166,7 @@ ins_left {
     warn = { fg = colors.yellow },
     info = { fg = colors.cyan },
   },
+  cond = conditions.hide_in_width,
 }
 
 ins_left {
@@ -175,13 +196,25 @@ ins_right {
 
     return msg
   end,
-  color = { fg = colors.fg, gui = 'bold' },
+  color = function()
+    local buf_ft = vim.bo.filetype
+    local clients = vim.lsp.get_active_clients()
+    for _, client in ipairs(clients) do
+      local filetypes = client.config.filetypes
+      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+        return { fg = string_to_color(client.name), gui = 'bold' }
+      end
+    end
+    return { fg = fg, gui = 'bold' }
+  end,
+  cond = conditions.hide_in_width,
 }
 
 ins_right {
   'branch',
   icon = '',
   color = { fg = colors.violet, gui = 'bold' },
+  cond = conditions.hide_in_width,
 }
 
 ins_right {

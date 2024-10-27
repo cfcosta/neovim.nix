@@ -93,7 +93,7 @@ ins_left {
       n = "Normal",
       i = "Insert",
       v = "Visual",
-      ['^V'] = "Visual (block)",
+      ['\22'] = "Visual (block)",
       V = "Visual (line)",
       c = "Command",
       no = "O-pending",
@@ -111,38 +111,39 @@ ins_left {
       t = "Terminal"
     }
 
-    return messages[vim.fn.mode()] or vim.fn.mode()
+    return "󰍛 " .. messages[vim.fn.mode()] or vim.fn.mode()
   end,
   color = function()
     local mode_color = {
-      n = colors.red,
-      i = colors.green,
-      v = colors.blue,
-      [''] = colors.blue,
-      V = colors.blue,
-      c = colors.magenta,
-      no = colors.red,
-      s = colors.orange,
+      R = colors.red,
+      Rv = colors.red,
       S = colors.orange,
-      ic = colors.yellow,
-      R = colors.violet,
-      Rv = colors.violet,
-      cv = colors.red,
+      V = colors.blue,
+      ['!'] = colors.red,
+      ['\22'] = colors.blue,
+      ['r?'] = colors.cyan,
+      c = colors.magenta,
       ce = colors.red,
+      cv = colors.red,
+      i = colors.green,
+      ic = colors.yellow,
+      n = colors.violet,
+      no = colors.red,
       r = colors.cyan,
       rm = colors.cyan,
-      ['r?'] = colors.cyan,
-      ['!'] = colors.red,
-      t = colors.red,
+      s = colors.orange,
+      t = colors.violet,
+      v = colors.blue,
     }
     return { fg = mode_color[vim.fn.mode()] or colors.red }
   end,
   padding = { right = 1 },
+  cond = conditions.hide_in_width,
 }
 
 ins_left {
   'filename',
-  cond = conditions.buffer_not_empty,
+  cond = conditions.buffer_not_empty and conditions.hide_in_width,
   color = { fg = colors.magenta, gui = 'bold' },
 }
 

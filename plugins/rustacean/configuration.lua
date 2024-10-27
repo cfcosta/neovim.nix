@@ -54,7 +54,7 @@ vim.g.rustaceanvim = function()
         ["rust-analyzer"] = {
           cargo = {
             buildScripts = { enable = true },
-            allTargets = false,
+            allTargets = true,
           },
           hover = {
             actions = {
@@ -63,14 +63,29 @@ vim.g.rustaceanvim = function()
               run = true,
             },
           },
-          imports = { preferPrelude = true },
-          inlayHints = {
-            maxLength = nil,
-            lifetimeElisionHints = {
-              useParameterNames = true,
-              enable = "skip_trivial",
+          imports = {
+            granularity = {
+              group = "module",
             },
+            prefix = "self",
+          },
+          inlayHints = {
+            bindingModeHints = { enable = true },
+            closureCaptureHints = { enable = true },
             closureReturnTypeHints = { enable = "always" },
+            genericParameterHints = {
+              lifetime = {
+                enable = true,
+              },
+              type = {
+                enable = true,
+              },
+            },
+            lifetimeElisionHints = {
+              enable = "skip_trivial",
+              useParameterNames = true,
+            },
+            maxLength = nil,
           },
           procMacro = { enable = true },
           rust = { analyzerTargetDir = true },

@@ -29,7 +29,7 @@ local ignore = {
   ".trash",
   ".versions",
   "node_modules",
-  "target"
+  "%target"
 }
 
 -- Add global gitignore entries

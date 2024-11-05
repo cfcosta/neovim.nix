@@ -1,6 +1,7 @@
 {
   inputs,
   mkPlugin,
+  pkgs,
   ...
 }:
 let
@@ -9,6 +10,10 @@ in
 mkPlugin {
   name = "octo";
   src = inputs.octo;
+
+  inputs = with pkgs; [
+    gh
+  ];
 
   depends = [
     "diffview"

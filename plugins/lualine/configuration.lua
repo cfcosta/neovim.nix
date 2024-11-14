@@ -9,30 +9,15 @@ local O = require("catppuccin").options
 local fg = C.text
 local bg = O.transparent_background and "NONE" or C.mantle
 
-local colors = {
-  yellow   = C.yellow,
-  cyan     = C.sky,
-  darkblue = C.blue,
-  green    = C.green,
-  orange   = C.peach,
-  violet   = C.mauve,
-  magenta  = C.pink,
-  blue     = C.blue,
-  red      = C.red,
-}
-
--- Function to select a deterministic color from the colors table based on a string
+-- Function to select a deterministic color from the Catppuccin palette based on a string
 local function string_to_color(str)
   local hash = 5381
   for i = 1, #str do
     hash = (hash * 33 + string.byte(str, i)) % 2 ^ 32
   end
-  local color_names = {}
-  for name, _ in pairs(colors) do
-    table.insert(color_names, name)
-  end
-  local index = (hash % #color_names) + 1
-  return colors[color_names[index]]
+  local palette_colors = { C.yellow, C.sky, C.blue, C.green, C.peach, C.mauve, C.pink, C.red }
+  local index = (hash % #palette_colors) + 1
+  return palette_colors[index]
 end
 
 local conditions = {
@@ -115,27 +100,28 @@ ins_left {
   end,
   color = function()
     local mode_color = {
-      R = colors.red,
-      Rv = colors.red,
-      S = colors.orange,
-      V = colors.blue,
-      ['!'] = colors.red,
-      ['\22'] = colors.blue,
-      ['r?'] = colors.cyan,
-      c = colors.magenta,
-      ce = colors.red,
-      cv = colors.red,
-      i = colors.green,
-      ic = colors.yellow,
-      n = colors.violet,
-      no = colors.red,
-      r = colors.cyan,
-      rm = colors.cyan,
-      s = colors.orange,
-      t = colors.violet,
-      v = colors.blue,
+      R = C.red,
+      Rv = C.red,
+      S = C.peach,
+      V = C.peach,
+      ['!'] = C.red,
+      ['\22'] = C.peach,
+      ['r?'] = C.sky,
+      c = C.pink,
+      ce = C.red,
+      cv = C.red,
+      i = C.green,
+      ic = C.yellow,
+      n = C.blue,
+      no = C.red,
+      r = C.sky,
+      rm = C.sky,
+      s = C.peach,
+      t = C.peach,
+      v = C.blue,
     }
-    return { fg = mode_color[vim.fn.mode()] or colors.red }
+
+    return { fg = mode_color[vim.fn.mode()] or C.red, gui = 'bold' }
   end,
   padding = { right = 1 },
   cond = conditions.hide_in_width,
@@ -144,17 +130,18 @@ ins_left {
 ins_left {
   'filename',
   cond = conditions.buffer_not_empty and conditions.hide_in_width,
-  color = { fg = colors.magenta, gui = 'bold' },
+  color = { fg = C.teal },
 }
 
 ins_left {
   'location',
+  color = { fg = C.overlay1 },
   cond = conditions.buffer_not_empty,
 }
 
 ins_left {
   'progress',
-  color = { fg = fg, gui = 'bold' },
+  color = { fg = C.overlay1 },
   cond = conditions.buffer_not_empty,
 }
 
@@ -163,9 +150,9 @@ ins_left {
   sources = { 'nvim_diagnostic' },
   symbols = { error = ' ', warn = ' ', info = ' ' },
   diagnostics_color = {
-    error = { fg = colors.red },
-    warn = { fg = colors.yellow },
-    info = { fg = colors.cyan },
+    error = { fg = C.red },
+    warn = { fg = C.yellow },
+    info = { fg = C.sky },
   },
   cond = conditions.hide_in_width,
 }
@@ -214,7 +201,7 @@ ins_right {
 ins_right {
   'branch',
   icon = '',
-  color = { fg = colors.violet, gui = 'bold' },
+  color = { fg = C.lavender, gui = 'bold' },
   cond = conditions.hide_in_width,
 }
 
@@ -222,9 +209,9 @@ ins_right {
   'diff',
   symbols = { added = ' ', modified = '󰝤 ', removed = ' ' },
   diff_color = {
-    added = { fg = colors.green },
-    modified = { fg = colors.orange },
-    removed = { fg = colors.red },
+    added = { fg = C.green },
+    modified = { fg = C.peach },
+    removed = { fg = C.red },
   },
   cond = conditions.hide_in_width,
 }

@@ -124,12 +124,10 @@ ins_left {
     return { fg = mode_color[vim.fn.mode()] or C.red, gui = 'bold' }
   end,
   padding = { right = 1 },
-  cond = conditions.hide_in_width,
 }
 
 ins_left {
   'filename',
-  cond = conditions.buffer_not_empty and conditions.hide_in_width,
   color = { fg = C.teal },
 }
 
@@ -154,7 +152,6 @@ ins_left {
     warn = { fg = C.yellow },
     info = { fg = C.sky },
   },
-  cond = conditions.hide_in_width,
 }
 
 ins_left {

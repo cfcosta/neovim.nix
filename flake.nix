@@ -105,14 +105,6 @@
       url = "github:nvim-neotest/neotest";
       flake = false;
     };
-    neo-tree = {
-      url = "github:nvim-neo-tree/neo-tree.nvim";
-      flake = false;
-    };
-    neo-tree-jj = {
-      url = "github:Cretezy/neo-tree-jj.nvim";
-      flake = false;
-    };
     nio-nvim = {
       url = "github:nvim-neotest/nvim-nio";
       flake = false;
@@ -147,6 +139,10 @@
     };
     surround = {
       url = "github:kylechui/nvim-surround";
+      flake = false;
+    };
+    nvim-tree = {
+      url = "github:nvim-tree/nvim-tree.lua";
       flake = false;
     };
     nvim-treesitter = {

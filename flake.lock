@@ -374,38 +374,6 @@
         "type": "github"
       }
     },
-    "neo-tree": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1726542367,
-        "narHash": "sha256-Lqt0KJNT9HmpJwZoWChYeVBrDWhscRe8COqVCwgcTwk=",
-        "owner": "nvim-neo-tree",
-        "repo": "neo-tree.nvim",
-        "rev": "a77af2e764c5ed4038d27d1c463fa49cd4794e07",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-neo-tree",
-        "repo": "neo-tree.nvim",
-        "type": "github"
-      }
-    },
-    "neo-tree-jj": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1715357700,
-        "narHash": "sha256-Vc+p1ZmrSzyTD8hDtd+v1LrR8euwf03F7bWpJ0ViIJo=",
-        "owner": "Cretezy",
-        "repo": "neo-tree-jj.nvim",
-        "rev": "c6534930c6f79893e12eafbb722ee23e6a83e80e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Cretezy",
-        "repo": "neo-tree-jj.nvim",
-        "type": "github"
-      }
-    },
     "neogit": {
       "flake": false,
       "locked": {
@@ -579,6 +547,22 @@
       "original": {
         "owner": "dcampos",
         "repo": "nvim-snippy",
+        "type": "github"
+      }
+    },
+    "nvim-tree": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1731275826,
+        "narHash": "sha256-YIClwxyw4fNos5OIBZOjM0dlCw+yOhDDnq5jONSu7rs=",
+        "owner": "nvim-tree",
+        "repo": "nvim-tree.lua",
+        "rev": "28eac2801b201f301449e976d7a9e8cfde053ba3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-tree",
+        "repo": "nvim-tree.lua",
         "type": "github"
       }
     },
@@ -759,8 +743,6 @@
         "lspconfig": "lspconfig",
         "lspkind": "lspkind",
         "lualine": "lualine",
-        "neo-tree": "neo-tree",
-        "neo-tree-jj": "neo-tree-jj",
         "neogit": "neogit",
         "neotest": "neotest",
         "nio-nvim": "nio-nvim",
@@ -771,6 +753,7 @@
         "nvim-dap": "nvim-dap",
         "nvim-notify": "nvim-notify",
         "nvim-snippy": "nvim-snippy",
+        "nvim-tree": "nvim-tree",
         "nvim-treesitter": "nvim-treesitter",
         "nvim-treesitter-endwise": "nvim-treesitter-endwise",
         "nvim-treesitter-just": "nvim-treesitter-just",

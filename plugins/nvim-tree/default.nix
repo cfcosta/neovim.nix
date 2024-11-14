@@ -3,14 +3,11 @@ let
   inherit (builtins) readFile;
 in
 mkPlugin {
-  name = "neo-tree";
-  src = inputs.neo-tree;
+  name = "nvim-tree";
+  src = inputs.nvim-tree;
 
   depends = [
-    "plenary"
     "nvim-web-devicons"
-    "nui"
-    "neo-tree-jj"
   ];
 
   config = readFile ./configuration.lua;

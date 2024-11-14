@@ -77,6 +77,10 @@ end
 M.finish = function()
   vim.g.mapleader = " "
 
+  -- disable netrw
+  vim.g.loaded_netrw = 1
+  vim.g.loaded_netrwPlugin = 1
+
   for _, name in ipairs(M.sort_plugins()) do
     M.load_plugin(name)
   end

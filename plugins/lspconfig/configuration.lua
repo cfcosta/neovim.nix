@@ -24,6 +24,20 @@ lspconfig.postgres_lsp.setup(default_options)
 lspconfig.ruff.setup(default_options)
 lspconfig.taplo.setup(default_options)
 
+lspconfig.pyright.setup({
+  settings = {
+    pyright = {
+      disableOrganizeImports = true,
+    },
+    python = {
+      analysis = {
+        -- Ignore all files for analysis to exclusively use Ruff for linting
+        ignore = { '*' },
+      },
+    },
+  },
+})
+
 lspconfig.lua_ls.setup({
   on_attach = default_options.on_attach,
   settings = {

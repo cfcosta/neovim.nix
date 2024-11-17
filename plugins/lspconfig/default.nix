@@ -11,7 +11,6 @@ mkPlugin {
   name = "lspconfig";
 
   inputs = with pkgs; [
-    luau
     aiken
     bash-language-server
     buf
@@ -21,10 +20,10 @@ mkPlugin {
     gopls
     jq-lsp
     lua-language-server
+    luau
     nixd
     postgres-lsp
     ruff
-    ruff-lsp
     taplo-lsp
   ];
 

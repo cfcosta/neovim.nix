@@ -14,7 +14,7 @@ mkPlugin {
     luau
     aiken
     bash-language-server
-    buf-language-server
+    buf
     clang-tools
     docker-compose-language-service
     dockerfile-language-server-nodejs

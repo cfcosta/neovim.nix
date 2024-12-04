@@ -36,7 +36,7 @@ require("avante").setup({
   provider = os.getenv("AVANTE_PROVIDER") or "claude",
 
   dual_boost = {
-    enabled = true,
+    enabled = false,
     first_provider = "claude",
     second_provider = "openrouter",
     prompt =

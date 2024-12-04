@@ -105,7 +105,7 @@
       url = "github:nvim-neotest/neotest";
       flake = false;
     };
-    nio-nvim = {
+    nio = {
       url = "github:nvim-neotest/nvim-nio";
       flake = false;
     };

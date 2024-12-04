@@ -11,46 +11,70 @@ let
   inherit (stdenv) mkDerivation;
 
   mkPlugin' =
-    {
-      name,
-      src,
-      module ? name,
-      config ? ''require("${module}").setup {}'',
-      inputs ? [ ],
-      depends ? [ ],
-      ...
-    }:
-    mkDerivation {
-      inherit src;
-      name = "nightvim-${name}";
-      version = src.shortRev or "dev-nightvim";
-
-      dontBuild = true;
-      installPhase = ''
-        mkdir -p $out/share/nightvim/pack/nightvim/opt/${name}
-        cp -r . $out/share/nightvim/pack/nightvim/opt/${name}
-      '';
-
-      passthru.spec = {
-        inherit
-          name
-          src
-          module
-          inputs
-          depends
-          ;
-
-        config = if isPath config then readFile config else config;
-      };
+    name:
+    mkPlugin {
+      inherit name;
+      src = inputs.${name};
+      module = null;
+      config = "";
     };
+
+  simplePlugins = [
+    (mkPlugin' "aiken-neovim")
+    (mkPlugin' "cmp-buffer")
+    (mkPlugin' "cmp-cmdline")
+    (mkPlugin' "cmp-nvim-lsp")
+    (mkPlugin' "cmp-path")
+    (mkPlugin' "cmp-snippy")
+    (mkPlugin' "comment")
+    (mkPlugin' "diffview")
+    (mkPlugin' "dressing")
+    (mkPlugin' "fix-cursor-hold")
+    (mkPlugin' "gitsigns")
+    (mkPlugin' "lspkind")
+    (mkPlugin' "nio")
+    (mkPlugin' "nui")
+    (mkPlugin' "nvim-dap")
+    (mkPlugin' "nvim-snippy")
+    (mkPlugin' "nvim-treesitter-endwise")
+    (mkPlugin' "nvim-treesitter-just")
+    (mkPlugin' "plenary")
+    (mkPlugin' "telescope-ui-select")
+    (mkPlugin' "which-key")
+  ];
 
   mkPlugin =
     args@{
       inputs ? [ ],
+      name,
+      src,
+      config ? "",
+      depends ? [ ],
       ...
     }:
     let
-      plugin = mkPlugin' args;
+      plugin = mkDerivation {
+        inherit src;
+        name = "nightvim-${name}";
+        version = src.shortRev or "dev-nightvim";
+
+        dontBuild = true;
+        installPhase = ''
+          mkdir -p $out/share/nightvim/pack/nightvim/opt/${name}
+          cp -r . $out/share/nightvim/pack/nightvim/opt/${name}
+        '';
+
+        passthru.spec = {
+          inherit
+            name
+            src
+            inputs
+            depends
+            ;
+
+          config = if isPath config then readFile config else config;
+        };
+      };
     in
     symlinkJoin {
       name = "${args.name}-with-tools";
@@ -95,96 +119,7 @@ symlinkJoin rec {
       # Filter out non-plugin entries and import all valid plugins
       plugins = lib.filter (x: x != null) (map importPluginPath (builtins.attrNames entries));
     in
-    plugins
-    ++ [
-      (mkPlugin {
-        name = "aiken-neovim";
-        src = inputs.aiken-neovim;
-        config = "";
-      })
-      (mkPlugin {
-        name = "cmp-buffer";
-        src = inputs.cmp-buffer;
-        config = "";
-      })
-      (mkPlugin {
-        name = "cmp-cmdline";
-        src = inputs.cmp-cmdline;
-        config = "";
-      })
-      (mkPlugin {
-        name = "cmp-nvim-lsp";
-        src = inputs.cmp-nvim-lsp;
-        config = "";
-      })
-      (mkPlugin {
-        name = "cmp-path";
-        src = inputs.cmp-path;
-        config = "";
-      })
-      (mkPlugin {
-        name = "cmp-snippy";
-        src = inputs.cmp-snippy;
-        config = "";
-      })
-      (mkPlugin {
-        name = "comment";
-        src = inputs.comment;
-        module = "Comment";
-      })
-      (mkPlugin {
-        name = "diffview";
-        src = inputs.diffview;
-      })
-      (mkPlugin {
-        name = "dressing";
-        src = inputs.dressing;
-        config = "";
-      })
-      (mkPlugin {
-        name = "gitsigns";
-        src = inputs.gitsigns;
-      })
-      (mkPlugin {
-        name = "lspkind";
-        src = inputs.lspkind;
-        config = "";
-      })
-      (mkPlugin {
-        name = "nui";
-        src = inputs.nui;
-        config = "";
-      })
-      (mkPlugin {
-        name = "nvim-dap";
-        src = inputs.nvim-dap;
-        config = "";
-      })
-      (mkPlugin {
-        name = "nvim-snippy";
-        src = inputs.nvim-snippy;
-        config = "";
-      })
-      (mkPlugin {
-        name = "nvim-treesitter-endwise";
-        src = inputs.nvim-treesitter-endwise;
-        config = "";
-      })
-      (mkPlugin {
-        name = "nvim-treesitter-just";
-        src = inputs.nvim-treesitter-just;
-        config = "";
-      })
-      (mkPlugin {
-        name = "plenary";
-        src = inputs.plenary;
-        config = "";
-      })
-      (mkPlugin {
-        name = "which-key";
-        src = inputs.which-key;
-      })
-    ];
+    plugins ++ simplePlugins;
 
   passthru.specs = map (p: p.spec) paths;
 }

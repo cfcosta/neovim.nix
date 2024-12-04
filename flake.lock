@@ -406,7 +406,7 @@
         "type": "github"
       }
     },
-    "nio-nvim": {
+    "nio": {
       "flake": false,
       "locked": {
         "lastModified": 1720707425,
@@ -745,7 +745,7 @@
         "lualine": "lualine",
         "neogit": "neogit",
         "neotest": "neotest",
-        "nio-nvim": "nio-nvim",
+        "nio": "nio",
         "nixpkgs": "nixpkgs",
         "nui": "nui",
         "nvim-autopairs": "nvim-autopairs",

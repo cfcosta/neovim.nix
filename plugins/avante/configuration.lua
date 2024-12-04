@@ -28,13 +28,21 @@ local parse_message = function(opts)
 
   return {
     { role = "system", content = opts.system_prompt },
-    { role = "user", content = user_content },
+    { role = "user",   content = user_content },
   }
 end
 
 require("avante").setup({
   provider = os.getenv("AVANTE_PROVIDER") or "claude",
-  auto_suggestion_provider = os.getenv("AVANTE_AUTO_SUGGESTION_PROVIDER") or "openrouter",
+
+  dual_boost = {
+    enabled = true,
+    first_provider = "claude",
+    second_provider = "openrouter",
+    prompt =
+    "Based on the two reference outputs below, generate a response that incorporates elements from both but reflects your own judgment and unique perspective. Do not provide any explanation, just give the response directly. Reference Output 1: [{{provider1_output}}], Reference Output 2: [{{provider2_output}}]",
+    timeout = 60000, -- Timeout in milliseconds
+  },
 
   claude = {
     model = os.getenv("AVANTE_CLAUDE_MODEL") or "claude-3-5-sonnet-latest",
@@ -43,7 +51,12 @@ require("avante").setup({
     model = os.getenv("AVANTE_OPENAI_MODEL") or "gpt4o-mini",
   },
   behaviour = {
-    auto_suggestions = true,
+    auto_suggestions = false,
+    auto_set_highlight_group = true,
+    auto_set_keymaps = true,
+    auto_apply_diff_after_generation = false,
+    support_paste_from_clipboard = false,
+    minimize_diff = true,
   },
 
   mappings = {
@@ -55,7 +68,7 @@ require("avante").setup({
   vendors = {
     ["openrouter"] = {
       endpoint = "https://openrouter.ai/api/v1",
-      model = os.getenv("AVANTE_OPENROUTER_MODEL") or "google/gemini-flash-1.5-8b",
+      model = os.getenv("AVANTE_OPENROUTER_MODEL") or "qwen/qwq-32b-preview",
       api_key_name = "OPENROUTER_API_KEY",
       parse_curl_args = function(provider, code_opts)
         local base, body_opts = P.parse_config(provider)

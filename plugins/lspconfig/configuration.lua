@@ -10,7 +10,6 @@ local default_options = {
 ------------------------------------------------------------------
 -- Servers Setup
 ------------------------------------------------------------------
-lspconfig.agda_ls.setup(default_options)
 lspconfig.aiken.setup(default_options)
 lspconfig.bashls.setup(default_options)
 lspconfig.buf_ls.setup(default_options)

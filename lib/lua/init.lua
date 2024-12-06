@@ -130,8 +130,16 @@ M.finish = function()
 
   -- Set custom filetypes for some specific files
   vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-    pattern = { "flake.lock", "Cargo.lock" },
+    pattern = { "*.agda" },
+    command = "set filetype=agda",
+  })
+  vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = { "flake.lock" },
     command = "set filetype=json",
+  })
+  vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = { "Cargo.lock" },
+    command = "set filetype=toml",
   })
   vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = { "docker-compose.yml", "docker-compose.yaml" },

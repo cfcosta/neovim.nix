@@ -18,6 +18,7 @@ mkPlugin {
     docker-compose-language-service
     dockerfile-language-server-nodejs
     gopls
+    haskellPackages.agda-language-server
     jq-lsp
     lua-language-server
     luau

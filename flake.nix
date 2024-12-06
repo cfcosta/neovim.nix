@@ -229,6 +229,7 @@
       let
         pkgs = import nixpkgs {
           inherit system;
+          config.allowBroken = true;
           overlays = [
             rust-overlay.overlays.default
 

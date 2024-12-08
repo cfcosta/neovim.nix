@@ -23,6 +23,7 @@ mkPlugin {
     luau
     nixd
     postgres-lsp
+    pyright
     ruff
     taplo-lsp
   ];

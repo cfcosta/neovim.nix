@@ -17,7 +17,6 @@ mkPlugin {
     "cmp-nvim-lsp"
     "cmp-path"
     "cmp-snippy"
-    "lspconfig"
     "lspkind"
     "nvim-dap"
     "nvim-snippy"

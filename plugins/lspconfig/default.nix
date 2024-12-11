@@ -10,6 +10,10 @@ in
 mkPlugin {
   name = "lspconfig";
 
+  depends = [
+    "cmp-nvim-lsp"
+  ];
+
   inputs = with pkgs; [
     aiken
     bash-language-server

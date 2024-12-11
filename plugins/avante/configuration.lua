@@ -32,26 +32,65 @@ local parse_message = function(opts)
   }
 end
 
-require("avante").setup({
-  provider = os.getenv("AVANTE_PROVIDER") or "claude",
+local openrouter_vendor = {
+  endpoint = "https://openrouter.ai/api/v1",
+  model = "qwen/qwen-2.5-coder-32b-instruct",
+  api_key_name = "OPENROUTER_API_KEY",
+  parse_curl_args = function(provider, code_opts)
+    local base, body_opts = P.parse_config(provider)
 
-  dual_boost = {
-    enabled = false,
-    first_provider = "claude",
-    second_provider = "openrouter",
-    prompt =
-    "Based on the two reference outputs below, generate a response that incorporates elements from both but reflects your own judgment and unique perspective. Do not provide any explanation, just give the response directly. Reference Output 1: [{{provider1_output}}], Reference Output 2: [{{provider2_output}}]",
-    timeout = 60000, -- Timeout in milliseconds
-  },
+    local headers = {
+      ["Content-Type"] = "application/json",
+    }
+    if not P.env.is_local("openai") then
+      headers["Authorization"] = "Bearer " .. provider.parse_api_key()
+    end
+
+    return {
+      url = Utils.trim(base.endpoint, { suffix = "/" }) .. "/chat/completions",
+      proxy = base.proxy,
+      insecure = base.allow_insecure,
+      headers = headers,
+      body = vim.tbl_deep_extend("force", {
+        model = base.model,
+        messages = parse_message(code_opts),
+        stream = true,
+      }, body_opts),
+    }
+  end,
+  parse_response_data = function(data_stream, _, opts)
+    if data_stream:match('"%[DONE%]":') then
+      opts.on_complete(nil)
+      return
+    end
+    if data_stream:match('"delta":') then
+      local json = vim.json.decode(data_stream)
+      if json.choices and json.choices[1] then
+        local choice = json.choices[1]
+        if choice.finish_reason == "stop" then
+          opts.on_complete(nil)
+        elseif choice.delta.content then
+          if choice.delta.content ~= vim.NIL then
+            opts.on_chunk(choice.delta.content)
+          end
+        end
+      end
+    end
+  end,
+}
+
+require("avante").setup({
+  provider = "claude",
+  auto_suggestions_provider = "openrouter",
 
   claude = {
-    model = os.getenv("AVANTE_CLAUDE_MODEL") or "claude-3-5-sonnet-latest",
+    model = "claude-3-5-sonnet-latest",
   },
   openai = {
-    model = os.getenv("AVANTE_OPENAI_MODEL") or "gpt4o-mini",
+    model = "o1-preview",
   },
   behaviour = {
-    auto_suggestions = false,
+    auto_suggestions = os.getenv("OPENROUTER_API_KEY") ~= nil,
     auto_set_highlight_group = true,
     auto_set_keymaps = true,
     auto_apply_diff_after_generation = false,
@@ -66,51 +105,6 @@ require("avante").setup({
   },
 
   vendors = {
-    ["openrouter"] = {
-      endpoint = "https://openrouter.ai/api/v1",
-      model = os.getenv("AVANTE_OPENROUTER_MODEL") or "qwen/qwq-32b-preview",
-      api_key_name = "OPENROUTER_API_KEY",
-      parse_curl_args = function(provider, code_opts)
-        local base, body_opts = P.parse_config(provider)
-
-        local headers = {
-          ["Content-Type"] = "application/json",
-        }
-        if not P.env.is_local("openai") then
-          headers["Authorization"] = "Bearer " .. provider.parse_api_key()
-        end
-
-        return {
-          url = Utils.trim(base.endpoint, { suffix = "/" }) .. "/chat/completions",
-          proxy = base.proxy,
-          insecure = base.allow_insecure,
-          headers = headers,
-          body = vim.tbl_deep_extend("force", {
-            model = base.model,
-            messages = parse_message(code_opts),
-            stream = true,
-          }, body_opts),
-        }
-      end,
-      parse_response_data = function(data_stream, _, opts)
-        if data_stream:match('"%[DONE%]":') then
-          opts.on_complete(nil)
-          return
-        end
-        if data_stream:match('"delta":') then
-          local json = vim.json.decode(data_stream)
-          if json.choices and json.choices[1] then
-            local choice = json.choices[1]
-            if choice.finish_reason == "stop" then
-              opts.on_complete(nil)
-            elseif choice.delta.content then
-              if choice.delta.content ~= vim.NIL then
-                opts.on_chunk(choice.delta.content)
-              end
-            end
-          end
-        end
-      end,
-    },
+    ["openrouter"] = openrouter_vendor,
   },
 })

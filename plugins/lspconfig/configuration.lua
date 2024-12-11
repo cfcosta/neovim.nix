@@ -1,5 +1,6 @@
 local lspconfig = require("lspconfig")
 local default_options = {
+  capabilities = require('cmp_nvim_lsp').default_capabilities(),
   on_attach = function(client, bufnr)
     if client.server_capabilities.inlayHintProvider then
       vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
@@ -28,13 +29,7 @@ lspconfig.pyright.setup({
   settings = {
     pyright = {
       disableOrganizeImports = true,
-    },
-    python = {
-      analysis = {
-        -- Ignore all files for analysis to exclusively use Ruff for linting
-        ignore = { '*' },
-      },
-    },
+    }
   },
 })
 

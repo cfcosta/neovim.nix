@@ -112,15 +112,9 @@ local options = {
     },
   },
   extensions_list = { "themes", "terms" },
-  extensions = {
-    ["ui-select"] = {
-      require("telescope.themes").get_dropdown({}),
-    },
-  },
 }
 
 telescope.setup(options)
-telescope.load_extension("ui-select")
 
 vim.keymap.set(
   "n",

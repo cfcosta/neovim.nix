@@ -12,7 +12,6 @@ mkPlugin {
   depends = [
     "trouble"
     "plenary"
-    "telescope-ui-select"
   ];
   inputs = with pkgs; [ ripgrep ];
   config = readFile ./configuration.lua;

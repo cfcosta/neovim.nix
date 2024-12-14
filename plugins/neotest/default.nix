@@ -11,7 +11,6 @@ mkPlugin {
   src = inputs.neotest;
 
   depends = [
-    "fix-cursor-hold"
     "nio"
     "plenary"
     "rustacean"

@@ -160,12 +160,3 @@ Built-in window management commands.
 | `<leader>ws`  | n    | Split window horizontally            |
 | `<leader>wc`  | n    | Close current window                 |
 | `<leader>wo`  | n    | Close all windows except current     |
-
-## Octo
-GitHub integration for issues and pull requests.
-
-In Octo buffers:
-| Key | Mode | Description                  |
-|-----|------|------------------------------|
-| `@` | i    | Trigger @ completion        |
-| `#` | i    | Trigger # completion        |

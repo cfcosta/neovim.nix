@@ -29,17 +29,13 @@ let
     (mkPlugin' "comment")
     (mkPlugin' "diffview")
     (mkPlugin' "dressing")
-    (mkPlugin' "fix-cursor-hold")
-    (mkPlugin' "gitsigns")
     (mkPlugin' "lspkind")
     (mkPlugin' "nio")
     (mkPlugin' "nui")
-    (mkPlugin' "nvim-dap")
     (mkPlugin' "nvim-snippy")
     (mkPlugin' "nvim-treesitter-endwise")
     (mkPlugin' "nvim-treesitter-just")
     (mkPlugin' "plenary")
-    (mkPlugin' "telescope-ui-select")
     (mkPlugin' "which-key")
   ];
 

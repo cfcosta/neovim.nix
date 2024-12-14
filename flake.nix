@@ -69,14 +69,6 @@
       url = "github:stevearc/dressing.nvim";
       flake = false;
     };
-    dropbar-nvim = {
-      url = "github:Bekaboo/dropbar.nvim";
-      flake = false;
-    };
-    fix-cursor-hold = {
-      url = "github:antoinemadec/FixCursorHold.nvim";
-      flake = false;
-    };
     grug-far = {
       url = "github:MagicDuck/grug-far.nvim";
       flake = false;
@@ -125,10 +117,6 @@
       url = "github:hrsh7th/nvim-cmp";
       flake = false;
     };
-    nvim-dap = {
-      url = "github:mfussenegger/nvim-dap";
-      flake = false;
-    };
     lspconfig = {
       url = "github:neovim/nvim-lspconfig";
       flake = false;
@@ -165,10 +153,6 @@
       url = "github:epwalsh/obsidian.nvim";
       flake = false;
     };
-    octo = {
-      url = "github:pwntester/octo.nvim";
-      flake = false;
-    };
     plenary = {
       url = "github:nvim-lua/plenary.nvim";
       flake = false;
@@ -183,10 +167,6 @@
     };
     telescope = {
       url = "github:nvim-telescope/telescope.nvim";
-      flake = false;
-    };
-    telescope-ui-select = {
-      url = "github:nvim-telescope/telescope-ui-select.nvim";
       flake = false;
     };
     toggleterm-nvim = {

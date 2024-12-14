@@ -18,7 +18,6 @@ mkPlugin {
     "cmp-path"
     "cmp-snippy"
     "lspkind"
-    "nvim-dap"
     "nvim-snippy"
     "plenary"
   ];

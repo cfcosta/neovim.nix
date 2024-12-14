@@ -9,11 +9,9 @@ mkPlugin {
   depends = [
     "cmp"
     "diffview"
-    "gitsigns"
     "grug-far"
     "indent-blankline"
     "neogit"
-    "nvim-dap"
     "nvim-tree"
     "surround"
     "trouble"

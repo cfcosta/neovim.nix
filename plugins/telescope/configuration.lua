@@ -25,9 +25,10 @@ local function add_ignore(ignore_list, gitignore_content)
 end
 
 local ignore = {
-  ".aider.chat.history.md",
-  ".aider.input.history",
-  "%.git",
+  "^.git$",
+  "^.jj$",
+  ".aider*",
+  "^.aider.conf.yml",
   ".direnv",
   ".jj",
   ".obsidian",
@@ -35,7 +36,10 @@ local ignore = {
   ".trash",
   ".versions",
   "node_modules",
-  "%target"
+  "result",
+  "^target$",
+  "*.lock",
+  "*.log"
 }
 
 -- Add global gitignore entries

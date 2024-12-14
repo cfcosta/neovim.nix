@@ -1,5 +1,5 @@
 require("zen-mode").setup({
-  width = 102,
+  width = 80,
   tmux = {
     enabled = vim.env.TMUX ~= nil,
   }

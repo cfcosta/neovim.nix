@@ -138,12 +138,14 @@ Enhanced Rust development environment.
 
 | Key           | Mode | Description                           |
 |---------------|------|---------------------------------------|
+| `<leader>j`   | v    | Join lines                            |
 | `<leader>cc`  | n    | Code actions                         |
 | `<leader>rr`  | n    | Run checks                           |
 | `<leader>rh`  | n    | View HIR                             |
 | `<leader>rm`  | n    | View MIR                             |
 | `<leader>rt`  | n    | Run test                             |
 | `<leader>rT`  | n    | Run last ran test                    |
+| `<leader>rd`  | n    | Open rustdoc for symbol under cursor|
 
 ## Neotest
 Testing framework integration.

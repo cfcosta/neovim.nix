@@ -98,6 +98,8 @@ Note-taking and knowledge base with Obsidian vault integration.
 
 | Key           | Mode | Description                           |
 |---------------|------|---------------------------------------|
+| `<leader>nn`  | n    | Switch to a note                     |
+| `<leader>nd`  | n    | Find journal entries                 |
 | `<leader>nT`  | n    | Open journal entry for tomorrow      |
 | `<leader>ns`  | n    | Search notes                         |
 | `<leader>nt`  | n    | Open journal entry for today         |

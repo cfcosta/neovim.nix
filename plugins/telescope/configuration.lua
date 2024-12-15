@@ -6,50 +6,6 @@ local sorters = require("telescope.sorters")
 local open_with_trouble = require("trouble.sources.telescope").open
 local add_to_trouble = require("trouble.sources.telescope").add
 
-local function read_file(path)
-  local file = io.open(path, "r")
-  if not file then return nil end
-  local content = file:read("*all")
-  file:close()
-  return content
-end
-
-local function add_ignore(ignore_list, gitignore_content)
-  if gitignore_content then
-    for line in gitignore_content:gmatch("[^\r\n]+") do
-      if line ~= "" and line:sub(1, 1) ~= "#" then
-        table.insert(ignore_list, line)
-      end
-    end
-  end
-end
-
-local ignore = {
-  "^.git$",
-  "^.jj$",
-  ".aider*",
-  "^.aider.conf.yml",
-  ".direnv",
-  ".jj",
-  ".obsidian",
-  ".stfolder",
-  ".trash",
-  ".versions",
-  "node_modules",
-  "result",
-  "^target$",
-  "*.lock",
-  "*.log"
-}
-
--- Add global gitignore entries
-local global_gitignore = read_file(os.getenv("HOME") .. "/.config/git/ignore")
-add_ignore(ignore, global_gitignore)
-
--- Add local .gitignore entries
-local local_gitignore = read_file(".gitignore")
-add_ignore(ignore, local_gitignore)
-
 local options = {
   defaults = {
     vimgrep_arguments = {
@@ -86,7 +42,6 @@ local options = {
     },
     find_command = { "rg", "--files", "--hidden", "--ignore-vcs" },
     file_sorter = sorters.get_fuzzy_file,
-    file_ignore_patterns = ignore,
     generic_sorter = sorters.get_generic_fuzzy_sorter,
     path_display = { "truncate" },
     winblend = 0,

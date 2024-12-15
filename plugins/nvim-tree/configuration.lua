@@ -1,11 +1,23 @@
-local function on_attach(bufnr)
-  local api = require("nvim-tree.api")
+local ignores = {
+  "^.git$",
+  "^.jj$",
+  "^.obsidian$",
+  "^.ruff_cache$",
+  "^build$",
+  "^dist$",
+  "^node_modules$",
+  "^result$",
+  "^target$",
+}
 
+local function on_attach(bufnr)
   local function opts(desc)
     return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
 
+  local api = require("nvim-tree.api")
   api.config.mappings.default_on_attach(bufnr)
+
   vim.keymap.set("n", "s", api.node.open.vertical, opts("Open in a vertical split"))
   vim.keymap.set("n", "v", api.node.open.horizontal, opts("Open in a horizontal split"))
 end
@@ -18,7 +30,7 @@ require("nvim-tree").setup({
   },
   view = {
     width = {
-      min = 30,
+      min = 24,
       max = 50,
       padding = 1,
     },
@@ -43,30 +55,12 @@ require("nvim-tree").setup({
   filters = {
     enable = true,
     git_ignored = true,
-    custom = {
-      "^.git$",
-      ".jj",
-      "build",
-      "dist",
-      "node_modules",
-      "result",
-      "target",
-      ".obsidian"
-    }
+    custom = ignores,
   },
   filesystem_watchers = {
     enable = true,
     debounce_delay = 50,
-    ignore_dirs = {
-      "^.git$",
-      "^.jj$",
-      "^build$",
-      "^dist$",
-      "^node_modules$",
-      "^result$",
-      "^target$",
-      "^.obsidian$",
-    },
+    ignore_dirs = ignores,
   },
   actions = {
     open_file = {

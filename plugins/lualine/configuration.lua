@@ -113,7 +113,7 @@ ins_left {
       ['!'] = C.red,
       ['\22'] = C.peach,
       ['r?'] = C.sky,
-      c = C.pink,
+      c = C.mauve,
       ce = C.red,
       cv = C.red,
       i = C.green,
@@ -134,7 +134,7 @@ ins_left {
 
 ins_left {
   'filename',
-  color = { fg = C.teal },
+  color = { fg = C.lavender },
 }
 
 ins_left {

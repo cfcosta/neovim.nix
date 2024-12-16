@@ -37,6 +37,12 @@ local conditions = {
 -- Config
 local config = {
   options = {
+    disabled_filetypes = {
+      statusline = {
+        "Avante",
+      },
+    },
+
     component_separators = '',
     section_separators = '',
     theme = {

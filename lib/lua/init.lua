@@ -145,6 +145,18 @@ M.finish = function()
     pattern = { "docker-compose.yml", "docker-compose.yaml" },
     command = "set filetype=yaml.docker-compose",
   })
+
+  -- When inside a jujutsu repository, update working tree on save.
+  --
+  -- Everything runs inside a background job, we don't care about
+  -- the result, just to commit to the working copy.
+  vim.api.nvim_create_augroup('JujutsuAuto', { clear = true })
+  vim.api.nvim_create_autocmd('BufWritePost', {
+    group = 'JujutsuAuto',
+    callback = function()
+      vim.fn.jobstart('jj workspace root --ignore-working-copy && jj status', { detach = true, })
+    end,
+  })
 end
 
 return M

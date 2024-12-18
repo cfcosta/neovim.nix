@@ -1,4 +1,5 @@
 local ignores = {
+  "^.direnv$",
   "^.git$",
   "^.jj$",
   "^.obsidian$",

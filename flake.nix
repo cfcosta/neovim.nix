@@ -157,6 +157,10 @@
       url = "github:nvim-lua/plenary.nvim";
       flake = false;
     };
+    rainbow-delimiters = {
+      url = "gitlab:HiPhish/rainbow-delimiters.nvim";
+      flake = false;
+    };
     render-markdown = {
       url = "github:MeanderingProgrammer/render-markdown.nvim";
       flake = false;

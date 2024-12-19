@@ -639,6 +639,22 @@
         "type": "github"
       }
     },
+    "rainbow-delimiters": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1734303563,
+        "narHash": "sha256-qDyEf+SflbDEweK5cZP/YZX4yAw0UGSTWgRai5RC8/I=",
+        "owner": "HiPhish",
+        "repo": "rainbow-delimiters.nvim",
+        "rev": "77e5bad54227dcfe3878ffbda88ab1efdaacb475",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "HiPhish",
+        "repo": "rainbow-delimiters.nvim",
+        "type": "gitlab"
+      }
+    },
     "render-markdown": {
       "flake": false,
       "locked": {
@@ -694,6 +710,7 @@
         "obsidian-nvim": "obsidian-nvim",
         "plenary": "plenary",
         "pre-commit-hooks": "pre-commit-hooks",
+        "rainbow-delimiters": "rainbow-delimiters",
         "render-markdown": "render-markdown",
         "rust-overlay": "rust-overlay",
         "rustacean": "rustacean",

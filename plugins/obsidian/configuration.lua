@@ -1,11 +1,18 @@
+local function directory_exists(path)
+  local stat = vim.uv.fs_stat(path)
+  return stat and stat.type == "directory" or false
+end
+
+local workspaces = {}
+local notes_path = os.getenv("HOME") .. "/Notes"
+
+if directory_exists(notes_path) then
+  table.insert(workspaces, { name = "personal", path = "~/Notes", })
+end
+
 require("obsidian").setup({
   notes_subdir = "notes",
-  workspaces = {
-    {
-      name = "personal",
-      path = "~/Notes",
-    },
-  },
+  workspaces = workspaces,
 })
 
 vim.keymap.set("n", "<leader>nn", "<cmd> ObsidianQuickSwitch<CR>", { desc = "obsidian: switch to a note" })

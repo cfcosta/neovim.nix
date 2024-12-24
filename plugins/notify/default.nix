@@ -1,8 +1,4 @@
-{
-  inputs,
-  mkPlugin,
-  ...
-}:
+{ inputs, mkPlugin, ... }:
 mkPlugin {
   name = "notify";
   src = inputs.nvim-notify;

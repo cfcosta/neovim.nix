@@ -1,8 +1,4 @@
-{
-  inputs,
-  mkPlugin,
-  ...
-}:
+{ inputs, mkPlugin, ... }:
 mkPlugin {
   name = "comment";
   src = inputs.comment;

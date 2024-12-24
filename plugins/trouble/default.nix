@@ -6,9 +6,7 @@ mkPlugin {
   name = "trouble";
   src = inputs.trouble;
 
-  depends = [
-    "nvim-web-devicons"
-  ];
+  depends = [ "nvim-web-devicons" ];
 
   config = readFile ./configuration.lua;
 }

@@ -28,7 +28,7 @@ local parse_message = function(opts)
 
   return {
     { role = "system", content = opts.system_prompt },
-    { role = "user",   content = user_content },
+    { role = "user", content = user_content },
   }
 end
 

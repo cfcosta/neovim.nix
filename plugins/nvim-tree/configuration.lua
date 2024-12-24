@@ -41,7 +41,7 @@ require("nvim-tree").setup({
       "Cargo.toml",
       "flake.nix",
       "package.json",
-      "pyproject.toml"
+      "pyproject.toml",
     },
   },
   git = {
@@ -82,5 +82,9 @@ require("nvim-tree").setup({
   },
 })
 
-vim.keymap.set("n", "<leader>op", "<cmd>NvimTreeToggle<cr>",
-  { noremap = true, silent = true, desc = "nvim-tree: toggle tree" })
+vim.keymap.set(
+  "n",
+  "<leader>op",
+  "<cmd>NvimTreeToggle<cr>",
+  { noremap = true, silent = true, desc = "nvim-tree: toggle tree" }
+)

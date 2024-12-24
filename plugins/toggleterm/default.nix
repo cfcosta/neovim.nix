@@ -1,8 +1,4 @@
-{
-  inputs,
-  mkPlugin,
-  ...
-}:
+{ inputs, mkPlugin, ... }:
 let
   inherit (builtins) readFile;
 in

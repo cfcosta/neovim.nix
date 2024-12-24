@@ -236,9 +236,7 @@
           ];
         };
 
-        nightvim = pkgs.callPackage ./lib {
-          inherit (self) inputs;
-        };
+        nightvim = pkgs.callPackage ./lib { inherit (self) inputs; };
       in
       {
         packages = {

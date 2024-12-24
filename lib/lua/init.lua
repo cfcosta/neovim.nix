@@ -150,11 +150,11 @@ M.finish = function()
   --
   -- Everything runs inside a background job, we don't care about
   -- the result, just to commit to the working copy.
-  vim.api.nvim_create_augroup('JujutsuAuto', { clear = true })
-  vim.api.nvim_create_autocmd('BufWritePost', {
-    group = 'JujutsuAuto',
+  vim.api.nvim_create_augroup("JujutsuAuto", { clear = true })
+  vim.api.nvim_create_autocmd("BufWritePost", {
+    group = "JujutsuAuto",
     callback = function()
-      vim.fn.jobstart('jj workspace root --ignore-working-copy && jj status', { detach = true, })
+      vim.fn.jobstart("jj workspace root --ignore-working-copy && jj status", { detach = true })
     end,
   })
 end

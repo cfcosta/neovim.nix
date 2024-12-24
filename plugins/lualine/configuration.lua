@@ -1,6 +1,6 @@
 -- Eviline config for lualine with Catppuccin colors
-local lualine = require('lualine')
-local devicons = require('nvim-web-devicons')
+local lualine = require("lualine")
+local devicons = require("nvim-web-devicons")
 
 -- Color table for highlights
 local C = require("catppuccin.palettes").get_palette("mocha")
@@ -22,14 +22,14 @@ end
 
 local conditions = {
   buffer_not_empty = function()
-    return vim.fn.empty(vim.fn.expand('%:t')) ~= 1
+    return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
   end,
   hide_in_width = function()
     return vim.fn.winwidth(0) > 80
   end,
   check_git_workspace = function()
-    local filepath = vim.fn.expand('%:p:h')
-    local gitdir = vim.fn.finddir('.git', filepath .. ';')
+    local filepath = vim.fn.expand("%:p:h")
+    local gitdir = vim.fn.finddir(".git", filepath .. ";")
     return gitdir and #gitdir > 0 and #gitdir < #filepath
   end,
 }
@@ -43,8 +43,8 @@ local config = {
       },
     },
 
-    component_separators = '',
-    section_separators = '',
+    component_separators = "",
+    section_separators = "",
     theme = {
       normal = { c = { fg = fg, bg = bg } },
       inactive = { c = { fg = fg, bg = bg } },
@@ -78,13 +78,13 @@ local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
 end
 
-ins_left {
+ins_left({
   function()
     local messages = {
       n = "Normal",
       i = "Insert",
       v = "Visual",
-      ['\22'] = "Visual (block)",
+      ["\22"] = "Visual (block)",
       V = "Visual (line)",
       c = "Command",
       no = "O-pending",
@@ -97,9 +97,9 @@ ins_left {
       ce = "Ex",
       r = "Prompt",
       rm = "More",
-      ['r?'] = "Confirm",
-      ['!'] = "Shell",
-      t = "Terminal"
+      ["r?"] = "Confirm",
+      ["!"] = "Shell",
+      t = "Terminal",
     }
 
     return "󰍛 " .. messages[vim.fn.mode()] or vim.fn.mode()
@@ -110,9 +110,9 @@ ins_left {
       Rv = C.red,
       S = C.peach,
       V = C.peach,
-      ['!'] = C.red,
-      ['\22'] = C.peach,
-      ['r?'] = C.sky,
+      ["!"] = C.red,
+      ["\22"] = C.peach,
+      ["r?"] = C.sky,
       c = C.mauve,
       ce = C.red,
       cv = C.red,
@@ -127,48 +127,48 @@ ins_left {
       v = C.blue,
     }
 
-    return { fg = mode_color[vim.fn.mode()] or C.red, gui = 'bold' }
+    return { fg = mode_color[vim.fn.mode()] or C.red, gui = "bold" }
   end,
   padding = { right = 1 },
-}
+})
 
-ins_left {
-  'filename',
+ins_left({
+  "filename",
   color = { fg = C.lavender },
-}
+})
 
-ins_left {
-  'location',
+ins_left({
+  "location",
   color = { fg = C.overlay1 },
   cond = conditions.buffer_not_empty,
-}
+})
 
-ins_left {
-  'progress',
+ins_left({
+  "progress",
   color = { fg = C.overlay1 },
   cond = conditions.buffer_not_empty,
-}
+})
 
-ins_left {
-  'diagnostics',
-  sources = { 'nvim_diagnostic' },
-  symbols = { error = ' ', warn = ' ', info = ' ' },
+ins_left({
+  "diagnostics",
+  sources = { "nvim_diagnostic" },
+  symbols = { error = " ", warn = " ", info = " " },
   diagnostics_color = {
     error = { fg = C.red },
     warn = { fg = C.yellow },
     info = { fg = C.sky },
   },
-}
+})
 
-ins_left {
+ins_left({
   function()
-    return '%='
+    return "%="
   end,
-}
+})
 
-ins_right {
+ins_right({
   function()
-    local msg = 'none'
+    local msg = "none"
     local buf_ft = vim.bo.filetype
     local clients = vim.lsp.get_active_clients()
 
@@ -181,7 +181,7 @@ ins_right {
 
       if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
         local icon, _ = devicons.get_icon_by_filetype(buf_ft, { default = true })
-        return icon .. ' ' .. client.name
+        return icon .. " " .. client.name
       end
     end
 
@@ -193,30 +193,30 @@ ins_right {
     for _, client in ipairs(clients) do
       local filetypes = client.config.filetypes
       if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-        return { fg = string_to_color(client.name), gui = 'bold' }
+        return { fg = string_to_color(client.name), gui = "bold" }
       end
     end
-    return { fg = fg, gui = 'bold' }
+    return { fg = fg, gui = "bold" }
   end,
   cond = conditions.hide_in_width,
-}
+})
 
-ins_right {
-  'branch',
-  icon = '',
-  color = { fg = C.lavender, gui = 'bold' },
+ins_right({
+  "branch",
+  icon = "",
+  color = { fg = C.lavender, gui = "bold" },
   cond = conditions.hide_in_width,
-}
+})
 
-ins_right {
-  'diff',
-  symbols = { added = ' ', modified = '󰝤 ', removed = ' ' },
+ins_right({
+  "diff",
+  symbols = { added = " ", modified = "󰝤 ", removed = " " },
   diff_color = {
     added = { fg = C.green },
     modified = { fg = C.peach },
     removed = { fg = C.red },
   },
   cond = conditions.hide_in_width,
-}
+})
 
 lualine.setup(config)

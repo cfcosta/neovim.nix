@@ -11,9 +11,7 @@ mkPlugin {
   name = "conform-nvim";
   src = inputs.conform-nvim;
 
-  depends = [
-    "lspconfig"
-  ];
+  depends = [ "lspconfig" ];
 
   inputs = with pkgs; [
     beancount

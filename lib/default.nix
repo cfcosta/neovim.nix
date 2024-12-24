@@ -57,9 +57,7 @@ mkDerivation {
   name = "nightvim";
   src = neovim-unwrapped;
 
-  nativeBuildInputs = [
-    makeWrapper
-  ];
+  nativeBuildInputs = [ makeWrapper ];
 
   dontBuild = true;
 
@@ -75,7 +73,5 @@ mkDerivation {
       --add-flags "-u ${writeText "init.lua" initFile}"
   '';
 
-  passthru = {
-    inherit plugins;
-  };
+  passthru = { inherit plugins; };
 }

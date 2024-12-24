@@ -2,12 +2,12 @@
   description = "A great neovim config";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     gitignore = {
       url = "github:hercules-ci/gitignore.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs = {
@@ -17,6 +17,10 @@
     };
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -206,6 +210,7 @@
       nixpkgs,
       pre-commit-hooks,
       rust-overlay,
+      treefmt-nix,
       ...
     }:
     flake-utils.lib.eachDefaultSystem (
@@ -237,8 +242,42 @@
         };
 
         nightvim = pkgs.callPackage ./lib { inherit (self) inputs; };
+        treefmt =
+          (treefmt-nix.lib.evalModule pkgs {
+            projectRootFile = "flake.nix";
+
+            settings = {
+              allow-missing-formatter = true;
+              verbose = 0;
+
+              global.excludes = [
+                "*.lock"
+                "LICENSE"
+                "*.md"
+              ];
+
+              formatter = {
+                nixfmt.options = [ "--strict" ];
+                shfmt.options = [
+                  "--ln"
+                  "bash"
+                ];
+                prettier.excludes = [ "*.md" ];
+              };
+            };
+
+            programs = {
+              nixfmt.enable = true;
+              prettier.enable = true;
+              shfmt.enable = true;
+              stylua.enable = true;
+              taplo.enable = true;
+            };
+          }).config.build.wrapper;
       in
       {
+        formatter = treefmt;
+
         packages = {
           inherit nightvim;
           inherit (nightvim) plugins;
@@ -251,15 +290,17 @@
 
           hooks = {
             deadnix.enable = true;
-            nixfmt-rfc-style.enable = true;
             statix.enable = true;
+
+            treefmt = {
+              enable = true;
+              package = treefmt;
+            };
 
             luacheck = {
               enable = true;
               entry = "${pkgs.luajitPackages.luacheck}/bin/luacheck --std luajit --globals vim -- ";
             };
-
-            stylua.enable = true;
           };
         };
 

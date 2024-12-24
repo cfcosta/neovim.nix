@@ -717,6 +717,7 @@
         "surround": "surround",
         "telescope": "telescope",
         "toggleterm-nvim": "toggleterm-nvim",
+        "treefmt-nix": "treefmt-nix",
         "treesj": "treesj",
         "trouble": "trouble",
         "wakatime": "wakatime",
@@ -820,6 +821,26 @@
       "original": {
         "owner": "akinsho",
         "repo": "toggleterm.nvim",
+        "type": "github"
+      }
+    },
+    "treefmt-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1734982074,
+        "narHash": "sha256-N7M37KP7cHWoXicuE536GrVvU8nMDT/gpI1kja2hkdg=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "e41e948cf097cbf96ba4dff47a30ea6891af9f33",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
         "type": "github"
       }
     },

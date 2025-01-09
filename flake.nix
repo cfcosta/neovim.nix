@@ -65,10 +65,6 @@
       url = "github:stevearc/conform.nvim";
       flake = false;
     };
-    diffview = {
-      url = "github:sindrets/diffview.nvim";
-      flake = false;
-    };
     dressing = {
       url = "github:stevearc/dressing.nvim";
       flake = false;

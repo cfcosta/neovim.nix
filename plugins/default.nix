@@ -27,7 +27,6 @@ let
     (mkPlugin' "cmp-path")
     (mkPlugin' "cmp-snippy")
     (mkPlugin' "comment")
-    (mkPlugin' "diffview")
     (mkPlugin' "dressing")
     (mkPlugin' "lspkind")
     (mkPlugin' "nio")

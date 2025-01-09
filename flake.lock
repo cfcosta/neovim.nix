@@ -160,22 +160,6 @@
         "type": "github"
       }
     },
-    "diffview": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1718279802,
-        "narHash": "sha256-SX+ybIzL/w6uyCy4iZKnWnzTFwqB1oXSgyYVAdpdKi8=",
-        "owner": "sindrets",
-        "repo": "diffview.nvim",
-        "rev": "4516612fe98ff56ae0415a259ff6361a89419b0a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "sindrets",
-        "repo": "diffview.nvim",
-        "type": "github"
-      }
-    },
     "dressing": {
       "flake": false,
       "locked": {
@@ -650,7 +634,6 @@
         "cmp-snippy": "cmp-snippy",
         "comment": "comment",
         "conform-nvim": "conform-nvim",
-        "diffview": "diffview",
         "dressing": "dressing",
         "flake-utils": "flake-utils",
         "gitignore": "gitignore",

@@ -4,7 +4,6 @@ require("catppuccin").setup({
   integrations = {
     cmp = true,
     dap = true,
-    diffview = true,
     grug_far = true,
     indent_blankline = true,
     lsp_trouble = true,

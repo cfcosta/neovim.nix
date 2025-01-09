@@ -8,7 +8,6 @@ mkPlugin {
 
   depends = [
     "cmp"
-    "diffview"
     "grug-far"
     "indent-blankline"
     "nvim-tree"

@@ -189,10 +189,6 @@
       url = "github:folke/which-key.nvim";
       flake = false;
     };
-    zen-mode = {
-      url = "github:folke/zen-mode.nvim";
-      flake = false;
-    };
   };
 
   outputs =

@@ -79,13 +79,6 @@ Terminal management within Neovim.
 | `<leader>of`  | n    | Open floating terminal               |
 | `<leader>ot`  | n    | Open terminal in horizontal split    |
 
-## Zen Mode
-Distraction-free coding environment.
-
-| Key           | Mode | Description                           |
-|---------------|------|---------------------------------------|
-| `<leader>zz`  | n    | Toggle Zen Mode                      |
-
 ## Obsidian
 Note-taking and knowledge base with Obsidian vault integration.
 

@@ -2,8 +2,8 @@ local notify = require("notify")
 
 notify.setup({
   render = "wrapped-compact",
-  fps = 30,
-  timeout = 800,
+  fps = 60,
+  timeout = 600,
   max_width = 48,
   opacity = 20,
 })

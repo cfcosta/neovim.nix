@@ -93,10 +93,6 @@
       url = "github:nvim-lualine/lualine.nvim";
       flake = false;
     };
-    neogit = {
-      url = "github:TimUntersberger/neogit";
-      flake = false;
-    };
     neotest = {
       url = "github:nvim-neotest/neotest";
       flake = false;

@@ -11,7 +11,6 @@ mkPlugin {
     "diffview"
     "grug-far"
     "indent-blankline"
-    "neogit"
     "nvim-tree"
     "surround"
     "trouble"

@@ -9,7 +9,6 @@ require("catppuccin").setup({
     indent_blankline = true,
     lsp_trouble = true,
     markdown = true,
-    neogit = true,
     native_lsp = {
       enabled = true,
       virtual_text = {

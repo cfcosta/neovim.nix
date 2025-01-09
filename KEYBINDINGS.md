@@ -5,13 +5,6 @@ AI code assistance and completion plugin.
 
 No default keybindings defined.
 
-## Neogit
-A Magit-like Git interface for Neovim.
-
-| Key         | Mode | Description           |
-|-------------|------|-----------------------|
-| `<leader>gg` | n    | Toggle Neogit window |
-
 ## NvimTree
 File explorer tree view.
 

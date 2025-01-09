@@ -342,22 +342,6 @@
         "type": "github"
       }
     },
-    "neogit": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1735079892,
-        "narHash": "sha256-BNYvOc67293izb8/JXQOs+leKx7+rowHWaVrtGQNM4c=",
-        "owner": "TimUntersberger",
-        "repo": "neogit",
-        "rev": "9ea60f79e370d8f4847efc145e53afe4b0613fc1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "TimUntersberger",
-        "repo": "neogit",
-        "type": "github"
-      }
-    },
     "neotest": {
       "flake": false,
       "locked": {
@@ -676,7 +660,6 @@
         "lspconfig": "lspconfig",
         "lspkind": "lspkind",
         "lualine": "lualine",
-        "neogit": "neogit",
         "neotest": "neotest",
         "nio": "nio",
         "nixpkgs": "nixpkgs",

@@ -86,5 +86,5 @@ vim.keymap.set(
   "n",
   "<leader>op",
   "<cmd>NvimTreeToggle<cr>",
-  { noremap = true, silent = true, desc = "nvim-tree: toggle tree" }
+  { noremap = true, silent = true, desc = "NvimTree: Toggle file explorer" }
 )

@@ -75,35 +75,35 @@ vim.keymap.set(
   "n",
   "<leader><leader>",
   "<cmd> Telescope find_files hidden=true<CR>",
-  { noremap = true, silent = true, desc = "telescope: find files" }
+  { noremap = true, silent = true, desc = "Telescope: Find files" }
 )
 vim.keymap.set(
   "n",
   "<leader>/",
   "<cmd> Telescope live_grep <CR>",
-  { noremap = true, silent = true, desc = "telescope: find on files" }
+  { noremap = true, silent = true, desc = "Telescope: Live grep" }
 )
 vim.keymap.set(
   "n",
   "<leader>bb",
   "<cmd> Telescope buffers <CR>",
-  { noremap = true, silent = true, desc = "telescope: open buffers" }
+  { noremap = true, silent = true, desc = "Telescope: Open buffers" }
 )
 vim.keymap.set(
   "n",
   "<leader>gc",
   "<cmd> Telescope git_commits <CR>",
-  { noremap = true, silent = true, desc = "telescope: git commits" }
+  { noremap = true, silent = true, desc = "Telescope: Git commits" }
 )
 vim.keymap.set(
   "n",
   "<leader>gs",
   "<cmd> Telescope git_status <CR>",
-  { noremap = true, silent = true, desc = "telescope: git status" }
+  { noremap = true, silent = true, desc = "Telescope: Git status" }
 )
 vim.keymap.set(
   "n",
   "<leader>ct",
   "<cmd> Telescope lsp_workspace_symbols <CR>",
-  { noremap = true, silent = true, desc = "telescope: lsp workspace symbols" }
+  { noremap = true, silent = true, desc = "Telescope: LSP workspace symbols" }
 )

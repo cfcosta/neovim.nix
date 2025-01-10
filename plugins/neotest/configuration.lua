@@ -8,8 +8,8 @@ neotest.setup({
 
 vim.keymap.set("n", "<leader>ss", function()
   neotest.run.run()
-end, { desc = "neotest: run nearest test" })
+end, { desc = "Neotest: Run nearest test" })
 
 vim.keymap.set("n", "<leader>sf", function()
   neotest.run.run(vim.fn.expand("%"))
-end, { desc = "neotest: run tests on current file" })
+end, { desc = "Neotest: Run current file tests" })

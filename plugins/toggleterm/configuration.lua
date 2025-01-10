@@ -15,29 +15,29 @@ vim.keymap.set(
   "n",
   "<leader>]",
   "<cmd>ToggleTermSendCurrentLine<cr>",
-  { noremap = true, silent = true, desc = "toggleterm: send current line to term" }
+  { noremap = true, silent = true, desc = "ToggleTerm: Send current line to terminal" }
 )
 vim.keymap.set(
   "n",
   "<leader>oF",
   "<cmd>ToggleTerm direction=tab<cr>",
-  { noremap = true, silent = true, desc = "toggleterm: open terminal in a new tab" }
+  { noremap = true, silent = true, desc = "ToggleTerm: Open terminal in new tab" }
 )
 vim.keymap.set(
   "n",
   "<leader>oT",
   "<cmd>ToggleTerm direction=vertical<cr>",
-  { noremap = true, silent = true, desc = "toggleterm: open terminal in a vertical split" }
+  { noremap = true, silent = true, desc = "ToggleTerm: Open vertical terminal" }
 )
 vim.keymap.set(
   "n",
   "<leader>of",
   "<cmd>ToggleTerm direction=float<cr>",
-  { noremap = true, silent = true, desc = "toggleterm: open floating terminal" }
+  { noremap = true, silent = true, desc = "ToggleTerm: Open floating terminal" }
 )
 vim.keymap.set(
   "n",
   "<leader>ot",
   "<cmd>ToggleTerm direction=horizontal<cr>",
-  { noremap = true, silent = true, desc = "toggleterm: open terminal" }
+  { noremap = true, silent = true, desc = "ToggleTerm: Open horizontal terminal" }
 )

@@ -19,7 +19,9 @@ nix run github:cfcosta/neovim.nix#
 ### Avante
 AI code assistance and completion plugin.
 
-No default keybindings defined.
+| Key         | Mode | Description      |
+|-------------|------|------------------|
+| `<Tab>`     | i    | Accept suggestion |
 
 ### NvimTree
 File explorer tree view.
@@ -100,12 +102,20 @@ Note-taking and knowledge base with Obsidian vault integration.
 
 | Key           | Mode | Description                           |
 |---------------|------|---------------------------------------|
-| `<leader>nn`  | n    | Switch to a note                     |
-| `<leader>nd`  | n    | Find journal entries                 |
-| `<leader>nT`  | n    | Open journal entry for tomorrow      |
-| `<leader>ns`  | n    | Search notes                         |
-| `<leader>nt`  | n    | Open journal entry for today         |
-| `<leader>ny`  | n    | Open journal entry for yesterday     |
+| `<leader>nn`  | n    | Quick switch note                     |
+| `<leader>nd`  | n    | Find daily notes                      |
+| `<leader>nT`  | n    | Open tomorrow's note                  |
+| `<leader>ns`  | n    | Search notes                          |
+| `<leader>nt`  | n    | Open today's note                     |
+| `<leader>ny`  | n    | Open yesterday's note                 |
+
+### Todo Comments
+Todo comment tracking and management.
+
+| Key           | Mode | Description                           |
+|---------------|------|---------------------------------------|
+| `<leader>tt`  | n    | Find comments with Telescope          |
+| `<leader>xt`  | n    | Find comments with Trouble            |
 
 ### Grug Far
 Advanced search and replace across files.

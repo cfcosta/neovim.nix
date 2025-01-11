@@ -49,7 +49,6 @@ mkPlugin {
   name = "avante.nvim";
 
   depends = [
-    "cmp"
     "dressing"
     "lspconfig"
     "nui"

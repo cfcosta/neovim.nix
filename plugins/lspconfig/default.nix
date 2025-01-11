@@ -10,7 +10,7 @@ in
 mkPlugin {
   name = "lspconfig";
 
-  depends = [ "cmp-nvim-lsp" ];
+  depends = [ ];
 
   inputs = with pkgs; [
     aiken

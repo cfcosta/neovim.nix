@@ -21,11 +21,6 @@ let
 
   simplePlugins = [
     (mkPlugin' "aiken-neovim")
-    (mkPlugin' "cmp-buffer")
-    (mkPlugin' "cmp-cmdline")
-    (mkPlugin' "cmp-nvim-lsp")
-    (mkPlugin' "cmp-path")
-    (mkPlugin' "cmp-snippy")
     (mkPlugin' "comment")
     (mkPlugin' "dressing")
     (mkPlugin' "lspkind")

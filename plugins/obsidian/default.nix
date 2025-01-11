@@ -7,7 +7,6 @@ mkPlugin {
   src = inputs.obsidian-nvim;
 
   depends = [
-    "cmp"
     "treesitter"
     "plenary"
     "telescope"

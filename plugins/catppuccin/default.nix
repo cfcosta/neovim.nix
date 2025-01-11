@@ -7,7 +7,6 @@ mkPlugin {
   src = inputs.catppuccin-nvim;
 
   depends = [
-    "cmp"
     "grug-far"
     "indent-blankline"
     "nvim-tree"

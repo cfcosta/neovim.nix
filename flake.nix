@@ -37,26 +37,6 @@
       url = "github:catppuccin/nvim";
       flake = false;
     };
-    cmp-buffer = {
-      url = "github:hrsh7th/cmp-buffer";
-      flake = false;
-    };
-    cmp-cmdline = {
-      url = "github:hrsh7th/cmp-cmdline";
-      flake = false;
-    };
-    cmp-nvim-lsp = {
-      url = "github:hrsh7th/cmp-nvim-lsp";
-      flake = false;
-    };
-    cmp-path = {
-      url = "github:hrsh7th/cmp-path";
-      flake = false;
-    };
-    cmp-snippy = {
-      url = "github:dcampos/cmp-snippy";
-      flake = false;
-    };
     comment = {
       url = "github:numtostr/comment.nvim";
       flake = false;
@@ -107,10 +87,6 @@
     };
     nvim-autopairs = {
       url = "github:windwp/nvim-autopairs";
-      flake = false;
-    };
-    nvim-cmp = {
-      url = "github:hrsh7th/nvim-cmp";
       flake = false;
     };
     lspconfig = {

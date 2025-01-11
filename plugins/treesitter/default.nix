@@ -14,6 +14,8 @@ mkPlugin {
   inputs = with pkgs; [
     gcc
     git
+    nodejs
+    tree-sitter
   ];
 
   depends = [ "nvim-treesitter-endwise" ];

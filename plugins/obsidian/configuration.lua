@@ -8,11 +8,16 @@ local notes_path = os.getenv("HOME") .. "/Notes"
 
 if directory_exists(notes_path) then
   table.insert(workspaces, { name = "personal", path = "~/Notes" })
+else
+  table.insert(workspaces, { name = "personal", path = "~" })
 end
 
 require("obsidian").setup({
   notes_subdir = "notes",
   workspaces = workspaces,
+  ui = {
+    enable = false,
+  }
 })
 
 vim.keymap.set("n", "<leader>nn", "<cmd> ObsidianQuickSwitch<CR>", { desc = "Obsidian: Quick switch note" })

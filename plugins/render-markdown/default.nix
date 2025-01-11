@@ -1,4 +1,9 @@
-{ inputs, mkPlugin, ... }:
+{
+  inputs,
+  mkPlugin,
+  pkgs,
+  ...
+}:
 let
   inherit (builtins) readFile;
 in
@@ -7,6 +12,10 @@ mkPlugin {
   src = inputs.render-markdown;
 
   depends = [ "nvim-web-devicons" ];
+
+  inputs = with pkgs; [
+    python312Packages.pylatexenc
+  ];
 
   config = readFile ./configuration.lua;
 }

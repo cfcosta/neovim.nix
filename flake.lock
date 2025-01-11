@@ -192,6 +192,22 @@
         "type": "github"
       }
     },
+    "friendly-snippets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1733106470,
+        "narHash": "sha256-I8SRZxnoNC6SOWW+scoA77Jwyxcb4eUczppLdyOiZe0=",
+        "owner": "rafamadriz",
+        "repo": "friendly-snippets",
+        "rev": "efff286dd74c22f731cdec26a70b46e5b203c619",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rafamadriz",
+        "repo": "friendly-snippets",
+        "type": "github"
+      }
+    },
     "gitignore": {
       "inputs": {
         "nixpkgs": [
@@ -416,22 +432,6 @@
         "type": "github"
       }
     },
-    "nvim-snippy": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1735260843,
-        "narHash": "sha256-i4jn4SzdDURXMP8ERVV9/YulIzKban8IF4n1zeVm+/0=",
-        "owner": "dcampos",
-        "repo": "nvim-snippy",
-        "rev": "3bb2d09e8246e1da2d2ee90962ab9b4f69327dbd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "dcampos",
-        "repo": "nvim-snippy",
-        "type": "github"
-      }
-    },
     "nvim-tree": {
       "flake": false,
       "locked": {
@@ -610,6 +610,7 @@
         "conform-nvim": "conform-nvim",
         "dressing": "dressing",
         "flake-utils": "flake-utils",
+        "friendly-snippets": "friendly-snippets",
         "gitignore": "gitignore",
         "gitsigns": "gitsigns",
         "grug-far": "grug-far",
@@ -623,7 +624,6 @@
         "nui": "nui",
         "nvim-autopairs": "nvim-autopairs",
         "nvim-notify": "nvim-notify",
-        "nvim-snippy": "nvim-snippy",
         "nvim-tree": "nvim-tree",
         "nvim-treesitter": "nvim-treesitter",
         "nvim-treesitter-endwise": "nvim-treesitter-endwise",

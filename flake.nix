@@ -53,6 +53,10 @@
       url = "github:stevearc/dressing.nvim";
       flake = false;
     };
+    friendly-snippets = {
+      url = "github:rafamadriz/friendly-snippets";
+      flake = false;
+    };
     grug-far = {
       url = "github:MagicDuck/grug-far.nvim";
       flake = false;
@@ -95,10 +99,6 @@
     };
     lspconfig = {
       url = "github:neovim/nvim-lspconfig";
-      flake = false;
-    };
-    nvim-snippy = {
-      url = "github:dcampos/nvim-snippy";
       flake = false;
     };
     surround = {

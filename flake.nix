@@ -33,6 +33,10 @@
       url = "github:yetone/avante.nvim";
       flake = false;
     };
+    blink-cmp = {
+      url = "github:saghen/blink.cmp";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     catppuccin-nvim = {
       url = "github:catppuccin/nvim";
       flake = false;

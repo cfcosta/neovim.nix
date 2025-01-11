@@ -2,6 +2,7 @@ require("catppuccin").setup({
   flavor = "mocha",
   default_integrations = true,
   integrations = {
+    blink_cmp = true,
     grug_far = true,
     indent_blankline = true,
     lsp_trouble = true,

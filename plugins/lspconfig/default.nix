@@ -10,7 +10,7 @@ in
 mkPlugin {
   name = "lspconfig";
 
-  depends = [ ];
+  depends = [ "blink-cmp" ];
 
   inputs = with pkgs; [
     aiken

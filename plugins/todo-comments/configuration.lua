@@ -9,6 +9,6 @@ vim.keymap.set(
 vim.keymap.set(
   "n",
   "<leader>xt",
-  "<cmd> TroubleTodo <CR>",
+  "<cmd> TodoTrouble <CR>",
   { noremap = true, silent = true, desc = "Todo: Find comments with Trouble" }
 )

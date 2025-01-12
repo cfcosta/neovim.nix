@@ -3,6 +3,11 @@ require("blink-cmp").setup({
     ghost_text = {
       enabled = true,
     },
+    menu = {
+      draw = {
+        treesitter = { 'lsp' }
+      }
+    }
   },
   fuzzy = {
     prebuilt_binaries = {
@@ -12,7 +17,13 @@ require("blink-cmp").setup({
   },
   keymap = {
     ['<C-y>'] = { 'select_and_accept' },
+    ['<CR>'] = { 'select_and_accept' },
     ['<Tab>'] = { 'select_and_accept' },
+
+    cmdline = {
+      ['<C-y>'] = { 'select_and_accept' },
+      ['<Tab>'] = { 'select_and_accept' },
+    }
   },
   signature = {
     enabled = true,

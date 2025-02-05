@@ -165,10 +165,6 @@
       url = "github:folke/trouble.nvim";
       flake = false;
     };
-    wakatime = {
-      url = "github:wakatime/vim-wakatime";
-      flake = false;
-    };
     which-key = {
       url = "github:folke/which-key.nvim";
       flake = false;

@@ -65,6 +65,10 @@
       url = "github:lewis6991/gitsigns.nvim";
       flake = false;
     };
+    img-clip = {
+      url = "github:HakonHarnes/img-clip.nvim";
+      flake = false;
+    };
     indent-blankline = {
       url = "github:lukas-reineke/indent-blankline.nvim";
       flake = false;

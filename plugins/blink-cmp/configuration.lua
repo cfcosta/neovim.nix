@@ -19,10 +19,6 @@ require("blink-cmp").setup({
       ignore_version_mismatch = true,
     },
   },
-  keymap = {
-    ["<C-y>"] = { "select_and_accept" },
-    ["<Tab>"] = { "select_and_accept" },
-  },
   signature = {
     enabled = true,
   },

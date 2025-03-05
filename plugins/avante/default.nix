@@ -26,9 +26,13 @@ let
     nativeBuildInputs = with pkgs; [
       openssl
       pkg-config
+      perl
     ];
 
-    cargoLock.lockFile = "${inputs.avante-nvim}/Cargo.lock";
+    cargoLock = {
+      lockFile = "${inputs.avante-nvim}/Cargo.lock";
+      outputHashes."hf-hub-0.4.1" = "sha256-8IkbFytOolQGyEhGzjqVCguSLYaN6E8BUgekf1auZUk=";
+    };
 
     installPhase = ''
       mkdir -p $out/build
@@ -50,6 +54,7 @@ mkPlugin {
 
   depends = [
     "dressing"
+    "img-clip"
     "lspconfig"
     "nui"
     "nvim-web-devicons"

@@ -10,6 +10,7 @@ mkPlugin {
 
   depends = [
     "friendly-snippets"
+    "noice"
   ];
 
   config = builtins.readFile ./configuration.lua;

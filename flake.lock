@@ -400,6 +400,22 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/5487e69da40cbd611ab2cadee0b4637225f7cfae.tar.gz"
       }
     },
+    "noice": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1739300525,
+        "narHash": "sha256-0yu3JX7dXb9b+1REAVP+6K350OlYN6DBm8hEKgkQHgA=",
+        "owner": "folke",
+        "repo": "noice.nvim",
+        "rev": "0427460c2d7f673ad60eb02b35f5e9926cf67c59",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "noice.nvim",
+        "type": "github"
+      }
+    },
     "nui": {
       "flake": false,
       "locked": {
@@ -638,6 +654,7 @@
         "neotest": "neotest",
         "nio": "nio",
         "nixpkgs": "nixpkgs",
+        "noice": "noice",
         "nui": "nui",
         "nvim-autopairs": "nvim-autopairs",
         "nvim-notify": "nvim-notify",

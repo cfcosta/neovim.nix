@@ -11,6 +11,8 @@ require("blink-cmp").setup({
     ghost_text = { enabled = true },
 
     menu = {
+      auto_show = true,
+
       draw = {
         treesitter = { "lsp" },
       },

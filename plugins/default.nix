@@ -21,6 +21,7 @@ let
 
   simplePlugins = [
     (mkPlugin' "aiken-neovim")
+    (mkPlugin' "colorful-menu")
     (mkPlugin' "comment")
     (mkPlugin' "dressing")
     (mkPlugin' "friendly-snippets")

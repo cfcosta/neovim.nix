@@ -9,6 +9,7 @@ mkPlugin {
   src = inputs.blink-cmp.packages.${pkgs.system}.blink-cmp;
 
   depends = [
+    "colorful-menu"
     "friendly-snippets"
     "noice"
   ];

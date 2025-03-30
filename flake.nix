@@ -41,6 +41,10 @@
       url = "github:catppuccin/nvim";
       flake = false;
     };
+    colorful-menu = {
+      url = "github:xzbdmw/colorful-menu.nvim";
+      flake = false;
+    };
     comment = {
       url = "github:numtostr/comment.nvim";
       flake = false;

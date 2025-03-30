@@ -70,6 +70,22 @@
         "type": "github"
       }
     },
+    "colorful-menu": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1743293738,
+        "narHash": "sha256-nLrxL/eVELFfqmoT+2qj1yJb4S6DjtCg9b5B9o73RuY=",
+        "owner": "xzbdmw",
+        "repo": "colorful-menu.nvim",
+        "rev": "f80feb8a6706f965321aff24d0ed3849f02a7f77",
+        "type": "github"
+      },
+      "original": {
+        "owner": "xzbdmw",
+        "repo": "colorful-menu.nvim",
+        "type": "github"
+      }
+    },
     "comment": {
       "flake": false,
       "locked": {
@@ -638,6 +654,7 @@
         "avante-nvim": "avante-nvim",
         "blink-cmp": "blink-cmp",
         "catppuccin-nvim": "catppuccin-nvim",
+        "colorful-menu": "colorful-menu",
         "comment": "comment",
         "conform-nvim": "conform-nvim",
         "dressing": "dressing",

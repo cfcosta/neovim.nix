@@ -26,8 +26,6 @@ require("blink-cmp").setup({
             end,
           },
         },
-
-        treesitter = { "lsp" },
       },
     },
   },

@@ -12,8 +12,6 @@ jobs:
         items:
           - os: ubuntu-latest
             arch: x86_64-linux
-          - os: darwin-latest
-            arch: aarch64-darwin
     name: "Build ${{ matrix.items.arch }}"
     runs-on: ${{ matrix.items.os }}
     permissions:

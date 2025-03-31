@@ -17,7 +17,7 @@ require("obsidian").setup({
   workspaces = workspaces,
   ui = {
     enable = false,
-  }
+  },
 })
 
 vim.keymap.set("n", "<leader>nn", "<cmd> ObsidianQuickSwitch<CR>", { desc = "Obsidian: Quick switch note" })

@@ -13,9 +13,7 @@ mkPlugin {
 
   depends = [ "nvim-web-devicons" ];
 
-  inputs = with pkgs; [
-    python312Packages.pylatexenc
-  ];
+  inputs = with pkgs; [ python312Packages.pylatexenc ];
 
   config = readFile ./configuration.lua;
 }

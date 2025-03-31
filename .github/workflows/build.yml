@@ -14,8 +14,11 @@ jobs:
             arch: aarch64-darwin
     name: "Build ${{ matrix.items.arch }}"
     runs-on: ${{ matrix.items.os }}
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@v4
+      - uses: DeterminateSystems/nix-installer-action@main
       - uses: DeterminateSystems/flakehub-cache-action@main
       - run: nix build

@@ -22,6 +22,7 @@ jobs:
       - uses: DeterminateSystems/nix-installer-action@main
       - uses: DeterminateSystems/flakehub-cache-action@main
       - run: nix flake update
+      - run: nix flake check
       - run: nix run .# -- --headless -c "q" 2>&1 | grep "Error detected while" || exit 0
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:

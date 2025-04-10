@@ -1,6 +1,8 @@
 local lspconfig = require("lspconfig")
+local capabilities = require("blink.cmp").get_lsp_capabilities()
+
 local default_options = {
-  capabilities = require("blink.cmp").get_lsp_capabilities(),
+  capabilities = capabilities,
   on_attach = function(client, bufnr)
     if client.server_capabilities.inlayHintProvider then
       vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
@@ -14,10 +16,8 @@ local default_options = {
 lspconfig.aiken.setup(default_options)
 lspconfig.bashls.setup(default_options)
 lspconfig.buf_ls.setup(default_options)
-lspconfig.clangd.setup(default_options)
 lspconfig.docker_compose_language_service.setup(default_options)
 lspconfig.dockerls.setup(default_options)
-lspconfig.gopls.setup(default_options)
 lspconfig.jqls.setup(default_options)
 lspconfig.luau_lsp.setup(default_options)
 lspconfig.nixd.setup(default_options)
@@ -25,15 +25,40 @@ lspconfig.postgres_lsp.setup(default_options)
 lspconfig.ruff.setup(default_options)
 lspconfig.taplo.setup(default_options)
 
-lspconfig.pyright.setup({
+lspconfig.clangd.setup({
+  capabilities = default_options.capabilities,
+  on_attach = default_options.on_attach,
   settings = {
-    pyright = {
-      disableOrganizeImports = true,
+    clangd = {
+      InlayHints = {
+        Designators = true,
+        Enabled = true,
+        ParameterNames = true,
+        DeducedTypes = true,
+      },
+      fallbackFlags = { "-std=c++20" },
+    },
+  },
+})
+
+lspconfig.gopls.setup({
+  capabilities = default_options.capabilities,
+  on_attach = default_options.on_attach,
+  settings = {
+    hints = {
+      rangeVariableTypes = true,
+      parameterNames = true,
+      constantValues = true,
+      assignVariableTypes = true,
+      compositeLiteralFields = true,
+      compositeLiteralTypes = true,
+      functionTypeParameters = true,
     },
   },
 })
 
 lspconfig.lua_ls.setup({
+  capabilities = default_options.capabilities,
   on_attach = default_options.on_attach,
   settings = {
     Lua = {
@@ -61,6 +86,16 @@ lspconfig.lua_ls.setup({
           vim.env.VIMRUNTIME,
         },
       },
+    },
+  },
+})
+
+lspconfig.pyright.setup({
+  capabilities = default_options.capabilities,
+  on_attach = default_options.on_attach,
+  settings = {
+    pyright = {
+      disableOrganizeImports = true,
     },
   },
 })

@@ -1,7 +1,7 @@
 require("catppuccin").setup({
   flavor = "mocha",
   default_integrations = true,
-  transparent_background = true,
+  transparent_background = false,
   integrations = {
     blink_cmp = true,
     grug_far = true,

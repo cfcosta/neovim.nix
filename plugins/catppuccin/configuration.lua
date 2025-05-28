@@ -28,7 +28,7 @@ require("catppuccin").setup({
         background = true,
       },
     },
-    notify = true,
+    notify = false,
     nvim_surround = true,
     nvimtree = true,
     render_markdown = true,

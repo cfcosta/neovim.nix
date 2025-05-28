@@ -97,10 +97,6 @@
       url = "github:folke/noice.nvim";
       flake = false;
     };
-    nvim-notify = {
-      url = "github:rcarriga/nvim-notify";
-      flake = false;
-    };
     nui = {
       url = "github:MunifTanjim/nui.nvim";
       flake = false;

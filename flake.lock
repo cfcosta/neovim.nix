@@ -464,22 +464,6 @@
         "type": "github"
       }
     },
-    "nvim-notify": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1744548826,
-        "narHash": "sha256-m4dQ8KuMhbEpRh6zLTlIUDN9ojFj69LZnXXLepmdFI8=",
-        "owner": "rcarriga",
-        "repo": "nvim-notify",
-        "rev": "b5825cf9ee881dd8e43309c93374ed5b87b7a896",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rcarriga",
-        "repo": "nvim-notify",
-        "type": "github"
-      }
-    },
     "nvim-tree": {
       "flake": false,
       "locked": {
@@ -674,7 +658,6 @@
         "noice": "noice",
         "nui": "nui",
         "nvim-autopairs": "nvim-autopairs",
-        "nvim-notify": "nvim-notify",
         "nvim-tree": "nvim-tree",
         "nvim-treesitter": "nvim-treesitter",
         "nvim-treesitter-endwise": "nvim-treesitter-endwise",

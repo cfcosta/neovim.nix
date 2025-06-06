@@ -2,14 +2,11 @@
   mkPlugin,
   inputs,
   pkgs,
-  lib,
   ...
 }:
 let
   inherit (builtins) readFile;
   inherit (pkgs.nightvim) buildRustPackage;
-  inherit (pkgs.stdenv) isDarwin;
-  inherit (lib) optionals;
 
   src = buildRustPackage {
     name = "nightvim-avante-lib";
@@ -19,9 +16,7 @@ let
 
     buildFeatures = [ "luajit" ];
 
-    buildInputs =
-      with pkgs;
-      [ openssl.dev ] ++ optionals isDarwin [ darwin.apple_sdk.frameworks.Security ];
+    buildInputs = with pkgs; [ openssl.dev ];
 
     nativeBuildInputs = with pkgs; [
       openssl

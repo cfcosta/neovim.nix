@@ -3,8 +3,10 @@ require("avante_lib").load()
 require("avante").setup({
   provider = "claude",
   auto_suggestions_provider = "openai",
-  claude = {
-    model = "claude-opus-4-20250514",
+  providers = {
+    claude = {
+      model = "claude-opus-4-20250514",
+    },
   },
   mappings = {
     suggestion = {

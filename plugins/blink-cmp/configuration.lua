@@ -49,4 +49,15 @@ require("blink-cmp").setup({
   signature = {
     enabled = true,
   },
+
+  sources = {
+    default = { "lsp", "path", "snippets", "buffer", "avante" },
+    providers = {
+      avante = {
+        name = "avante",
+        module = "blink-cmp-avante",
+        score_offset = 100,
+      },
+    },
+  },
 })

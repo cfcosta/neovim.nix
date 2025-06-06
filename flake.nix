@@ -37,6 +37,10 @@
       url = "github:saghen/blink.cmp";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    blink-cmp-avante = {
+      url = "github:Kaiser-Yang/blink-cmp-avante";
+      flake = false;
+    };
     catppuccin-nvim = {
       url = "github:catppuccin/nvim";
       flake = false;

@@ -54,6 +54,22 @@
         "type": "github"
       }
     },
+    "blink-cmp-avante": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1745821878,
+        "narHash": "sha256-YCBYae/hP0B7eaRf/Q9nel9RiqKV5ih1LkTdIa1hymU=",
+        "owner": "Kaiser-Yang",
+        "repo": "blink-cmp-avante",
+        "rev": "ddefb8de3cb1286ab39e0ccec0f32a45d03391f2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Kaiser-Yang",
+        "repo": "blink-cmp-avante",
+        "type": "github"
+      }
+    },
     "catppuccin-nvim": {
       "flake": false,
       "locked": {
@@ -637,6 +653,7 @@
         "aiken-neovim": "aiken-neovim",
         "avante-nvim": "avante-nvim",
         "blink-cmp": "blink-cmp",
+        "blink-cmp-avante": "blink-cmp-avante",
         "catppuccin-nvim": "catppuccin-nvim",
         "colorful-menu": "colorful-menu",
         "comment": "comment",

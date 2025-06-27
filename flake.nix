@@ -81,6 +81,10 @@
       url = "github:lukas-reineke/indent-blankline.nvim";
       flake = false;
     };
+    lean = {
+      url = "github:Julian/lean.nvim";
+      flake = false;
+    };
     lspkind = {
       url = "github:onsails/lspkind-nvim";
       flake = false;

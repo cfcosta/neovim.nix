@@ -13,6 +13,7 @@ mkPlugin {
   ];
 
   depends = [
+    "lspconfig"
     "plenary"
   ];
 

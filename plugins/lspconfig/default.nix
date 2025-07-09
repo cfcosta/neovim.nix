@@ -20,6 +20,7 @@ mkPlugin {
     docker-compose-language-service
     dockerfile-language-server-nodejs
     gopls
+    harper
     jq-lsp
     lua-language-server
     luau

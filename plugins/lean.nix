@@ -8,9 +8,7 @@ mkPlugin {
   name = "lean";
   src = inputs.lean;
 
-  inputs = with pkgs; [
-    lean4
-  ];
+  inputs = with pkgs; [ lean4 ];
 
   depends = [
     "lspconfig"

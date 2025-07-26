@@ -41,10 +41,6 @@
       url = "github:Kaiser-Yang/blink-cmp-avante";
       flake = false;
     };
-    catppuccin-nvim = {
-      url = "github:catppuccin/nvim";
-      flake = false;
-    };
     colorful-menu = {
       url = "github:xzbdmw/colorful-menu.nvim";
       flake = false;
@@ -171,6 +167,10 @@
     };
     toggleterm-nvim = {
       url = "github:akinsho/toggleterm.nvim";
+      flake = false;
+    };
+    tokyonight = {
+      url = "github:folke/tokyonight.nvim";
       flake = false;
     };
     treesj = {

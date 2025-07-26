@@ -70,22 +70,6 @@
         "type": "github"
       }
     },
-    "catppuccin-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1753523002,
-        "narHash": "sha256-wdvTlmjMoW96sEX51ny05uZ5GkyJ2oFCqdq6nAl4lqM=",
-        "owner": "catppuccin",
-        "repo": "nvim",
-        "rev": "84336e08415858f6d835835e81a4f79e585463c6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "catppuccin",
-        "repo": "nvim",
-        "type": "github"
-      }
-    },
     "colorful-menu": {
       "flake": false,
       "locked": {
@@ -670,7 +654,6 @@
         "avante-nvim": "avante-nvim",
         "blink-cmp": "blink-cmp",
         "blink-cmp-avante": "blink-cmp-avante",
-        "catppuccin-nvim": "catppuccin-nvim",
         "colorful-menu": "colorful-menu",
         "comment": "comment",
         "conform-nvim": "conform-nvim",
@@ -708,6 +691,7 @@
         "telescope": "telescope",
         "todo-comments": "todo-comments",
         "toggleterm-nvim": "toggleterm-nvim",
+        "tokyonight": "tokyonight",
         "treefmt-nix": "treefmt-nix",
         "treesj": "treesj",
         "trouble": "trouble",
@@ -843,6 +827,22 @@
       "original": {
         "owner": "akinsho",
         "repo": "toggleterm.nvim",
+        "type": "github"
+      }
+    },
+    "tokyonight": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1739909711,
+        "narHash": "sha256-1xZhQR1BhH2eqax0swlNtnPWIEUTxSOab6sQ3Fv9WQA=",
+        "owner": "folke",
+        "repo": "tokyonight.nvim",
+        "rev": "057ef5d260c1931f1dffd0f052c685dcd14100a3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "tokyonight.nvim",
         "type": "github"
       }
     },

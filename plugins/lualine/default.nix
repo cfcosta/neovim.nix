@@ -7,7 +7,7 @@ mkPlugin {
   src = inputs.lualine;
 
   depends = [
-    "catppuccin"
+    "tokyonight"
     "nvim-web-devicons"
   ];
 

@@ -1,21 +1,14 @@
--- Eviline config for lualine with Catppuccin colors
 local lualine = require("lualine")
 local devicons = require("nvim-web-devicons")
 
--- Color table for highlights
-local C = require("catppuccin.palettes").get_palette("mocha")
-local O = require("catppuccin").options
+local C = require("tokyonight.colors").setup({ style = "storm" })
 
-local fg = C.text
-local bg = O.transparent_background and "NONE" or C.mantle
-
--- Function to select a deterministic color from the Catppuccin palette based on a string
 local function string_to_color(str)
   local hash = 5381
   for i = 1, #str do
     hash = (hash * 33 + string.byte(str, i)) % 2 ^ 32
   end
-  local palette_colors = { C.yellow, C.sky, C.blue, C.green, C.peach, C.mauve, C.pink, C.red }
+  local palette_colors = { C.blue, C.cyan, C.green, C.magenta, C.orange, C.purple, C.red, C.teal }
   local index = (hash % #palette_colors) + 1
   return palette_colors[index]
 end
@@ -46,8 +39,8 @@ local config = {
     component_separators = "",
     section_separators = "",
     theme = {
-      normal = { c = { fg = fg, bg = bg } },
-      inactive = { c = { fg = fg, bg = bg } },
+      normal = { c = { fg = C.fg, bg = C.bg_dark } },
+      inactive = { c = { fg = C.fg, bg = C.bg_dark } },
     },
   },
   sections = {
@@ -108,22 +101,22 @@ ins_left({
     local mode_color = {
       R = C.red,
       Rv = C.red,
-      S = C.peach,
-      V = C.peach,
+      S = C.teal,
+      V = C.teal,
       ["!"] = C.red,
-      ["\22"] = C.peach,
-      ["r?"] = C.sky,
-      c = C.mauve,
-      ce = C.red,
-      cv = C.red,
-      i = C.green,
-      ic = C.yellow,
+      ["\22"] = C.teal,
+      ["r?"] = C.blue,
+      c = C.green,
+      ce = C.green,
+      cv = C.green,
+      i = C.mauve,
+      ic = C.red,
       n = C.blue,
       no = C.red,
-      r = C.sky,
-      rm = C.sky,
-      s = C.peach,
-      t = C.peach,
+      r = C.blue,
+      rm = C.blue,
+      s = C.teal,
+      t = C.teal,
       v = C.blue,
     }
 
@@ -156,7 +149,7 @@ ins_left({
   diagnostics_color = {
     error = { fg = C.red },
     warn = { fg = C.yellow },
-    info = { fg = C.sky },
+    info = { fg = C.blue },
   },
 })
 
@@ -196,7 +189,7 @@ ins_right({
         return { fg = string_to_color(client.name), gui = "bold" }
       end
     end
-    return { fg = fg, gui = "bold" }
+    return { fg = C.fg, gui = "bold" }
   end,
   cond = conditions.hide_in_width,
 })
@@ -213,7 +206,7 @@ ins_right({
   symbols = { added = " ", modified = "󰝤 ", removed = " " },
   diff_color = {
     added = { fg = C.green },
-    modified = { fg = C.peach },
+    modified = { fg = C.teal },
     removed = { fg = C.red },
   },
   cond = conditions.hide_in_width,

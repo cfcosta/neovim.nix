@@ -1,7 +1,7 @@
 local lualine = require("lualine")
 local devicons = require("nvim-web-devicons")
 
-local C = require("tokyonight.colors").setup({ style = "storm" })
+local C = require("tokyonight.colors").setup({ style = "night" })
 
 local function string_to_color(str)
   local hash = 5381

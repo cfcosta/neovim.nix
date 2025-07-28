@@ -3,6 +3,6 @@ mkPlugin {
   name = "tokyonight";
   src = inputs.tokyonight;
   config = ''
-    vim.cmd [[colorscheme tokyonight-storm]]
+    vim.cmd [[colorscheme tokyonight-night]]
   '';
 }

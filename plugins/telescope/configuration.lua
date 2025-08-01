@@ -67,6 +67,14 @@ local options = {
     },
   },
   extensions_list = { "themes", "terms" },
+  pickers = {
+    buffers = { theme = "ivy" },
+    find_files = { theme = "ivy" },
+    git_commits = { theme = "ivy" },
+    live_grep = { theme = "ivy" },
+    git_status = { theme = "ivy" },
+    lsp_workspace_symbols = { theme = "ivy" },
+  },
 }
 
 telescope.setup(options)

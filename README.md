@@ -105,7 +105,7 @@ Note-taking and knowledge base with Obsidian vault integration.
 | `<leader>nn`  | n    | Quick switch note                     |
 | `<leader>nd`  | n    | Find daily notes                      |
 | `<leader>nT`  | n    | Open tomorrow's note                  |
-| `<leader>ns`  | n    | Search notes                          |
+| `<leader>n/`  | n    | Search notes                          |
 | `<leader>nt`  | n    | Open today's note                     |
 | `<leader>ny`  | n    | Open yesterday's note                 |
 

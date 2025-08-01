@@ -20,9 +20,9 @@ require("obsidian").setup({
   },
 })
 
-vim.keymap.set("n", "<leader>nn", "<cmd> ObsidianQuickSwitch<CR>", { desc = "Obsidian: Quick switch note" })
-vim.keymap.set("n", "<leader>nd", "<cmd> ObsidianDailies<CR>", { desc = "Obsidian: Find daily notes" })
+vim.keymap.set("n", "<leader>n/", "<cmd> ObsidianSearch<CR>", { desc = "Obsidian: Search notes" })
 vim.keymap.set("n", "<leader>nT", "<cmd> ObsidianTomorrow<CR>", { desc = "Obsidian: Open tomorrow's note" })
-vim.keymap.set("n", "<leader>ns", "<cmd> ObsidianSearch<CR>", { desc = "Obsidian: Search notes" })
+vim.keymap.set("n", "<leader>nd", "<cmd> ObsidianDailies<CR>", { desc = "Obsidian: Find daily notes" })
+vim.keymap.set("n", "<leader>nn", "<cmd> ObsidianQuickSwitch<CR>", { desc = "Obsidian: Quick switch note" })
 vim.keymap.set("n", "<leader>nt", "<cmd> ObsidianToday<CR>", { desc = "Obsidian: Open today's note" })
 vim.keymap.set("n", "<leader>ny", "<cmd> ObsidianYesterday<CR>", { desc = "Obsidian: Open yesterday's note" })

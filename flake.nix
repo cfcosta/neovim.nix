@@ -49,6 +49,15 @@
       url = "github:stevearc/dressing.nvim";
       flake = false;
     };
+    fff = {
+      url = "github:dmtrKovalenko/fff.nvim";
+
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+        rust-overlay.follows = "rust-overlay";
+      };
+    };
     friendly-snippets = {
       url = "github:rafamadriz/friendly-snippets";
       flake = false;
@@ -251,6 +260,7 @@
           inherit (nightvim) plugins;
 
           default = nightvim;
+          fff = self.inputs.fff.packages.${system}.default;
         };
 
         checks.pre-commit-check = pre-commit-hooks.lib.${system}.run {

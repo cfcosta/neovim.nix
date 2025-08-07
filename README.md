@@ -16,6 +16,13 @@ nix run github:cfcosta/neovim.nix#
 
 ## Keybindings
 
+### fff
+fuzzy finder for files.
+
+| key              | mode | description                    |
+|------------------|------|--------------------------------|
+| `<leader><leader>` | n    | find files                    |
+
 ### NvimTree
 File explorer tree view.
 
@@ -29,17 +36,13 @@ In NvimTree window:
 | `s` | n    | Open in vertical split      |
 | `v` | n    | Open in horizontal split    |
 
-### Telescope
-Fuzzy finder for files, buffers, and more.
+### telescope
+fuzzy finder for files, buffers, and more.
 
-| Key              | Mode | Description                    |
+| key              | mode | description                    |
 |------------------|------|--------------------------------|
-| `<leader><leader>` | n    | Find files                    |
-| `<leader>/`      | n    | Live grep                     |
-| `<leader>bb`     | n    | Open buffers                  |
-| `<leader>gc`     | n    | Git commits                   |
-| `<leader>gs`     | n    | Git status                    |
-| `<leader>ct`     | n    | LSP workspace symbols         |
+| `<leader>/`      | n    | live grep                     |
+| `<leader>bb`     | n    | open buffers                  |
 
 In Telescope window:
 | Key      | Mode | Description              |

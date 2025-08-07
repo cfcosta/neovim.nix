@@ -10,6 +10,7 @@ in
 mkPlugin {
   name = "telescope";
   depends = [
+    "fff"
     "trouble"
     "plenary"
   ];

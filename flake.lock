@@ -86,6 +86,21 @@
         "type": "github"
       }
     },
+    "crane": {
+      "locked": {
+        "lastModified": 1753316655,
+        "narHash": "sha256-tzWa2kmTEN69OEMhxFy+J2oWSvZP5QhEgXp3TROOzl0=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "f35a3372d070c9e9ccb63ba7ce347f0634ddf3d2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
     "dressing": {
       "flake": false,
       "locked": {
@@ -121,6 +136,33 @@
       "original": {
         "owner": "nix-community",
         "repo": "fenix",
+        "type": "github"
+      }
+    },
+    "fff": {
+      "inputs": {
+        "crane": "crane",
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": [
+          "rust-overlay"
+        ]
+      },
+      "locked": {
+        "lastModified": 1755496441,
+        "narHash": "sha256-5zrseUrZjwRZf9Bjmvs6IAoY8Np+6Ip6d2w1tO/A+6I=",
+        "owner": "dmtrKovalenko",
+        "repo": "fff.nvim",
+        "rev": "e6e58f91d29e4660bcdf09a2bb901a5abe261573",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dmtrKovalenko",
+        "repo": "fff.nvim",
         "type": "github"
       }
     },
@@ -592,6 +634,7 @@
         "comment": "comment",
         "conform-nvim": "conform-nvim",
         "dressing": "dressing",
+        "fff": "fff",
         "flake-utils": "flake-utils",
         "friendly-snippets": "friendly-snippets",
         "gitignore": "gitignore",

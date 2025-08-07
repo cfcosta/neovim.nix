@@ -16,13 +16,6 @@ nix run github:cfcosta/neovim.nix#
 
 ## Keybindings
 
-### Avante
-AI code assistance and completion plugin.
-
-| Key         | Mode | Description      |
-|-------------|------|------------------|
-| `<Tab>`     | i    | Accept suggestion |
-
 ### NvimTree
 File explorer tree view.
 

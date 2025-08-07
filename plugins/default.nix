@@ -21,7 +21,6 @@ let
 
   simplePlugins = [
     (mkPlugin' "aiken-neovim")
-    (mkPlugin' "blink-cmp-avante")
     (mkPlugin' "colorful-menu")
     (mkPlugin' "comment")
     (mkPlugin' "dressing")
@@ -29,7 +28,6 @@ let
     (mkPlugin' "lspkind")
     (mkPlugin' "nio")
     (mkPlugin' "noice")
-    (mkPlugin' "nui")
     (mkPlugin' "nvim-treesitter-endwise")
     (mkPlugin' "nvim-treesitter-just")
     (mkPlugin' "plenary")

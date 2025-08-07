@@ -29,17 +29,9 @@
       url = "github:aiken-lang/editor-integration-nvim";
       flake = false;
     };
-    avante-nvim = {
-      url = "github:yetone/avante.nvim";
-      flake = false;
-    };
     blink-cmp = {
       url = "github:saghen/blink.cmp";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    blink-cmp-avante = {
-      url = "github:Kaiser-Yang/blink-cmp-avante";
-      flake = false;
     };
     colorful-menu = {
       url = "github:xzbdmw/colorful-menu.nvim";
@@ -69,10 +61,6 @@
       url = "github:lewis6991/gitsigns.nvim";
       flake = false;
     };
-    img-clip = {
-      url = "github:HakonHarnes/img-clip.nvim";
-      flake = false;
-    };
     indent-blankline = {
       url = "github:lukas-reineke/indent-blankline.nvim";
       flake = false;
@@ -99,10 +87,6 @@
     };
     noice = {
       url = "github:folke/noice.nvim";
-      flake = false;
-    };
-    nui = {
-      url = "github:MunifTanjim/nui.nvim";
       flake = false;
     };
     nvim-autopairs = {

@@ -51,12 +51,8 @@ require("blink-cmp").setup({
   },
 
   sources = {
-    default = { "avante", "lsp", "path", "snippets", "buffer" },
+    default = { "lsp", "path", "snippets", "buffer" },
     providers = {
-      avante = {
-        name = "avante",
-        module = "blink-cmp-avante",
-      },
       lsp = {
         score_offset = 998,
       },

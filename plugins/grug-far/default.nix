@@ -11,7 +11,10 @@ mkPlugin {
   name = "grug-far";
   src = inputs.grug-far;
 
-  inputs = with pkgs; [ ripgrep ];
+  inputs = with pkgs; [
+    ast-grep
+    ripgrep
+  ];
 
   config = readFile ./configuration.lua;
 }

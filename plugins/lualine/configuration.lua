@@ -157,7 +157,7 @@ ins_right({
   function()
     local msg = "none"
     local buf_ft = vim.bo.filetype
-    local clients = vim.lsp.get_active_clients()
+    local clients = vim.lsp.get_clients()
 
     if next(clients) == nil then
       return msg
@@ -176,7 +176,7 @@ ins_right({
   end,
   color = function()
     local buf_ft = vim.bo.filetype
-    local clients = vim.lsp.get_active_clients()
+    local clients = vim.lsp.get_clients()
     for _, client in ipairs(clients) do
       local filetypes = client.config.filetypes
       if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then

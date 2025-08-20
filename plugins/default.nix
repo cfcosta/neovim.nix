@@ -68,7 +68,7 @@ let
       };
     in
     symlinkJoin {
-      name = "${args.name}-with-tools";
+      name = "nightvim-${args.name}-with-tools";
       paths = [ plugin ] ++ inputs;
       inherit (plugin) passthru;
     };

@@ -24,18 +24,12 @@ A really fast fuzzy finder
 | `<leader><leader>` | n    | find files in git repo                  |
 | `<leader>ff` | n    | find files                    |
 
-### NvimTree
-File explorer tree view.
+### Snacks.nvim
+Multiple quality of life enhancements for Neovim.
 
 | Key         | Mode | Description      |
 |-------------|------|------------------|
-| `<leader>op` | n    | Toggle NvimTree |
-
-In NvimTree window:
-| Key | Mode | Description                  |
-|-----|------|------------------------------|
-| `s` | n    | Open in vertical split      |
-| `v` | n    | Open in horizontal split    |
+| `<leader>op` | n    | Toggle file tree |
 
 ### telescope
 fuzzy finder for files, buffers, and more.

@@ -12,3 +12,9 @@ require("snacks").setup({
   statuscolumn = { enabled = true },
   words = { enabled = true },
 })
+vim.keymap.set(
+  "n",
+  "<leader>op",
+  function() Snacks.explorer() end,
+  { noremap = true, silent = true, desc = "Snacks: Toggle file explorer" }
+)

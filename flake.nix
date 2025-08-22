@@ -102,10 +102,6 @@
       url = "github:kylechui/nvim-surround";
       flake = false;
     };
-    nvim-tree = {
-      url = "github:nvim-tree/nvim-tree.lua";
-      flake = false;
-    };
     nvim-treesitter = {
       url = "github:nvim-treesitter/nvim-treesitter";
       flake = false;

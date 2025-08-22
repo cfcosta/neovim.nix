@@ -12,9 +12,12 @@ require("snacks").setup({
   statuscolumn = { enabled = true },
   words = { enabled = true },
 })
-vim.keymap.set(
-  "n",
-  "<leader>op",
-  function() Snacks.explorer() end,
-  { noremap = true, silent = true, desc = "Snacks: Toggle file explorer" }
-)
+vim.keymap.set("n", "<leader>xd", function()
+  Snacks.picker.diagnostics()
+end, { noremap = true, silent = true, desc = "Snacks: show diagnostics" })
+vim.keymap.set("n", "<leader>zz", function()
+  Snacks.zen()
+end, { noremap = true, silent = true, desc = "Snacks: Zen mode" })
+vim.keymap.set("n", "<leader>op", function()
+  Snacks.explorer()
+end, { noremap = true, silent = true, desc = "Snacks: Toggle file explorer" })

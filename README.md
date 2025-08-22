@@ -30,6 +30,8 @@ Multiple quality of life enhancements for Neovim.
 | Key         | Mode | Description      |
 |-------------|------|------------------|
 | `<leader>op` | n    | Toggle file tree |
+| `<leader>xd` | n    | Search diagnostics |
+| `<leader>zz` | n    | Toggle Zen Mode |
 
 ### telescope
 fuzzy finder for files, buffers, and more.

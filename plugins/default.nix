@@ -23,7 +23,6 @@ let
     (mkPlugin' "aiken-neovim")
     (mkPlugin' "colorful-menu")
     (mkPlugin' "comment")
-    (mkPlugin' "dressing")
     (mkPlugin' "friendly-snippets")
     (mkPlugin' "lspkind")
     (mkPlugin' "nio")

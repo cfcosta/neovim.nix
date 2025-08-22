@@ -45,10 +45,6 @@
       url = "github:stevearc/conform.nvim";
       flake = false;
     };
-    dressing = {
-      url = "github:stevearc/dressing.nvim";
-      flake = false;
-    };
     fff = {
       url = "github:dmtrKovalenko/fff.nvim";
 

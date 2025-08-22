@@ -17,11 +17,12 @@ nix run github:cfcosta/neovim.nix#
 ## Keybindings
 
 ### fff
-fuzzy finder for files.
+A really fast fuzzy finder
 
 | key              | mode | description                    |
 |------------------|------|--------------------------------|
-| `<leader><leader>` | n    | find files                    |
+| `<leader><leader>` | n    | find files in git repo                  |
+| `<leader>ff` | n    | find files                    |
 
 ### NvimTree
 File explorer tree view.

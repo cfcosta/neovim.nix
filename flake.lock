@@ -474,22 +474,6 @@
         "type": "github"
       }
     },
-    "nvim-treesitter-just": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1736117731,
-        "narHash": "sha256-FwEuH/2R745jsuFaVGNeUTv65xW+MPjbcakRNcAWfZU=",
-        "owner": "IndianBoy42",
-        "repo": "tree-sitter-just",
-        "rev": "bb0c898a80644de438e6efe5d88d30bf092935cd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "IndianBoy42",
-        "repo": "tree-sitter-just",
-        "type": "github"
-      }
-    },
     "nvim-web-devicons": {
       "flake": false,
       "locked": {
@@ -619,7 +603,6 @@
         "nvim-tree": "nvim-tree",
         "nvim-treesitter": "nvim-treesitter",
         "nvim-treesitter-endwise": "nvim-treesitter-endwise",
-        "nvim-treesitter-just": "nvim-treesitter-just",
         "nvim-web-devicons": "nvim-web-devicons",
         "obsidian-nvim": "obsidian-nvim",
         "plenary": "plenary",

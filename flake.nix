@@ -114,10 +114,6 @@
       url = "github:RRethy/nvim-treesitter-endwise";
       flake = false;
     };
-    nvim-treesitter-just = {
-      url = "github:IndianBoy42/tree-sitter-just";
-      flake = false;
-    };
     nvim-web-devicons = {
       url = "github:nvim-tree/nvim-web-devicons";
       flake = false;

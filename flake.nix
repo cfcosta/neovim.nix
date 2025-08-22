@@ -94,10 +94,6 @@
       url = "github:nvim-neotest/nvim-nio";
       flake = false;
     };
-    noice = {
-      url = "github:folke/noice.nvim";
-      flake = false;
-    };
     nvim-autopairs = {
       url = "github:windwp/nvim-autopairs";
       flake = false;

@@ -11,7 +11,6 @@ mkPlugin {
   depends = [
     "colorful-menu"
     "friendly-snippets"
-    "noice"
   ];
 
   config = builtins.readFile ./configuration.lua;

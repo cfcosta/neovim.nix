@@ -8,9 +8,4 @@ vim.keymap.set(
   fff.find_in_git_root,
   { noremap = true, silent = true, desc = "fff: find file in git repo" }
 )
-vim.keymap.set(
-  "n",
-  "<leader>ff",
-  fff.find_files,
-  { noremap = true, silent = true, desc = "fff: find file" }
-)
+vim.keymap.set("n", "<leader>ff", fff.find_files, { noremap = true, silent = true, desc = "fff: find file" })

@@ -27,7 +27,6 @@ let
     (mkPlugin' "friendly-snippets")
     (mkPlugin' "lspkind")
     (mkPlugin' "nio")
-    (mkPlugin' "noice")
     (mkPlugin' "nvim-treesitter-endwise")
     (mkPlugin' "nvim-treesitter-just")
     (mkPlugin' "plenary")

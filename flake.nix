@@ -150,6 +150,10 @@
       url = "github:mrcjkb/rustaceanvim";
       flake = false;
     };
+    snacks = {
+      url = "github:folke/snacks.nvim";
+      flake = false;
+    };
     telescope = {
       url = "github:nvim-telescope/telescope.nvim";
       flake = false;

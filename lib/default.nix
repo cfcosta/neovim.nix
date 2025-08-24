@@ -46,6 +46,14 @@ let
       ${readFile ./lua/init.lua}
     end)()
 
+    if vim.env.PROF then
+      vim.cmd("packadd! snacks")
+
+      require("snacks.profiler").startup({
+        startup = { event = "VimEnter" },
+      })
+    end
+
     ${lib.concatStringsSep "\n" (map mapSpec plugins.specs)}
 
     __nv.finish()

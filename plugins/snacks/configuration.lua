@@ -1,4 +1,6 @@
-require("snacks").setup({
+local snacks = require("snacks")
+
+snacks.setup({
   bigfile = { enabled = true },
   dashboard = { enabled = false },
   explorer = { enabled = true },
@@ -8,16 +10,19 @@ require("snacks").setup({
   notifier = { enabled = true },
   quickfile = { enabled = true },
   scope = { enabled = true },
-  scroll = { enabled = true },
+  scroll = { enabled = false },
   statuscolumn = { enabled = true },
   words = { enabled = true },
 })
+
 vim.keymap.set("n", "<leader>xd", function()
-  Snacks.picker.diagnostics()
+  snacks.picker.diagnostics()
 end, { noremap = true, silent = true, desc = "Snacks: show diagnostics" })
+
 vim.keymap.set("n", "<leader>zz", function()
-  Snacks.zen()
+  snacks.zen()
 end, { noremap = true, silent = true, desc = "Snacks: Zen mode" })
+
 vim.keymap.set("n", "<leader>op", function()
-  Snacks.explorer()
+  snacks.explorer()
 end, { noremap = true, silent = true, desc = "Snacks: Toggle file explorer" })

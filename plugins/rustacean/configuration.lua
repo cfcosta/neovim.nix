@@ -3,8 +3,6 @@ vim.g.rustaceanvim = function()
   return {
     tools = {
       executor = executors.toggleterm,
-      test_executor = "neotest",
-      crate_test_executor = "neotest",
       enable_clippy = true,
       enable_nextest = true,
     },

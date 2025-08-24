@@ -25,7 +25,6 @@ let
     (mkPlugin' "comment")
     (mkPlugin' "friendly-snippets")
     (mkPlugin' "lspkind")
-    (mkPlugin' "nio")
     (mkPlugin' "nvim-treesitter-endwise")
     (mkPlugin' "plenary")
     (mkPlugin' "which-key")

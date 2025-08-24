@@ -82,14 +82,6 @@
       url = "github:nvim-lualine/lualine.nvim";
       flake = false;
     };
-    neotest = {
-      url = "github:nvim-neotest/neotest";
-      flake = false;
-    };
-    nio = {
-      url = "github:nvim-neotest/nvim-nio";
-      flake = false;
-    };
     nvim-autopairs = {
       url = "github:windwp/nvim-autopairs";
       flake = false;

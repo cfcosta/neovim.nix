@@ -152,14 +152,6 @@ Enhanced Rust development environment.
 | `<leader>rT`  | n    | Run last ran test                    |
 | `<leader>rd`  | n    | Open rustdoc for symbol under cursor|
 
-### Neotest
-Testing framework integration.
-
-| Key           | Mode | Description                           |
-|---------------|------|---------------------------------------|
-| `<leader>ss`  | n    | Run nearest test                     |
-| `<leader>sf`  | n    | Run tests on current file            |
-
 ### Window Management
 Built-in window management commands.
 

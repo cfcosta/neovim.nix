@@ -66,10 +66,6 @@
       url = "github:lewis6991/gitsigns.nvim";
       flake = false;
     };
-    indent-blankline = {
-      url = "github:lukas-reineke/indent-blankline.nvim";
-      flake = false;
-    };
     lspkind = {
       url = "github:onsails/lspkind-nvim";
       flake = false;

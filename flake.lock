@@ -270,22 +270,6 @@
         "type": "github"
       }
     },
-    "indent-blankline": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1742224677,
-        "narHash": "sha256-0q/V+b4UrDRnaC/eRWOi9HU9a61vQSAM9/C8ZQyKt+Y=",
-        "owner": "lukas-reineke",
-        "repo": "indent-blankline.nvim",
-        "rev": "005b56001b2cb30bfa61b7986bc50657816ba4ba",
-        "type": "github"
-      },
-      "original": {
-        "owner": "lukas-reineke",
-        "repo": "indent-blankline.nvim",
-        "type": "github"
-      }
-    },
     "lspconfig": {
       "flake": false,
       "locked": {
@@ -527,7 +511,6 @@
         "gitignore": "gitignore",
         "gitsigns": "gitsigns",
         "grug-far": "grug-far",
-        "indent-blankline": "indent-blankline",
         "lspconfig": "lspconfig",
         "lspkind": "lspkind",
         "lualine": "lualine",

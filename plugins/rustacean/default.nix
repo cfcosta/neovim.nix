@@ -11,8 +11,6 @@ mkPlugin {
   name = "rustacean";
   src = inputs.rustacean;
 
-  depends = [ "telescope" ];
-
   inputs = with pkgs; [
     cargo-nextest
     nightvim.rust

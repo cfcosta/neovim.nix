@@ -23,20 +23,29 @@ snacks.setup({
   explorer = { enabled = true },
   indent = { enabled = true },
   input = { enabled = true },
+  notifier = { enabled = true },
   picker = {
     enabled = true,
-    layout = {
-      preset = "ivy",
-    },
+    layout = { preset = "ivy", },
   },
-  notifier = { enabled = true },
   quickfile = { enabled = true },
   scope = { enabled = true },
   scroll = { enabled = false },
   statuscolumn = { enabled = true },
+  win = {
+    input = {
+      keys = {
+        ["<Esc>"] = "close"
+      },
+    },
+  },
   words = { enabled = true },
 })
 
+vim.keymap.set("n", "<leader>/", function() snacks.picker.grep() end,
+  { noremap = true, silent = true, desc = "Snacks: Find in files" })
+vim.keymap.set("n", "<leader>bb", function() snacks.picker.buffers() end,
+  { noremap = true, silent = true, desc = "Snacks: Show Buffers" })
 vim.keymap.set("n", "<leader>gd", function() snacks.git.blame_line() end,
   { noremap = true, silent = true, desc = "Snacks: Git Blame current Line" })
 vim.keymap.set("n", "<leader>go", function() snacks.gitbrowse() end,

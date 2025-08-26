@@ -29,27 +29,13 @@ Multiple quality of life enhancements for Neovim.
 
 | Key         | Mode | Description      |
 |-------------|------|------------------|
+| `<leader>/`      | n    | live grep                     |
+| `<leader>bb`     | n    | open buffers                  |
 | `<leader>gb` | n    | Open git history (blame) for the current line |
 | `<leader>go` | n    | Open current line on Github |
 | `<leader>op` | n    | Toggle file tree |
 | `<leader>xd` | n    | Search diagnostics |
 | `<leader>zz` | n    | Toggle Zen Mode |
-
-### telescope
-fuzzy finder for files, buffers, and more.
-
-| key              | mode | description                    |
-|------------------|------|--------------------------------|
-| `<leader>/`      | n    | live grep                     |
-| `<leader>bb`     | n    | open buffers                  |
-
-In Telescope window:
-| Key      | Mode | Description              |
-|----------|------|--------------------------|
-| `<c-t>`  | n, i | Open with Trouble       |
-| `<c-a>`  | n, i | Add to Trouble          |
-| `q`      | n    | Close                   |
-| `<esc>`  | i    | Close                   |
 
 ### LSP
 Language Server Protocol support for code intelligence.

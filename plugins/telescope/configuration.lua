@@ -64,16 +64,3 @@ local options = {
 }
 
 telescope.setup(options)
-
-vim.keymap.set(
-  "n",
-  "<leader>/",
-  "<cmd> Telescope live_grep <CR>",
-  { noremap = true, silent = true, desc = "Telescope: Live grep" }
-)
-vim.keymap.set(
-  "n",
-  "<leader>bb",
-  "<cmd> Telescope buffers <CR>",
-  { noremap = true, silent = true, desc = "Telescope: Open buffers" }
-)

@@ -27,7 +27,6 @@ let
     (mkPlugin' "lspkind")
     (mkPlugin' "nvim-treesitter-endwise")
     (mkPlugin' "plenary")
-    (mkPlugin' "which-key")
   ];
 
   mkPlugin =

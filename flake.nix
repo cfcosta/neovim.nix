@@ -228,7 +228,6 @@
           inherit (nightvim) plugins;
 
           default = nightvim;
-          fff = self.inputs.fff.packages.${system}.default;
         };
 
         checks.pre-commit-check = pre-commit-hooks.lib.${system}.run {

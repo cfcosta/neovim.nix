@@ -83,7 +83,7 @@ lspconfig.lua_ls.setup({
         },
 
         library = {
-          os.getenv("NIGHTVIM_ROOT") .. "/pack/nightvim/start",
+          os.getenv("NIGHTVIM_ROOT") .. "/pack/nightvim/opt",
           vim.env.VIMRUNTIME,
         },
       },

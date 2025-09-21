@@ -18,7 +18,7 @@ mkPlugin {
     buf
     clang-tools
     docker-compose-language-service
-    dockerfile-language-server-nodejs
+    dockerfile-language-server
     gopls
     harper
     jq-lsp

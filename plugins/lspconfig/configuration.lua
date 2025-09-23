@@ -1,4 +1,3 @@
-local lspconfig = require("lspconfig")
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 local default_options = {
@@ -10,23 +9,28 @@ local default_options = {
   end,
 }
 
+local lsp_enable = function(name, args)
+  vim.lsp.config[name] = args
+  vim.lsp.enable(name)
+end
+
 ------------------------------------------------------------------
 -- Servers Setup
 ------------------------------------------------------------------
-lspconfig.aiken.setup(default_options)
-lspconfig.bashls.setup(default_options)
-lspconfig.buf_ls.setup(default_options)
-lspconfig.docker_compose_language_service.setup(default_options)
-lspconfig.dockerls.setup(default_options)
-lspconfig.harper_ls.setup(default_options)
-lspconfig.jqls.setup(default_options)
-lspconfig.luau_lsp.setup(default_options)
-lspconfig.nixd.setup(default_options)
-lspconfig.postgres_lsp.setup(default_options)
-lspconfig.ruff.setup(default_options)
-lspconfig.taplo.setup(default_options)
+lsp_enable('aiken', default_options)
+lsp_enable('bashls', default_options)
+lsp_enable('buf_ls', default_options)
+lsp_enable('docker_compose_language_service', default_options)
+lsp_enable('dockerls', default_options)
+lsp_enable('harper_ls', default_options)
+lsp_enable('jqls', default_options)
+lsp_enable('luau_lsp', default_options)
+lsp_enable('nixd', default_options)
+lsp_enable('postgres_lsp', default_options)
+lsp_enable('ruff', default_options)
+lsp_enable('taplo', default_options)
 
-lspconfig.clangd.setup({
+lsp_enable('clangd', {
   capabilities = default_options.capabilities,
   on_attach = default_options.on_attach,
   settings = {
@@ -42,7 +46,7 @@ lspconfig.clangd.setup({
   },
 })
 
-lspconfig.gopls.setup({
+lsp_enable('gopls', {
   capabilities = default_options.capabilities,
   on_attach = default_options.on_attach,
   settings = {
@@ -58,7 +62,7 @@ lspconfig.gopls.setup({
   },
 })
 
-lspconfig.lua_ls.setup({
+lsp_enable('lua_ls', {
   capabilities = default_options.capabilities,
   on_attach = default_options.on_attach,
   settings = {
@@ -91,7 +95,7 @@ lspconfig.lua_ls.setup({
   },
 })
 
-lspconfig.pyright.setup({
+lsp_enable('pyright', {
   capabilities = default_options.capabilities,
   on_attach = default_options.on_attach,
   settings = {

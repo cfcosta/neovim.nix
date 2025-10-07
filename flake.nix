@@ -99,7 +99,7 @@
       flake = false;
     };
     obsidian-nvim = {
-      url = "github:epwalsh/obsidian.nvim";
+      url = "github:obsidian-nvim/obsidian.nvim";
       flake = false;
     };
     plenary = {

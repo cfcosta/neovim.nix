@@ -413,15 +413,15 @@
     "obsidian-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1722536347,
-        "narHash": "sha256-mbq7fAPmlwOAbWlN3lGX9WGBKTV8cAPZx8pnRCyszJc=",
-        "owner": "epwalsh",
+        "lastModified": 1759856469,
+        "narHash": "sha256-6uYT4Eyi+nGRzC7YUEwM5ScbVf6MnN+PghNq8ugzSCU=",
+        "owner": "obsidian-nvim",
         "repo": "obsidian.nvim",
-        "rev": "14e0427bef6c55da0d63f9a313fd9941be3a2479",
+        "rev": "a1d2617a5d1db4b8c53a3431943168e7a28a38d7",
         "type": "github"
       },
       "original": {
-        "owner": "epwalsh",
+        "owner": "obsidian-nvim",
         "repo": "obsidian.nvim",
         "type": "github"
       }

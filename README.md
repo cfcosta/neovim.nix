@@ -21,20 +21,20 @@ A really fast fuzzy finder
 
 | key              | mode | description                    |
 |------------------|------|--------------------------------|
-| `<leader><leader>` | n    | find files in git repo                  |
-| `<leader>ff` | n    | find files                    |
+| `<leader><leader>` | n    | Find file in git repo         |
+| `<leader>ff` | n    | Find file                        |
 
 ### Snacks.nvim
 Multiple quality of life enhancements for Neovim.
 
 | Key         | Mode | Description      |
 |-------------|------|------------------|
-| `<leader>/`      | n    | live grep                     |
-| `<leader>bb`     | n    | open buffers                  |
-| `<leader>gb` | n    | Open git history (blame) for the current line |
+| `<leader>/`      | n    | Find in files                  |
+| `<leader>bb`     | n    | Show buffers                   |
+| `<leader>gd` | n    | Show git blame for current line |
 | `<leader>go` | n    | Open current line on Github |
-| `<leader>op` | n    | Toggle file tree |
-| `<leader>xd` | n    | Search diagnostics |
+| `<leader>op` | n    | Toggle file explorer |
+| `<leader>xd` | n    | Show diagnostics |
 | `<leader>zz` | n    | Toggle Zen Mode |
 
 ### LSP
@@ -63,7 +63,7 @@ A pretty diagnostics, references, telescope results, quickfix and location list.
 | `<leader>xx`  | n    | Toggle diagnostics                    |
 | `<leader>xX`  | n    | Toggle buffer diagnostics             |
 | `<leader>cs`  | n    | Toggle symbols                        |
-| `<leader>cl`  | n    | Toggle LSP                           |
+| `<leader>cl`  | n    | Toggle LSP references                |
 | `<leader>xL`  | n    | Toggle location list                  |
 | `<leader>xQ`  | n    | Toggle quickfix list                  |
 
@@ -74,7 +74,7 @@ Terminal management within Neovim.
 |---------------|------|---------------------------------------|
 | `<leader>]`   | n    | Send current line to terminal         |
 | `<leader>oF`  | n    | Open terminal in new tab             |
-| `<leader>oT`  | n    | Open terminal in vertical split      |
+| `<leader>oT`  | n    | Open vertical terminal               |
 | `<leader>of`  | n    | Open floating terminal               |
 | `<leader>ot`  | n    | Open terminal in horizontal split    |
 
@@ -83,27 +83,21 @@ Note-taking and knowledge base with Obsidian vault integration.
 
 | Key           | Mode | Description                           |
 |---------------|------|---------------------------------------|
-| `<leader>nn`  | n    | Quick switch note                     |
-| `<leader>nd`  | n    | Find daily notes                      |
-| `<leader>nT`  | n    | Open tomorrow's note                  |
 | `<leader>n/`  | n    | Search notes                          |
+| `<leader>nd`  | n    | Find daily notes                      |
+| `<leader>ns`  | n    | Quick switch note                     |
 | `<leader>nt`  | n    | Open today's note                     |
+| `<leader>nT`  | n    | Open tomorrow's note                  |
 | `<leader>ny`  | n    | Open yesterday's note                 |
-
-### Todo Comments
-Todo comment tracking and management.
-
-| Key           | Mode | Description                           |
-|---------------|------|---------------------------------------|
-| `<leader>tt`  | n    | Find comments with Telescope          |
-| `<leader>xt`  | n    | Find comments with Trouble            |
+| `<leader>nn`  | n    | Search this week's notes              |
+| `<leader>nN`  | n    | Search last week's notes              |
 
 ### Grug Far
 Advanced search and replace across files.
 
 | Key           | Mode | Description                           |
 |---------------|------|---------------------------------------|
-| `<leader>fr`  | n    | Replace files in project             |
+| `<leader>fr`  | n    | Open Grug Far                        |
 
 In Grug Far window:
 | Key           | Mode | Description                           |
@@ -116,10 +110,10 @@ In Grug Far window:
 | `<leader>t`   | n    | Open history                         |
 | `<leader>a`   | n    | Add to history                       |
 | `<leader>f`   | n    | Refresh                              |
-| `<leader>o`   | n    | Open location                        |
+| `<leader>o`   | n    | Open selected location               |
 | `<down>`      | n    | Open next location                   |
 | `<up>`        | n    | Open previous location               |
-| `<enter>`     | n    | Go to location/Pick history entry    |
+| `<enter>`     | n    | Go to location / pick history entry  |
 | `<leader>b`   | n    | Abort                                |
 | `g?`          | n    | Help                                 |
 | `<leader>p`   | n    | Toggle show command                  |

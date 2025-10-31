@@ -17,7 +17,6 @@ mkPlugin {
     # snacks.image
     ghostscript
     tectonic
-    mermaid-cli
   ];
   config = readFile ./configuration.lua;
 }

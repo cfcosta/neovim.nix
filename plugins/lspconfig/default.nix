@@ -25,7 +25,7 @@ mkPlugin {
     lua-language-server
     luau
     nixd
-    postgres-lsp
+    postgres-language-server
     pyright
     ruff
     taplo

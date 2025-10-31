@@ -28,7 +28,7 @@ mkPlugin {
     postgres-lsp
     pyright
     ruff
-    taplo-lsp
+    taplo
   ];
 
   config = readFile ./configuration.lua;

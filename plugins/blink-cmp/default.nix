@@ -4,9 +4,12 @@
   pkgs,
   ...
 }:
+let
+  inherit (pkgs.stdenv.hostPlatform) system;
+in
 mkPlugin {
   name = "blink-cmp";
-  src = inputs.blink-cmp.packages.${pkgs.system}.blink-cmp;
+  src = inputs.blink-cmp.packages.${system}.blink-cmp;
 
   depends = [
     "colorful-menu"

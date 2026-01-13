@@ -260,7 +260,7 @@
           packages = with pkgs; [
             deadnix
             luaPackages.luacheck
-            nixfmt-rfc-style
+            nixfmt
             statix
             stylua
           ];

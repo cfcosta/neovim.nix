@@ -18,7 +18,7 @@ mkPlugin {
     cmake-format
     gofumpt
     jq
-    nixfmt-rfc-style
+    nixfmt
     ruff
     shellcheck
     shfmt

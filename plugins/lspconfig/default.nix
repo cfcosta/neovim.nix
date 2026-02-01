@@ -26,9 +26,9 @@ mkPlugin {
     luau
     nixd
     postgres-language-server
-    pyright
     ruff
     taplo
+    ty
   ];
 
   config = readFile ./configuration.lua;

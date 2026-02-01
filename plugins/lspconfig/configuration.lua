@@ -29,6 +29,7 @@ lsp_enable("nixd", default_options)
 lsp_enable("postgres_lsp", default_options)
 lsp_enable("ruff", default_options)
 lsp_enable("taplo", default_options)
+lsp_enable("ty", default_options)
 
 lsp_enable("clangd", {
   capabilities = default_options.capabilities,
@@ -91,16 +92,6 @@ lsp_enable("lua_ls", {
           vim.env.VIMRUNTIME,
         },
       },
-    },
-  },
-})
-
-lsp_enable("pyright", {
-  capabilities = default_options.capabilities,
-  on_attach = default_options.on_attach,
-  settings = {
-    pyright = {
-      disableOrganizeImports = true,
     },
   },
 })

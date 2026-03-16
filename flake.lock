@@ -126,9 +126,7 @@
     "fff": {
       "inputs": {
         "crane": "crane",
-        "flake-utils": [
-          "flake-utils"
-        ],
+        "flake-utils": "flake-utils",
         "nixpkgs": [
           "nixpkgs"
         ],
@@ -525,7 +523,6 @@
         "comment": "comment",
         "conform-nvim": "conform-nvim",
         "fff": "fff",
-        "flake-utils": "flake-utils",
         "friendly-snippets": "friendly-snippets",
         "gitignore": "gitignore",
         "gitsigns": "gitsigns",

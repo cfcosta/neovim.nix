@@ -2,7 +2,6 @@
   description = "A great neovim config";
 
   inputs = {
-    flake-utils.url = "github:numtide/flake-utils";
     gitignore = {
       url = "github:hercules-ci/gitignore.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,7 +49,6 @@
 
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
         rust-overlay.follows = "rust-overlay";
       };
     };
@@ -153,19 +151,25 @@
   };
 
   outputs =
-    {
+    inputs@{
       self,
-      flake-utils,
       nixpkgs,
       pre-commit-hooks,
       rust-overlay,
       treefmt-nix,
       ...
     }:
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        pkgs = import nixpkgs {
+    let
+      supportedSystems = [
+        "aarch64-linux"
+        "aarch64-darwin"
+        "x86_64-darwin"
+        "x86_64-linux"
+      ];
+
+      mkPkgs =
+        system:
+        import nixpkgs {
           inherit system;
 
           overlays = [
@@ -182,7 +186,7 @@
                   ];
                 };
 
-                rustPlatform = pkgs.makeRustPlatform {
+                rustPlatform = final.makeRustPlatform {
                   rustc = rust;
                   cargo = rust;
                 };
@@ -191,80 +195,118 @@
           ];
         };
 
-        nightvim = pkgs.callPackage ./lib { inherit (self) inputs; };
-        treefmt =
-          (treefmt-nix.lib.evalModule pkgs {
-            projectRootFile = "flake.nix";
+      mkNightvim = pkgs: pkgs.callPackage ./lib { inherit inputs; };
 
-            settings = {
-              allow-missing-formatter = true;
-              verbose = 0;
+      mkFormatter =
+        pkgs:
+        (treefmt-nix.lib.evalModule pkgs {
+          projectRootFile = "flake.nix";
 
-              global.excludes = [
-                "*.lock"
-                "LICENSE"
-                "*.md"
+          settings = {
+            allow-missing-formatter = true;
+            verbose = 0;
+
+            global.excludes = [
+              "*.lock"
+              "LICENSE"
+              "*.md"
+            ];
+
+            formatter = {
+              nixfmt.options = [ "--strict" ];
+              shfmt.options = [
+                "--ln"
+                "bash"
               ];
-
-              formatter = {
-                nixfmt.options = [ "--strict" ];
-                shfmt.options = [
-                  "--ln"
-                  "bash"
-                ];
-                prettier.excludes = [ "*.md" ];
-              };
+              prettier.excludes = [ "*.md" ];
             };
+          };
 
-            programs = {
-              nixfmt.enable = true;
-              prettier.enable = true;
-              shfmt.enable = true;
-              stylua.enable = true;
-              taplo.enable = true;
-            };
-          }).config.build.wrapper;
-      in
-      {
-        formatter = treefmt;
+          programs = {
+            nixfmt.enable = true;
+            prettier.enable = true;
+            shfmt.enable = true;
+            stylua.enable = true;
+            taplo.enable = true;
+          };
+        }).config.build.wrapper;
 
-        packages = {
+      forEachSupportedSystem =
+        f:
+        nixpkgs.lib.genAttrs supportedSystems (
+          system:
+          let
+            pkgs = mkPkgs system;
+            nightvim = mkNightvim pkgs;
+            treefmt = mkFormatter pkgs;
+          in
+          f {
+            inherit
+              system
+              pkgs
+              nightvim
+              treefmt
+              ;
+          }
+        );
+    in
+    {
+      formatter = forEachSupportedSystem ({ treefmt, ... }: treefmt);
+
+      packages = forEachSupportedSystem (
+        { nightvim, ... }:
+        {
           inherit nightvim;
           inherit (nightvim) plugins;
 
           default = nightvim;
-        };
+        }
+      );
 
-        checks.pre-commit-check = pre-commit-hooks.lib.${system}.run {
-          src = ./.;
+      checks = forEachSupportedSystem (
+        {
+          pkgs,
+          system,
+          treefmt,
+          ...
+        }:
+        {
+          pre-commit-check = pre-commit-hooks.lib.${system}.run {
+            src = ./.;
 
-          hooks = {
-            deadnix.enable = true;
-            statix.enable = true;
+            hooks = {
+              deadnix.enable = true;
+              statix.enable = true;
 
-            treefmt = {
-              enable = true;
-              package = treefmt;
-            };
+              treefmt = {
+                enable = true;
+                package = treefmt;
+              };
 
-            luacheck = {
-              enable = true;
-              entry = "${pkgs.luajitPackages.luacheck}/bin/luacheck --std luajit --globals vim -- ";
+              luacheck = {
+                enable = true;
+                entry = "${pkgs.luajitPackages.luacheck}/bin/luacheck --std luajit --globals vim -- ";
+              };
             };
           };
-        };
+        }
+      );
 
-        devShells.default = pkgs.mkShell {
-          inherit (self.checks.${system}.pre-commit-check) shellHook;
+      devShells = forEachSupportedSystem (
+        { pkgs, system, ... }:
+        {
+          default = pkgs.mkShell {
+            inherit (self.checks.${system}.pre-commit-check) shellHook;
 
-          packages = with pkgs; [
-            deadnix
-            luaPackages.luacheck
-            nixfmt
-            statix
-            stylua
-          ];
-        };
-      }
-    );
+            packages = with pkgs; [
+              deadnix
+              luaPackages.luacheck
+              nixfmt
+              statix
+              stylua
+            ];
+          };
+        }
+      );
+    };
 }

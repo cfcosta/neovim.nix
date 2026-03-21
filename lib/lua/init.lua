@@ -2,15 +2,32 @@ local M = {}
 
 M.plugins = {}
 
-M.setup_plugin = function(name, depends, config)
-  M.plugins[name] = { depends = depends, config = config, loaded = false }
+local function has_values(tbl)
+  return tbl and next(tbl) ~= nil
+end
+
+local function normalize_modes(mode)
+  if type(mode) == "table" then
+    return mode
+  end
+
+  return { mode or "n" }
+end
+
+M.setup_plugin = function(name, depends, config, lazy)
+  M.plugins[name] = {
+    depends = depends,
+    config = config,
+    lazy = lazy or {},
+    loaded = false,
+  }
 end
 
 M.load_plugin = function(name)
   local plugin = M.plugins[name]
 
   if not plugin then
-    error("Plugin " .. plugin .. " not found")
+    error("Plugin " .. name .. " not found")
   end
 
   if plugin.loaded then
@@ -38,13 +55,12 @@ M.sort_plugins = function()
   local visited = {}
   local queue = {}
 
-  -- Enqueue all plugins initially
   for name, _ in pairs(M.plugins) do
     table.insert(queue, name)
   end
 
   while #queue > 0 do
-    local name = table.remove(queue, 1) -- Dequeue
+    local name = table.remove(queue, 1)
 
     if not visited[name] then
       visited[name] = true
@@ -55,7 +71,6 @@ M.sort_plugins = function()
         error("Plugin " .. name .. " not found")
       end
 
-      -- Enqueue dependencies
       for _, dep_name in ipairs(plugin.depends or {}) do
         if not visited[dep_name] then
           table.insert(queue, dep_name)
@@ -66,12 +81,69 @@ M.sort_plugins = function()
     end
   end
 
-  -- Reverse the sorted list to maintain dependency order
   for i = 1, #sorted / 2 do
     sorted[i], sorted[#sorted - i + 1] = sorted[#sorted - i + 1], sorted[i]
   end
 
   return sorted
+end
+
+M.is_lazy = function(plugin)
+  return has_values(plugin.lazy)
+end
+
+M.replay_keys = function(lhs)
+  local keys = vim.api.nvim_replace_termcodes(lhs, true, false, true)
+  vim.api.nvim_feedkeys(keys, "m", false)
+end
+
+M.register_lazy_filetypes = function(name, filetypes)
+  if not has_values(filetypes) then
+    return
+  end
+
+  vim.api.nvim_create_autocmd("FileType", {
+    group = vim.api.nvim_create_augroup("NightvimLazyFt_" .. name, { clear = true }),
+    once = true,
+    pattern = filetypes,
+    callback = function()
+      M.load_plugin(name)
+    end,
+  })
+end
+
+M.register_lazy_keys = function(name, keys)
+  if not has_values(keys) then
+    return
+  end
+
+  for _, key in ipairs(keys) do
+    vim.keymap.set(key.mode or "n", key.lhs, function()
+      for _, mode in ipairs(normalize_modes(key.mode)) do
+        pcall(vim.keymap.del, mode, key.lhs)
+      end
+
+      M.load_plugin(name)
+      vim.schedule(function()
+        M.replay_keys(key.lhs)
+      end)
+    end, {
+      desc = key.desc,
+      noremap = true,
+      silent = true,
+    })
+  end
+end
+
+M.register_lazy_plugin = function(name)
+  local plugin = M.plugins[name]
+
+  if not plugin or not M.is_lazy(plugin) then
+    return
+  end
+
+  M.register_lazy_filetypes(name, plugin.lazy.ft)
+  M.register_lazy_keys(name, plugin.lazy.keys)
 end
 
 M.finish = function()
@@ -88,7 +160,13 @@ M.finish = function()
   vim.g.loaded_ruby_provider = 0
 
   for _, name in ipairs(M.sort_plugins()) do
-    M.load_plugin(name)
+    M.register_lazy_plugin(name)
+  end
+
+  for _, name in ipairs(M.sort_plugins()) do
+    if not M.is_lazy(M.plugins[name]) then
+      M.load_plugin(name)
+    end
   end
 
   vim.keymap.set(

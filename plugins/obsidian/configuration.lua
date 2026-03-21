@@ -21,19 +21,49 @@ require("obsidian").setup({
   },
 })
 
-vim.keymap.set("n", "<leader>n/", "<cmd> Obsidian search<CR>", { desc = "Obsidian: Search notes" })
-vim.keymap.set("n", "<leader>nT", "<cmd> Obsidian tomorrow<CR>", { desc = "Obsidian: Open tomorrow's note" })
-vim.keymap.set("n", "<leader>nd", "<cmd> Obsidian dailies<CR>", { desc = "Obsidian: Find daily notes" })
-vim.keymap.set("n", "<leader>nt", "<cmd> Obsidian today<CR>", { desc = "Obsidian: Open today's note" })
-vim.keymap.set("n", "<leader>ny", "<cmd> Obsidian yesterday<CR>", { desc = "Obsidian: Open yesterday's note" })
-vim.keymap.set("n", "<leader>ns", "<cmd> Obsidian quick_switch<CR>", { desc = "Obsidian: Quick switch note" })
+local obsidian_commands = require("obsidian.commands")
+
+local function run_obsidian(...)
+  local fargs = { ... }
+
+  obsidian_commands.handle_command({
+    args = table.concat(fargs, " "),
+    bang = false,
+    fargs = fargs,
+    line1 = 0,
+    line2 = 0,
+    mods = "",
+    range = 0,
+  })
+end
+
+vim.keymap.set("n", "<leader>n/", function()
+  run_obsidian("search")
+end, { desc = "Obsidian: Search notes" })
+vim.keymap.set("n", "<leader>nT", function()
+  run_obsidian("tomorrow")
+end, { desc = "Obsidian: Open tomorrow's note" })
+vim.keymap.set("n", "<leader>nd", function()
+  run_obsidian("dailies")
+end, { desc = "Obsidian: Find daily notes" })
+vim.keymap.set("n", "<leader>nt", function()
+  run_obsidian("today")
+end, { desc = "Obsidian: Open today's note" })
+vim.keymap.set("n", "<leader>ny", function()
+  run_obsidian("yesterday")
+end, { desc = "Obsidian: Open yesterday's note" })
+vim.keymap.set("n", "<leader>ns", function()
+  run_obsidian("quick_switch")
+end, { desc = "Obsidian: Quick switch note" })
 
 vim.keymap.set("n", "<leader>nn", function()
-  vim.cmd(("Obsidian dailies %d"):format(-tonumber(vim.fn.strftime("%u"))))
+  run_obsidian("dailies", tostring(-tonumber(vim.fn.strftime("%u"))))
 end, { desc = "Obsidian: search on currently week notes" })
 
 vim.keymap.set("n", "<leader>nN", function()
-  vim.cmd(
-    ("Obsidian dailies %d %d"):format((-tonumber(vim.fn.strftime("%u"))) - 7, (-tonumber(vim.fn.strftime("%u"))) - 1)
+  run_obsidian(
+    "dailies",
+    tostring((-tonumber(vim.fn.strftime("%u"))) - 7),
+    tostring((-tonumber(vim.fn.strftime("%u"))) - 1)
   )
 end, { desc = "Obsidian: search on previous week notes" })

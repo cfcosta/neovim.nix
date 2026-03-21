@@ -36,6 +36,7 @@ let
       src,
       config ? "",
       depends ? [ ],
+      lazy ? { },
       ...
     }:
     let
@@ -56,6 +57,7 @@ let
             src
             inputs
             depends
+            lazy
             ;
 
           config = if isPath config then readFile config else config;

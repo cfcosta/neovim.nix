@@ -22,11 +22,11 @@ let
   toLua =
     value:
     if isAttrs value then
-      "{ ${lib.concatStringsSep ", " (lib.mapAttrsToList (k: v: "${toLua k} = ${toLua v}") value)} }"
+      "{ ${lib.concatStringsSep ", " (lib.mapAttrsToList (k: v: "[${toLua k}] = ${toLua v}") value)} }"
     else if isList value then
       "{ ${lib.concatStringsSep ", " (map toLua value)} }"
     else if isString value then
-      "[[${value}]]"
+      builtins.toJSON value
     else
       toString value;
 
@@ -36,7 +36,8 @@ let
       ${toLua p.depends},
       function()
         ${p.config}
-      end
+      end,
+      ${toLua p.lazy}
     )'';
 
   initFile = ''

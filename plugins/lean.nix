@@ -15,6 +15,8 @@ mkPlugin {
     "plenary"
   ];
 
+  lazy.ft = [ "lean" ];
+
   config = ''
     require('lean').setup{
       abbreviations = { builtin = true },

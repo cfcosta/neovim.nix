@@ -16,5 +16,15 @@ mkPlugin {
     ripgrep
   ];
 
+  lazy = {
+    keys = [
+      {
+        mode = "n";
+        lhs = "<leader>fr";
+        desc = "Grug-far: Find and replace in project";
+      }
+    ];
+  };
+
   config = readFile ./configuration.lua;
 }

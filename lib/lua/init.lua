@@ -135,6 +135,35 @@ M.register_lazy_keys = function(name, keys)
   end
 end
 
+M.register_lazy_commands = function(name, commands)
+  if not has_values(commands) then
+    return
+  end
+
+  for _, command_name in ipairs(commands) do
+    vim.api.nvim_create_user_command(command_name, function(opts)
+      pcall(vim.api.nvim_del_user_command, command_name)
+      M.load_plugin(name)
+
+      local prefix = ""
+      if opts.count and opts.count > 0 then
+        prefix = tostring(opts.count)
+      end
+
+      local command = prefix .. command_name .. (opts.bang and "!" or "")
+      if opts.args ~= "" then
+        command = command .. " " .. opts.args
+      end
+
+      vim.cmd(command)
+    end, {
+      bang = true,
+      count = true,
+      nargs = "*",
+    })
+  end
+end
+
 M.register_lazy_plugin = function(name)
   local plugin = M.plugins[name]
 
@@ -144,6 +173,7 @@ M.register_lazy_plugin = function(name)
 
   M.register_lazy_filetypes(name, plugin.lazy.ft)
   M.register_lazy_keys(name, plugin.lazy.keys)
+  M.register_lazy_commands(name, plugin.lazy.cmd)
 end
 
 M.finish = function()

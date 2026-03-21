@@ -15,6 +15,9 @@ mkPlugin {
     "plenary"
   ];
   inputs = with pkgs; [ ripgrep ];
+  lazy = {
+    manual = true;
+  };
   config = readFile ./configuration.lua;
   src = inputs.telescope;
 }

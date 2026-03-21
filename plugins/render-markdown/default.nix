@@ -15,5 +15,9 @@ mkPlugin {
 
   inputs = with pkgs; [ python312Packages.pylatexenc ];
 
+  lazy = {
+    ft = [ "markdown" ];
+  };
+
   config = readFile ./configuration.lua;
 }

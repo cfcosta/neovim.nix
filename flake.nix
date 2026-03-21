@@ -7,13 +7,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    pre-commit-hooks = {
-      url = "github:cachix/pre-commit-hooks.nix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        gitignore.follows = "gitignore";
-      };
-    };
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -154,7 +147,6 @@
     inputs@{
       self,
       nixpkgs,
-      pre-commit-hooks,
       rust-overlay,
       treefmt-nix,
       ...
@@ -263,41 +255,10 @@
         }
       );
 
-      checks = forEachSupportedSystem (
-        {
-          pkgs,
-          system,
-          treefmt,
-          ...
-        }:
-        {
-          pre-commit-check = pre-commit-hooks.lib.${system}.run {
-            src = ./.;
-
-            hooks = {
-              deadnix.enable = true;
-              statix.enable = true;
-
-              treefmt = {
-                enable = true;
-                package = treefmt;
-              };
-
-              luacheck = {
-                enable = true;
-                entry = "${pkgs.luajitPackages.luacheck}/bin/luacheck --std luajit --globals vim -- ";
-              };
-            };
-          };
-        }
-      );
-
       devShells = forEachSupportedSystem (
-        { pkgs, system, ... }:
+        { pkgs, ... }:
         {
           default = pkgs.mkShell {
-            inherit (self.checks.${system}.pre-commit-check) shellHook;
-
             packages = with pkgs; [
               deadnix
               luaPackages.luacheck

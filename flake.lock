@@ -505,7 +505,6 @@
         "snacks": "snacks",
         "surround": "surround",
         "telescope": "telescope",
-        "toggleterm-nvim": "toggleterm-nvim",
         "tokyonight": "tokyonight",
         "treefmt-nix": "treefmt-nix",
         "treesj": "treesj",
@@ -626,22 +625,6 @@
       "original": {
         "owner": "nvim-telescope",
         "repo": "telescope.nvim",
-        "type": "github"
-      }
-    },
-    "toggleterm-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1741512039,
-        "narHash": "sha256-fytbX+L12TK45YKFU9K+iFJcDrwboKabihc2LtX29J4=",
-        "owner": "akinsho",
-        "repo": "toggleterm.nvim",
-        "rev": "9a88eae817ef395952e08650b3283726786fb5fb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "akinsho",
-        "repo": "toggleterm.nvim",
         "type": "github"
       }
     },

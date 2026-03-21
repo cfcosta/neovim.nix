@@ -2,7 +2,6 @@ local executors = require("rustaceanvim.executors")
 vim.g.rustaceanvim = function()
   return {
     tools = {
-      executor = executors.toggleterm,
       enable_clippy = true,
       enable_nextest = true,
     },

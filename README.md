@@ -67,17 +67,6 @@ A pretty diagnostics, references, telescope results, quickfix and location list.
 | `<leader>xL`  | n    | Toggle location list                  |
 | `<leader>xQ`  | n    | Toggle quickfix list                  |
 
-### Toggleterm
-Terminal management within Neovim.
-
-| Key           | Mode | Description                           |
-|---------------|------|---------------------------------------|
-| `<leader>]`   | n    | Send current line to terminal         |
-| `<leader>oF`  | n    | Open terminal in new tab             |
-| `<leader>oT`  | n    | Open vertical terminal               |
-| `<leader>of`  | n    | Open floating terminal               |
-| `<leader>ot`  | n    | Open terminal in horizontal split    |
-
 ### Obsidian
 Note-taking and knowledge base with Obsidian vault integration.
 

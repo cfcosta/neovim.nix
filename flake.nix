@@ -121,10 +121,6 @@
       url = "github:nvim-telescope/telescope.nvim";
       flake = false;
     };
-    toggleterm-nvim = {
-      url = "github:akinsho/toggleterm.nvim";
-      flake = false;
-    };
     tokyonight = {
       url = "github:folke/tokyonight.nvim";
       flake = false;

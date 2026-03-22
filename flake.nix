@@ -141,7 +141,6 @@
 
   outputs =
     inputs@{
-      self,
       nixpkgs,
       rust-overlay,
       treefmt-nix,
@@ -185,40 +184,6 @@
 
       mkNightvim = pkgs: pkgs.callPackage ./lib { inherit inputs; };
 
-      mkFormatter =
-        pkgs:
-        (treefmt-nix.lib.evalModule pkgs {
-          projectRootFile = "flake.nix";
-
-          settings = {
-            allow-missing-formatter = true;
-            verbose = 0;
-
-            global.excludes = [
-              "*.lock"
-              "LICENSE"
-              "*.md"
-            ];
-
-            formatter = {
-              nixfmt.options = [ "--strict" ];
-              shfmt.options = [
-                "--ln"
-                "bash"
-              ];
-              prettier.excludes = [ "*.md" ];
-            };
-          };
-
-          programs = {
-            nixfmt.enable = true;
-            prettier.enable = true;
-            shfmt.enable = true;
-            stylua.enable = true;
-            taplo.enable = true;
-          };
-        }).config.build.wrapper;
-
       forEachSupportedSystem =
         f:
         nixpkgs.lib.genAttrs supportedSystems (
@@ -226,20 +191,40 @@
           let
             pkgs = mkPkgs system;
             nightvim = mkNightvim pkgs;
-            treefmt = mkFormatter pkgs;
           in
-          f {
-            inherit
-              system
-              pkgs
-              nightvim
-              treefmt
-              ;
-          }
+          f { inherit system pkgs nightvim; }
         );
     in
     {
-      formatter = forEachSupportedSystem ({ treefmt, ... }: treefmt);
+      formatter = forEachSupportedSystem (
+        { pkgs, ... }:
+        (treefmt-nix.lib.evalModule pkgs {
+          projectRootFile = "flake.nix";
+
+          settings = {
+            allow-missing-formatter = true;
+            verbose = 0;
+
+            global.excludes = [ "*.lock" ];
+
+            formatter = {
+              nixfmt.options = [ "--strict" ];
+              shfmt.options = [
+                "--ln"
+                "bash"
+              ];
+            };
+          };
+
+          programs = {
+            nixfmt.enable = true;
+            oxfmt.enable = true;
+            shfmt.enable = true;
+            stylua.enable = true;
+            taplo.enable = true;
+          };
+        }).config.build.wrapper
+      );
 
       packages = forEachSupportedSystem (
         { nightvim, ... }:

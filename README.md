@@ -2,9 +2,9 @@
 
 A Nix-native Neovim config, with everything you expect:
 
-* LSP Config (tools included)
-* Format on Save (formatters included)
-* AI Support
+- LSP Config (tools included)
+- Format on Save (formatters included)
+- AI Support
 
 ## Try It!
 
@@ -17,118 +17,126 @@ nix run github:cfcosta/neovim.nix#
 ## Keybindings
 
 ### fff
+
 A really fast fuzzy finder
 
-| key              | mode | description                    |
-|------------------|------|--------------------------------|
-| `<leader><leader>` | n    | Find file in git repo         |
-| `<leader>ff` | n    | Find file                        |
+| key                | mode | description           |
+| ------------------ | ---- | --------------------- |
+| `<leader><leader>` | n    | Find file in git repo |
+| `<leader>ff`       | n    | Find file             |
 
 ### Snacks.nvim
+
 Multiple quality of life enhancements for Neovim.
 
-| Key         | Mode | Description      |
-|-------------|------|------------------|
-| `<leader>/`      | n    | Find in files                  |
-| `<leader>bb`     | n    | Show buffers                   |
+| Key          | Mode | Description                     |
+| ------------ | ---- | ------------------------------- |
+| `<leader>/`  | n    | Find in files                   |
+| `<leader>bb` | n    | Show buffers                    |
 | `<leader>gd` | n    | Show git blame for current line |
-| `<leader>go` | n    | Open current line on Github |
-| `<leader>op` | n    | Toggle file explorer |
-| `<leader>xd` | n    | Show diagnostics |
-| `<leader>zz` | n    | Toggle Zen Mode |
+| `<leader>go` | n    | Open current line on Github     |
+| `<leader>op` | n    | Toggle file explorer            |
+| `<leader>xd` | n    | Show diagnostics                |
+| `<leader>zz` | n    | Toggle Zen Mode                 |
 
 ### LSP
+
 Language Server Protocol support for code intelligence.
 
-| Key           | Mode | Description                           |
-|---------------|------|---------------------------------------|
-| `gd`          | n    | Go to declaration                     |
-| `gD`          | n    | Go to definition                      |
-| `K`           | n    | Show hover information                |
-| `gi`          | n    | Go to implementation                  |
-| `<leader>ls`  | n    | Show signature help                   |
-| `<leader>D`   | n    | Go to type definition                 |
-| `<leader>ca`  | n    | Code action                          |
-| `<leader>cF`  | n    | Open diagnostic float                |
-| `[d`          | n    | Go to previous diagnostic            |
-| `d]`          | n    | Go to next diagnostic                |
-| `<leader>cq`  | n    | Set diagnostics to location list     |
-| `<leader>cr`  | n    | Rename symbol                        |
+| Key          | Mode | Description                      |
+| ------------ | ---- | -------------------------------- |
+| `gd`         | n    | Go to declaration                |
+| `gD`         | n    | Go to definition                 |
+| `K`          | n    | Show hover information           |
+| `gi`         | n    | Go to implementation             |
+| `<leader>ls` | n    | Show signature help              |
+| `<leader>D`  | n    | Go to type definition            |
+| `<leader>ca` | n    | Code action                      |
+| `<leader>cF` | n    | Open diagnostic float            |
+| `[d`         | n    | Go to previous diagnostic        |
+| `d]`         | n    | Go to next diagnostic            |
+| `<leader>cq` | n    | Set diagnostics to location list |
+| `<leader>cr` | n    | Rename symbol                    |
 
 ### Trouble
+
 A pretty diagnostics, references, telescope results, quickfix and location list.
 
-| Key           | Mode | Description                           |
-|---------------|------|---------------------------------------|
-| `<leader>xx`  | n    | Toggle diagnostics                    |
-| `<leader>xX`  | n    | Toggle buffer diagnostics             |
-| `<leader>cs`  | n    | Toggle symbols                        |
-| `<leader>cl`  | n    | Toggle LSP references                |
-| `<leader>xL`  | n    | Toggle location list                  |
-| `<leader>xQ`  | n    | Toggle quickfix list                  |
+| Key          | Mode | Description               |
+| ------------ | ---- | ------------------------- |
+| `<leader>xx` | n    | Toggle diagnostics        |
+| `<leader>xX` | n    | Toggle buffer diagnostics |
+| `<leader>cs` | n    | Toggle symbols            |
+| `<leader>cl` | n    | Toggle LSP references     |
+| `<leader>xL` | n    | Toggle location list      |
+| `<leader>xQ` | n    | Toggle quickfix list      |
 
 ### Obsidian
+
 Note-taking and knowledge base with Obsidian vault integration.
 
-| Key           | Mode | Description                           |
-|---------------|------|---------------------------------------|
-| `<leader>n/`  | n    | Search notes                          |
-| `<leader>nd`  | n    | Find daily notes                      |
-| `<leader>ns`  | n    | Quick switch note                     |
-| `<leader>nt`  | n    | Open today's note                     |
-| `<leader>nT`  | n    | Open tomorrow's note                  |
-| `<leader>ny`  | n    | Open yesterday's note                 |
-| `<leader>nn`  | n    | Search this week's notes              |
-| `<leader>nN`  | n    | Search last week's notes              |
+| Key          | Mode | Description              |
+| ------------ | ---- | ------------------------ |
+| `<leader>n/` | n    | Search notes             |
+| `<leader>nd` | n    | Find daily notes         |
+| `<leader>ns` | n    | Quick switch note        |
+| `<leader>nt` | n    | Open today's note        |
+| `<leader>nT` | n    | Open tomorrow's note     |
+| `<leader>ny` | n    | Open yesterday's note    |
+| `<leader>nn` | n    | Search this week's notes |
+| `<leader>nN` | n    | Search last week's notes |
 
 ### Grug Far
+
 Advanced search and replace across files.
 
-| Key           | Mode | Description                           |
-|---------------|------|---------------------------------------|
-| `<leader>fr`  | n    | Open Grug Far                        |
+| Key          | Mode | Description   |
+| ------------ | ---- | ------------- |
+| `<leader>fr` | n    | Open Grug Far |
 
 In Grug Far window:
-| Key           | Mode | Description                           |
+| Key | Mode | Description |
 |---------------|------|---------------------------------------|
-| `<leader>r`   | n    | Replace                              |
-| `<leader>q`   | n    | Quickfix list                        |
-| `<leader>s`   | n    | Sync locations                       |
-| `<leader>l`   | n    | Sync line                            |
-| `<leader>c`   | n    | Close                                |
-| `<leader>t`   | n    | Open history                         |
-| `<leader>a`   | n    | Add to history                       |
-| `<leader>f`   | n    | Refresh                              |
-| `<leader>o`   | n    | Open selected location               |
-| `<down>`      | n    | Open next location                   |
-| `<up>`        | n    | Open previous location               |
-| `<enter>`     | n    | Go to location / pick history entry  |
-| `<leader>b`   | n    | Abort                                |
-| `g?`          | n    | Help                                 |
-| `<leader>p`   | n    | Toggle show command                  |
-| `<leader>e`   | n    | Swap engine                          |
-| `<leader>i`   | n    | Preview location                     |
+| `<leader>r` | n | Replace |
+| `<leader>q` | n | Quickfix list |
+| `<leader>s` | n | Sync locations |
+| `<leader>l` | n | Sync line |
+| `<leader>c` | n | Close |
+| `<leader>t` | n | Open history |
+| `<leader>a` | n | Add to history |
+| `<leader>f` | n | Refresh |
+| `<leader>o` | n | Open selected location |
+| `<down>` | n | Open next location |
+| `<up>` | n | Open previous location |
+| `<enter>` | n | Go to location / pick history entry |
+| `<leader>b` | n | Abort |
+| `g?` | n | Help |
+| `<leader>p` | n | Toggle show command |
+| `<leader>e` | n | Swap engine |
+| `<leader>i` | n | Preview location |
 
 ### Rustacean
+
 Enhanced Rust development environment.
 
-| Key           | Mode | Description                           |
-|---------------|------|---------------------------------------|
-| `<leader>j`   | v    | Join lines                            |
-| `<leader>cc`  | n    | Code actions                         |
-| `<leader>rr`  | n    | Run checks                           |
-| `<leader>rh`  | n    | View HIR                             |
-| `<leader>rm`  | n    | View MIR                             |
-| `<leader>rt`  | n    | Run test                             |
-| `<leader>rT`  | n    | Run last ran test                    |
-| `<leader>rd`  | n    | Open rustdoc for symbol under cursor|
+| Key          | Mode | Description                          |
+| ------------ | ---- | ------------------------------------ |
+| `<leader>j`  | v    | Join lines                           |
+| `<leader>cc` | n    | Code actions                         |
+| `<leader>rr` | n    | Run checks                           |
+| `<leader>rh` | n    | View HIR                             |
+| `<leader>rm` | n    | View MIR                             |
+| `<leader>rt` | n    | Run test                             |
+| `<leader>rT` | n    | Run last ran test                    |
+| `<leader>rd` | n    | Open rustdoc for symbol under cursor |
 
 ### Window Management
+
 Built-in window management commands.
 
-| Key           | Mode | Description                           |
-|---------------|------|---------------------------------------|
-| `<leader>wv`  | n    | Split window vertically              |
-| `<leader>ws`  | n    | Split window horizontally            |
-| `<leader>wc`  | n    | Close current window                 |
-| `<leader>wo`  | n    | Close all windows except current     |
+| Key          | Mode | Description                      |
+| ------------ | ---- | -------------------------------- |
+| `<leader>wv` | n    | Split window vertically          |
+| `<leader>ws` | n    | Split window horizontally        |
+| `<leader>wc` | n    | Close current window             |
+| `<leader>wo` | n    | Close all windows except current |

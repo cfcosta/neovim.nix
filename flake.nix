@@ -142,7 +142,6 @@
   outputs =
     inputs@{
       nixpkgs,
-      rust-overlay,
       treefmt-nix,
       ...
     }:
@@ -154,34 +153,6 @@
         "x86_64-linux"
       ];
 
-      mkPkgs =
-        system:
-        import nixpkgs {
-          inherit system;
-
-          overlays = [
-            rust-overlay.overlays.default
-
-            (_: final: {
-              nightvim = rec {
-                inherit (rustPlatform) buildRustPackage;
-
-                rust = final.rust-bin.stable.latest.default.override {
-                  extensions = [
-                    "rust-src"
-                    "rust-analyzer"
-                  ];
-                };
-
-                rustPlatform = final.makeRustPlatform {
-                  rustc = rust;
-                  cargo = rust;
-                };
-              };
-            })
-          ];
-        };
-
       mkNightvim = pkgs: pkgs.callPackage ./lib { inherit inputs; };
 
       forEachSupportedSystem =
@@ -189,7 +160,7 @@
         nixpkgs.lib.genAttrs supportedSystems (
           system:
           let
-            pkgs = mkPkgs system;
+            pkgs = import nixpkgs { inherit system; };
             nightvim = mkNightvim pkgs;
           in
           f { inherit system pkgs nightvim; }

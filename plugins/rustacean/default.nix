@@ -13,7 +13,6 @@ mkPlugin {
 
   inputs = with pkgs; [
     cargo-nextest
-    nightvim.rust
   ];
 
   config = readFile ./configuration.lua;

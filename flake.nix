@@ -140,11 +140,7 @@
   };
 
   outputs =
-    inputs@{
-      nixpkgs,
-      treefmt-nix,
-      ...
-    }:
+    inputs@{ nixpkgs, treefmt-nix, ... }:
     let
       supportedSystems = [
         "aarch64-linux"

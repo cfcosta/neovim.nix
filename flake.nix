@@ -25,6 +25,10 @@
       url = "github:saghen/blink.cmp";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    blink-lib = {
+      url = "github:saghen/blink.lib";
+      flake = false;
+    };
     colorful-menu = {
       url = "github:xzbdmw/colorful-menu.nvim";
       flake = false;

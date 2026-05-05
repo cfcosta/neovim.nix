@@ -58,6 +58,22 @@
         "type": "github"
       }
     },
+    "blink-lib_2": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1777670812,
+        "narHash": "sha256-3XsqX4CGj8VI5tGLWJoUiyo+u7AyNp2IO9hEwQsF1I8=",
+        "owner": "saghen",
+        "repo": "blink.lib",
+        "rev": "f29d8bac6549bc1e7d699c83f680823d7def98bd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "saghen",
+        "repo": "blink.lib",
+        "type": "github"
+      }
+    },
     "colorful-menu": {
       "flake": false,
       "locked": {
@@ -461,6 +477,7 @@
       "inputs": {
         "aiken-neovim": "aiken-neovim",
         "blink-cmp": "blink-cmp",
+        "blink-lib": "blink-lib_2",
         "colorful-menu": "colorful-menu",
         "comment": "comment",
         "conform-nvim": "conform-nvim",

@@ -12,6 +12,7 @@ mkPlugin {
   src = inputs.blink-cmp.packages.${system}.blink-cmp;
 
   depends = [
+    "blink-lib"
     "colorful-menu"
     "friendly-snippets"
   ];

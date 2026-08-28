@@ -45,7 +45,21 @@ require("blink-cmp").setup({
 
   sources = {
     default = { "lsp", "path", "snippets", "buffer" },
+
+    per_filetype = {
+      beancount = { inherit_defaults = true, "beancount" },
+    },
+
     providers = {
+      beancount = {
+        name = "beancount",
+        module = "beancount.completion.blink",
+        score_offset = 1000,
+
+        opts = {
+          trigger_characters = { ":", "#", "^", '"', " " },
+        },
+      },
       lsp = {
         score_offset = 998,
       },

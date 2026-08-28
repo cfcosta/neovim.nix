@@ -16,6 +16,22 @@
         "type": "github"
       }
     },
+    "beancount-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1771649379,
+        "narHash": "sha256-8Xw7qjfmmPcKAHWb15Vnk8F9Y3U5t+Imo8BL1c8p45I=",
+        "owner": "hxueh",
+        "repo": "beancount.nvim",
+        "rev": "5a45ae7f1e704c413599416842d2fd821f0b9bc1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hxueh",
+        "repo": "beancount.nvim",
+        "type": "github"
+      }
+    },
     "blink-cmp": {
       "inputs": {
         "blink-lib": "blink-lib",
@@ -476,6 +492,7 @@
     "root": {
       "inputs": {
         "aiken-neovim": "aiken-neovim",
+        "beancount-nvim": "beancount-nvim",
         "blink-cmp": "blink-cmp",
         "blink-lib": "blink-lib_2",
         "colorful-menu": "colorful-menu",

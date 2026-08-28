@@ -248,6 +248,10 @@ M.finish = function()
     command = "set filetype=agda",
   })
   vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = { "*.bean" },
+    command = "set filetype=beancount",
+  })
+  vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = { "flake.lock" },
     command = "set filetype=json",
   })

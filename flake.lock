@@ -281,22 +281,6 @@
         "type": "github"
       }
     },
-    "lean": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1794921466,
-        "narHash": "sha256-yFJdYmU3PgpcKw2oMaVIOPzXos0CpOlpSjHsfMwe2MU=",
-        "owner": "Julian",
-        "repo": "lean.nvim",
-        "rev": "5f759412341a370ac7a9e3308fb99d597f2970b3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Julian",
-        "repo": "lean.nvim",
-        "type": "github"
-      }
-    },
     "lspconfig": {
       "flake": false,
       "locked": {
@@ -503,7 +487,6 @@
         "gitignore": "gitignore",
         "gitsigns": "gitsigns",
         "grug-far": "grug-far",
-        "lean": "lean",
         "lspconfig": "lspconfig",
         "lspkind": "lspkind",
         "lualine": "lualine",

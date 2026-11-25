@@ -13,15 +13,11 @@ mkPlugin {
   depends = [ "blink-cmp" ];
 
   inputs = with pkgs; [
-    aiken
     bash-language-server
-    buf
-    clang-tools
     docker-compose-language-service
     dockerfile-language-server
     gopls
     harper
-    jq-lsp
     lua-language-server
     luau
     nixd

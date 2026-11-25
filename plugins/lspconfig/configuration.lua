@@ -17,35 +17,16 @@ end
 ------------------------------------------------------------------
 -- Servers Setup
 ------------------------------------------------------------------
-lsp_enable("aiken", default_options)
 lsp_enable("bashls", default_options)
-lsp_enable("buf_ls", default_options)
 lsp_enable("docker_compose_language_service", default_options)
 lsp_enable("dockerls", default_options)
 lsp_enable("harper_ls", default_options)
-lsp_enable("jqls", default_options)
 lsp_enable("luau_lsp", default_options)
 lsp_enable("nixd", default_options)
 lsp_enable("postgres_lsp", default_options)
 lsp_enable("ruff", default_options)
 lsp_enable("taplo", default_options)
 lsp_enable("ty", default_options)
-
-lsp_enable("clangd", {
-  capabilities = default_options.capabilities,
-  on_attach = default_options.on_attach,
-  settings = {
-    clangd = {
-      InlayHints = {
-        Designators = true,
-        Enabled = true,
-        ParameterNames = true,
-        DeducedTypes = true,
-      },
-      fallbackFlags = { "-std=c++20" },
-    },
-  },
-})
 
 lsp_enable("gopls", {
   capabilities = default_options.capabilities,

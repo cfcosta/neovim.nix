@@ -20,7 +20,6 @@ let
     };
 
   simplePlugins = [
-    (mkPlugin' "aiken-neovim")
     (mkPlugin' "blink-lib")
     (mkPlugin' "colorful-menu")
     (mkPlugin' "comment")

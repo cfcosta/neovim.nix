@@ -17,10 +17,6 @@
     };
 
     # Neovim Plugins
-    aiken-neovim = {
-      url = "github:aiken-lang/editor-integration-nvim";
-      flake = false;
-    };
     beancount-nvim = {
       url = "github:hxueh/beancount.nvim";
       flake = false;

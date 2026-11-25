@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "aiken-neovim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1764931480,
-        "narHash": "sha256-1JlJlNfMmn2/BIz8rzy5+VJZ2gnjmxAiIG6Q5pB/ZDY=",
-        "owner": "aiken-lang",
-        "repo": "editor-integration-nvim",
-        "rev": "7f4848e49d33ebc5aa0e0b594e3e2d8b6db23379",
-        "type": "github"
-      },
-      "original": {
-        "owner": "aiken-lang",
-        "repo": "editor-integration-nvim",
-        "type": "github"
-      }
-    },
     "beancount-nvim": {
       "flake": false,
       "locked": {
@@ -475,7 +459,6 @@
     },
     "root": {
       "inputs": {
-        "aiken-neovim": "aiken-neovim",
         "beancount-nvim": "beancount-nvim",
         "blink-cmp": "blink-cmp",
         "blink-lib": "blink-lib_2",
